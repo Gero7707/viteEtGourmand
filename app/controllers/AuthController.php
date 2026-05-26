@@ -16,70 +16,76 @@ class AuthController{
         $this->mailService = new MailService();
     }
 
+    /**
+     * GET /auth/login — Affiche le formulaire de connexion
+     */
+    public function loginForm(){
+        Auth::generateCsrfToken();
+        require_once __DIR__ . '/../views/auth/login.php';
+    }
+
+    /**
+     * POST /auth/login — Traite la soumission du formulaire de connexion
+     */
     public function login(){
-        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-            Auth::verifyCsrfToken();
-            $input = $_POST['login'] ?? '';
+        Auth::verifyCsrfToken();
+        $input = $_POST['login'] ?? '';
 
-            // Valider que le champ n'est pas vide
-            if (empty($input) || empty($_POST['password'])) {
-                $error = "Veuillez remplir tous les champs !";
-                header('Location: /auth/login?error=' . urlencode($error));
+        // Valider que le champ n'est pas vide
+        if (empty($input) || empty($_POST['password'])) {
+            $error = "Veuillez remplir tous les champs !";
+            header('Location: /auth/login?error=' . urlencode($error));
+            exit();
+        }
+
+        if(filter_var($input, FILTER_VALIDATE_EMAIL)){
+            $user = $this->users->findByEmail($input);
+        } else {
+            // Nettoyage XSS si c'est un pseudo
+            $input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
+            $user = $this->users->findByPseudo($input);
+        }
+
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $emailToStore = $user ? $user['email'] : $input;
+
+        if($user && password_verify($_POST['password'], $user['password'])){
+            // Régénérer l'id de session contre le session fixation
+            session_regenerate_id();
+
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['role'] = $user['role'];
+            $_SESSION['pseudo'] = $user['pseudo'];
+
+            $this->loginAttempts->resetAttempts($ip,$emailToStore);
+            
+            if($_SESSION['role'] === 'admin'){
+                header('location: /admin/dashboard');
                 exit();
-            }
-
-            if(filter_var($input, FILTER_VALIDATE_EMAIL)){
-                $user = $this->users->findByEmail($input);
             } else {
-                // Nettoyage XSS si c'est un pseudo
-                $input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
-                $user = $this->users->findByPseudo($input);
-            }
-
-            $ip = $_SERVER['REMOTE_ADDR'];
-            $emailToStore = $user ? $user['email'] : $input;
-
-            if($user && password_verify($_POST['password'], $user['password'])){
-                // Régénérer l'id de session contre le session fixation
-                session_regenerate_id();
-
-                $_SESSION['id'] = $user['id'];
-                $_SESSION['role'] = $user['role'];
-                $_SESSION['pseudo'] = $user['pseudo'];
-
-                $this->loginAttempts->resetAttempts($ip,$emailToStore);
-                
-                if($_SESSION['role'] === 'admin'){
-                    header('location: /admin/showDashboard');
-                    exit();
-                } else {
-                    header('location: /');
-                    exit();
-                }
-            } else {
-                
-                $this->loginAttempts->addAttempt($ip,$emailToStore);
-                $attempts = $this->loginAttempts->getAttempts($ip,$emailToStore);
-                if(count($attempts) >= 5 && $user){
-                    $error = "Vous avez tenté de vous connecter plus de 5 fois sans succés , par sécurité vous devez réessyer ultérieurement !";
-                    $subject = "Tentatives de connexions ratées !";
-                    $body = "Vous avez 5 tentatives de connexion infructueuses à votre compte ! Si c'est un oubli, veuillez modifier votre mot de passe . ";
-                    $this->mailService->sendEmail($user['email'],$subject,$body);
-                    header('location: /?error=' . urlencode($error));
-                    exit();
-                }elseif(count($attempts) >= 5 ){
-                    $error = "Vous avez tenté de vous connecter plus de 5 fois sans succés , par sécurité vous devez réessyer ultérieurement !";
-                    header('location: /?error=' . urlencode($error));
-                    exit();
-                }
-                
-                $error = "Identifiants et mot de passe incorrects !";
-                header('Location: /auth/login?error=' . urlencode($error));
+                header('location: /');
                 exit();
             }
         } else {
-            Auth::generateCsrfToken();
-            require_once __DIR__ . '/../views/auth/login.php';
+            
+            $this->loginAttempts->addAttempt($ip,$emailToStore);
+            $attempts = $this->loginAttempts->getAttempts($ip,$emailToStore);
+            if(count($attempts) >= 5 && $user){
+                $error = "Vous avez tenté de vous connecter plus de 5 fois sans succés , par sécurité vous devez réessyer ultérieurement !";
+                $subject = "Tentatives de connexions ratées !";
+                $body = "Vous avez 5 tentatives de connexion infructueuses à votre compte ! Si c'est un oubli, veuillez modifier votre mot de passe . ";
+                $this->mailService->sendEmail($user['email'],$subject,$body);
+                header('location: /?error=' . urlencode($error));
+                exit();
+            }elseif(count($attempts) >= 5 ){
+                $error = "Vous avez tenté de vous connecter plus de 5 fois sans succés , par sécurité vous devez réessyer ultérieurement !";
+                header('location: /?error=' . urlencode($error));
+                exit();
+            }
+            
+            $error = "Identifiants et mot de passe incorrects !";
+            header('Location: /auth/login?error=' . urlencode($error));
+            exit();
         }
     }
 

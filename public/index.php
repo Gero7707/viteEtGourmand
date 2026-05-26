@@ -45,23 +45,35 @@ $url = strtok($_SERVER['REQUEST_URI'], '?');
 
 // ============================================================
 // DÉCLARATION DES ROUTES
-// Format : add(url, NomController, nomMethode)
+// Format : add(httpMethod, url, NomController, nomAction)
 // Routes protégées : Auth::checkAuth() ou Auth::checkAdmin() appelé dans le controller
 // Routes publiques : pas de protection nécessaire
 // ============================================================
 
+// Page d'accueil — publique
+$router->add('GET', '/', 'HomeController', 'showLanding');
+
 // Routes admin — protégées par Auth::checkAdmin()
-$router->add('/admin/showDashboard', 'AdminController', 'showDashboard');
+$router->add('GET', '/admin/dashboard', 'AdminController', 'showDashboard');
 
-// Routes publiques
-$router->add('/', 'HomeController', 'showLanding');
+// Authentification — login
+$router->add('GET', '/auth/login', 'AuthController', 'loginForm');
+$router->add('POST', '/auth/login', 'AuthController', 'login');
 
-// Routes d'authentification — publiques (login, register, logout, reset)
-$router->add('/auth/login', 'AuthController', 'login');
-$router->add('/auth/register', 'AuthController', 'register');
-$router->add('/auth/logout', 'AuthController', 'logOut');
-$router->add('/auth/forgotPassword', 'PasswordResetController', 'forgotPassword');
-$router->add('/auth/resetPassword', 'PasswordResetController', 'resetPassword');
+// Authentification — inscription
+$router->add('GET', '/auth/register', 'AuthController', 'registerForm');
+$router->add('POST', '/auth/register', 'AuthController', 'register');
+
+// Authentification — déconnexion
+$router->add('GET', '/auth/logout', 'AuthController', 'logOut');
+
+// Mot de passe oublié
+$router->add('GET', '/auth/forgot-password', 'PasswordResetController', 'forgotPasswordForm');
+$router->add('POST', '/auth/forgot-password', 'PasswordResetController', 'forgotPassword');
+
+// Réinitialisation du mot de passe
+$router->add('GET', '/auth/reset-password', 'PasswordResetController', 'resetPasswordForm');
+$router->add('POST', '/auth/reset-password', 'PasswordResetController', 'resetPassword');
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode
 $router->dispatch($url);

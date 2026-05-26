@@ -1,0 +1,46 @@
+services:
+
+
+  php:
+    build: . 
+
+    ports:
+      - "8080:80" 
+
+    volumes:
+      - .:/var/www/html 
+
+    environment:
+
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      APP_ENV: ${APP_ENV}
+      MAILTRAP_HOST: ${MAILTRAP_HOST}
+      MAILTRAP_PORT: ${MAILTRAP_PORT}
+      MAILTRAP_USERNAME: ${MAILTRAP_USERNAME}
+      MAILTRAP_PASSWORD: ${MAILTRAP_PASSWORD}
+      APP_URL: ${APP_URL}
+
+    depends_on:
+      - mysql 
+
+
+  mysql:
+    image: mysql:8.0 
+
+    environment:
+      
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME} 
+
+    ports:
+      - "3310:3306" 
+
+    volumes:
+      - db_data:/var/lib/mysql 
+
+volumes:
+  db_data:

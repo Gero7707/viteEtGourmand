@@ -11,7 +11,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <input type="password" name="password" id="password" ><br>
         <button type="submit">Valider</button>
     </form><br>
-    <a href="/auth/forgotPassword">Mot de passe oublié </a>
+    <a href="/auth/forgot-password">Mot de passe oublié </a>
     <?php if ($_GET['error'] ?? null): ?>
         <p><?= htmlspecialchars($_GET['error']) ?></p>
     <?php endif ?>

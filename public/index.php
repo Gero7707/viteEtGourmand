@@ -60,8 +60,8 @@ $router->add('/', 'HomeController', 'showLanding');
 $router->add('/auth/login', 'AuthController', 'login');
 $router->add('/auth/register', 'AuthController', 'register');
 $router->add('/auth/logout', 'AuthController', 'logOut');
-$router->add('/auth/forgotPassword', 'PasswordResetController', 'forgotPassword');
-$router->add('/auth/resetPassword', 'PasswordResetController', 'resetPassword');
+$router->add('/auth/forgot-password', 'PasswordResetController', 'forgotPassword');
+$router->add('/auth/reset-password', 'PasswordResetController', 'resetPassword');
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode
 $router->dispatch($url);

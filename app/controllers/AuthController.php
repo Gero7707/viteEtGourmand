@@ -54,6 +54,9 @@ class AuthController{
 
             $_SESSION['utilisateur_id'] = $user['utilisateur_id'];
             $_SESSION['role_id'] = $user['role_id'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['prenom'] = $user['prenom'];
+            $_SESSION['nom'] = $user['nom'];
 
             $this->loginAttempts->resetAttempts($ip,$emailToStore);
             
@@ -89,7 +92,7 @@ class AuthController{
 
     public function logOut(){
         session_destroy();
-        header('Location: /auth/login');
+        header('Location: /');
         exit();
     }
 

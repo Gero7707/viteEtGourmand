@@ -18,6 +18,10 @@ require_once __DIR__ . '/../views/layout/header.php';
         <p><?= htmlspecialchars($_GET['error']) ?></p>
     <?php endif ?>
     <br><hr><br>
+
+    <a href="/menus" class="btn">Découvrir nos menus</a>
+    
+    <br><hr><br>
     <?php foreach($avis as $carteAvis) : ?>
         <p><?= htmlspecialchars($carteAvis['nom_complet']) ?></p>
         <p><?= htmlspecialchars($carteAvis['note']) ?></p>

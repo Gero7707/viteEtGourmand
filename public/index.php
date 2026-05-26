@@ -33,6 +33,7 @@ require_once __DIR__ . '/../app/controllers/AuthController.php';
 require_once __DIR__ . '/../app/controllers/HomeController.php';
 require_once __DIR__ . '/../app/controllers/AdminController.php';
 require_once __DIR__ . '/../app/controllers/PasswordResetController.php';
+require_once __DIR__ . '/../app/controllers/MenuController.php';
 
 // ============================================================
 // ROUTING
@@ -74,6 +75,11 @@ $router->add('POST', '/auth/forgot-password', 'PasswordResetController', 'forgot
 // Réinitialisation du mot de passe
 $router->add('GET', '/auth/reset-password', 'PasswordResetController', 'resetPasswordForm');
 $router->add('POST', '/auth/reset-password', 'PasswordResetController', 'resetPassword');
+
+//Afficher la vue globale des menus et filtres
+$router->add('GET' , '/menus' , 'MenuController' , 'index');
+
+
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode
 $router->dispatch($url);

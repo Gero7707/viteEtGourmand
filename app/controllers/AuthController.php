@@ -95,53 +95,58 @@ class AuthController{
         exit();
     }
 
+    /**
+     * GET /auth/register — Affiche le formulaire d'inscription
+     */
+    public function registerForm(){
+        Auth::generateCsrfToken();
+        require_once __DIR__ . '/../views/auth/register.php';
+    }
+
+    /**
+     * POST /auth/register — Traite la soumission du formulaire d'inscription
+     */
     public function register(){
-        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-            Auth::verifyCsrfToken();
+        Auth::verifyCsrfToken();
 
-            // Validation de l'email
-            $email = filter_var($_POST['email'] ?? '', FILTER_VALIDATE_EMAIL);
-            if (!$email) {
-                $error = "L'adresse email n'est pas valide !";
-                header('Location: /auth/register?error=' . urlencode($error));
-                exit();
-            }
-
-            $emailExists = $this->users->findByEmail($email);
-            if($emailExists){
-                $error = "Cet email est déjà utilisé !";
-                header('Location: /auth/register?error=' . urlencode($error));
-                exit();
-            }
-
-            if($_POST['password'] !== $_POST['password_confirm']){
-                $error = "Les deux mots de passe ne correspondent pas !";
-                header('Location: /auth/register?error=' . urlencode($error));
-                exit();
-            }
-            if(strlen($_POST['password']) < 14){
-                $error = "Le mot de passe ne contient le nombre minimum de 14 caractères ! Veuillez recommencer svp .";
-                header('location:/auth/register?error=' . urlencode($error));
-                exit();
-            }
-
-            /// Nettoyage du pseudo contre le XSS, même s'il est nullable
-            $pseudo = !empty($_POST['pseudo']) ? htmlspecialchars($_POST['pseudo'], ENT_QUOTES, 'UTF-8') : null;
-            $data = [
-                'email' => $email,
-                'pseudo' => $pseudo,
-                'role' => 'user',
-                'password' => password_hash($_POST['password'], PASSWORD_BCRYPT)
-            ];
-
-            $id = $this->users->createUser($data);
-            header('location: /auth/login');
+        // Validation de l'email
+        $email = filter_var($_POST['email'] ?? '', FILTER_VALIDATE_EMAIL);
+        if (!$email) {
+            $error = "L'adresse email n'est pas valide !";
+            header('Location: /auth/register?error=' . urlencode($error));
             exit();
-
-        } else {
-            Auth::generateCsrfToken();
-            require_once __DIR__ . '/../views/auth/register.php';
         }
+
+        $emailExists = $this->users->findByEmail($email);
+        if($emailExists){
+            $error = "Cet email est déjà utilisé !";
+            header('Location: /auth/register?error=' . urlencode($error));
+            exit();
+        }
+
+        if($_POST['password'] !== $_POST['password_confirm']){
+            $error = "Les deux mots de passe ne correspondent pas !";
+            header('Location: /auth/register?error=' . urlencode($error));
+            exit();
+        }
+        if(strlen($_POST['password']) < 14){
+            $error = "Le mot de passe ne contient le nombre minimum de 14 caractères ! Veuillez recommencer svp .";
+            header('location:/auth/register?error=' . urlencode($error));
+            exit();
+        }
+
+        /// Nettoyage du pseudo contre le XSS, même s'il est nullable
+        $pseudo = !empty($_POST['pseudo']) ? htmlspecialchars($_POST['pseudo'], ENT_QUOTES, 'UTF-8') : null;
+        $data = [
+            'email' => $email,
+            'pseudo' => $pseudo,
+            'role' => 'user',
+            'password' => password_hash($_POST['password'], PASSWORD_BCRYPT)
+        ];
+
+        $id = $this->users->createUser($data);
+        header('location: /auth/login');
+        exit();
     }
 
     

@@ -1,9 +1,0 @@
-INSERT INTO image_menu (menu_id, chemin) VALUES
-(1, 'assets/img/menus/prestige.jpg'),
-(2, 'assets/img/menus/jardin-ete.jpg'),
-(3, 'assets/img/menus/reveillon.jpg'),
-(4, 'assets/img/menus/renouveau.jpg'),
-(5, 'assets/img/menus/gala.jpg'),
-(6, 'assets/img/menus/champetre.jpg'),
-(7, 'assets/img/menus/feerie-hiver.jpg'),
-(8, 'assets/img/menus/brunch-paques.jpg');

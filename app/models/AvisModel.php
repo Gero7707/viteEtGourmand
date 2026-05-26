@@ -16,7 +16,7 @@ class AvisModel{
                                     avis.utilisateur_id, 
                                     CONCAT(utilisateur.prenom , ' ' , utilisateur.nom) as nom_complet
                                     FROM avis 
-                                    JOIN utilisateur ON utilisateur_id = utilisateur.utilisateur_id
+                                    JOIN utilisateur ON avis.utilisateur_id = utilisateur.utilisateur_id
                                     WHERE statut = :statut ");
         $stmt->bindValue(':statut', $statut , PDO::PARAM_STR);
         $stmt->execute();

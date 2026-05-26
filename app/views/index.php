@@ -19,14 +19,17 @@ require_once __DIR__ . '/../views/layout/header.php';
     <?php endif ?>
     <br><hr><br>
     <?php foreach($avis as $carteAvis) : ?>
-        <p><?= htmlspecialchars($carteAvis['']) ?></p>
+        <p><?= htmlspecialchars($carteAvis['nom_complet']) ?></p>
+        <p><?= htmlspecialchars($carteAvis['note']) ?></p>
+        <p><?= htmlspecialchars($carteAvis['description']) ?></p>
+        <p><?= htmlspecialchars(str_replace(':00', 'h',date('d-m-Y  à  H:i', strtotime($carteAvis['date_avis'])))) ?></p>
+        <hr>
+    <?php endforeach ?>
 
 
     <br><hr><br>
     
-    <?php foreach($horaire  as $jour) : ?>
-        <p><?= htmlspecialchars($jour['jour']) ?> - <?= htmlspecialchars(str_replace('h00', 'h',ltrim( $jour['heure_ouverture'], '0'))) ?> - <?= htmlspecialchars(str_replace('h00', 'h',ltrim($jour['heure_fermeture'], '0'))) ?></p>
-    <?php endforeach ?>
+    
 </main>
 
 

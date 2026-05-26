@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
 <main>
     <h1>Votre nouveau mot de passe </h1>
 
-    <form action="/auth/resetPassword" method="POST">
+    <form action="/auth/reset-password" method="POST">
         <?= Auth::csrfField() ?>
         <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
         <label for="password">Nouveau mot de passe</label><br>

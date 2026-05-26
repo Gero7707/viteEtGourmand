@@ -21,7 +21,7 @@ class Auth{
      * Usage : Auth::checkAuth(); en haut de chaque méthode protégée
      */
     public static function checkAuth(): void {
-        if(!isset($_SESSION['id'])){
+        if(!isset($_SESSION['utilisateur_id'])){
             header('location: /auth/login');
             exit();
         }
@@ -34,11 +34,11 @@ class Auth{
      * Usage : Auth::checkAdmin(); en haut de chaque méthode réservée aux admins
      */
     public static function checkAdmin(): void {
-        if(!isset($_SESSION['id'])){
+        if(!isset($_SESSION['utilisateur_id'])){
             header('location: /auth/login');
             exit();
         }
-        if ($_SESSION['role'] !== 'admin'){
+        if ($_SESSION['role_id'] !== 3){
             header('location: /');
             exit();
         }

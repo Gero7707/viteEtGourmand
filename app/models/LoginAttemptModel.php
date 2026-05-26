@@ -20,11 +20,9 @@ class LoginAttemptModel{
     }
 
     public function addAttempt(string $ip, string $email){
-        $stmt = $this->pdo->prepare("INSERT INTO login_attempts(ip , email, attempts) 
-                                    VALUES(:ip , :email, 1)
-                                    ON DUPLICATE KEY UPDATE attempts = attempts + 1");
-        $stmt->bindValue(':ip' , $ip , PDO::PARAM_STR);
-        $stmt->bindValue(':email' , $email , PDO::PARAM_STR);
+        $stmt = $this->pdo->prepare("INSERT INTO login_attempts (ip, email) VALUES (:ip, :email)");
+        $stmt->bindValue(':ip', $ip, PDO::PARAM_STR);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         return $stmt->execute();
     }
 

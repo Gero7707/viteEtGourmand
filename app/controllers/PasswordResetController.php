@@ -12,30 +12,29 @@ class PasswordResetController{
         $this->mailService = new MailService();
     }
 
+    public function forgotPasswordForm(){
+        Auth::generateCsrfToken();
+        require_once __DIR__ . '/../views/auth/forgotPassword.php';
+    }
 
     public function forgotPassword(){
-        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-            Auth::verifyCsrfToken();
-            $email = $_POST['email'] ?? '';
-            $findEmail = $this->users->findByEmail($email);
-            if($findEmail){
-                $subject = "Réinitialisation de mot de passe .";
-                $token = bin2hex(random_bytes(32));
-                $body = 'Cliquez sur ce lien : '. getenv('APP_URL') .'/auth/resetPassword?token=' . $token;
-                $expires = date('Y-m-d H:i:s', time() + 3600);
-                $this->users->saveResetToken($email, $token, $expires);
-                $this->mailService->sendEmail($email,$subject,$body);
-                $succesMessage = "Lien lien de réinitialisation a été envoyé ! Verifiez votre boîte de reception .";
-                header('location: /auth/login?success='  . urlencode($succesMessage));
-                exit();
-            }else{
-                $error = "Email n'existe pas en base de données !";
-                header('Location: /auth/forgotPassword?error=' . urlencode($error));
-                exit();
-            }
+        Auth::verifyCsrfToken();
+        $email = $_POST['email'] ?? '';
+        $findEmail = $this->users->findByEmail($email);
+        if($findEmail){
+            $subject = "Réinitialisation de mot de passe .";
+            $token = bin2hex(random_bytes(32));
+            $body = 'Cliquez sur ce lien : '. getenv('APP_URL') .'/auth/reset-password?token=' . $token;
+            $expires = date('Y-m-d H:i:s', time() + 3600);
+            $this->users->saveResetToken($email, $token, $expires);
+            $this->mailService->sendEmail($email,$subject,$body);
+            $succesMessage = "Lien lien de réinitialisation a été envoyé ! Verifiez votre boîte de reception .";
+            header('location: /auth/login?success='  . urlencode($succesMessage));
+            exit();
         }else{
-            Auth::generateCsrfToken();
-            require_once __DIR__ . '/../views/auth/forgotPassword.php';
+            $error = "Email n'existe pas en base de données !";
+            header('Location: /auth/forgot-password?error=' . urlencode($error));
+            exit();
         }
     }
 

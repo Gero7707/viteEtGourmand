@@ -19,6 +19,11 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <label for="password_confirm">Confirmer le mot de passe</label><br>
         <input type="password" name="password_confirm" id="password_confirm" required><br>
 
+        <input type="checkbox" name="rgpd" id="rgpd" required>
+        <label for="rgpd">J'accepte que mes données personnelles soient collectées et traitées conformément à notre 
+            <a href="/mentions-legales">politique de confidentialité</a>
+        </label><br>
+
         <button type="submit">Créer votre compte</button>
     </form>
     <?php if ($_GET['error'] ?? null): ?>

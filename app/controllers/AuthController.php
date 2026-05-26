@@ -106,7 +106,11 @@ class AuthController{
      */
     public function register(){
         Auth::verifyCsrfToken();
-
+        if (!isset($_POST['rgpd'])) {
+            $error = "Vous devez accepter la politique de confidentialité.";
+            header('Location: /auth/register?error=' . urlencode($error));
+            exit();
+        }
         // Validation de l'email
         $email = filter_var($_POST['email'] ?? '', FILTER_VALIDATE_EMAIL);
         if (!$email) {

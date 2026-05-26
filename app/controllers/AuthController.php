@@ -37,14 +37,13 @@ class AuthController{
             header('Location: /auth/login?error=' . urlencode($error));
             exit();
         }
-
-        if(filter_var($input, FILTER_VALIDATE_EMAIL)){
-            $user = $this->users->findByEmail($input);
-        } else {
-            // Nettoyage XSS si c'est un pseudo
-            $input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
-            $user = $this->users->findByPseudo($input);
+        if (!filter_var($input, FILTER_VALIDATE_EMAIL)) {
+            $error = "Veuillez entrer une adresse email valide !";
+            header('Location: /auth/login?error=' . urlencode($error));
+            exit();
         }
+
+        $user = $this->users->findByEmail($input);
 
         $ip = $_SERVER['REMOTE_ADDR'];
         $emailToStore = $user ? $user['email'] : $input;
@@ -53,13 +52,12 @@ class AuthController{
             // Régénérer l'id de session contre le session fixation
             session_regenerate_id();
 
-            $_SESSION['id'] = $user['id'];
-            $_SESSION['role'] = $user['role'];
-            $_SESSION['pseudo'] = $user['pseudo'];
+            $_SESSION['utilisateur_id'] = $user['utilisateur_id'];
+            $_SESSION['role_id'] = $user['role_id'];
 
             $this->loginAttempts->resetAttempts($ip,$emailToStore);
             
-            if($_SESSION['role'] === 'admin'){
+            if($_SESSION['role_id'] === 3){
                 header('location: /admin/dashboard');
                 exit();
             } else {
@@ -135,15 +133,23 @@ class AuthController{
             exit();
         }
 
-        /// Nettoyage du pseudo contre le XSS, même s'il est nullable
-        $pseudo = !empty($_POST['pseudo']) ? htmlspecialchars($_POST['pseudo'], ENT_QUOTES, 'UTF-8') : null;
+        $nom = htmlspecialchars($_POST['nom'] ?? '', ENT_QUOTES, 'UTF-8');
+        $prenom = htmlspecialchars($_POST['prenom'] ?? '', ENT_QUOTES, 'UTF-8');
+
+        if (empty($nom) || empty($prenom)) {
+            $error = "Le nom et le prénom sont obligatoires !";
+            header('Location: /auth/register?error=' . urlencode($error));
+            exit();
+        }
+
         $data = [
             'email' => $email,
-            'pseudo' => $pseudo,
-            'role' => 'user',
-            'password' => password_hash($_POST['password'], PASSWORD_BCRYPT)
+            'password' => password_hash($_POST['password'], PASSWORD_BCRYPT),
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'role_id' => 1
         ];
-
+        
         $id = $this->users->createUser($data);
         header('location: /auth/login');
         exit();

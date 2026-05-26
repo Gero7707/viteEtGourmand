@@ -18,6 +18,11 @@ require_once __DIR__ . '/../views/layout/header.php';
         <p><?= htmlspecialchars($_GET['error']) ?></p>
     <?php endif ?>
     <br><hr><br>
+    <?php foreach($avis as $carteAvis) : ?>
+        <p><?= htmlspecialchars($carteAvis['']) ?></p>
+
+
+    <br><hr><br>
     
     <?php foreach($horaire  as $jour) : ?>
         <p><?= htmlspecialchars($jour['jour']) ?> - <?= htmlspecialchars(str_replace('h00', 'h',ltrim( $jour['heure_ouverture'], '0'))) ?> - <?= htmlspecialchars(str_replace('h00', 'h',ltrim($jour['heure_fermeture'], '0'))) ?></p>

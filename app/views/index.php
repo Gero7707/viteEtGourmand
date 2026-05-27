@@ -16,6 +16,7 @@ require_once __DIR__ . '/../views/layout/header.php';
         <?php elseif ($_SESSION['role_id'] === 2) :  ?>
         <p>Vous êtes un  employé </p><br>
         <a href="/commandes-client">Commandes</a><br>
+        <a href="/avis-employe">Avis</a><br>
         <?php elseif ($_SESSION['role_id'] === 3) :  ?>
         <p>Vous êtes un  administrateur </p><br>
         <?php endif ?>

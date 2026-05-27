@@ -17,4 +17,10 @@ class AvisController{
         $horaire = $this->horaire->getHoraire();
         require_once __DIR__ . '/../views/avis/avis.php';
     }
+
+    public function avisToValidate(){
+        $horaire = $this->horaire->getHoraire();
+        $avis = $this->avis->getAvis('en_attente');
+        require_once __DIR__ . '/../views/employe/validerAvis.php';
+    }
 }

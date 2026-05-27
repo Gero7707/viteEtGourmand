@@ -97,6 +97,9 @@ $router->add('GET' , '/commandes/{id}' , 'CommandeController' , 'show');
 //Afficher commandes client vue employé
 $router->add('GET' , '/commandes-client' , 'CommandeController' , 'showAllCommandes');
 
+//Afficher avis en attente 
+$router->add('GET' , '/avis-employe' , 'AvisController' , 'avisToValidate');
+
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode
 $router->dispatch($url);

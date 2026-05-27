@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 <main>
+    <a href="/">Accueil</a>
 
 <?php foreach($menus as $menu) : ?>
     <p><?= htmlspecialchars($menu['titre']) ?></p><br>

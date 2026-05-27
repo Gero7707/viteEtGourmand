@@ -34,6 +34,7 @@ require_once __DIR__ . '/../app/controllers/HomeController.php';
 require_once __DIR__ . '/../app/controllers/AdminController.php';
 require_once __DIR__ . '/../app/controllers/PasswordResetController.php';
 require_once __DIR__ . '/../app/controllers/MenuController.php';
+require_once __DIR__ . '/../app/controllers/AvisController.php';
 
 // ============================================================
 // ROUTING
@@ -81,6 +82,9 @@ $router->add('GET' , '/menus' , 'MenuController' , 'index');
 
 //Afficher un menu
 $router->add('GET' , '/menus/{id}' , 'MenuController' , 'show');
+
+//Afficher la vue des avis validés
+$router->add('GET' , '/avis' , 'AvisController' , 'index');
 
 
 

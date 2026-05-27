@@ -29,6 +29,7 @@ require_once __DIR__ . '/../views/layout/header.php';
         <p><?= htmlspecialchars(str_replace(':00', 'h',date('d-m-Y  à  H:i', strtotime($carteAvis['date_avis'])))) ?></p>
         <hr>
     <?php endforeach ?>
+    <a href="/avis">Voir tous les avis</a>
 
 
     <br><hr><br>

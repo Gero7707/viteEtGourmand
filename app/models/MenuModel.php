@@ -50,4 +50,14 @@ class MenuModel{
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getAllPlats(){
+        $stmt = $this->pdo->query("SELECT plat.*, menu.titre AS menu_titre
+                                    FROM plat
+                                    JOIN menu_plat ON plat.plat_id = menu_plat.plat_id
+                                    JOIN menu ON menu_plat.menu_id = menu.menu_id
+                                    ");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

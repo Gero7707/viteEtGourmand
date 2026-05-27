@@ -30,4 +30,14 @@ class MenuController{
         unset($p); // Casse la référence pour éviter le bug variable de référence reste liée au dernier élément du tableau après la boucle
         require_once __DIR__ . '/../views/menus/carteMenu.php';
     }
+
+    public function showAllPlats(){
+        $horaire = $this->horaire->getHoraire();
+        $plat = $this->menus->getAllPlats();
+        foreach($plat as &$p) {
+            $p['allergenes'] = $this->menus->getPlatAllergenes($p['plat_id']);
+        }
+        unset($p);
+        require_once __DIR__ . '/../views/employe/plats.php';
+    }
 }

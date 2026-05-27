@@ -100,6 +100,9 @@ $router->add('GET' , '/commandes-client' , 'CommandeController' , 'showAllComman
 //Afficher avis en attente 
 $router->add('GET' , '/avis-employe' , 'AvisController' , 'avisToValidate');
 
+//Afficher otus les plats
+$router->add('GET' , '/plats' , 'MenuController' , 'showAllPlats');
+
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode
 $router->dispatch($url);

@@ -94,6 +94,9 @@ $router->add('GET' , '/profile' , 'ProfileController' , 'showProfile');
 //Afficher une commande 
 $router->add('GET' , '/commandes/{id}' , 'CommandeController' , 'show');
 
+//Afficher commandes client vue employé
+$router->add('GET' , '/commandes-client' , 'CommandeController' , 'showAllCommandes');
+
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode
 $router->dispatch($url);

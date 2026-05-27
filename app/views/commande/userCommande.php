@@ -3,6 +3,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 
 <main>
+    <a href="/profile">Retour profil</a><br>
+
+
     <h3>Commande no : <?=   htmlspecialchars($commandes['numero_commande']) ?></h3>
     <h4><?= htmlspecialchars($commandes['titre']) ?></h4>
     <hr>

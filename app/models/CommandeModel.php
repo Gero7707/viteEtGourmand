@@ -20,6 +20,16 @@ class CommandeModel{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getAllCommandes(){
+        $stmt = $this->pdo->query("SELECT commande.* , menu.titre AS titre , CONCAT(utilisateur.prenom , ' ' , utilisateur.nom) as nom_complet
+                                    FROM commande
+                                    JOIN menu ON commande.menu_id = menu.menu_id
+                                    JOIN utilisateur ON commande.utilisateur_id = utilisateur.utilisateur_id
+                                    ");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function findById(int $id){
         $stmt =$this->pdo->prepare("SELECT commande.* , menu.titre AS titre
                                     FROM commande

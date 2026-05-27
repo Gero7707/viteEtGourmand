@@ -35,6 +35,7 @@ require_once __DIR__ . '/../app/controllers/AdminController.php';
 require_once __DIR__ . '/../app/controllers/PasswordResetController.php';
 require_once __DIR__ . '/../app/controllers/MenuController.php';
 require_once __DIR__ . '/../app/controllers/AvisController.php';
+require_once __DIR__ . '/../app/controllers/ProfileController.php';
 
 // ============================================================
 // ROUTING
@@ -86,6 +87,8 @@ $router->add('GET' , '/menus/{id}' , 'MenuController' , 'show');
 //Afficher la vue des avis validés
 $router->add('GET' , '/avis' , 'AvisController' , 'index');
 
+//Afficher profil utilisateur
+$router->add('GET' , '/profile' , 'ProfileController' , 'showProfile');
 
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode

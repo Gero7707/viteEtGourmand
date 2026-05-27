@@ -16,6 +16,13 @@ class UserModel{
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function findById($id){
+        $stmt = $this->pdo->prepare("SELECT * FROM utilisateur WHERE utilisateur_id = :id");
+        $stmt->bindValue(':id' , $id , PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function createUser(array $data){
         $stmt = $this->pdo->prepare("INSERT INTO utilisateur (email, password,nom , prenom ,role_id) VALUES (:email, :password, :nom , :prenom , :role_id)");
         $stmt->bindValue(':email', $data['email'], PDO::PARAM_STR);

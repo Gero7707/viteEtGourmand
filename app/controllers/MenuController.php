@@ -19,6 +19,7 @@ class MenuController{
     }
 
     public function show(int $id){
+        $horaire = $this->horaire->getHoraire();
         $menus = $this->menus->findById($id);
         $plat = $this->menus->getMenuPlats($id);
         // Pour chaque plat, on récupère ses allergènes et on les attache au plat
@@ -26,6 +27,7 @@ class MenuController{
         foreach($plat as &$p) {
             $p['allergenes'] = $this->menus->getPlatAllergenes($p['plat_id']);
         }
+        unset($p); // Casse la référence pour éviter le bug variable de référence reste liée au dernier élément du tableau après la boucle
         require_once __DIR__ . '/../views/menus/carteMenu.php';
     }
 }

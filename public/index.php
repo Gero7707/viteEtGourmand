@@ -79,6 +79,9 @@ $router->add('POST', '/auth/reset-password', 'PasswordResetController', 'resetPa
 //Afficher la vue globale des menus et filtres
 $router->add('GET' , '/menus' , 'MenuController' , 'index');
 
+//Afficher un menu
+$router->add('GET' , '/menus/{id}' , 'MenuController' , 'show');
+
 
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode

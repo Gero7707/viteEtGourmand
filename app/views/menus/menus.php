@@ -10,7 +10,8 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <p><?= htmlspecialchars($menu['nombre_personne_minimum']) ?></p><br>
     <p><?= htmlspecialchars($menu['description']) ?></p><br>
     <p><?= htmlspecialchars($menu['theme']) ?></p><br>
-    <p><?= htmlspecialchars($menu['regime']) ?></p>
+    <p><?= htmlspecialchars($menu['regime']) ?></p><br>
+    <a href="/menus/<?=  htmlspecialchars($menu['menu_id']); ?>">Voir menu</a>
     <hr>
 <?php endforeach ?>
 </main>

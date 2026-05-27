@@ -17,4 +17,15 @@ class MenuController{
         $horaire = $this->horaire->getHoraire();
         require_once __DIR__ . '/../views/menus/menus.php';
     }
+
+    public function show(int $id){
+        $menus = $this->menus->findById($id);
+        $plat = $this->menus->getMenuPlats($id);
+        // Pour chaque plat, on récupère ses allergènes et on les attache au plat
+        // Le & permet de modifier directement le tableau $plat (passage par référence)
+        foreach($plat as &$p) {
+            $p['allergenes'] = $this->menus->getPlatAllergenes($p['plat_id']);
+        }
+        require_once __DIR__ . '/../views/menus/carteMenu.php';
+    }
 }

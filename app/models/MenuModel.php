@@ -17,4 +17,37 @@ class MenuModel{
                                     ");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function findById(int $id){
+        $stmt = $this->pdo->prepare("SELECT menu.* , regime.libelle AS regime , theme.libelle AS theme 
+                                    FROM menu 
+                                    JOIN regime ON menu.regime_id = regime.regime_id
+                                    JOIN theme ON menu.theme_id = theme.theme_id
+                                    WHERE menu_id = :menu_id ");
+        $stmt->bindValue(':menu_id', $id , PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getMenuPlats(int $menu_id){
+        $stmt = $this->pdo-> prepare("SELECT plat.*
+                                    FROM menu_plat
+                                    JOIN plat ON menu_plat.plat_id = plat.plat_id
+                                    WHERE menu_plat.menu_id = :menu_id 
+                                    ");
+        $stmt->bindValue(':menu_id', $menu_id , PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getPlatAllergenes(int $plat_id){
+        $stmt = $this->pdo->prepare("SELECT allergene.*
+                                    FROM plat_allergene
+                                    JOIN allergene ON plat_allergene.allergene_id = allergene.allergene_id
+                                    WHERE plat_allergene.plat_id = :plat_id
+                                    ");
+        $stmt->bindValue(':plat_id', $plat_id , PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

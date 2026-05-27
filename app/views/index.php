@@ -12,7 +12,7 @@ require_once __DIR__ . '/../views/layout/header.php';
     <?php if(isset($_SESSION['utilisateur_id'])): ?>
         <p>Bonjour  <?= $_SESSION['prenom'] ?>  !</p><br>
         <?php if($_SESSION['role_id'] === 1) : ?><p>Vous êtes un utilisateur</p>  <br>
-            <a href="/profile">Voir profil</a>
+            <a href="/profile">Voir profil</a><br>
         <?php elseif ($_SESSION['role_id'] === 2) :  ?>
         <p>Vous êtes un  employé </p><br>
         <?php elseif ($_SESSION['role_id'] === 3) :  ?>

@@ -10,7 +10,13 @@ require_once __DIR__ . '/../views/layout/header.php';
     
     <hr><br>
     <?php if(isset($_SESSION['utilisateur_id'])): ?>
-        <p>Connecté en tant que <?= $_SESSION['prenom'] ?></p>
+        <p>Bonjour  <?= $_SESSION['prenom'] ?>  !</p><br>
+        <?php if($_SESSION['role_id'] === 1) : ?><p>Vous êtes un utilisateur</p>  <br>
+        <?php elseif ($_SESSION['role_id'] === 2) :  ?>
+        <p>Vous êtes un  employé </p><br>
+        <?php elseif ($_SESSION['role_id'] === 3) :  ?>
+        <p>Vous êtes un  administrateur </p><br>
+        <?php endif ?>
         <a href="/auth/logout">Déconnexion</a>
     <?php endif ?>
 

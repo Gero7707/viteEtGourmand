@@ -17,4 +17,11 @@ class CommandeController{
         $horaire = $this->horaire->getHoraire();
         require_once __DIR__ . '/../views/commande/commandeListe.php';
     }
+
+    public function show(int $id){
+        $horaire = $this->horaire->getHoraire();
+        $commandes = $this->commandes->findById($id);
+        $historique = $this->commandes->getHistorique($id);
+        require_once __DIR__ . '/../views/commande/userCommande.php';
+    }
 }

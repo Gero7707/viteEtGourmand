@@ -19,8 +19,15 @@ class PasswordResetController{
 
     public function forgotPassword(){
         Auth::verifyCsrfToken();
-        $email = $_POST['email'] ?? '';
+        $email = filter_var($_POST['email'] ?? '', FILTER_VALIDATE_EMAIL);
+        if (!$email ){
+            $error = "L'adresse email n'est pas valide !";
+            header('Location: /auth/forgot-password?error=' . urlencode($error));
+            exit();
+        }
+
         $findEmail = $this->users->findByEmail($email);
+        
         if($findEmail){
             $subject = "Réinitialisation de mot de passe .";
             $token = bin2hex(random_bytes(32));

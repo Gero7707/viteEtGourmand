@@ -10,7 +10,7 @@ class AdminController{
     public function __construct(){
         $this->users = new UserModel();
     }
-    public function showDashboard(){
+    public function dashboard(){
         Auth::checkAdmin();
         $users = $this->users->getAllUsers();
         require_once __DIR__ . '/../views/admin/adminDashboard.php';

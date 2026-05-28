@@ -37,6 +37,7 @@ require_once __DIR__ . '/../app/controllers/MenuController.php';
 require_once __DIR__ . '/../app/controllers/AvisController.php';
 require_once __DIR__ . '/../app/controllers/ProfileController.php';
 require_once __DIR__ . '/../app/controllers/CommandeController.php';
+require_once __DIR__ . '/../app/controllers/EmployeController.php';
 
 // ============================================================
 // ROUTING
@@ -58,7 +59,10 @@ $url = strtok($_SERVER['REQUEST_URI'], '?');
 $router->add('GET', '/', 'HomeController', 'showLanding');
 
 // Routes admin — protégées par Auth::checkAdmin()
-$router->add('GET', '/admin/dashboard', 'AdminController', 'showDashboard');
+$router->add('GET', '/admin/dashboard', 'AdminController', 'dashboard');
+
+// Routes admin — protégées par Auth::checkEmploye()
+$router->add('GET' , '/employe/dashboard' , 'EmployeController' , 'dashboard' );
 
 // Authentification — login
 $router->add('GET', '/auth/login', 'AuthController', 'loginForm');
@@ -98,7 +102,7 @@ $router->add('GET' , '/commandes/{id}' , 'CommandeController' , 'show');
 $router->add('GET' , '/commandes-client' , 'CommandeController' , 'showAllCommandes');
 
 //Afficher avis en attente 
-$router->add('GET' , '/avis-employe' , 'AvisController' , 'avisToValidate');
+$router->add('GET' , '/avis-valider' , 'AvisController' , 'avisToValidate');
 
 //Afficher otus les plats
 $router->add('GET' , '/plats' , 'MenuController' , 'showAllPlats');

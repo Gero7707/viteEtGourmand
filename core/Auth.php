@@ -44,6 +44,17 @@ class Auth{
         }
     }
 
+    public static function checkEmploye(){
+        if(!isset($_SESSION['utilisateur_id'])){
+            header('location: /auth/login');
+            exit();
+        }
+        if ($_SESSION['role_id'] !== 2 && $_SESSION['role_id'] !== 3){
+            header('location: /');
+            exit();
+        }
+    }
+
     // ============================================================
     // PROTECTION CSRF (Cross-Site Request Forgery)
     // Protège les formulaires contre les soumissions depuis des sites externes

@@ -63,7 +63,10 @@ class AuthController{
             if($_SESSION['role_id'] === 3){
                 header('location: /admin/dashboard');
                 exit();
-            } else {
+            } else if($_SESSION['role_id'] === 2){
+                header('location: /employe/dashboard');
+                exit();
+            }else {
                 header('location: /');
                 exit();
             }

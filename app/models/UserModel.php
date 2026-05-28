@@ -3,7 +3,7 @@ require_once __DIR__ . '/../../core/Database.php';
 
 
 class UserModel{
-    private $pdo;
+    private PDO $pdo;
 
     public function __construct(){
         $this->pdo = Database::getInstance()->getConnection();
@@ -16,7 +16,7 @@ class UserModel{
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function findById($id){
+    public function findById(int $id){
         $stmt = $this->pdo->prepare("SELECT * FROM utilisateur WHERE utilisateur_id = :id");
         $stmt->bindValue(':id' , $id , PDO::PARAM_INT);
         $stmt->execute();

@@ -19,12 +19,14 @@ require_once __DIR__ . '/../views/layout/header.php';
         <a href="/avis-valider">Avis</a><br>
         <a href="/menus">Menus</a><br>
         <a href="/plats">Plats</a><br>
+        <a href="/employe/dashboard">Dashboard</a><br>
         <?php elseif ($_SESSION['role_id'] === 3) :  ?>
         <p>Vous êtes un  administrateur </p><br>
         <a href="/commandes-client">Commandes</a><br>
         <a href="/avis-valider">Avis</a><br>
         <a href="/menus">Menus</a><br>
         <a href="/plats">Plats</a><br>
+        <a href="/admin/dashboard">Dashboard</a><br>
         <?php endif ?>
         <a href="/auth/logout">Déconnexion</a>
     <?php endif ?>

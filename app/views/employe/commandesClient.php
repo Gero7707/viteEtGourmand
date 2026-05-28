@@ -5,6 +5,13 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
 <main>
     <a href="/">Accueil</a><br>
+    <?php if($_SESSION['role_id'] === 2 ) : ?>
+        <a href="/employe/dashboard">Dashboard</a><br>
+    <?php elseif($_SESSION['role_id'] === 3 )  : ?>
+        <a href="/admin/dashboard">Dashboard</a><br>
+    <?php endif ?>
+
+    
     <table>
         <thead>
             <tr>

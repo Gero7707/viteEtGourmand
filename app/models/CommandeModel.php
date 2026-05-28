@@ -31,9 +31,17 @@ class CommandeModel{
     }
 
     public function findById(int $id){
-        $stmt =$this->pdo->prepare("SELECT commande.* , menu.titre AS titre
+        $stmt =$this->pdo->prepare("SELECT commande.* , 
+                                    menu.titre AS titre ,
+                                    CONCAT(utilisateur.prenom , ' ' , utilisateur.nom) as nom_complet,
+                                    utilisateur.ville ,
+                                    utilisateur.adresse,
+                                    utilisateur.code_postal,
+                                    utilisateur.email,
+                                    utilisateur.gsm
                                     FROM commande
                                     JOIN menu ON commande.menu_id = menu.menu_id
+                                    JOIN utilisateur ON commande.utilisateur_id = utilisateur.utilisateur_id
                                     WHERE commande.commande_id = :id
                                 ");
         $stmt->bindValue(':id', $id , PDO::PARAM_INT);   

@@ -41,6 +41,13 @@ class UserModel{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getEmploye(){
+        $stmt = $this->pdo->query("SELECT email , nom , prenom , gsm , ville , actif 
+                                    FROM utilisateur
+                                    WHERE role_id = 2
+                                    ");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public function saveResetToken(string $email,string $token,string $expires){
         $stmt = $this->pdo->prepare("UPDATE utilisateur SET reset_token = :reset_token  , reset_token_expires_at = :reset_token_expires_at WHERE email = :email");

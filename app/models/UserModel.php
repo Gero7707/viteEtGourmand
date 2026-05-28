@@ -76,4 +76,26 @@ class UserModel{
         $stmt-> bindValue(':id' , $id , PDO::PARAM_INT);
         return $stmt->execute();
     }
+
+    public function updateUser(int $id, string $nom, string $prenom, string $email, string $gsm, string $ville, string $adresse, string $code_postal){
+        $stmt = $this->pdo->prepare("UPDATE utilisateur 
+                                    SET nom = :nom, 
+                                    prenom = :prenom, 
+                                    email = :email, 
+                                    gsm = :gsm, 
+                                    ville = :ville, 
+                                    adresse = :adresse, 
+                                    code_postal = :code_postal 
+                                    WHERE utilisateur_id = :id 
+                                    ");
+        $stmt->bindValue(':id', $id , PDO::PARAM_INT);
+        $stmt->bindValue('nom', $nom , PDO::PARAM_STR);
+        $stmt->bindValue(':prenom', $prenom , PDO::PARAM_STR);
+        $stmt->bindValue(':email', $email , PDO::PARAM_STR);
+        $stmt->bindValue(':gsm', $gsm , PDO::PARAM_STR);
+        $stmt->bindValue(':ville', $ville , PDO::PARAM_STR);
+        $stmt->bindValue(':adresse', $adresse , PDO::PARAM_STR);
+        $stmt->bindValue(':code_postal', $code_postal , PDO::PARAM_STR);
+        return $stmt->execute();
+    }
 }

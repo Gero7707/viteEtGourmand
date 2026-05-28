@@ -112,6 +112,10 @@ $router->add('GET' , '/plats' , 'MenuController' , 'showAllPlats');
 $router->add('GET' , '/contact' , 'ContactController' , 'showForm');
 $router->add('POST' , '/contact' , 'ContactController' , 'sendMessage');
 
+//Afficher modifier profile
+$router->add('GET' , '/profile/edit' , 'ProfileController' , 'editProfile');
+$router->add('POST' , '/profile/edit' , 'ProfileController' , 'edit');
+
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode
 $router->dispatch($url);

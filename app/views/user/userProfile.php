@@ -3,7 +3,13 @@ require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 
 <main>
-    <a href="/">Accueil</a>
+    <a href="/">Accueil</a><br>
+
+    <?php if ($_GET['error'] ?? null): ?>
+        <p><?= htmlspecialchars($_GET['error']) ?></p><br>
+    <?php elseif($_GET['success'] ?? null) :?>
+        <p><?= htmlspecialchars($_GET['success']) ?></p><br>
+    <?php endif ?>
 
     <p><?= htmlspecialchars($user['prenom'])  ?> , voici vos infos </p><br>
     <p>Votre email : <?= htmlspecialchars($user['email'])  ?></p><br>
@@ -20,10 +26,11 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <p><?= htmlspecialchars($commande['date_commande'])  ?></p><br>
         <p><?= htmlspecialchars($commande['titre'])  ?></p><br>
         <p><?= htmlspecialchars($commande['statut'])  ?></p><br>
-        <a href="/commandes/<?= $commande['commande_id'] ?>">Voir commande</a>
+        <a href="/commandes/<?= $commande['commande_id'] ?>">Voir commande</a><br>
     <?php endforeach ?>
-
+        <a href="/profile/edit">Modifier profil</a>
 </main>
+
 
 <?php
 require_once __DIR__ . '/../../views/layout/footer.php';

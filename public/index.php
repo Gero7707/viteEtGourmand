@@ -38,6 +38,7 @@ require_once __DIR__ . '/../app/controllers/AvisController.php';
 require_once __DIR__ . '/../app/controllers/ProfileController.php';
 require_once __DIR__ . '/../app/controllers/CommandeController.php';
 require_once __DIR__ . '/../app/controllers/EmployeController.php';
+require_once __DIR__ . '/../app/controllers/ContactController.php';
 
 // ============================================================
 // ROUTING
@@ -106,6 +107,10 @@ $router->add('GET' , '/avis-valider' , 'AvisController' , 'avisToValidate');
 
 //Afficher otus les plats
 $router->add('GET' , '/plats' , 'MenuController' , 'showAllPlats');
+
+//Afficher page contact
+$router->add('GET' , '/contact' , 'ContactController' , 'showForm');
+$router->add('POST' , '/contact' , 'ContactController' , 'sendMessage');
 
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode

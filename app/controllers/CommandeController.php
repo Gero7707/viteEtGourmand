@@ -55,6 +55,7 @@ class CommandeController{
     }
 
     public function calculFrais(){
+        header('Content-Type: application/json');
         $data = json_decode(file_get_contents('php://input'), true);
         $menu = $this->menu->findById($data['menu_id']);
         $adresse = $data['adresse'] . ', ' . $data['code_postal'] . ' '. $data['ville'];
@@ -65,9 +66,9 @@ class CommandeController{
         $fraisLivraison = 0;
         $estABordeaux = in_array($codePostal, ['33000', '33100', '33200', '33300', '33800']);
         if ($nbPersonnes < $nbPersonneMini + 5 && $nbPersonnes >= $nbPersonneMini){
-            $prixMenu = ($nbPersonnes * $prixParPersonne) + 5 ;
+            $prixMenu = ($nbPersonnes * $prixParPersonne)  ;
         }elseif($nbPersonnes >= $nbPersonneMini + 5){
-            $prixMenu = (($nbPersonnes * $prixParPersonne) + 5) * 0.90;
+            $prixMenu = ($nbPersonnes * $prixParPersonne) * 0.90;
         }else{
             echo json_encode(['success' => false, 'message' => 'Vous n\'avez pas le nombre de personnes minimum pour ce menu !']);
             exit;
@@ -82,7 +83,7 @@ class CommandeController{
             try{
                 $coords = $this->ors->geocode($adresse);
                 $distance = $this->ors->getDistanceKm($coords['lat'], $coords['lng']);
-                $fraisLivraison = $distance * 0.59 ;
+                $fraisLivraison = ($distance * 0.59) + 5 ;
                 $prixTotal = $prixMenu + $fraisLivraison;
                 echo json_encode(['success' => true, 'prix_menu' => $prixMenu, 'frais_livraison' => $fraisLivraison , 'prix_total' => $prixTotal,'distance_km' => $distance]);
                 exit;

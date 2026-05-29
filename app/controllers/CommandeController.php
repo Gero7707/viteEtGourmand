@@ -107,4 +107,103 @@ class CommandeController{
         }
         exit;
     }
+
+    public function create(){
+        Auth::checkAuth();
+        Auth::verifyCsrfToken();
+        $menu_id = (int) ($_POST['menu_id'] ?? 0);
+        if ($menu_id <= 0) {
+            header('Location: /menus');
+            exit;
+        }
+        $adresse = $_POST['adresse'];
+        if(empty(trim($adresse))){
+            $error = "Vous devez indiquer une adresse de livraison  svp .";
+            header('Location: /commandes/create/' . $menu_id . '?error=' . urlencode($error));
+            exit();
+        }
+
+        $codePostal = $_POST['code_postal'];
+        if(empty(trim($codePostal))){
+            $error = "Vous devez indiquer le code postal  svp.";
+            header('Location: /commandes/create/' . $menu_id . '?error=' . urlencode($error));
+            exit();
+        }
+
+        $ville = $_POST['ville'];
+        if(empty(trim($ville))){
+            $error = "Vous devez indiquer la ville  svp.";
+            header('Location: /commandes/create/' . $menu_id . '?error=' . urlencode($error));
+            exit();
+        }
+
+        $gsm = $_POST['gsm'];
+        if(empty(trim($gsm))){
+            $error = "Vous devez indiquer le numéro de téléphone  svp.";
+            header('Location: /commandes/create/' . $menu_id . '?error=' . urlencode($error));
+            exit();
+        }
+
+        $nombrePersonnes = $_POST['nombre_personne'];
+        if(empty(trim($nombrePersonnes))){
+            $error = "Vous devez indiquer le nombre de personnes  svp.";
+            header('Location: /commandes/create/' . $menu_id . '?error=' . urlencode($error));
+            exit();
+        }
+
+        $datePrestation = $_POST['date_prestation'];
+        if(empty(trim($datePrestation))){
+            $error = "Vous devez indiquer la date de prestation  svp.";
+            header('Location: /commandes/create/' . $menu_id . '?error=' . urlencode($error));
+            exit();
+        }
+
+        $heureLivraison = $_POST['heure_livraison'];
+        if(empty(trim($heureLivraison))){
+            $error = "Vous devez indiquer l'heure de livraison  svp.";
+            header('Location: /commandes/create/' . $menu_id . '?error=' . urlencode($error));
+            exit();
+        }
+
+        try {
+            $resultat = $this->calculerPrix((int) $nombrePersonnes, $adresse, $codePostal, $ville, $menu_id);
+        } catch (Exception $e) {
+            $error = "Erreur lors du calcul du prix. Veuillez réessayer.";
+            header('Location: /commandes/create/' . $menu_id . '?error=' . urlencode($error));
+            exit;
+        }
+
+        $numeroCommande = 'CMD-' . strtoupper(uniqid());
+
+        $dateCommande = date('Y-m-d H:i:s');
+        $dateModif = date('Y-m-d H:i:s');
+
+        $data = [
+            'adresse_livraison' => $adresse,
+            'distance_km' => $_POST['distance_km'],
+            'numero_commande' => $numeroCommande,
+            'date_commande' => $dateCommande,
+            'date_prestation' => $datePrestation ,
+            'heure_livraison' => $heureLivraison ,
+            'prix_menu' => $resultat['prix_menu' ],
+            'nombre_personne' => $nombrePersonnes,
+            'prix_livraison' => $resultat['frais_livraison'],
+            'statut' => 'en_attente',
+            'utilisateur_id' => $_SESSION['utilisateur_id'],
+            'pret_materiel' => 1 ,
+            'menu_id' => $menu_id
+        ];
+
+        $id = $this->commandes->createCommande($data);
+
+        $historiqueData = [
+            'commande_id' => $id,
+            'statut' => 'en_attente',
+            'date_modification' => $dateModif
+        ];
+        $this->commandes->createHistorique($historiqueData);
+
+        header('location: /profile');
+        exit();
+    }
 }

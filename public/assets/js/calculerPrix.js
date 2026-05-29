@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () =>{
                 const fraisLivraison = document.createElement('p');
                 fraisLivraison.textContent =`Frais de livraison : ${data.frais_livraison.toFixed(2)} euros` ;
                 fraisDiv.appendChild(fraisLivraison);
+                document.getElementById('distance_km').value = data.distance_km;
             } else {
                 fraisDiv.innerHTML = '';
                 const message = document.createElement('p');

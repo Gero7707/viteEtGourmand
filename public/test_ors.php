@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once __DIR__ . '/../app/services/OrsService.php';
+require_once __DIR__ . '/../app/services/GeoService.php';
 
-$ors = new OrsService();
+$ors = new GeoService();
 
 try {
     // Test géocodage

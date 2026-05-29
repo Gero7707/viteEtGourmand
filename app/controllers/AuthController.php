@@ -150,8 +150,8 @@ class AuthController{
             exit();
         }
 
-        $nom = htmlspecialchars($_POST['nom'] ?? '', ENT_QUOTES, 'UTF-8');
-        $prenom = htmlspecialchars($_POST['prenom'] ?? '', ENT_QUOTES, 'UTF-8');
+        $nom = trim($_POST['nom']);
+        $prenom = trim($_POST['prenom']);
 
         if (empty($nom) || empty($prenom)) {
             $error = "Le nom et le prénom sont obligatoires !";

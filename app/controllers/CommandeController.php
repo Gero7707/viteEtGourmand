@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../models/CommandeModel.php';
 require_once __DIR__ . '/../models/HoraireModel.php';
 require_once __DIR__ . '/../models/MenuModel.php';
-require_once __DIR__ . '/../app/services/OrsService.php';
+require_once __DIR__ . '/../services/GeoService.php';
 
 class CommandeController{
     private HoraireModel $horaire;
@@ -10,13 +10,13 @@ class CommandeController{
 
     private MenuModel $menu;
 
-    private OrsService $ors;
+    private GeoService $geo;
 
     public function __construct(){
         $this->commandes = new CommandeModel();
         $this->horaire = new HoraireModel();
         $this->menu = new MenuModel();
-        $this->ors = new OrsService();
+        $this->geo = new GeoService();
     }
 
     public function showCommandes(){
@@ -47,6 +47,7 @@ class CommandeController{
             'email' => $_SESSION['email'],
             'nom' => $_SESSION['nom'],
             'prenom' => $_SESSION['prenom'],
+            'gsm' => $_SESSION['gsm'] ?? '',
             'adresse' => $_SESSION['adresse'] ?? '' ,
             'ville' => $_SESSION['ville'] ?? '' ,
             'code_postal' => $_SESSION['code_postal'] ?? '' 
@@ -54,43 +55,56 @@ class CommandeController{
         require_once __DIR__ . '/../views/commande/commandeForm.php';
     }
 
-    public function calculFrais(){
-        header('Content-Type: application/json');
-        $data = json_decode(file_get_contents('php://input'), true);
-        $menu = $this->menu->findById($data['menu_id']);
-        $adresse = $data['adresse'] . ', ' . $data['code_postal'] . ' '. $data['ville'];
-        $codePostal = $data['code_postal'];
+    private function calculerPrix(int $nbPersonnes, string $adresse, string $codePostal, string $ville, int $menuId): array {
+        $menu = $this->menu->findById($menuId);
         $prixParPersonne = $menu['prix_par_personne'];
-        $nbPersonnes = $data['nombre_personne'];
         $nbPersonneMini = $menu['nombre_personne_minimum'];
         $fraisLivraison = 0;
-        $estABordeaux = in_array($codePostal, ['33000', '33100', '33200', '33300', '33800']);
-        if ($nbPersonnes < $nbPersonneMini + 5 && $nbPersonnes >= $nbPersonneMini){
-            $prixMenu = ($nbPersonnes * $prixParPersonne)  ;
-        }elseif($nbPersonnes >= $nbPersonneMini + 5){
-            $prixMenu = ($nbPersonnes * $prixParPersonne) * 0.90;
-        }else{
-            echo json_encode(['success' => false, 'message' => 'Vous n\'avez pas le nombre de personnes minimum pour ce menu !']);
-            exit;
+        $distance = 0;
+
+        if ($nbPersonnes < $nbPersonneMini) {
+            throw new Exception("Vous n'avez pas le nombre de personnes minimum pour ce menu !");
         }
 
-        if($estABordeaux){
-            $distance = 0;
-            $prixTotal = $prixMenu + $fraisLivraison ;
-            echo json_encode(['success' => true, 'prix_menu' => $prixMenu, 'frais_livraison' => $fraisLivraison , 'prix_total' => $prixTotal,'distance_km' => $distance]);
-            exit;
-        }else{
-            try{
-                $coords = $this->ors->geocode($adresse);
-                $distance = $this->ors->getDistanceKm($coords['lat'], $coords['lng']);
-                $fraisLivraison = ($distance * 0.59) + 5 ;
-                $prixTotal = $prixMenu + $fraisLivraison;
-                echo json_encode(['success' => true, 'prix_menu' => $prixMenu, 'frais_livraison' => $fraisLivraison , 'prix_total' => $prixTotal,'distance_km' => $distance]);
-                exit;
-            }catch(Exception $e){
-                echo json_encode(['success' => false, 'message' => 'Votre adresse n\'a pas été trouvé . Veuillez recommencer  !']);
-                exit;
-            }
+        if ($nbPersonnes >= $nbPersonneMini + 5) {
+            $prixMenu = ($nbPersonnes * $prixParPersonne) * 0.90;
+        } else {
+            $prixMenu = $nbPersonnes * $prixParPersonne;
         }
+
+        $estABordeaux = in_array($codePostal, ['33000', '33100', '33200', '33300', '33800'], true);
+
+        if (!$estABordeaux) {
+            $adresseComplete = $adresse . ', ' . $codePostal . ' ' . $ville;
+            $coords = $this->geo->geocode($adresseComplete);
+            $distance = $this->geo->getDistanceKm($coords['lat'], $coords['lng']);
+            $fraisLivraison = ($distance * 0.59) + 5;
+        }
+
+        return [
+            'prix_menu' => $prixMenu,
+            'frais_livraison' => $fraisLivraison,
+            'prix_total' => $prixMenu + $fraisLivraison,
+            'distance_km' => $distance
+        ];
+    }
+
+    public function calculFrais(): void {
+        header('Content-Type: application/json');
+        $data = json_decode(file_get_contents('php://input'), true);
+
+        try {
+            $resultat = $this->calculerPrix(
+                (int) $data['nombre_personne'],
+                $data['adresse'],
+                $data['code_postal'],
+                $data['ville'],
+                (int) $data['menu_id']
+            );
+            echo json_encode(['success' => true] + $resultat);
+        } catch (Exception $e) {
+            echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+        }
+        exit;
     }
 }

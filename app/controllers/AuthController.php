@@ -57,6 +57,7 @@ class AuthController{
             $_SESSION['email'] = $user['email'];
             $_SESSION['prenom'] = $user['prenom'];
             $_SESSION['nom'] = $user['nom'];
+            $_SESSION['gsm'] = $user['gsm'];
 
             $this->loginAttempts->resetAttempts($ip,$emailToStore);
             

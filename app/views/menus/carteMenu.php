@@ -39,6 +39,8 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <h5>Infos :</h5>
     <p><?= htmlspecialchars($menus['conditions_infos']) ?></p>
 
+    <a href="/commandes/create/<?=  htmlspecialchars($menus['menu_id']); ?>">Commander</a>
+
 </main>
 
 

@@ -3,7 +3,7 @@ require_once __DIR__ . '/../../core/Database.php';
 
 
 class CommandeModel{
-    private $pdo;
+    private PDO $pdo;
 
     public function __construct(){
         $this->pdo = Database::getInstance()->getConnection();

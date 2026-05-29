@@ -116,6 +116,11 @@ $router->add('POST' , '/contact' , 'ContactController' , 'sendMessage');
 $router->add('GET' , '/profile/edit' , 'ProfileController' , 'editProfile');
 $router->add('POST' , '/profile/edit' , 'ProfileController' , 'edit');
 
+//Formulaire commandes
+$router->add('POST', '/commandes/calcul-frais', 'CommandeController', 'calculFrais');
+$router->add('POST', '/commandes/create', 'CommandeController', 'create');
+$router->add('GET', '/commandes/create/{menu_id}', 'CommandeController', 'showForm');
+
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode
 $router->dispatch($url);

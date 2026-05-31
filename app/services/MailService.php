@@ -62,6 +62,9 @@ class MailService{
 
         // Destinataire
         $this->mail->addAddress($to);
+        
+        $this->mail->isHTML(true);
+        $this->mail->CharSet = 'UTF-8';
 
         // Contenu — subject et body passés en paramètres pour la réutilisabilité
         $this->mail->Subject = $subject;

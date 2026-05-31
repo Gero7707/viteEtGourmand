@@ -3,6 +3,7 @@ require_once __DIR__ . '/../models/CommandeModel.php';
 require_once __DIR__ . '/../models/HoraireModel.php';
 require_once __DIR__ . '/../models/MenuModel.php';
 require_once __DIR__ . '/../services/GeoService.php';
+require_once __DIR__ . '/../services/MailService.php';
 
 class CommandeController{
     private HoraireModel $horaire;
@@ -12,11 +13,14 @@ class CommandeController{
 
     private GeoService $geo;
 
+    private MailService $mailService;
+
     public function __construct(){
         $this->commandes = new CommandeModel();
         $this->horaire = new HoraireModel();
         $this->menu = new MenuModel();
         $this->geo = new GeoService();
+        $this->mailService = new MailService();
     }
 
     public function showCommandes(){
@@ -65,7 +69,12 @@ class CommandeController{
         if ($nbPersonnes < $nbPersonneMini) {
             throw new Exception("Vous n'avez pas le nombre de personnes minimum pour ce menu !");
         }
-
+        if($menu['quantite_restante'] !== NULL){
+            if($nbPersonnes > $menu['quantite_restante']){
+                throw new Exception("La quantité restante est inférieur à la quantité voulu !");
+            }
+        }
+        
         if ($nbPersonnes >= $nbPersonneMini + 5) {
             $prixMenu = ($nbPersonnes * $prixParPersonne) * 0.90;
         } else {
@@ -112,10 +121,18 @@ class CommandeController{
         Auth::checkAuth();
         Auth::verifyCsrfToken();
         $menu_id = (int) ($_POST['menu_id'] ?? 0);
+        
         if ($menu_id <= 0) {
             header('Location: /menus');
             exit;
         }
+
+        $menu = $this->menu->findById($menu_id);
+        if (!$menu) {
+            header('Location: /menus');
+            exit;
+        }
+
         $adresse = $_POST['adresse'];
         if(empty(trim($adresse))){
             $error = "Vous devez indiquer une adresse de livraison  svp .";
@@ -202,6 +219,23 @@ class CommandeController{
             'date_modification' => $dateModif
         ];
         $this->commandes->createHistorique($historiqueData);
+        
+        $detailCommande = "
+        <h4>Numéro de commande</h4>
+        <p>{$data['numero_commande']}  </p><br>
+        <h4>Menu :</h4>
+        <p>{$menu['titre']} pour {$data['nombre_personne']}</p><br>
+        <h4>Adresse et date de prestation :</h4>
+        <p>{$data['adresse_livraison']} le {$data['date_prestation']} à {$data['heure_livraison']}</p><br>
+        <h4>Prix total :</h4>
+        <p>{$data['prix_menu']}</p><br>
+        ";
+        $titre = "Commande confimée .";
+        $message = $detailCommande . "Merci d'avoir passé commande chez Vit & Gourmand . Vous receverez un message dès que votre commande sera acceptée . Vous pouvez annuler modifier ou annuler votre commande tant qu'elle n'est pas acceptée . Vite & Gourmand vous souhaite une bonne journée.";
+        $emailCommande = $_SESSION['email'];
+        
+        $this->mailService->sendEmail($emailCommande,$titre,$message);
+        
 
         header('location: /profile');
         exit();

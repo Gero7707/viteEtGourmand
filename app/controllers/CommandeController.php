@@ -197,6 +197,8 @@ class CommandeController{
 
         $data = [
             'adresse_livraison' => $adresse,
+            'ville' => $ville,
+            'code_postal' => $codePostal,
             'distance_km' => $_POST['distance_km'],
             'numero_commande' => $numeroCommande,
             'date_commande' => $dateCommande,
@@ -261,6 +263,23 @@ class CommandeController{
             exit();
         }else{
             $error = "Vous ne pouvez pas  annuler cette commande  . Elle est déjà acceptée .";
+            header('location: /profile?error=' . urlencode($error));
+            exit();
+        }
+    }
+
+    public function showUpdate(int $id){
+        Auth::checkAuth();
+        
+        $commande = $this->commandes->findById($id);
+        $menu_id = $commande['menu_id'];
+        $menu = $this->menu->findById($menu_id);
+        $horaire = $this->horaire->getHoraire();
+        $utilisateurId = $_SESSION['utilisateur_id'];
+        if($utilisateurId === $commande['utilisateur_id'] && $commande['statut'] === "en_attente"){
+            require_once __DIR__ . '/../views/commande/updateCommande.php';
+        }else{
+            $error = "Vous ne pouvez pas  modifier cette commande  . Elle est déjà acceptée .";
             header('location: /profile?error=' . urlencode($error));
             exit();
         }

@@ -34,11 +34,11 @@ class CommandeModel{
         $stmt =$this->pdo->prepare("SELECT commande.* , 
                                     menu.titre AS titre ,
                                     CONCAT(utilisateur.prenom , ' ' , utilisateur.nom) as nom_complet,
-                                    utilisateur.ville ,
-                                    utilisateur.adresse,
-                                    utilisateur.code_postal,
-                                    utilisateur.email,
-                                    utilisateur.gsm
+                                    utilisateur.ville AS ville_utilisateur,
+                                    utilisateur.adresse AS utilisateur_adresse,
+                                    utilisateur.code_postal As utilisateur_code_postal,
+                                    utilisateur.email AS utilisateur_email,
+                                    utilisateur.gsm AS utilisateur_gsm
                                     FROM commande
                                     JOIN menu ON commande.menu_id = menu.menu_id
                                     JOIN utilisateur ON commande.utilisateur_id = utilisateur.utilisateur_id
@@ -57,9 +57,11 @@ class CommandeModel{
     }
 
     public function createCommande(array $data){
-        $stmt = $this->pdo->prepare("INSERT INTO commande (adresse_livraison , distance_km , numero_commande , date_commande , date_prestation , heure_livraison , prix_menu , nombre_personne , prix_livraison , statut , pret_materiel , utilisateur_id , menu_id )
-                                    VALUES (:adresse_livraison , :distance_km , :numero_commande , :date_commande , :date_prestation , :heure_livraison , :prix_menu , :nombre_personne , :prix_livraison , :statut , :pret_materiel ,  :utilisateur_id , :menu_id )");
+        $stmt = $this->pdo->prepare("INSERT INTO commande (adresse_livraison , ville , code_postal , distance_km , numero_commande , date_commande , date_prestation , heure_livraison , prix_menu , nombre_personne , prix_livraison , statut , pret_materiel , utilisateur_id , menu_id )
+                                    VALUES (:adresse_livraison ,:ville , :code_postal , :distance_km , :numero_commande , :date_commande , :date_prestation , :heure_livraison , :prix_menu , :nombre_personne , :prix_livraison , :statut , :pret_materiel ,  :utilisateur_id , :menu_id )");
         $stmt->bindValue(':adresse_livraison', $data['adresse_livraison'], PDO::PARAM_STR);
+        $stmt->bindValue(':ville', $data['ville'], PDO::PARAM_STR);
+        $stmt->bindValue(':code_postal', $data['code_postal'], PDO::PARAM_STR);
         $stmt->bindValue(':distance_km', $data['distance_km'], PDO::PARAM_STR);
         $stmt->bindValue(':numero_commande', $data['numero_commande'], PDO::PARAM_STR);
         $stmt->bindValue(':date_commande', $data['date_commande'], PDO::PARAM_STR);
@@ -89,4 +91,6 @@ class CommandeModel{
         $stmt->bindValue(':id' , $id , PDO::PARAM_INT);
         $stmt->execute();
     }
+
+    
 }

@@ -1,41 +1,41 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="hEELS02yw0hBdypBYMo1">
-    <mxGraphModel dx="1065" dy="698" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="852" dy="559" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="3KeZ2_jewu6-M6kVhmdl-2" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="commande" vertex="1">
-          <mxGeometry height="430" width="300" x="10" y="40" as="geometry" />
+          <mxGeometry height="461" width="300" x="10" y="7" as="geometry" />
         </mxCell>
         <mxCell id="3KeZ2_jewu6-M6kVhmdl-5" parent="3KeZ2_jewu6-M6kVhmdl-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="numero_commande&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; VARCHAR&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;" vertex="1">
-          <mxGeometry height="30" width="270" x="10" y="110" as="geometry" />
+          <mxGeometry height="30" width="270" x="10" y="162" as="geometry" />
         </mxCell>
         <mxCell id="3KeZ2_jewu6-M6kVhmdl-8" parent="3KeZ2_jewu6-M6kVhmdl-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="date_commande&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; DATETME" vertex="1">
-          <mxGeometry height="30" width="240" x="15" y="140" as="geometry" />
+          <mxGeometry height="30" width="240" x="15" y="192" as="geometry" />
         </mxCell>
         <mxCell id="3KeZ2_jewu6-M6kVhmdl-11" parent="3KeZ2_jewu6-M6kVhmdl-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="date_prestation&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; DATE" vertex="1">
-          <mxGeometry height="30" width="260" x="5" y="170" as="geometry" />
+          <mxGeometry height="30" width="260" x="5" y="222" as="geometry" />
         </mxCell>
         <mxCell id="3KeZ2_jewu6-M6kVhmdl-12" parent="3KeZ2_jewu6-M6kVhmdl-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="heure_livraison&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; TIME" vertex="1">
-          <mxGeometry height="30" width="270" y="200" as="geometry" />
+          <mxGeometry height="30" width="270" y="252" as="geometry" />
         </mxCell>
         <mxCell id="3KeZ2_jewu6-M6kVhmdl-13" parent="3KeZ2_jewu6-M6kVhmdl-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="prix_menu&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;DECIMAL" vertex="1">
-          <mxGeometry height="30" width="260" x="15" y="230" as="geometry" />
+          <mxGeometry height="30" width="260" x="15" y="282" as="geometry" />
         </mxCell>
         <mxCell id="3KeZ2_jewu6-M6kVhmdl-14" parent="3KeZ2_jewu6-M6kVhmdl-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="nombre_personne&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; INT" vertex="1">
-          <mxGeometry height="30" width="290" x="-10" y="260" as="geometry" />
+          <mxGeometry height="30" width="290" x="-10" y="312" as="geometry" />
         </mxCell>
         <mxCell id="3KeZ2_jewu6-M6kVhmdl-15" parent="3KeZ2_jewu6-M6kVhmdl-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="prix_livraison&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; DECIMAL" vertex="1">
-          <mxGeometry height="30" width="280" x="5" y="290" as="geometry" />
+          <mxGeometry height="30" width="280" x="5" y="342" as="geometry" />
         </mxCell>
         <mxCell id="3KeZ2_jewu6-M6kVhmdl-16" parent="3KeZ2_jewu6-M6kVhmdl-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="statut&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; VARCHAR" vertex="1">
-          <mxGeometry height="30" width="265" x="15" y="320" as="geometry" />
+          <mxGeometry height="30" width="265" x="15" y="372" as="geometry" />
         </mxCell>
         <mxCell id="3KeZ2_jewu6-M6kVhmdl-17" parent="3KeZ2_jewu6-M6kVhmdl-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="pret_materiel&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;BOOL" vertex="1">
-          <mxGeometry height="30" width="250" x="10" y="350" as="geometry" />
+          <mxGeometry height="30" width="250" x="10" y="402" as="geometry" />
         </mxCell>
         <mxCell id="3KeZ2_jewu6-M6kVhmdl-18" parent="3KeZ2_jewu6-M6kVhmdl-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;restitution_materiel&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;BOOL&lt;/div&gt;" vertex="1">
-          <mxGeometry height="30" width="280" x="-5" y="370" as="geometry" />
+          <mxGeometry height="30" width="280" x="-5" y="422" as="geometry" />
         </mxCell>
         <mxCell id="3KeZ2_jewu6-M6kVhmdl-19" parent="3KeZ2_jewu6-M6kVhmdl-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="commande_id&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;INT" vertex="1">
           <mxGeometry height="30" width="275" x="15" y="30" as="geometry" />
@@ -44,7 +44,13 @@
           <mxGeometry height="30" width="280" x="15" y="60" as="geometry" />
         </mxCell>
         <mxCell id="3KeZ2_jewu6-M6kVhmdl-21" parent="3KeZ2_jewu6-M6kVhmdl-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="distance_km&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;DECIMAL&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;" vertex="1">
-          <mxGeometry height="30" width="290" x="10" y="80" as="geometry" />
+          <mxGeometry height="30" width="290" x="10" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="HlA9dCmSEHC2AKeYxB7L-1" parent="3KeZ2_jewu6-M6kVhmdl-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="code_postal&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;VARCHAR&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="280" x="12.5" y="81" as="geometry" />
+        </mxCell>
+        <mxCell id="HlA9dCmSEHC2AKeYxB7L-2" parent="3KeZ2_jewu6-M6kVhmdl-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="ville&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; VARCHAR&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="280" x="12.5" y="102" as="geometry" />
         </mxCell>
         <mxCell id="3KeZ2_jewu6-M6kVhmdl-22" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="utilisateur" vertex="1">
           <mxGeometry height="399" width="310" x="10" y="640" as="geometry" />

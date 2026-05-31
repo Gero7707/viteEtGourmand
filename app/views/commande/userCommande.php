@@ -42,6 +42,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <?= Auth::csrfField() ?>
             <button type="submit">Annuler</button>
         </form>
+        <form action="/commandes/edit/<?= $commandes['commande_id'] ?>">
+            <button type="submit">Modifier</button>
+        </form>
     <?php endif ?>
 </main>
 <?php

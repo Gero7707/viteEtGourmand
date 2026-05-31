@@ -58,6 +58,9 @@ class AuthController{
             $_SESSION['prenom'] = $user['prenom'];
             $_SESSION['nom'] = $user['nom'];
             $_SESSION['gsm'] = $user['gsm'];
+            $_SESSION['ville'] = $user['ville'];
+            $_SESSION['code_postal'] = $user['code_postal'];
+            $_SESSION['adresse'] = $user['adresse'];
 
             $this->loginAttempts->resetAttempts($ip,$emailToStore);
             

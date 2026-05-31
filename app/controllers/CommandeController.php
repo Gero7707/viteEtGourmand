@@ -45,6 +45,11 @@ class CommandeController{
 
     public function showForm(int $menu_id){
         Auth::checkAuth();
+        if(empty($_SESSION['gsm']) || empty($_SESSION['ville']) || empty($_SESSION['adresse']) || empty($_SESSION['code_postal'])){
+            $error =  "Veuillez compléter votre profil avant de commander.";
+            header('Location: /profile/edit?error=' . urlencode($error));
+            exit();
+        }
         $horaire = $this->horaire->getHoraire();
         $menu = $this->menu->findById($menu_id);
         $data = [

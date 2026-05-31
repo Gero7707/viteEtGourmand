@@ -72,6 +72,10 @@ class ProfileController{
                                 );
         $_SESSION['email'] = $email;
         $_SESSION['prenom'] = $_POST['prenom'];
+        $_SESSION['gsm'] = $_POST['gsm'];
+        $_SESSION['ville'] = $_POST['ville'];
+        $_SESSION['adresse'] = $_POST['adresse'];
+        $_SESSION['code_postal'] = $_POST['code_postal'];
         $succesMessage = "Votre profil a été mis à jour avec succès .";
         header('location: /profile?success='  . urlencode($succesMessage));
         exit();

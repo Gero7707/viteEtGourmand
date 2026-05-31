@@ -30,8 +30,8 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <label for="ville">Ville</label><br>
         <input type="text" name="ville" id="ville" value="<?= htmlspecialchars($data['ville'] ?? '') ?>" required><br>
 
-        <label for="gsm">Téléphone</label><br>
-        <input type="text" name="gsm" id="gsm" value="<?= htmlspecialchars($data['gsm'] ?? '') ?>" required><br>
+        <label for="utilisateur_gsm">Téléphone</label><br>
+        <input type="text" name="utilisateur_gsm" id="utilisateur_gsm" value="<?= htmlspecialchars($data['gsm'] ?? '') ?>" required><br>
 
         <label for="nombre_personne">Nombre de personnes</label><br>
         <input type="number" name="nombre_personne" id="nombre_personne" required><br>

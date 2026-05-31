@@ -33,4 +33,11 @@ class AvisModel{
         $stmt->bindValue(':utilisateur_id', $data['utilisateur_id'], PDO::PARAM_INT);
         $stmt->execute();
     }
+
+    public function findByCommandeId(int $commande_id ){
+        $stmt = $this->pdo->prepare("SELECT avis.* FROM avis WHERE commande_id = :id");
+        $stmt->bindValue(':id', $commande_id  , PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

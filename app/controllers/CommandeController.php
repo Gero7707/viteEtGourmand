@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../models/CommandeModel.php';
 require_once __DIR__ . '/../models/HoraireModel.php';
 require_once __DIR__ . '/../models/MenuModel.php';
+require_once __DIR__ . '/../models/AvisModel.php';
 require_once __DIR__ . '/../services/GeoService.php';
 require_once __DIR__ . '/../services/MailService.php';
 
@@ -15,12 +16,16 @@ class CommandeController{
 
     private MailService $mailService;
 
+    private AvisModel $avis;
+
+
     public function __construct(){
         $this->commandes = new CommandeModel();
         $this->horaire = new HoraireModel();
         $this->menu = new MenuModel();
         $this->geo = new GeoService();
         $this->mailService = new MailService();
+        $this->avis = new AvisModel();
     }
 
     public function showCommandes(){
@@ -39,6 +44,7 @@ class CommandeController{
     public function show(int $id){
         $horaire = $this->horaire->getHoraire();
         $commandes = $this->commandes->findById($id);
+        $avis = $this->avis->findByCommandeId($id);
         $historique = $this->commandes->getHistorique($id);
         require_once __DIR__ . '/../views/commande/userCommande.php';
     }
@@ -138,7 +144,7 @@ class CommandeController{
             exit;
         }
 
-        $adresse = $_POST['adresse'];
+        $adresse = $_POST['adresse_livraison'];
         if(empty(trim($adresse))){
             $error = "Vous devez indiquer une adresse de livraison  svp .";
             header('Location: /commandes/create/' . $menu_id . '?error=' . urlencode($error));
@@ -159,7 +165,7 @@ class CommandeController{
             exit();
         }
 
-        $gsm = $_POST['gsm'];
+        $gsm = $_POST['utilisateur_gsm'];
         if(empty(trim($gsm))){
             $error = "Vous devez indiquer le numéro de téléphone  svp.";
             header('Location: /commandes/create/' . $menu_id . '?error=' . urlencode($error));

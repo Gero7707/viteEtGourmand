@@ -13,7 +13,7 @@ class CommandeModel{
         $stmt = $this->pdo->prepare("SELECT  commande.* , menu.titre AS titre 
                                     FROM commande
                                     JOIN menu ON commande.menu_id = menu.menu_id
-                                    WHERE commande.utilisateur_id = :id
+                                    WHERE commande.utilisateur_id = :id  AND commande.statut != 'annule'
                                     ");
         $stmt->bindValue(':id', $id , PDO::PARAM_INT);   
         $stmt->execute();
@@ -81,6 +81,12 @@ class CommandeModel{
         $stmt->bindValue(':statut', $data['statut'], PDO::PARAM_STR);
         $stmt->bindValue(':date_modification', $data['date_modification'], PDO::PARAM_STR);
         $stmt->bindValue(':commande_id', $data['commande_id'], PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    public function annulerCommande(int $id){
+        $stmt = $this->pdo->prepare("UPDATE commande SET statut = 'annule' WHERE commande_id = :id ");
+        $stmt->bindValue(':id' , $id , PDO::PARAM_INT);
         $stmt->execute();
     }
 }

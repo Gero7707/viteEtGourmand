@@ -240,4 +240,29 @@ class CommandeController{
         header('location: /profile');
         exit();
     }
+
+    public function annulerCommande(int $id){
+        Auth::verifyCsrfToken();
+        Auth::checkAuth();
+        $utilisateurId = $_SESSION['utilisateur_id'];
+        $commande = $this->commandes->findById($id);
+        if($utilisateurId === $commande['utilisateur_id'] && $commande['statut'] === "en_attente"){
+            $this->commandes->annulerCommande($id);
+            $dateModif = date('Y-m-d H:i:s');
+            $historiqueData = [
+                'commande_id' => $id,
+                'statut' => 'annule',
+                'date_modification' => $dateModif
+            ];
+            $this->commandes->createHistorique($historiqueData);
+
+            $successMessage = "Votre commande est annulée .";
+            header('location: /profile?success=' . urlencode($successMessage));
+            exit();
+        }else{
+            $error = "Vous ne pouvez pas  annuler cette commande  . Elle est déjà acceptée .";
+            header('location: /profile?error=' . urlencode($error));
+            exit();
+        }
+    }
 }

@@ -34,9 +34,15 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <h4>Historique</h4>
     <?php foreach($historique as $statut) : ?>
         <p>Statut : <?= htmlspecialchars($statut['statut']) ?></p><br>
-        <p><?= htmlspecialchars($statut['date_modification']) ?></p>
+        <p><?= htmlspecialchars($statut['date_modification']) ?></p><br>
     <?php endforeach ?>
-
+    
+    <?php if($commandes['statut'] === 'en_attente') : ?>
+        <form action="/commandes/annuler/<?= $commandes['commande_id'] ?>" method="POST">
+            <?= Auth::csrfField() ?>
+            <button type="submit">Annuler</button>
+        </form>
+    <?php endif ?>
 </main>
 <?php
 require_once __DIR__ . '/../../views/layout/footer.php';

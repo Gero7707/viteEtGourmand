@@ -120,6 +120,7 @@ $router->add('POST' , '/profile/edit' , 'ProfileController' , 'edit');
 $router->add('POST', '/commandes/calcul-frais', 'CommandeController', 'calculFrais');
 $router->add('POST', '/commandes/create', 'CommandeController', 'create');
 $router->add('GET', '/commandes/create/{menu_id}', 'CommandeController', 'showForm');
+$router->add('POST' , '/commandes/annuler/{id}' , 'CommandeController' , 'annulerCommande');
 
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode

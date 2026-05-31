@@ -275,7 +275,6 @@ class CommandeController{
 
     public function showUpdate(int $id){
         Auth::checkAuth();
-        
         $commande = $this->commandes->findById($id);
         $menu_id = $commande['menu_id'];
         $menu = $this->menu->findById($menu_id);
@@ -287,6 +286,132 @@ class CommandeController{
             $error = "Vous ne pouvez pas  modifier cette commande  . Elle est déjà acceptée .";
             header('location: /profile?error=' . urlencode($error));
             exit();
+        }
+    }
+
+    public function updateCommande(int $id){
+        Auth::checkAuth();
+        Auth::verifyCsrfToken();
+        $menu_id = $_POST['menu_id'];
+        $menu = $this->menu->findById($menu_id);
+        $commande = $this->commandes->findById($id);
+        $utilisateurId = $_SESSION['utilisateur_id'];
+        if($utilisateurId === $commande['utilisateur_id'] && $commande['statut'] === "en_attente"){
+            if (!$menu) {
+                header('Location: /menus');
+                exit;
+            }
+
+            $adresse = $_POST['adresse_livraison'];
+            if(empty(trim($adresse))){
+                $error = "Vous devez indiquer une adresse de livraison  svp .";
+                header('Location: /commandes/edit/' . $id . '?error=' . urlencode($error));
+                exit();
+            }
+
+            $codePostal = $_POST['code_postal'];
+            if(empty(trim($codePostal))){
+                $error = "Vous devez indiquer le code postal  svp.";
+                header('Location: /commandes/edit/' . $id . '?error=' . urlencode($error));
+                exit();
+            }
+
+            $ville = $_POST['ville'];
+            if(empty(trim($ville))){
+                $error = "Vous devez indiquer la ville  svp.";
+                header('Location: /commandes/edit/' . $id . '?error=' . urlencode($error));
+                exit();
+            }
+
+            $gsm = $_POST['utilisateur_gsm'];
+            if(empty(trim($gsm))){
+                $error = "Vous devez indiquer le numéro de téléphone  svp.";
+                header('Location: /commandes/edit/' . $id . '?error=' . urlencode($error));
+                exit();
+            }
+
+            $nombrePersonnes = $_POST['nombre_personne'];
+            if(empty(trim($nombrePersonnes))){
+                $error = "Vous devez indiquer le nombre de personnes  svp.";
+                header('Location: /commandes/edit/' . $id . '?error=' . urlencode($error));
+                exit();
+            }
+
+            $datePrestation = $_POST['date_prestation'];
+            if(empty(trim($datePrestation))){
+                $error = "Vous devez indiquer la date de prestation  svp.";
+                header('Location: /commandes/edit/' . $id . '?error=' . urlencode($error));
+                exit();
+            }
+
+            $heureLivraison = $_POST['heure_livraison'];
+            if(empty(trim($heureLivraison))){
+                $error = "Vous devez indiquer l'heure de livraison  svp.";
+                header('Location: /commandes/edit/' . $id . '?error=' . urlencode($error));
+                exit();
+            }
+
+            try {
+                $resultat = $this->calculerPrix((int) $nombrePersonnes, $adresse, $codePostal, $ville, $menu_id);
+            } catch (Exception $e) {
+                $error = "Erreur lors du calcul du prix. Veuillez réessayer.";
+                header('Location: /commandes/edit/' . $id . '?error=' . urlencode($error));
+                exit;
+            }
+
+            $dateCommande = date('Y-m-d H:i:s');
+            $dateModif = date('Y-m-d H:i:s');
+
+            $data = [
+                'adresse_livraison' => $adresse,
+                'ville' => $ville,
+                'code_postal' => $codePostal,
+                'distance_km' => $_POST['distance_km'],
+                'date_commande' => $dateCommande,
+                'date_prestation' => $datePrestation ,
+                'heure_livraison' => $heureLivraison ,
+                'prix_menu' => $resultat['prix_menu' ],
+                'nombre_personne' => $nombrePersonnes,
+                'prix_livraison' => $resultat['frais_livraison'],
+                'statut' => 'en_attente',
+                'utilisateur_id' => $_SESSION['utilisateur_id'],
+                'pret_materiel' => 1 ,
+                'menu_id' => $menu_id,
+                'commande_id' => $id
+            ];
+
+            $this->commandes->updateCommande($data);
+
+            $historiqueData = [
+                'commande_id' => $id,
+                'statut' => 'en_attente',
+                'date_modification' => $dateModif
+            ];
+            $this->commandes->createHistorique($historiqueData);
+            
+            $detailCommande = "
+            <h4>Numéro de commande</h4>
+            <p>{$commande['numero_commande']}  </p><br>
+            <h4>Menu :</h4>
+            <p>{$menu['titre']} pour {$data['nombre_personne']}</p><br>
+            <h4>Adresse et date de prestation :</h4>
+            <p>{$data['adresse_livraison']} le {$data['date_prestation']} à {$data['heure_livraison']}</p><br>
+            <h4>Prix total :</h4>
+            <p>{$data['prix_menu']}</p><br>
+            ";
+            $titre = "Commande modifiée .";
+            $message = $detailCommande . "Vous avez modifié votre commande . Merci d'avoir passé commande chez Vit & Gourmand . Vous receverez un message dès que votre commande sera acceptée . Vous pouvez annuler modifier ou annuler votre commande tant qu'elle n'est pas acceptée . Vite & Gourmand vous souhaite une bonne journée.";
+            $emailCommande = $_SESSION['email'];
+            
+            $this->mailService->sendEmail($emailCommande,$titre,$message);
+            
+
+            header('location: /profile');
+            exit();
+        }else{
+            $error = "Une erreur est survenu";
+            header('Location: /commandes/edit/' . $menu_id . '?error=' . urlencode($error));
+            exit(); 
         }
     }
 }

@@ -3,6 +3,8 @@ require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 
 <main>
+    <a href="/profile">Retour</a><br>
+    <hr>
     <h3><?= htmlspecialchars($menu['titre']) ?></h3>
     <hr>
     <h4>Prix/Personne :</h4>
@@ -13,8 +15,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <p><?= htmlspecialchars($menu['regime']) ?></p><br>
     <h5>Delai :</h5>
     <p><?= htmlspecialchars($menu['conditions_delai']) ?></p><br>
-    <form action="/commandes/edit" method="POST">
+    <form action="/commandes/edit/<?= $commande['commande_id'] ?>" method="POST">
         <?= Auth::csrfField() ?>
+        <input type="hidden" name="menu_id" id="menu_id" value="<?= htmlspecialchars($commande['menu_id']) ?>">
         <input type="hidden" name="commande_id" id="commande_id" value="<?= htmlspecialchars($commande['commande_id']) ?>">
         <input type="hidden" name="distance_km" id="distance_km" value="0">
 

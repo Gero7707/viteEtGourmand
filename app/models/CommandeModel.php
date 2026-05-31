@@ -92,5 +92,23 @@ class CommandeModel{
         $stmt->execute();
     }
 
-    
+    public function updateCommande(array $data){
+        $stmt = $this->pdo->prepare("UPDATE commande SET adresse_livraison = :adresse_livraison , ville = :ville , code_postal = :code_postal , distance_km = :distance_km , date_commande = :date_commande , date_prestation = :date_prestation , heure_livraison = :heure_livraison , prix_menu = :prix_menu , nombre_personne = :nombre_personne , prix_livraison = :prix_livraison , statut = :statut , pret_materiel = :pret_materiel , utilisateur_id = :utilisateur_id , menu_id = :menu_id WHERE commande_id = :id");
+        $stmt->bindValue(':id' , $data['commande_id'] , PDO::PARAM_INT);
+        $stmt->bindValue(':adresse_livraison', $data['adresse_livraison'], PDO::PARAM_STR);
+        $stmt->bindValue(':ville', $data['ville'], PDO::PARAM_STR);
+        $stmt->bindValue(':code_postal', $data['code_postal'], PDO::PARAM_STR);
+        $stmt->bindValue(':distance_km', $data['distance_km'], PDO::PARAM_STR);
+        $stmt->bindValue(':date_commande', $data['date_commande'], PDO::PARAM_STR);
+        $stmt->bindValue(':date_prestation', $data['date_prestation'], PDO::PARAM_STR);
+        $stmt->bindValue(':heure_livraison', $data['heure_livraison'], PDO::PARAM_STR);
+        $stmt->bindValue(':prix_menu', $data['prix_menu'], PDO::PARAM_STR);
+        $stmt->bindValue(':nombre_personne', $data['nombre_personne'], PDO::PARAM_INT);
+        $stmt->bindValue(':prix_livraison', $data['prix_livraison'], PDO::PARAM_STR);
+        $stmt->bindValue(':statut', $data['statut'], PDO::PARAM_STR);
+        $stmt->bindValue(':pret_materiel', $data['pret_materiel'], PDO::PARAM_INT);
+        $stmt->bindValue(':menu_id', $data['menu_id'], PDO::PARAM_INT);
+        $stmt->bindValue(':utilisateur_id', $data['utilisateur_id'], PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }

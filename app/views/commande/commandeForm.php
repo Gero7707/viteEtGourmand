@@ -3,6 +3,8 @@ require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 
 <main>
+    <a href="/profile">Retour</a><br>
+    <hr>
     <h3><?= htmlspecialchars($menu['titre']) ?></h3>
     <hr>
     <h4>Prix/Personne :</h4>
@@ -18,8 +20,8 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <input type="hidden" name="menu_id" id="menu_id" value="<?= htmlspecialchars($menu['menu_id']) ?>">
         <input type="hidden" name="distance_km" id="distance_km" value="0">
 
-        <label for="adresse">Adresse</label><br>
-        <input type="text" name="adresse" id="adresse" value="<?= htmlspecialchars($data['adresse'] ?? '') ?>" required><br>
+        <label for="adresse_livraison">Adresse</label><br>
+        <input type="text" name="adresse_livraison" id="adresse_livraison" value="<?= htmlspecialchars($data['adresse'] ?? '') ?>" required><br>
         <small>Indiquez l'adresse du lieu de l'événement (salle des fêtes, domicile, lieu de réception...)</small><br>
 
         <label for="code_postal">Code Postal</label><br>

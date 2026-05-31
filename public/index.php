@@ -124,7 +124,7 @@ $router->add('POST' , '/commandes/annuler/{id}' , 'CommandeController' , 'annule
 
 //Formulaire modification de commande
 $router->add('GET' , '/commandes/edit/{id}' , 'CommandeController' , 'showUpdate');
-$router->add('POST' , '/commandes/edit{id}' , 'CommandeController' , 'updateCommande');
+$router->add('POST' , '/commandes/edit/{id}' , 'CommandeController' , 'updateCommande');
 
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode

@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () =>{
     const btnCalculerPrix = document.getElementById('calcul_frais');
-    const adresse = document.getElementById('adresse');
+    const adresse = document.getElementById('adresse_livraison');
     const codePostal = document.getElementById('code_postal');
     const ville = document.getElementById('ville');
-    const gsm = document.getElementById('gsm');
+    const gsm = document.getElementById('utilisateur_gsm');
     const nbPersonne = document.getElementById('nombre_personne');
     const datePrestation = document.getElementById('date_prestation');
     const heureLivraison = document.getElementById('heure_livraison');

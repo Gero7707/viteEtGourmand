@@ -295,28 +295,28 @@ INSERT INTO plat_allergene (plat_id, allergene_id) VALUES
 
 
 -- Commandes avec statuts variés
-INSERT INTO commande (utilisateur_id, menu_id, adresse_livraison, distance_km, numero_commande, date_commande, date_prestation, heure_livraison, prix_menu, nombre_personne, prix_livraison, statut, pret_materiel, restitution_materiel) VALUES
+INSERT INTO commande (utilisateur_id, menu_id, adresse_livraison, code_postal , ville, distance_km, numero_commande, date_commande, date_prestation, heure_livraison, prix_menu, nombre_personne, prix_livraison, statut, pret_materiel, restitution_materiel) VALUES
 -- Sophie (Bordeaux, livraison gratuite)
-(3, 1, '42 cours Victor Hugo, 33000 Bordeaux', 0, 'CMD-2026-001', '2026-03-10 14:30:00', '2026-03-20', '12:00', 450.00, 10, 0, 'terminee', 1, 1),
-(3, 4, '42 cours Victor Hugo, 33000 Bordeaux', 0, 'CMD-2026-002', '2026-04-01 10:15:00', '2026-04-10', '11:00', 228.00, 6, 0, 'terminee', 1, 1),
+(3, 1, '42 cours Victor Hugo' , '33000' , 'Bordeaux', 0, 'CMD-2026-001', '2026-03-10 14:30:00', '2026-03-20', '12:00', 450.00, 10, 0, 'terminee', 1, 1),
+(3, 4, '42 cours Victor Hugo' , '33000' ,'Bordeaux', 0, 'CMD-2026-002', '2026-04-01 10:15:00', '2026-04-10', '11:00', 228.00, 6, 0, 'terminee', 1, 1),
 
 -- Laurent (Mérignac, 8km, frais livraison)
-(4, 5, '8 avenue de la Marne, 33700 Mérignac', 8, 'CMD-2026-003', '2026-03-15 09:00:00', '2026-03-25', '19:00', 1200.00, 20, 9.72, 'terminee', 1, 1),
-(4, 3, '8 avenue de la Marne, 33700 Mérignac', 8, 'CMD-2026-004', '2026-11-20 16:45:00', '2026-12-24', '12:00', 660.00, 12, 9.72, 'en_preparation', 0, 0),
+(4, 5, '8 avenue de la Marne' , '33700' , 'Mérignac', 8, 'CMD-2026-003', '2026-03-15 09:00:00', '2026-03-25', '19:00', 1200.00, 20, 9.72, 'terminee', 1, 1),
+(4, 3, '8 avenue de la Marne', '33700' , 'Mérignac', 8, 'CMD-2026-004', '2026-11-20 16:45:00', '2026-12-24', '12:00', 660.00, 12, 9.72, 'en_preparation', 0, 0),
 
 -- Camille (Pessac, 12km)
-(5, 7, '23 rue Jean Jaurès, 33600 Pessac', 12, 'CMD-2026-005', '2026-11-25 11:30:00', '2026-12-20', '18:00', 630.00, 15, 12.08, 'acceptee', 0, 0),
-(5, 2, '23 rue Jean Jaurès, 33600 Pessac', 12, 'CMD-2026-006', '2026-06-01 08:00:00', '2026-06-15', '12:30', 280.00, 8, 12.08, 'terminee', 1, 0),
+(5, 7, '23 rue Jean Jaurès', '33600' , 'Pessac', 12, 'CMD-2026-005', '2026-11-25 11:30:00', '2026-12-20', '18:00', 630.00, 15, 12.08, 'acceptee', 0, 0),
+(5, 2, '23 rue Jean Jaurès', '33600' , 'Pessac', 12, 'CMD-2026-006', '2026-06-01 08:00:00', '2026-06-15', '12:30', 280.00, 8, 12.08, 'terminee', 1, 0),
 
 -- Marc (Libourne, 30km)
-(6, 8, '5 place de la Mairie, 33500 Libourne', 30, 'CMD-2026-007', '2026-03-20 17:00:00', '2026-04-05', '11:30', 300.00, 10, 22.70, 'terminee', 1, 1),
-(6, 6, '5 place de la Mairie, 33500 Libourne', 30, 'CMD-2026-008', '2026-07-10 14:00:00', '2026-07-25', '18:00', 512.00, 16, 22.70, 'en_attente', 0, 0),
+(6, 8, '5 place de la Mairie', '33500' , 'Libourne', 30, 'CMD-2026-007', '2026-03-20 17:00:00', '2026-04-05', '11:30', 300.00, 10, 22.70, 'terminee', 1, 1),
+(6, 6, '5 place de la Mairie','33500' , 'Libourne', 30, 'CMD-2026-008', '2026-07-10 14:00:00', '2026-07-25', '18:00', 512.00, 16, 22.70, 'en_attente', 0, 0),
 
 -- Sophie commande annulée
-(3, 5, '42 cours Victor Hugo, 33000 Bordeaux', 0, 'CMD-2026-009', '2026-05-15 10:00:00', '2026-05-30', '19:00', 1200.00, 20, 0, 'annulee', 0, 0),
+(3, 5, '42 cours Victor Hugo', '33000' ,'Bordeaux', 0, 'CMD-2026-009', '2026-05-15 10:00:00', '2026-05-30', '19:00', 1200.00, 20, 0, 'annulee', 0, 0),
 
 -- Camille en livraison
-(5, 1, '23 rue Jean Jaurès, 33600 Pessac', 12, 'CMD-2026-010', '2026-11-28 09:30:00', '2026-12-15', '12:00', 675.00, 15, 12.08, 'en_livraison', 1, 0);
+(5, 1, '23 rue Jean Jaurès', '33600' , 'Pessac', 12, 'CMD-2026-010', '2026-11-28 09:30:00', '2026-12-15', '12:00', 675.00, 15, 12.08, 'en_livraison', 1, 0);
 
 
 

@@ -92,6 +92,11 @@ $router->add('GET' , '/menus/{id}' , 'MenuController' , 'show');
 
 //Afficher la vue des avis validés
 $router->add('GET' , '/avis' , 'AvisController' , 'index');
+//Afficher avis en attente 
+$router->add('GET' , '/avis-valider' , 'AvisController' , 'avisToValidate');
+//Noter une commande
+$router->add('GET' , '/avis/noter/{id}' , 'AvisController' , 'showAvisForm');
+$router->add('POST' , '/avis/noter-commande/{id}' , 'AvisController' , 'noterCommande');
 
 //Afficher profil utilisateur
 $router->add('GET' , '/profile' , 'ProfileController' , 'showProfile');
@@ -101,9 +106,6 @@ $router->add('GET' , '/commandes/{id}' , 'CommandeController' , 'show');
 
 //Afficher commandes client vue employé
 $router->add('GET' , '/commandes-client' , 'CommandeController' , 'showAllCommandes');
-
-//Afficher avis en attente 
-$router->add('GET' , '/avis-valider' , 'AvisController' , 'avisToValidate');
 
 //Afficher otus les plats
 $router->add('GET' , '/plats' , 'MenuController' , 'showAllPlats');

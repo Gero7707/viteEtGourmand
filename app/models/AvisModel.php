@@ -22,4 +22,15 @@ class AvisModel{
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function noterCommande(array $data){
+        $stmt = $this->pdo->prepare("INSERT INTO avis(note , description , statut , date_avis , commande_id , utilisateur_id) VALUES (:note , :description , :statut , :date_avis , :commande_id , :utilisateur_id) ");
+        $stmt->bindValue(':note', $data['note'], PDO::PARAM_INT);
+        $stmt->bindValue(':description', $data['description'], PDO::PARAM_STR);
+        $stmt->bindValue(':statut', $data['statut'], PDO::PARAM_STR);
+        $stmt->bindValue(':date_avis', $data['date_avis'], PDO::PARAM_STR);
+        $stmt->bindValue(':commande_id', $data['commande_id'], PDO::PARAM_INT);
+        $stmt->bindValue(':utilisateur_id', $data['utilisateur_id'], PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }

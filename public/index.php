@@ -39,6 +39,7 @@ require_once __DIR__ . '/../app/controllers/ProfileController.php';
 require_once __DIR__ . '/../app/controllers/CommandeController.php';
 require_once __DIR__ . '/../app/controllers/EmployeController.php';
 require_once __DIR__ . '/../app/controllers/ContactController.php';
+require_once __DIR__ . '/../app/controllers/HoraireController.php';
 
 // ============================================================
 // ROUTING
@@ -135,6 +136,11 @@ $router->add('POST' , '/commandes/annuler/{id}' , 'CommandeController' , 'annule
 //Formulaire modification de commande
 $router->add('GET' , '/commandes/edit/{id}' , 'CommandeController' , 'showUpdate');
 $router->add('POST' , '/commandes/edit/{id}' , 'CommandeController' , 'updateCommande');
+
+//Changer horaire
+$router->add('GET' , '/changer-horaire' , 'HoraireController' , 'showFormHoraire');
+$router->add('POST' , '/changer-horaire' , 'HoraireController' , 'updateHoraire');
+
 
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode

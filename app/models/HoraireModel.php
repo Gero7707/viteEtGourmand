@@ -14,4 +14,19 @@ class HoraireModel{
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
+    public function getHoraireRaw(){
+        $stmt = $this->pdo->query("SELECT jour , heure_ouverture ,heure_fermeture ,horaire_id FROM horaire ");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function updateHoraire(int $id,string $heureOuverture,string $heureFermeture){
+        $stmt = $this->pdo->prepare("UPDATE horaire set heure_ouverture = :heure_ouverture , heure_fermeture = :heure_fermeture WHERE horaire_id = :id");
+        $stmt->bindValue(':heure_ouverture', $heureOuverture , PDO::PARAM_STR);
+        $stmt->bindValue(':heure_fermeture', $heureFermeture , PDO::PARAM_STR);
+        $stmt->bindValue(':id', $id , PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }

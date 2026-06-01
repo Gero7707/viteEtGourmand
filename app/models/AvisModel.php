@@ -40,4 +40,21 @@ class AvisModel{
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function findById(int $id){
+        $stmt = $this->pdo->prepare("SELECT avis.* FROM avis WHERE avis_id = :id");
+        $stmt->bindValue(':id', $id  , PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function updateAvis(array $data){
+        $stmt = $this->pdo->prepare("UPDATE avis SET note = :note , description = :description , statut = :statut ,date_avis = :date_avis WHERE avis_id = :id");
+        $stmt->bindValue(':id', $data['avis_id'], PDO::PARAM_INT);
+        $stmt->bindValue(':note', $data['note'], PDO::PARAM_INT);
+        $stmt->bindValue(':description', $data['description'], PDO::PARAM_STR);
+        $stmt->bindValue(':statut', $data['statut'], PDO::PARAM_STR);
+        $stmt->bindValue(':date_avis', $data['date_avis'], PDO::PARAM_STR);
+        $stmt->execute();
+    }
 }

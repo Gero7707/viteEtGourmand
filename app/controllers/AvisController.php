@@ -84,4 +84,61 @@ class AvisController{
             exit();
         }
     }
+
+    public function showEditForm(int $id){
+        Auth::checkAuth();
+        $horaire = $this->horaire->getHoraire();
+        $avis = $this->avis->findById($id);
+        $utilisateurId = $_SESSION['utilisateur_id'];
+        if($utilisateurId === $avis['utilisateur_id'] && $avis['statut'] === 'valide'){
+            require_once __DIR__ . '/../views/avis/avisUpdate.php';
+        }else {
+            $error = "Accès non autorisé .";
+            header('location: /avis?error=' . urlencode($error));
+            exit();
+        }
+    }
+
+    public function updateAvis(int $id){
+        Auth::checkAuth();
+        Auth::verifyCsrfToken();
+        $avis = $this->avis->findById($id);
+        $utilisateurId = $_SESSION['utilisateur_id'];
+        
+        if($utilisateurId === $avis['utilisateur_id'] && $avis['statut'] === "valide"){
+            $note = $_POST['note'];
+            if(empty($note)){
+                $error ="Veuillez choisir une note .";
+                header('location: /avis/edit/'. $id . '?error=' . urlencode($error));
+                exit();
+            }
+
+            $description = $_POST['description'];
+            if(empty(trim($description))){
+                $error ="Veuillez remplir tous les champs du formulaire .";
+                header('location: /avis/edit/'. $id . '?error=' . urlencode($error));
+                exit();
+            }
+
+            $data = [
+                'avis_id' => $avis['avis_id'],
+                'note' => $_POST['note'],
+                'description' => $_POST['description'],
+                'statut' => 'en_attente',
+                'date_avis' => date('Y-m-d H:i:s')
+            ];
+
+            $this->avis->updateAvis($data);
+
+            $succesMessage = "Votre avis est en attente de validation .";
+            header('location: /avis?success=' . urlencode($succesMessage));
+            exit();
+
+
+        }else{
+            $error = "Une erreur est survenu";
+            header('Location: /avis/edit/' . $id . '?error=' . urlencode($error));
+            exit();
+        }
+    }
 }

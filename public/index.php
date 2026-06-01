@@ -97,6 +97,10 @@ $router->add('GET' , '/avis-valider' , 'AvisController' , 'avisToValidate');
 //Noter une commande
 $router->add('GET' , '/avis/noter/{id}' , 'AvisController' , 'showAvisForm');
 $router->add('POST' , '/avis/noter-commande/{id}' , 'AvisController' , 'noterCommande');
+//Modifier un avis
+$router->add('GET' , '/avis/edit/{id}' , 'AvisController' , 'showEditForm');
+$router->add('POST' , '/avis/edit/{id}' , 'AvisController' , 'updateAvis');
+
 
 //Afficher profil utilisateur
 $router->add('GET' , '/profile' , 'ProfileController' , 'showProfile');

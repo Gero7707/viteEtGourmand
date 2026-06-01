@@ -23,6 +23,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <th>Statut</th>
                 <th></th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -35,7 +36,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                     <td><?= htmlspecialchars($commande['nombre_personne']) ?></td>
                     <td><?= htmlspecialchars($commande['statut']) ?></td>
                     <td>
-                        <?php if($commande['statut'] !== 'terminee') : ?>
+                        <?php if($commande['statut'] !== 'terminee' && $commande['statut'] !== 'annulee') : ?>
                             <form action="/commandes/update/<?= $commande['commande_id'] ?>" method="POST">
                                 <?= Auth::csrfField() ?>
                                 <button type="submit">Modifier statut</button>
@@ -44,6 +45,11 @@ require_once __DIR__ . '/../../views/layout/header.php';
                     </td>
                     <td>
                         <a href="/commandes/<?= $commande['commande_id'] ?>">Voir</a>
+                    </td>
+                    <td>
+                        <?php if($commande['statut'] !== 'terminee' && $commande['statut'] !== 'annulee') : ?>
+                            <a href="/commandes/annuler-commande/<?= $commande['commande_id'] ?>">Annuler Commande</a>
+                        <?php endif ?>
                     </td>
                 </tr>
             <?php endforeach ?>

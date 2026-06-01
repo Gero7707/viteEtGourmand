@@ -448,4 +448,42 @@ class CommandeController{
         header('Location: /commandes-client?success=' . urlencode($successMessage));
         exit(); 
     }
+
+    public function showFormAnnuler(int $id){
+        Auth::checkEmploye();
+        $horaire = $this->horaire->getHoraire();
+        $commandes = $this->commandes->findById($id);
+        if($commandes['statut'] !== 'terminee' && $commandes['statut'] !== 'annulee'){
+            require_once __DIR__ . '/../views/employe/annulerCommandeEmploye.php';
+        }else{
+            $error = "Accès refusé .";
+            header('Location: /commandes-client?error=' . urlencode($error));
+            exit();
+        }
+    }
+    
+    
+    public function annulerCommandeEmploye(int $id){
+        Auth::checkEmploye();
+        Auth::verifyCsrfToken();
+        $commentaires = $_POST['commentaires'];
+        if(empty(trim($commentaires))){
+            $error = "Vous devez indiquer le motif et le mode de contact pour annuler la commande .";
+            header('Location: /commandes-client?error=' . urlencode($error));
+            exit();
+        }
+        $this->commandes->annulerCommandeEmploye($id);
+        $dateModif = date('Y-m-d H:i:s');
+        $historiqueData = [
+            'commande_id' => $id,
+            'statut' => 'annulee',
+            'date_modification' => $dateModif,
+            'commentaires' => $commentaires
+        ];
+        $this->commandes->createHistorique($historiqueData);
+
+        $successMessage = "Vous avez annulé la commande avec succés ." ;
+        header('Location: /commandes-client?success=' . urlencode($successMessage));
+        exit();
+    }
 }

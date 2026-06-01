@@ -112,6 +112,8 @@ $router->add('GET' , '/commandes/{id}' , 'CommandeController' , 'show');
 //Afficher commandes client vue employé
 $router->add('GET' , '/commandes-client' , 'CommandeController' , 'showAllCommandes');
 $router->add('POST' , '/commandes/update/{id}' , 'CommandeController' , 'changerStatutCommande');
+$router->add('GET' , '/commandes/annuler-commande/{id}' , 'CommandeController' , 'showFormAnnuler');
+$router->add('POST' , '/commandes/annuler-commande/{id}' , 'CommandeController' , 'annulerCommandeEmploye');
 
 //Afficher otus les plats
 $router->add('GET' , '/plats' , 'MenuController' , 'showAllPlats');

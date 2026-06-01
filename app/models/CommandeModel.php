@@ -79,9 +79,10 @@ class CommandeModel{
     }
 
     public function createHistorique(array $data) : void{
-        $stmt = $this->pdo->prepare("INSERT INTO historique_statut (statut , date_modification , commande_id) VALUES (:statut , :date_modification , :commande_id)");
+        $stmt = $this->pdo->prepare("INSERT INTO historique_statut (statut , date_modification , commande_id , commentaires ) VALUES (:statut , :date_modification , :commande_id , :commentaires)");
         $stmt->bindValue(':statut', $data['statut'], PDO::PARAM_STR);
         $stmt->bindValue(':date_modification', $data['date_modification'], PDO::PARAM_STR);
+        $stmt->bindValue(':commentaires', $data['commentaires'] ?? '', PDO::PARAM_STR);
         $stmt->bindValue(':commande_id', $data['commande_id'], PDO::PARAM_INT);
         $stmt->execute();
     }
@@ -118,4 +119,12 @@ class CommandeModel{
         $stmt->bindValue(':statut', $statut, PDO::PARAM_STR);
         $stmt->execute();
     }
+
+    public function annulerCommandeEmploye(int $id){
+        $stmt =$this->pdo->prepare("UPDATE commande SET statut = :statut  WHERE commande_id = :id ");
+        $stmt->bindValue(':id' , $id , PDO::PARAM_INT);
+        $stmt->bindValue(':statut', 'annulee', PDO::PARAM_STR);
+        $stmt->execute();
+    }
+
 }

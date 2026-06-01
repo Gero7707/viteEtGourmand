@@ -420,4 +420,32 @@ class CommandeController{
             exit(); 
         }
     }
+
+    public function changerStatutCommande(int $id ){
+        Auth::checkEmploye();
+        Auth::verifyCsrfToken();
+        $statutActuel = $this->commandes->findById($id);
+        $transition = [
+            'en_attente' => 'acceptee', 
+            'accepte' => 'en_preparation', 
+            'en_preparation' => 'en_livraison', 
+            'en_livraison' => 'livree', 
+            'livre' => 'attente_retour_matériel', 
+            'attente_retour_matériel' => 'terminee'
+        ];
+        $statutSuivant = $transition[$statutActuel['statut']];
+        $this->commandes->updateStatutCommande($id ,$statutSuivant);
+
+        $dateModif = date('Y-m-d H:i:s');
+        $historiqueData = [
+            'commande_id' => $id,
+            'statut' => $statutSuivant,
+            'date_modification' => $dateModif
+        ];
+        $this->commandes->createHistorique($historiqueData);
+
+        $successMessage = "Le statut de la commande est : " . $statutSuivant;
+        header('Location: /commandes-client?success=' . urlencode($successMessage));
+        exit(); 
+    }
 }

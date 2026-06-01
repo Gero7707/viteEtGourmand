@@ -23,6 +23,7 @@ class AvisController{
     }
 
     public function avisToValidate(){
+        Auth::checkEmploye();
         $horaire = $this->horaire->getHoraire();
         $avis = $this->avis->getAvis('en_attente');
         require_once __DIR__ . '/../views/employe/validerAvis.php';
@@ -71,7 +72,7 @@ class AvisController{
                 'utilisateur_id' => $_SESSION['utilisateur_id']
             ];
 
-            $avis = $this->avis->noterCommande($data);
+            $this->avis->noterCommande($data);
 
             $succesMessage = "Votre avis est en attente de validation .";
             header('location: /commandes/'. $id  . '?success=' . urlencode($succesMessage));
@@ -131,13 +132,36 @@ class AvisController{
             $this->avis->updateAvis($data);
 
             $succesMessage = "Votre avis est en attente de validation .";
-            header('location: /avis?success=' . urlencode($succesMessage));
+            header('location: /profile?success=' . urlencode($succesMessage));
             exit();
 
 
         }else{
             $error = "Une erreur est survenu";
             header('Location: /avis/edit/' . $id . '?error=' . urlencode($error));
+            exit();
+        }
+    }
+
+    public function changeStatut(int $id){
+        Auth::checkEmploye();
+        Auth::verifyCsrfToken();
+        $avis = $this->avis->findById($id);
+        if($avis['statut'] === 'en_attente'){
+            
+            $data = [
+                'avis_id' => $avis['avis_id'],
+                'statut' => $_POST['statut']
+            ];
+
+            $this->avis->changeStatut($data);
+
+            $successMessage = "Le statut de l'avis a été changé  avec succés .";
+            header('location: /avis-valider?success=' . urlencode($successMessage));
+            exit();
+        }else{
+            $error = "Une erreur est survenu";
+            header('Location: /avis-valider?error=' . urlencode($error));
             exit();
         }
     }

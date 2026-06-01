@@ -14,11 +14,11 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <h4><?= htmlspecialchars($commandes['titre']) ?></h4>
     <?php if($_SESSION['role_id'] === 3 || $_SESSION['role_id'] === 2) : ?>
         <p>Client :<?= htmlspecialchars($commandes['nom_complet']) ?> </p><br>
-        <p>Adresse : <?= htmlspecialchars($commandes['adresse']) ?> </p><br>
+        <p>Adresse : <?= htmlspecialchars($commandes['adresse_livraison']) ?> </p><br>
         <p>Ville : <?= htmlspecialchars($commandes['ville'] ?? '') ?> </p><br>
         <p>Code postal :<?= htmlspecialchars($commandes['code_postal'] ?? '') ?></p><br>
         <p>Téléphone : <?= htmlspecialchars($commandes['gsm'] ?? '') ?></p><br>
-        <p>Email : <?= htmlspecialchars($commandes['email']) ?></p><br>
+        <p>Email : <?= htmlspecialchars($commandes['utilisateur_email']) ?></p><br>
     <?php endif ?>
     <hr>
     <p>Date de commande : <?= htmlspecialchars($commandes['date_commande']) ?></p><br>

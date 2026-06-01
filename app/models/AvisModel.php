@@ -57,4 +57,11 @@ class AvisModel{
         $stmt->bindValue(':date_avis', $data['date_avis'], PDO::PARAM_STR);
         $stmt->execute();
     }
+
+    public function changeStatut(array $data){
+        $stmt = $this->pdo->prepare("UPDATE avis SET statut = :statut WHERE avis_id = :id");
+        $stmt->bindValue(':id', $data['avis_id'], PDO::PARAM_INT);
+        $stmt->bindValue(':statut', $data['statut'], PDO::PARAM_STR);
+        $stmt->execute();
+    }
 }

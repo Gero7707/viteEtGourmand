@@ -35,7 +35,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
                     <td><?= htmlspecialchars($commande['nombre_personne']) ?></td>
                     <td><?= htmlspecialchars($commande['statut']) ?></td>
                     <td>
-                        <a href="/modif-commande/<?= $commande['commande_id'] ?>">Modifier</a>
+                        <?php if($commande['statut'] !== 'terminee') : ?>
+                            <form action="/commandes/update/<?= $commande['commande_id'] ?>" method="POST">
+                                <?= Auth::csrfField() ?>
+                                <button type="submit">Modifier statut</button>
+                            </form>
+                        <?php endif ?>
                     </td>
                     <td>
                         <a href="/commandes/<?= $commande['commande_id'] ?>">Voir</a>

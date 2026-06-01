@@ -111,4 +111,11 @@ class CommandeModel{
         $stmt->bindValue(':utilisateur_id', $data['utilisateur_id'], PDO::PARAM_INT);
         $stmt->execute();
     }
+
+    public function updateStatutCommande(int $id, string $statut){
+        $stmt = $this->pdo->prepare("UPDATE commande SET statut = :statut WHERE commande_id = :id");
+        $stmt->bindValue(':id' , $id , PDO::PARAM_INT);
+        $stmt->bindValue(':statut', $statut, PDO::PARAM_STR);
+        $stmt->execute();
+    }
 }

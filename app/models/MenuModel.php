@@ -18,6 +18,11 @@ class MenuModel{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getOneMenu(){
+        $stmt = $this->pdo->query("SELECT menu.* FROM menu LIMIT 1");
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function findById(int $id){
         $stmt = $this->pdo->prepare("SELECT menu.* , regime.libelle AS regime , theme.libelle AS theme 
                                     FROM menu 
@@ -59,5 +64,22 @@ class MenuModel{
                                     ");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function createMenu(array $data){
+        $stmt =$this->pdo->prepare("INSERT INTO menu (titre , nombre_personne_minimum , prix_par_personne , description , quantite_restante , conditions_delai , conditions_stockage , conditions_infos , theme_id , regime_id)
+                                    VALUES (:titre , :nombre_personne_minimum , :prix_par_personne , :description , :quantite_restante , :conditions_delai , :conditions_stockage , :conditions_infos , :theme_id , :regime_id)
+                                    ");
+        $stmt->bindValue(':titre', $data['titre'], PDO::PARAM_STR);                           
+        $stmt->bindValue(':nombre_personne_minimum', $data['nombre_personne_minimum'], PDO::PARAM_INT);                           
+        $stmt->bindValue(':prix_par_personne', $data['prix_par_personne'], PDO::PARAM_STR);                           
+        $stmt->bindValue(':description', $data['description'], PDO::PARAM_STR);                           
+        $stmt->bindValue(':quantite_restante', $data['quantite_restante'], PDO::PARAM_INT);                           
+        $stmt->bindValue(':conditions_delai', $data['conditions_delai'], PDO::PARAM_STR);                           
+        $stmt->bindValue(':conditions_stockage', $data['conditions_stockage'], PDO::PARAM_STR);                           
+        $stmt->bindValue(':conditions_infos', $data['conditions_infos'], PDO::PARAM_STR);
+        $stmt->bindValue(':regime_id', $data['regime_id'], PDO::PARAM_INT);                             
+        $stmt->bindValue(':theme_id', $data['theme_id'], PDO::PARAM_INT);
+        $stmt->execute();
     }
 }

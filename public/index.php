@@ -87,6 +87,9 @@ $router->add('POST', '/auth/reset-password', 'PasswordResetController', 'resetPa
 
 //Afficher la vue globale des menus et filtres
 $router->add('GET' , '/menus' , 'MenuController' , 'index');
+//Créer un menu
+$router->add('GET' , '/create-menu' , 'MenuController' , 'showFormMenu');
+$router->add('POST' , '/create-menu' , 'MenuController' , 'createMenu');
 
 //Afficher un menu
 $router->add('GET' , '/menus/{id}' , 'MenuController' , 'show');

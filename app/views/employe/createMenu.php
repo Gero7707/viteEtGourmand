@@ -14,7 +14,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <hr>
     <?php endif ?>
     <h4>Créer un menu</h4>
-    <form action="/create-menu" method="POST">
+    <form action="/create-menu" method="POST" enctype="multipart/form-data">
         <?= Auth::csrfField() ?>
         <label for="theme">Thème</label><br>
         <select name="theme_id" id="theme_id" required>
@@ -53,6 +53,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
         <label for="conditions_infos">Infos supplémentaires</label><br>
         <textarea name="conditions_infos" id="conditions_infos" rows="5" cols="33" required><?= htmlspecialchars($menu['conditions_infos']) ?></textarea><br>
+        
+        <label for="img_menu">Image du menu</label><br>
+        <input type="file" name="img_menu" id="img_menu" required><br>
 
         <button type="submit">Céer menu</button>
     </form>

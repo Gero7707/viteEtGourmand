@@ -145,7 +145,27 @@ class MenuController{
             'conditions_infos'=> $infos
         ];
 
-        $this->menus->createMenu($data);
+        $menuId = $this->menus->createMenu($data);
+
+        $imgMenu = $_FILES['img_menu'];
+
+        $extension = pathinfo($imgMenu['name'], PATHINFO_EXTENSION);
+
+        $nomFichier = uniqid() . '.' . $extension;
+
+        $source = $imgMenu['tmp_name'];
+
+        $destination = __DIR__ .  "/../../public/assets/img/menus/" . $nomFichier;
+
+        move_uploaded_file($source, $destination);
+
+        $data = [
+            'chemin' => "assets/img/menus/" . $nomFichier,
+            'menu_id' =>$menuId
+        ];
+
+        $this->menus->addImageMenu($data);
+
         $successMessage = "Le menu a été créé avec succès .";
         if ($_SESSION['role_id'] === 2){
             header('Location: /employe/dashboard?success=' . urlencode($successMessage));

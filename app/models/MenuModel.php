@@ -81,5 +81,13 @@ class MenuModel{
         $stmt->bindValue(':regime_id', $data['regime_id'], PDO::PARAM_INT);                             
         $stmt->bindValue(':theme_id', $data['theme_id'], PDO::PARAM_INT);
         $stmt->execute();
+        return $this->pdo->lastInsertId();
+    }
+
+    public function addImageMenu(array $data){
+        $stmt = $this->pdo->prepare("INSERT INTO image_menu (chemin , menu_id) VALUES (:chemin , :menu_id)");
+        $stmt->bindValue(':chemin', $data['chemin'], PDO::PARAM_STR);                           
+        $stmt->bindValue(':menu_id', $data['menu_id'], PDO::PARAM_INT);  
+        $stmt->execute();
     }
 }

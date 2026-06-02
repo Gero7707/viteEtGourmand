@@ -140,6 +140,10 @@ $router->add('POST' , '/commandes/edit/{id}' , 'CommandeController' , 'updateCom
 //Changer horaire
 $router->add('GET' , '/changer-horaire' , 'HoraireController' , 'showFormHoraire');
 $router->add('POST' , '/changer-horaire' , 'HoraireController' , 'updateHoraire');
+//Ajouter un jour
+$router->add('POST' , '/ajout-jour' , 'HoraireController' , 'ajouterJour');
+//Supprimer jour
+$router->add('POST' , '/supp-jour/{id}' , 'HoraireController' , 'supprimerJour');
 
 
 

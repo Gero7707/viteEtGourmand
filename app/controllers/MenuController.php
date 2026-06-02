@@ -145,7 +145,7 @@ class MenuController{
             'conditions_infos'=> $infos
         ];
 
-        $menuId = $this->menus->createMenu($data);
+        
 
         $imgMenu = $_FILES['img_menu'];
 
@@ -156,6 +156,40 @@ class MenuController{
         $source = $imgMenu['tmp_name'];
 
         $destination = __DIR__ .  "/../../public/assets/img/menus/" . $nomFichier;
+
+        if($_FILES['img_menu']['error'] !== 0){
+            $error = "Ce format n'est pas authorisé . ";
+            header('Location: /create-menu?error=' . urlencode($error));
+            exit();
+        }
+
+        if($imgMenu['size'] > 2 * 1024 * 1024){
+            $error = "Le fichier est supérieur à 2mo . ";
+            header('Location: /create-menu?error=' . urlencode($error));
+            exit();
+        }
+
+        $finfo = new finfo(FILEINFO_MIME_TYPE);
+        $mimeType = $finfo->file($imgMenu['tmp_name']);
+
+        $typesAutorises = ['image/jpeg', 'image/png', 'image/webp'];
+        $extensionsAutorisees = ['jpg', 'jpeg', 'png', 'webp'];
+
+        if(!in_array($mimeType, $typesAutorises)){
+            $error = "Ce format n'est pas authorisé . ";
+            header('Location: /create-menu?error=' . urlencode($error));
+            exit();
+        }
+
+        if(!in_array($extension, $extensionsAutorisees)){
+            $error = "Ce format n'est pas authorisé . ";
+            header('Location: /create-menu?error=' . urlencode($error));
+            exit();
+        }
+
+        
+
+        $menuId = $this->menus->createMenu($data);
 
         move_uploaded_file($source, $destination);
 

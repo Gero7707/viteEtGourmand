@@ -40,7 +40,7 @@ class CommandeModel{
                                     utilisateur.email AS utilisateur_email,
                                     utilisateur.gsm AS utilisateur_gsm
                                     FROM commande
-                                    JOIN menu ON commande.menu_id = menu.menu_id
+                                    LEFT JOIN menu ON commande.menu_id = menu.menu_id
                                     JOIN utilisateur ON commande.utilisateur_id = utilisateur.utilisateur_id
                                     WHERE commande.commande_id = :id
                                 ");
@@ -127,4 +127,10 @@ class CommandeModel{
         $stmt->execute();
     }
 
+    public function commandeLinkMenu(int $menu_id){
+        $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM commande WHERE menu_id = :id  AND statut NOT IN ( 'terminee', 'annulee')");
+        $stmt->bindValue(':id' , $menu_id ,PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC); 
+    }
 }

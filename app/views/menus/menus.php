@@ -3,6 +3,14 @@ require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 <main>
     <a href="/">Accueil</a>
+    <hr>
+    <?php if ($_GET['error'] ?? null): ?>
+        <p><?= htmlspecialchars($_GET['error']) ?></p><br>
+        <hr>
+    <?php elseif($_GET['success'] ?? null) :?>
+        <p><?= htmlspecialchars($_GET['success']) ?></p><br>
+        <hr>
+    <?php endif ?>
 
 <?php foreach($menus as $menu) : ?>
     <p><?= htmlspecialchars($menu['titre']) ?></p><br>
@@ -15,7 +23,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <a href="/menus/<?=  htmlspecialchars($menu['menu_id']); ?>">Voir menu</a><br>
     <?php if($_SESSION['role_id'] === 2 || $_SESSION['role_id'] === 3 ) : ?>
         <a href="/menus/edit/<?= htmlspecialchars($menu['menu_id']) ?>">Modifier</a><br>
-        <a href="/menus/delete/<?= htmlspecialchars($menu['menu_id']) ?>">Supprimer</a>
+        <form action="/menus/delete/<?= htmlspecialchars($menu['menu_id']) ?>" method="POST">
+            <?= Auth::csrfField() ?>
+            <button type="submit">Supprimer</button>
+        </form>
     <?php endif ?>
     <hr>
 <?php endforeach ?>

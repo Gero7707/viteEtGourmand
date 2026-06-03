@@ -113,4 +113,16 @@ class MenuModel{
         $stmt->bindValue(':id', $id , PDO::PARAM_INT);
         $stmt->execute();
     }
+
+    public function deleteLinkPlat(int $id){
+        $stmt = $this->pdo->prepare("DELETE FROM menu_plat WHERE menu_id = :menu_id");
+        $stmt->bindValue(':menu_id' , $id ,PDO::PARAM_INT );
+        $stmt->execute();
+    }
+
+    public function deleteMenu(int $id){
+        $stmt = $this->pdo->prepare("DELETE FROM menu WHERE menu_id = :menu_id");
+        $stmt->bindValue(':menu_id' , $id ,PDO::PARAM_INT );
+        $stmt->execute();
+    }
 }

@@ -3,6 +3,7 @@ require_once __DIR__ . '/../models/MenuModel.php';
 require_once __DIR__ . '/../models/HoraireModel.php';
 require_once __DIR__ . '/../models/RegimeModel.php';
 require_once __DIR__ . '/../models/ThemeModel.php';
+require_once __DIR__ . '/../models/CommandeModel.php';
 
 class MenuController{
     private MenuModel $menus;
@@ -13,11 +14,14 @@ class MenuController{
 
     private ThemeModel $themes;
 
+    private CommandeModel $commandes;
+
     public function __construct(){
         $this->menus = new MenuModel();
         $this->horaire = new HoraireModel();
         $this->themes = new ThemeModel();
         $this->regimes = new RegimeModel();
+        $this->commandes = new CommandeModel();
     }
 
     public function index(){
@@ -356,6 +360,35 @@ class MenuController{
         }
 
         $successMessage = "Le menu a été modifié avec succès .";
+        if ($_SESSION['role_id'] === 2){
+            header('Location: /employe/dashboard?success=' . urlencode($successMessage));
+            exit();
+        }elseif($_SESSION['role_id'] === 3){
+            header('Location: /admin/dashboard?success=' . urlencode($successMessage));
+            exit();
+        }
+    }
+
+    public function deleteMenu(int $id){
+        Auth::checkEmploye();
+        Auth::verifyCsrfToken();
+        $menu = $this->menus->findById($id);
+        $commandes = $this->commandes->commandeLinkMenu($id);
+        
+        if($commandes['COUNT(*)'] > 0){
+            $error = "Vous ne pouvez pas supprimer un menu avec des commandes en cours ";
+            header('Location: /menus?error=' . urlencode($error));
+            exit();
+        }
+
+        if($menu['chemin']){
+            unlink(__DIR__ . "/../../public/" . $menu['chemin']);
+        }
+
+        $this->menus->deleteImage($id);
+        $this->menus->deleteLinkPlat($id);
+        $this->menus->deleteMenu($id);
+        $successMessage = "Le menu a été supprimé avec succès .";
         if ($_SESSION['role_id'] === 2){
             header('Location: /employe/dashboard?success=' . urlencode($successMessage));
             exit();

@@ -128,6 +128,8 @@ $router->add('POST' , '/commandes/annuler-commande/{id}' , 'CommandeController' 
 $router->add('GET' , '/plats' , 'PlatController' , 'showAllPlats');
 $router->add('GET' , '/plats/create' , 'PlatController' , 'showCreatePlat');
 $router->add('POST' , '/plats/create' , 'PlatController' , 'createPlat');
+$router->add('GET' , '/plats/edit/{id}' , 'PlatController' , 'showEditPlat');
+$router->add('POST' , '/plats/edit/{id}' , 'PlatController' , 'updatePlat');
 
 //Afficher page contact
 $router->add('GET' , '/contact' , 'ContactController' , 'showForm');

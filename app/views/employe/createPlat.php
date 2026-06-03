@@ -14,7 +14,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <hr>
     <?php endif ?>
     <hr>
-    <h4>Crear un plat</h4>
+    <h4>Créer un plat</h4>
     <form action="/plats/create" method="POST" enctype="multipart/form-data">
         <?= Auth::csrfField() ?>
         <label for="titre_plat">Titre du plat </label><br>

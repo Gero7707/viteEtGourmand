@@ -28,6 +28,13 @@ class PlatModel{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getPlatById(int $id){
+        $stmt = $this->pdo->prepare("SELECT plat.* FROM plat WHERE plat_id = :plat_id");
+        $stmt->bindValue(':plat_id', $id , PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function createPlat(array $data){
         $stmt = $this->pdo->prepare("INSERT INTO plat (titre_plat , type_plat , chemin_photo) VALUES (:titre_plat , :type_plat , :chemin_photo)");
         $stmt->bindValue(':titre_plat' , $data['titre_plat'] ,PDO::PARAM_STR );
@@ -40,6 +47,35 @@ class PlatModel{
         $stmt = $this->pdo->prepare("INSERT INTO plat_allergene (plat_id , allergene_id) VALUES (:plat_id , :allergene_id)");
         $stmt->bindValue(':allergene_id' , $allergene_id ,PDO::PARAM_INT );
         $stmt->bindValue(':plat_id' , $platId ,PDO::PARAM_INT );
+        $stmt->execute();
+    }
+
+    public function updatePlat(array $data){
+        if(isset($data['chemin_photo'])){
+            $stmt = $this->pdo->prepare("UPDATE plat SET titre_plat = :titre_plat , type_plat = :type_plat , chemin_photo = :chemin_photo WHERE plat_id = :plat_id");
+            $stmt->bindValue(':plat_id' , $data['plat_id'] ,PDO::PARAM_INT );
+            $stmt->bindValue(':titre_plat' , $data['titre_plat'] ,PDO::PARAM_STR );
+            $stmt->bindValue(':type_plat' , $data['type_plat'] ,PDO::PARAM_STR );
+            $stmt->bindValue(':chemin_photo' , $data['chemin_photo'] ,PDO::PARAM_STR );
+        }else{
+            $stmt = $this->pdo->prepare("UPDATE plat SET titre_plat = :titre_plat , type_plat = :type_plat  WHERE plat_id = :plat_id");
+            $stmt->bindValue(':plat_id' , $data['plat_id'] ,PDO::PARAM_INT );
+            $stmt->bindValue(':titre_plat' , $data['titre_plat'] ,PDO::PARAM_STR );
+            $stmt->bindValue(':type_plat' , $data['type_plat'] ,PDO::PARAM_STR );
+        }
+        $stmt->execute();
+    }
+
+    
+    public function deleteAllergeneLink(int $plat_id){
+        $stmt = $this->pdo->prepare("DELETE FROM plat_allergene WHERE plat_id = :plat_id");
+        $stmt->bindValue(':plat_id', $plat_id , PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    public function deleteImage(int $id){
+        $stmt = $this->pdo->prepare("UPDATE plat SET chemin_photo = NULL WHERE plat_id = :plat_id");
+        $stmt->bindValue(':plat_id', $id , PDO::PARAM_INT);
         $stmt->execute();
     }
 }

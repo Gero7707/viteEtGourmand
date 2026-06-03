@@ -59,7 +59,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         
         <img src="/<?=htmlspecialchars($menu['chemin']) ?>" alt="" height="50" width="50"><br>
         <input type="file" name="img_menu" id="img_menu" ><br>
-        <button type="button" id="btn-showUpload">Changer Image</button><br>
+        <button type="button" id="btn-showUpload-menu">Changer Image</button><br>
 
         <button type="submit">Modifier menu</button>
     </form>

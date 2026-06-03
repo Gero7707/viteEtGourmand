@@ -25,6 +25,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <?php foreach($cartePlat['allergenes'] as $allergene) : ?>
             <p><?= htmlspecialchars($allergene['libelle']) ?></p>
         <?php endforeach ?>
+        <a href="/plats/edit/<?= htmlspecialchars($cartePlat['plat_id']) ?>">Modifier</a><br>
     <?php endforeach ?>
 </main>
 <?php

@@ -78,4 +78,27 @@ class PlatModel{
         $stmt->bindValue(':plat_id', $id , PDO::PARAM_INT);
         $stmt->execute();
     }
+
+    public function PlatLinkCommande(int $plat_id){
+        $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM commande 
+                                    JOIN menu_plat ON commande.menu_id = menu_plat.menu_id 
+                                    WHERE menu_plat.plat_id = :plat_id 
+                                    AND commande.statut NOT IN ('terminee', 'annulee')
+                                    ");
+        $stmt->bindValue(':plat_id', $plat_id , PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function deletePlat(int $id){
+        $stmt = $this->pdo->prepare("DELETE FROM plat WHERE plat_id = :plat_id");
+        $stmt->bindValue(':plat_id' , $id ,PDO::PARAM_INT );
+        $stmt->execute();
+    }
+
+    public function deleteMenuPlatLink(int $plat_id){
+        $stmt = $this->pdo->prepare("DELETE FROM menu_plat WHERE plat_id = :plat_id");
+        $stmt->bindValue(':plat_id', $plat_id , PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }

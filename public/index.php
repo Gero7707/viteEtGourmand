@@ -130,6 +130,7 @@ $router->add('GET' , '/plats/create' , 'PlatController' , 'showCreatePlat');
 $router->add('POST' , '/plats/create' , 'PlatController' , 'createPlat');
 $router->add('GET' , '/plats/edit/{id}' , 'PlatController' , 'showEditPlat');
 $router->add('POST' , '/plats/edit/{id}' , 'PlatController' , 'updatePlat');
+$router->add('POST' , '/plats/delete/{id}' , 'PlatController' , 'deletePlat');
 
 //Afficher page contact
 $router->add('GET' , '/contact' , 'ContactController' , 'showForm');

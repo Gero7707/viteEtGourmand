@@ -26,6 +26,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <p><?= htmlspecialchars($allergene['libelle']) ?></p>
         <?php endforeach ?>
         <a href="/plats/edit/<?= htmlspecialchars($cartePlat['plat_id']) ?>">Modifier</a><br>
+        <form action="/plats/delete/<?= htmlspecialchars($cartePlat['plat_id']) ?>" method="POST">
+            <?= Auth::csrfField() ?>
+            <button type="submit">Supprimer</button>
+        </form>
     <?php endforeach ?>
 </main>
 <?php

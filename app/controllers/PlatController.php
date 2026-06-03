@@ -216,4 +216,33 @@ class PlatController{
             exit();
         }
     }
+
+    public function deletePlat(int $id){
+        Auth::checkEmploye();
+        Auth::verifyCsrfToken();
+        $plat = $this->plats->getPlatById($id);
+        $commandes = $this->plats->PlatLinkCommande($id);
+        if($commandes['COUNT(*)'] > 0 ){
+            $error = "Vous ne pouvez pas supprimer un plat d'un menu  avec des commandes en cours ";
+            header('Location: /plats?error=' . urlencode($error));
+            exit();
+        }
+        if($plat['chemin_photo']){
+            unlink(__DIR__ . "/../../public/" . $plat['chemin_photo']);
+        }
+
+        $this->plats->deleteAllergeneLink($id);
+        $this->plats->deleteMenuPlatLink($id);
+        $this->plats->deletePlat($id);
+
+        $successMessage = "Le plat a été supprimé avec succès .";
+        if ($_SESSION['role_id'] === 2){
+            header('Location: /plats?success=' . urlencode($successMessage));
+            exit();
+        }elseif($_SESSION['role_id'] === 3){
+            header('Location: /plats?success=' . urlencode($successMessage));
+            exit();
+        }
+
+    }
 }

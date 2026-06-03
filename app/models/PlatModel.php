@@ -1,0 +1,45 @@
+<?php
+require_once __DIR__ . '/../../core/Database.php';
+
+class PlatModel{
+    private PDO $pdo;
+
+    public function __construct(){
+        $this->pdo = Database::getInstance()->getConnection();
+    }
+
+    public function getPlatAllergenes(int $plat_id){
+        $stmt = $this->pdo->prepare("SELECT allergene.*
+                                    FROM plat_allergene
+                                    JOIN allergene ON plat_allergene.allergene_id = allergene.allergene_id
+                                    WHERE plat_allergene.plat_id = :plat_id
+                                    ");
+        $stmt->bindValue(':plat_id', $plat_id , PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getAllPlats(){
+        $stmt = $this->pdo->query("SELECT plat.*, menu.titre AS menu_titre
+                                    FROM plat
+                                    LEFT JOIN menu_plat ON plat.plat_id = menu_plat.plat_id
+                                    LEFT JOIN menu ON menu_plat.menu_id = menu.menu_id
+                                    ");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function createPlat(array $data){
+        $stmt = $this->pdo->prepare("INSERT INTO plat (titre_plat , type_plat , chemin_photo) VALUES (:titre_plat , :type_plat , :chemin_photo)");
+        $stmt->bindValue(':titre_plat' , $data['titre_plat'] ,PDO::PARAM_STR );
+        $stmt->bindValue(':type_plat' , $data['type_plat'] ,PDO::PARAM_STR );
+        $stmt->bindValue(':chemin_photo' , $data['chemin_photo'] ,PDO::PARAM_STR );
+        $stmt->execute();
+        return $this->pdo->lastInsertId();
+    }
+    public function platLinkAllergene(int $platId, int $allergene_id){
+        $stmt = $this->pdo->prepare("INSERT INTO plat_allergene (plat_id , allergene_id) VALUES (:plat_id , :allergene_id)");
+        $stmt->bindValue(':allergene_id' , $allergene_id ,PDO::PARAM_INT );
+        $stmt->bindValue(':plat_id' , $platId ,PDO::PARAM_INT );
+        $stmt->execute();
+    }
+}

@@ -2,7 +2,8 @@
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 <main>
-    <a href="/">Accueil</a>
+    <a href="/">Accueil</a><br>
+    
     <hr>
     <?php if ($_GET['error'] ?? null): ?>
         <p><?= htmlspecialchars($_GET['error']) ?></p><br>

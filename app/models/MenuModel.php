@@ -46,27 +46,6 @@ class MenuModel{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getPlatAllergenes(int $plat_id){
-        $stmt = $this->pdo->prepare("SELECT allergene.*
-                                    FROM plat_allergene
-                                    JOIN allergene ON plat_allergene.allergene_id = allergene.allergene_id
-                                    WHERE plat_allergene.plat_id = :plat_id
-                                    ");
-        $stmt->bindValue(':plat_id', $plat_id , PDO::PARAM_INT);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function getAllPlats(){
-        $stmt = $this->pdo->query("SELECT plat.*, menu.titre AS menu_titre
-                                    FROM plat
-                                    JOIN menu_plat ON plat.plat_id = menu_plat.plat_id
-                                    JOIN menu ON menu_plat.menu_id = menu.menu_id
-                                    ");
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
     public function createMenu(array $data){
         $stmt =$this->pdo->prepare("INSERT INTO menu (titre , nombre_personne_minimum , prix_par_personne , description , quantite_restante , conditions_delai , conditions_stockage , conditions_infos , theme_id , regime_id)
                                     VALUES (:titre , :nombre_personne_minimum , :prix_par_personne , :description , :quantite_restante , :conditions_delai , :conditions_stockage , :conditions_infos , :theme_id , :regime_id)

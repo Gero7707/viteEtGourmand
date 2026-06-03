@@ -4,6 +4,7 @@ require_once __DIR__ . '/../models/HoraireModel.php';
 require_once __DIR__ . '/../models/RegimeModel.php';
 require_once __DIR__ . '/../models/ThemeModel.php';
 require_once __DIR__ . '/../models/CommandeModel.php';
+require_once __DIR__ . '/../models/PlatModel.php';
 
 class MenuController{
     private MenuModel $menus;
@@ -16,12 +17,15 @@ class MenuController{
 
     private CommandeModel $commandes;
 
+    private PlatModel $plats;
+
     public function __construct(){
         $this->menus = new MenuModel();
         $this->horaire = new HoraireModel();
         $this->themes = new ThemeModel();
         $this->regimes = new RegimeModel();
         $this->commandes = new CommandeModel();
+        $this->plats = new PlatModel();
     }
 
     public function index(){
@@ -37,21 +41,13 @@ class MenuController{
         // Pour chaque plat, on récupère ses allergènes et on les attache au plat
         // Le & permet de modifier directement le tableau $plat (passage par référence)
         foreach($plat as &$p) {
-            $p['allergenes'] = $this->menus->getPlatAllergenes($p['plat_id']);
+            $p['allergenes'] = $this->plats->getPlatAllergenes($p['plat_id']);
         }
         unset($p); // Casse la référence pour éviter le bug variable de référence reste liée au dernier élément du tableau après la boucle
         require_once __DIR__ . '/../views/menus/carteMenu.php';
     }
 
-    public function showAllPlats(){
-        $horaire = $this->horaire->getHoraire();
-        $plat = $this->menus->getAllPlats();
-        foreach($plat as &$p) {
-            $p['allergenes'] = $this->menus->getPlatAllergenes($p['plat_id']);
-        }
-        unset($p);
-        require_once __DIR__ . '/../views/employe/plats.php';
-    }
+    
 
     public function showFormMenu(){
         Auth::checkEmploye();

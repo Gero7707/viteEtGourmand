@@ -40,6 +40,7 @@ require_once __DIR__ . '/../app/controllers/CommandeController.php';
 require_once __DIR__ . '/../app/controllers/EmployeController.php';
 require_once __DIR__ . '/../app/controllers/ContactController.php';
 require_once __DIR__ . '/../app/controllers/HoraireController.php';
+require_once __DIR__ . '/../app/controllers/PlatController.php';
 
 // ============================================================
 // ROUTING
@@ -123,8 +124,10 @@ $router->add('POST' , '/commandes/update/{id}' , 'CommandeController' , 'changer
 $router->add('GET' , '/commandes/annuler-commande/{id}' , 'CommandeController' , 'showFormAnnuler');
 $router->add('POST' , '/commandes/annuler-commande/{id}' , 'CommandeController' , 'annulerCommandeEmploye');
 
-//Afficher otus les plats
-$router->add('GET' , '/plats' , 'MenuController' , 'showAllPlats');
+//Afficher  les plats
+$router->add('GET' , '/plats' , 'PlatController' , 'showAllPlats');
+$router->add('GET' , '/plats/create' , 'PlatController' , 'showCreatePlat');
+$router->add('POST' , '/plats/create' , 'PlatController' , 'createPlat');
 
 //Afficher page contact
 $router->add('GET' , '/contact' , 'ContactController' , 'showForm');

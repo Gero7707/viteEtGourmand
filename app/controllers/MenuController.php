@@ -104,12 +104,7 @@ class MenuController{
             exit();
         }
 
-        $quantiteDispo = $_POST['quantite_restante'];
-        if(empty(trim($quantiteDispo))){
-            $error = "Vous devez indiquer la quantité disponible  svp.";
-            header('Location: /create-menu?error=' . urlencode($error));
-            exit();
-        }
+        $quantiteDispo = !empty(trim($_POST['quantite_restante'])) ? trim($_POST['quantite_restante']) : null;
 
         $delais = $_POST['conditions_delai'];
         if(empty(trim($delais))){
@@ -201,6 +196,166 @@ class MenuController{
         $this->menus->addImageMenu($data);
 
         $successMessage = "Le menu a été créé avec succès .";
+        if ($_SESSION['role_id'] === 2){
+            header('Location: /employe/dashboard?success=' . urlencode($successMessage));
+            exit();
+        }elseif($_SESSION['role_id'] === 3){
+            header('Location: /admin/dashboard?success=' . urlencode($successMessage));
+            exit();
+        }
+    }
+
+    public function showEditMenu(int $id){
+        Auth::checkEmploye();
+        $horaire = $this->horaire->getHoraire();
+        $menu = $this->menus->findById($id);
+        $themes = $this->themes->getAll();
+        $regimes = $this->regimes->getAll();
+        require_once __DIR__ . '/../views/employe/updateMenu.php';
+    }
+
+    public function updateMenu(int $id){
+        Auth::checkEmploye();
+        Auth::verifyCsrfToken();
+        $menu = $this->menus->findById($id);
+
+        $selectTheme = $_POST['theme_id'];
+        if(empty($selectTheme)){
+            $error = "Vous devez indiquer le thème  svp.";
+            header('Location: /menus/edit/'. $id .'?error=' . urlencode($error));
+            exit();
+        }
+
+        $selectRegime = $_POST['regime_id'];
+        if(empty($selectRegime)){
+            $error = "Vous devez indiquer le régime  svp.";
+            header('Location: /menus/edit/'. $id .'?error=' . urlencode($error));
+            exit();
+        }
+
+        $titreMenu = $_POST['titre'];
+        if(empty(trim($titreMenu))){
+            $error = "Vous devez indiquer le titre du menu  svp.";
+            header('Location: /menus/edit/'. $id .'?error=' . urlencode($error));
+            exit();
+        }
+
+        $nbPersonneMini = $_POST['nombre_personne_minimum'];
+        if(empty(trim($nbPersonneMini))){
+            $error = "Vous devez indiquer le nombre de personne minimum  svp.";
+            header('Location: /menus/edit/'. $id .'?error=' . urlencode($error));
+            exit();
+        }
+
+        $prixParPersonne = $_POST['prix_par_personne'];
+        if(empty(trim($prixParPersonne))){
+            $error = "Vous devez indiquer le prix par personne  svp.";
+            header('Location: /menus/edit/'. $id .'?error=' . urlencode($error));
+            exit();
+        }
+
+        $description = $_POST['description'];
+        if(empty(trim($description))){
+            $error = "Vous devez indiquer la description du menu  svp.";
+            header('Location: /menus/edit/'. $id .'?error=' . urlencode($error));
+            exit();
+        }
+
+        $quantiteDispo = !empty(trim($_POST['quantite_restante'])) ? trim($_POST['quantite_restante']) : null;
+
+        $delais = $_POST['conditions_delai'];
+        if(empty(trim($delais))){
+            $error = "Vous devez indiquer les conditions de délais  svp.";
+            header('Location: /menus/edit/'. $id .'?error=' . urlencode($error));
+            exit();
+        }
+
+        $stockage = $_POST['conditions_stockage'];
+        if(empty(trim($stockage))){
+            $error = "Vous devez indiquer les conditions de stockage  svp.";
+            header('Location: /menus/edit/'. $id .'?error=' . urlencode($error));
+            exit();
+        }
+
+        $infos = $_POST['conditions_infos'];
+        if(empty(trim($infos))){
+            $error = "Vous devez indiquer les informations supplémentaires  svp.";
+            header('Location: /menus/edit/'. $id .'?error=' . urlencode($error));
+            exit();
+        }
+
+        $data = [
+            'theme_id' => $selectTheme,
+            'regime_id' => $selectRegime,
+            'titre' => $titreMenu,
+            'nombre_personne_minimum' => $nbPersonneMini,
+            'prix_par_personne' => $prixParPersonne,
+            'description' => $description,
+            'quantite_restante' => $quantiteDispo,
+            'conditions_delai' => $delais,
+            'conditions_stockage' => $stockage,
+            'conditions_infos'=> $infos,
+            'menu_id' => $id
+        ];
+
+        $this->menus->updateMenu($data);
+
+
+        if($_FILES['img_menu']['error'] !== UPLOAD_ERR_NO_FILE){
+            $imgMenu = $_FILES['img_menu'];
+
+            $extension = pathinfo($imgMenu['name'], PATHINFO_EXTENSION);
+
+            $nomFichier = uniqid() . '.' . $extension;
+
+            $source = $imgMenu['tmp_name'];
+
+            $destination = __DIR__ .  "/../../public/assets/img/menus/" . $nomFichier;
+            
+            if($_FILES['img_menu']['error'] !== 0){
+                $error = "Ce format n'est pas authorisé . ";
+                header('Location: /menus/edit/'. $id .'?error=' . urlencode($error));
+                exit();
+            }
+
+            if($imgMenu['size'] > 2 * 1024 * 1024){
+                $error = "Le fichier est supérieur à 2mo . ";
+                header('Location: /menus/edit/'. $id .'?error=' . urlencode($error));
+                exit();
+            }
+
+            $finfo = new finfo(FILEINFO_MIME_TYPE);
+            $mimeType = $finfo->file($imgMenu['tmp_name']);
+
+            $typesAutorises = ['image/jpeg', 'image/png', 'image/webp'];
+            $extensionsAutorisees = ['jpg', 'jpeg', 'png', 'webp'];
+
+            if(!in_array($mimeType, $typesAutorises)){
+                $error = "Ce format n'est pas authorisé . ";
+                header('Location: /menus/edit/'. $id .'?error=' . urlencode($error));
+                exit();
+            }
+
+            if(!in_array($extension, $extensionsAutorisees)){
+                $error = "Ce format n'est pas authorisé . ";
+                header('Location: /menus/edit/'. $id .'?error=' . urlencode($error));
+                exit();
+            }
+            unlink(__DIR__ . "/../../public/" . $menu['chemin']);
+            $this->menus->deleteImage($id);
+            move_uploaded_file($source, $destination);
+
+            $data = [
+                'chemin' => "assets/img/menus/" . $nomFichier,
+                'menu_id' => $menu['menu_id']
+            ];
+            
+            
+            $this->menus->addImageMenu($data);
+
+        }
+
+        $successMessage = "Le menu a été modifié avec succès .";
         if ($_SESSION['role_id'] === 2){
             header('Location: /employe/dashboard?success=' . urlencode($successMessage));
             exit();

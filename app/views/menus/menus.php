@@ -12,7 +12,11 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <p><?= htmlspecialchars($menu['description']) ?></p><br>
     <p><?= htmlspecialchars($menu['theme']) ?></p><br>
     <p><?= htmlspecialchars($menu['regime']) ?></p><br>
-    <a href="/menus/<?=  htmlspecialchars($menu['menu_id']); ?>">Voir menu</a>
+    <a href="/menus/<?=  htmlspecialchars($menu['menu_id']); ?>">Voir menu</a><br>
+    <?php if($_SESSION['role_id'] === 2 || $_SESSION['role_id'] === 3 ) : ?>
+        <a href="/menus/edit/<?= htmlspecialchars($menu['menu_id']) ?>">Modifier</a><br>
+        <a href="/menus/delete/<?= htmlspecialchars($menu['menu_id']) ?>">Supprimer</a>
+    <?php endif ?>
     <hr>
 <?php endforeach ?>
 </main>

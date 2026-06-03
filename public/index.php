@@ -90,6 +90,10 @@ $router->add('GET' , '/menus' , 'MenuController' , 'index');
 //Créer un menu
 $router->add('GET' , '/create-menu' , 'MenuController' , 'showFormMenu');
 $router->add('POST' , '/create-menu' , 'MenuController' , 'createMenu');
+//Modifier un menu
+$router->add('GET' , '/menus/edit/{id}' , 'MenuController' , 'showEditMenu');
+$router->add('POST' , '/menus/edit/{id}' , 'MenuController' , 'updateMenu');
+$router->add('POST' , '/menus/delete/{id}' , 'MenuController' , 'deleteMenu');
 
 //Afficher un menu
 $router->add('GET' , '/menus/{id}' , 'MenuController' , 'show');

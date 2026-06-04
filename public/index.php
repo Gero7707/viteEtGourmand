@@ -82,6 +82,9 @@ $router->add('POST' , '/admin/employe-register' , 'AdminController' , 'registerE
 $router->add('POST' , '/admin/desactiver/{id}' , 'AdminController' , 'desactiverEmploye');
 //Activer un employé
 $router->add('POST' , '/admin/activer/{id}' , 'AdminController' , 'activerEmploye');
+//Modifier profil employé 
+$router->add('GET' , '/admin/update-employe/{id}' , 'AdminController' , 'showModifEmploye');
+$router->add('POST' , '/admin/update-employe/{id}' , 'AdminController' , 'updateEmploye');
 
 // Authentification — déconnexion
 $router->add('GET', '/auth/logout', 'AuthController', 'logOut');

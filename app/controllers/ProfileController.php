@@ -61,6 +61,7 @@ class ProfileController{
             header('Location: /profile/edit?error=' . urlencode($error));
             exit();
         }
+        
         $this->user->updateUser($id,
                                 $_POST['nom'],
                                 $_POST['prenom'],

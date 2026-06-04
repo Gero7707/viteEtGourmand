@@ -58,7 +58,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         <?php endif ?>
                     </td>
                     <td>
-                        action modifier
+                        <a href="/admin/update-employe/<?= htmlspecialchars($employe['utilisateur_id']) ?>">Modifier profil</a>
                     </td>
                 </tr>
             <?php endforeach ?>

@@ -77,7 +77,7 @@ class UserModel{
         return $stmt->execute();
     }
 
-    public function updateUser(int $id, string $nom, string $prenom, string $email, string $gsm, string $ville, string $adresse, string $code_postal){
+    public function updateUser(int $id, string $nom, string $prenom, string $email, string $gsm, string $ville, string $adresse, string $codePostal){
         $stmt = $this->pdo->prepare("UPDATE utilisateur 
                                     SET nom = :nom, 
                                     prenom = :prenom, 
@@ -95,7 +95,7 @@ class UserModel{
         $stmt->bindValue(':gsm', $gsm , PDO::PARAM_STR);
         $stmt->bindValue(':ville', $ville , PDO::PARAM_STR);
         $stmt->bindValue(':adresse', $adresse , PDO::PARAM_STR);
-        $stmt->bindValue(':code_postal', $code_postal , PDO::PARAM_STR);
+        $stmt->bindValue(':code_postal', $codePostal , PDO::PARAM_STR);
         return $stmt->execute();
     }
 
@@ -125,4 +125,27 @@ class UserModel{
         $stmt->bindValue(':id', $id , PDO::PARAM_INT);
         return $stmt->execute();
     }
+
+    public function updateEmploye(array $data){
+        $stmt = $this->pdo->prepare("UPDATE utilisateur 
+                                    SET nom = :nom, 
+                                    prenom = :prenom, 
+                                    email = :email, 
+                                    gsm = :gsm, 
+                                    ville = :ville, 
+                                    adresse = :adresse, 
+                                    code_postal = :code_postal 
+                                    WHERE utilisateur_id = :id 
+                                    ");
+        $stmt->bindValue(':id', $data['id'] , PDO::PARAM_INT);
+        $stmt->bindValue(':nom', $data['nom']  , PDO::PARAM_STR);
+        $stmt->bindValue(':prenom', $data['prenom']  , PDO::PARAM_STR);
+        $stmt->bindValue(':email', $data['email']  , PDO::PARAM_STR);
+        $stmt->bindValue(':gsm', $data['gsm']  , PDO::PARAM_STR);
+        $stmt->bindValue(':ville', $data['ville']  , PDO::PARAM_STR);
+        $stmt->bindValue(':adresse', $data['adresse']  , PDO::PARAM_STR);
+        $stmt->bindValue(':code_postal', $data['code_postal']  , PDO::PARAM_STR);
+        return $stmt->execute();
+    }
+
 }

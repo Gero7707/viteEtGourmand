@@ -42,7 +42,7 @@ class UserModel{
     }
 
     public function getEmploye(){
-        $stmt = $this->pdo->query("SELECT email , nom , prenom , gsm , ville , actif 
+        $stmt = $this->pdo->query("SELECT email , nom , prenom , gsm , ville , actif , utilisateur_id
                                     FROM utilisateur
                                     WHERE role_id = 2
                                     ");
@@ -112,5 +112,17 @@ class UserModel{
         $stmt->bindValue(':role_id', $data['role_id'] , PDO::PARAM_INT);
         $stmt->execute();
         return $this->pdo->lastInsertId();
+    }
+
+    public function desactiverEmploye(int $id){
+        $stmt = $this->pdo->prepare("UPDATE utilisateur SET actif = 0 WHERE utilisateur_id = :id");
+        $stmt->bindValue(':id', $id , PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+
+    public function activerEmploye(int $id){
+        $stmt = $this->pdo->prepare("UPDATE utilisateur SET actif = 1 WHERE utilisateur_id = :id");
+        $stmt->bindValue(':id', $id , PDO::PARAM_INT);
+        return $stmt->execute();
     }
 }

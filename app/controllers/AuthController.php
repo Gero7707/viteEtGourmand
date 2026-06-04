@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../models/UserModel.php';
 require_once __DIR__ . '/../models/LoginAttemptModel.php';
 require_once __DIR__ . '/../services/MailService.php';
+require_once __DIR__ . '/../models/HoraireModel.php';
 require_once __DIR__ . '/../../core/Auth.php';
 
 class AuthController{
@@ -10,16 +11,20 @@ class AuthController{
 
     private MailService $mailService;
 
+    private HoraireModel $horaire;
+
     public function __construct(){
         $this->users = new UserModel();
         $this->loginAttempts = new LoginAttemptModel();
         $this->mailService = new MailService();
+        $this->horaire = new HoraireModel();
     }
 
     /**
      * GET /auth/login — Affiche le formulaire de connexion
      */
     public function loginForm(){
+        $horaire = $this->horaire->getHoraire();
         require_once __DIR__ . '/../views/auth/login.php';
     }
 
@@ -28,6 +33,7 @@ class AuthController{
      */
     public function login(){
         Auth::verifyCsrfToken();
+        
         $input = $_POST['login'] ?? '';
 
         // Valider que le champ n'est pas vide
@@ -50,6 +56,12 @@ class AuthController{
         if($user && password_verify($_POST['password'], $user['password'])){
             // Régénérer l'id de session contre le session fixation
             session_regenerate_id();
+
+            if($user['actif'] === 0){
+                $error = "Vous n'avez plus accès à ce compte .";
+                header('Location: /auth/login?error=' . urlencode($error));
+                exit();
+            }
 
             $_SESSION['utilisateur_id'] = $user['utilisateur_id'];
             $_SESSION['role_id'] = $user['role_id'];
@@ -94,6 +106,8 @@ class AuthController{
             header('Location: /auth/login?error=' . urlencode($error));
             exit();
         }
+
+        
     }
 
     public function logOut(){

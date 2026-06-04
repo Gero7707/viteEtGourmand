@@ -118,4 +118,22 @@ class AdminController{
         header('location: /admin/dashboard?success=' . urlencode($successMessage));
         exit();
     }
+
+    public function desactiverEmploye(int $id){
+        Auth::checkAdmin();
+        Auth::verifyCsrfToken();
+        $this->users->desactiverEmploye($id);
+        $successMessage = "Le compte employé a été desactivé avec succès .";
+        header('location: /admin/dashboard?success=' . urlencode($successMessage));
+        exit();
+    }
+
+    public function activerEmploye(int $id){
+        Auth::checkAdmin();
+        Auth::verifyCsrfToken();
+        $this->users->activerEmploye($id);
+        $successMessage = "Le compte employé a été activé avec succès .";
+        header('location: /admin/dashboard?success=' . urlencode($successMessage));
+        exit();
+    }
 }

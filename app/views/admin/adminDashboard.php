@@ -45,7 +45,17 @@ require_once __DIR__ . '/../../views/layout/header.php';
                     <td><?= htmlspecialchars($employe['ville'] ?? '') ?></td>
                     <td><?= $employe['actif'] ? 'Oui' : 'Non' ?></td>
                     <td>
-                        action désactiver 
+                        <?php if($employe['actif'] === 1) : ?>
+                            <form action="/admin/desactiver/<?= htmlspecialchars($employe['utilisateur_id']) ?>" method="POST">
+                                <?= Auth::csrfField() ?>
+                                <button type="submit">Desactiver</button>
+                            </form>
+                        <?php elseif($employe['actif'] === 0) : ?>
+                            <form action="/admin/activer/<?= htmlspecialchars($employe['utilisateur_id']) ?>" method="POST">
+                                <?= Auth::csrfField() ?>
+                                <button type="submit">Activer</button>
+                            </form>
+                        <?php endif ?>
                     </td>
                     <td>
                         action modifier

@@ -78,6 +78,10 @@ $router->add('POST', '/auth/register', 'AuthController', 'register');
 //Création de compte pour employé par admin
 $router->add('GET' , '/admin/employe-register' , 'AdminController' , 'ShowRegisterEmploye');
 $router->add('POST' , '/admin/employe-register' , 'AdminController' , 'registerEmploye');
+//Désactiver un compte employé
+$router->add('POST' , '/admin/desactiver/{id}' , 'AdminController' , 'desactiverEmploye');
+//Activer un employé
+$router->add('POST' , '/admin/activer/{id}' , 'AdminController' , 'activerEmploye');
 
 // Authentification — déconnexion
 $router->add('GET', '/auth/logout', 'AuthController', 'logOut');

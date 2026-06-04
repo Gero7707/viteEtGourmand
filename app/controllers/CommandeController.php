@@ -430,8 +430,8 @@ class CommandeController{
             'accepte' => 'en_preparation', 
             'en_preparation' => 'en_livraison', 
             'en_livraison' => 'livree', 
-            'livre' => 'attente_retour_matériel', 
-            'attente_retour_matériel' => 'terminee'
+            'livree' => 'attente_retour_materiel', 
+            'attente_retour_materiel' => 'terminee'
         ];
         $statutSuivant = $transition[$statutActuel['statut']];
         $this->commandes->updateStatutCommande($id ,$statutSuivant);
@@ -443,6 +443,23 @@ class CommandeController{
             'date_modification' => $dateModif
         ];
         $this->commandes->createHistorique($historiqueData);
+
+        if($statutSuivant === 'attente_retour_materiel'){
+            $titre = "En attente de retour du matériel prété .";
+            $message = "Bonjour {$statutActuel['nom_complet']}, votre commande {$statutActuel['numero_commande']} a bien été livrée. Le matériel prêté doit être restitué sous 10 jours ouvrés. Passé ce délai, une pénalité forfaitaire de 600€ sera facturée.";
+            $email = $statutActuel['utilisateur_email'];
+
+            $this->mailService->sendEmail($email , $titre , $message);
+        }
+
+        if($statutSuivant === 'terminee'){
+            $titre = "Enquète satisfaction .";
+            $lien = getenv('APP_URL') . '/avis/noter/' . $statutActuel['commande_id'];
+            $message = "Bonjour {$statutActuel['nom_complet']}, votre commande {$statutActuel['numero_commande']} est terminée. Nous espérons que vous avez apprécié nos services. " . $lien;
+            $email = $statutActuel['utilisateur_email'];
+
+            $this->mailService->sendEmail($email , $titre , $message);
+        }
 
         $successMessage = "Le statut de la commande est : " . $statutSuivant;
         header('Location: /commandes-client?success=' . urlencode($successMessage));

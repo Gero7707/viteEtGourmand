@@ -61,22 +61,22 @@ class ProfileController{
             header('Location: /profile/edit?error=' . urlencode($error));
             exit();
         }
+
+        $nom = trim($_POST['nom']);
+        $prenom =  trim($_POST['prenom']);
+        $gsm = trim($_POST['gsm']);
+        $ville = trim($_POST['ville']);
+        $adresse = trim($_POST['adresse']);
+        $codePostal = trim($_POST['code_postal']);
+
         
-        $this->user->updateUser($id,
-                                $_POST['nom'],
-                                $_POST['prenom'],
-                                $email,
-                                $_POST['gsm'],
-                                $_POST['ville'],
-                                $_POST['adresse'],
-                                $_POST['code_postal']
-                                );
+        $this->user->updateUser($id,$nom,$prenom,$email,$gsm,$ville,$adresse,$codePostal);
         $_SESSION['email'] = $email;
-        $_SESSION['prenom'] = $_POST['prenom'];
-        $_SESSION['gsm'] = $_POST['gsm'];
-        $_SESSION['ville'] = $_POST['ville'];
-        $_SESSION['adresse'] = $_POST['adresse'];
-        $_SESSION['code_postal'] = $_POST['code_postal'];
+        $_SESSION['prenom'] = $prenom;
+        $_SESSION['gsm'] = $gsm;
+        $_SESSION['ville'] = $ville;
+        $_SESSION['adresse'] = $adresse;
+        $_SESSION['code_postal'] = $codePostal;
         $succesMessage = "Votre profil a été mis à jour avec succès .";
         header('location: /profile?success='  . urlencode($succesMessage));
         exit();

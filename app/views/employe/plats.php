@@ -28,7 +28,16 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <a href="/plats/edit/<?= htmlspecialchars($cartePlat['plat_id']) ?>">Modifier</a><br>
         <form action="/plats/delete/<?= htmlspecialchars($cartePlat['plat_id']) ?>" method="POST">
             <?= Auth::csrfField() ?>
-            <button type="submit">Supprimer</button>
+            <button type="submit">Supprimer</button><br>
+        </form>
+        <form action="plats/associer/<?= htmlspecialchars($cartePlat['plat_id']) ?>" method="POST">
+            <?= Auth::csrfField() ?>
+            <select name="menu_id" id="menu_id"  required>
+                <? foreach($cartePlat['menu'] as $menu) : ?>
+                    <option value="<?= htmlspecialchars($menu['menu_id']) ?>"><?= htmlspecialchars($menu['titre']) ?></option>
+                <? endforeach ?>
+            </select><br>
+            <button type="submit">Associer</button>
         </form>
     <?php endforeach ?>
 </main>

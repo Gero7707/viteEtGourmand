@@ -3,7 +3,15 @@ require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 <main>
     <a href="/">Accueil</a><br>
-    <a href="/menus">Retour aux menus</a>
+    <a href="/menus">Retour aux menus</a><br>
+    <hr>
+    <?php if ($_GET['error'] ?? null): ?>
+        <p><?= htmlspecialchars($_GET['error']) ?></p><br>
+        <hr>
+    <?php elseif($_GET['success'] ?? null) :?>
+        <p><?= htmlspecialchars($_GET['success']) ?></p><br>
+        <hr>
+    <?php endif ?>
 
 
     <h4>Titre</h4>
@@ -29,7 +37,13 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <?php foreach($p['allergenes'] as $allergene) : ?>
             <p><?= htmlspecialchars($allergene['libelle']) ?></p>
         <?php endforeach ?>
-
+        <?php if(isset($_SESSION['role_id'] ) && ($_SESSION['role_id'] === 2 || $_SESSION['role_id'] === 3)) : ?>
+            <form action="/plats/dissocier/<?= htmlspecialchars($p['plat_id']) ?>" method="POST">
+                <input type="hidden" name="menu_id" value="<?= htmlspecialchars($menus['menu_id']) ?>">
+                <?= Auth::csrfField() ?>
+                <button type="submit">Dissocier plat</button>
+            </form>
+        <?php endif ?>
     <?php endforeach ?>
     <h4>Conditions:</h4>
     <h5>Delai :</h5>

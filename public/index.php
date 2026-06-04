@@ -131,6 +131,8 @@ $router->add('POST' , '/plats/create' , 'PlatController' , 'createPlat');
 $router->add('GET' , '/plats/edit/{id}' , 'PlatController' , 'showEditPlat');
 $router->add('POST' , '/plats/edit/{id}' , 'PlatController' , 'updatePlat');
 $router->add('POST' , '/plats/delete/{id}' , 'PlatController' , 'deletePlat');
+$router->add('POST' , '/plats/associer/{id}' , 'PlatController' , 'associerPlat');
+$router->add('POST' , '/plats/dissocier/{id}' , 'PlatController' , 'dissocierPlat');
 
 //Afficher page contact
 $router->add('GET' , '/contact' , 'ContactController' , 'showForm');

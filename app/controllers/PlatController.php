@@ -21,9 +21,35 @@ class PlatController{
         $plat = $this->plats->getAllPlats();
         foreach($plat as &$p) {
             $p['allergenes'] = $this->plats->getPlatAllergenes($p['plat_id']);
+            $p['menu'] = $this->plats->getMenusDisponibles($p['plat_id']);
         }
         unset($p);
         require_once __DIR__ . '/../views/employe/plats.php';
+    }
+
+    public function associerPlat(int $id){
+        Auth::checkEmploye();
+        Auth::verifyCsrfToken();
+        $menu_id = $_POST['menu_id'];
+        if(empty($menu_id)){
+            $error = "Vous devez indiquer le menu à associer .";
+            header('Location: /plats?error=' . urlencode($error));
+            exit();
+        }
+        $this->plats->associerPlat($id ,(int)$menu_id);
+        $succesMessage = "Vous avez associé le menu et le plat avec succès .";
+        header('Location: /plats?success=' . urlencode($succesMessage));
+        exit();
+    }
+
+    public function dissocierPlat(int $id){
+        Auth::checkEmploye();
+        Auth::verifyCsrfToken();
+        $menu_id = $_POST['menu_id'];
+        $this->plats->dissocierPlat($id);
+        $succesMessage = "Vous avez dissocié le menu et le plat avec succès .";
+        header('Location: /menus/'. $menu_id . '?success=' . urlencode($succesMessage));
+        exit();
     }
 
     public function showCreatePlat(){
@@ -39,14 +65,14 @@ class PlatController{
 
         $titrePlat = $_POST['titre_plat'];
         if(empty(trim($titrePlat))){
-            $error = "Vous devez indiquer le titre du plat  svp.";
+            $error = "Vous devez indiquer le titre du plat .";
             header('Location: /plats/create?error=' . urlencode($error));
             exit();
         }
 
         $typePlat = $_POST['type_plat'];
         if(empty(trim($typePlat))){
-            $error = "Vous devez indiquer le type de plat  svp.";
+            $error = "Vous devez indiquer le type de plat.";
             header('Location: /plats/create?error=' . urlencode($error));
             exit();
         }
@@ -128,14 +154,14 @@ class PlatController{
         $plat = $this->plats->getPlatById($id);
         $titrePlat = $_POST['titre_plat'];
         if(empty(trim($titrePlat))){
-            $error = "Vous devez indiquer le titre du plat  svp.";
+            $error = "Vous devez indiquer le titre du plat .";
             header('Location: /plats/edit/' . $id .'?error=' . urlencode($error));
             exit();
         }
 
         $typePlat = $_POST['type_plat'];
         if(empty(trim($typePlat))){
-            $error = "Vous devez indiquer le type de plat  svp.";
+            $error = "Vous devez indiquer le type de plat .";
             header('Location: /plats/edit/' . $id .'?error=' . urlencode($error));
             exit();
         }

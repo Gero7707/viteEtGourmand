@@ -50,6 +50,19 @@ class PlatModel{
         $stmt->execute();
     }
 
+    public function associerPlat(int $id , int $menu_id){
+        $stmt = $this->pdo->prepare("INSERT INTO menu_plat (menu_id , plat_id) VALUES (:menu_id , :plat_id)");
+        $stmt->bindValue(':plat_id' , $id ,PDO::PARAM_INT );
+        $stmt->bindValue(':menu_id' , $menu_id ,PDO::PARAM_INT );
+        $stmt->execute();
+    }
+
+    public function dissocierPlat(int $id){
+        $stmt = $this->pdo->prepare("DELETE FROM menu_plat WHERE plat_id = :id");
+        $stmt->bindValue(':id' , $id ,PDO::PARAM_INT );
+        $stmt->execute();
+    }
+
     public function updatePlat(array $data){
         if(isset($data['chemin_photo'])){
             $stmt = $this->pdo->prepare("UPDATE plat SET titre_plat = :titre_plat , type_plat = :type_plat , chemin_photo = :chemin_photo WHERE plat_id = :plat_id");
@@ -100,5 +113,17 @@ class PlatModel{
         $stmt = $this->pdo->prepare("DELETE FROM menu_plat WHERE plat_id = :plat_id");
         $stmt->bindValue(':plat_id', $plat_id , PDO::PARAM_INT);
         $stmt->execute();
+    }
+
+    public function getMenusDisponibles(int $plat_id){
+        $stmt = $this->pdo->prepare("SELECT menu.* FROM menu 
+                                    WHERE menu.menu_id NOT IN (
+                                        SELECT menu_plat.menu_id FROM menu_plat 
+                                        JOIN plat ON menu_plat.plat_id = plat.plat_id
+                                        WHERE plat.type_plat = (SELECT type_plat FROM plat WHERE plat_id = :plat_id)
+                                    )");
+        $stmt->bindValue(':plat_id', $plat_id , PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

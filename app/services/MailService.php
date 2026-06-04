@@ -46,6 +46,7 @@ class MailService{
      * @param string $body    Corps de l'email (texte brut)
      */
     public function sendEmail(string $to, string $subject, string $body): void {
+        $this->mail->clearAllRecipients();
         // Active le transport SMTP (par opposition au mail() natif PHP)
         $this->mail->isSMTP();
 

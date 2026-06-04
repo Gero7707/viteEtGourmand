@@ -20,7 +20,6 @@ class AuthController{
      * GET /auth/login — Affiche le formulaire de connexion
      */
     public function loginForm(){
-        Auth::generateCsrfToken();
         require_once __DIR__ . '/../views/auth/login.php';
     }
 
@@ -107,7 +106,6 @@ class AuthController{
      * GET /auth/register — Affiche le formulaire d'inscription
      */
     public function registerForm(){
-        Auth::generateCsrfToken();
         require_once __DIR__ . '/../views/auth/register.php';
     }
 

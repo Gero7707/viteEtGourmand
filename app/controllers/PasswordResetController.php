@@ -13,7 +13,6 @@ class PasswordResetController{
     }
 
     public function forgotPasswordForm(){
-        Auth::generateCsrfToken();
         require_once __DIR__ . '/../views/auth/forgotPassword.php';
     }
 
@@ -48,7 +47,6 @@ class PasswordResetController{
 
     public function resetPasswordForm(){
         $token = $_GET['token'] ?? '';
-        Auth::generateCsrfToken();
         require_once __DIR__ . '/../views/auth/resetPassword.php';
     }
     public function resetPassword(){

@@ -89,7 +89,7 @@ class UserModel{
                                     WHERE utilisateur_id = :id 
                                     ");
         $stmt->bindValue(':id', $id , PDO::PARAM_INT);
-        $stmt->bindValue('nom', $nom , PDO::PARAM_STR);
+        $stmt->bindValue(':nom', $nom , PDO::PARAM_STR);
         $stmt->bindValue(':prenom', $prenom , PDO::PARAM_STR);
         $stmt->bindValue(':email', $email , PDO::PARAM_STR);
         $stmt->bindValue(':gsm', $gsm , PDO::PARAM_STR);
@@ -97,5 +97,20 @@ class UserModel{
         $stmt->bindValue(':adresse', $adresse , PDO::PARAM_STR);
         $stmt->bindValue(':code_postal', $code_postal , PDO::PARAM_STR);
         return $stmt->execute();
+    }
+
+    public function createEmploye(array $data){
+        $stmt = $this->pdo->prepare("INSERT INTO utilisateur (email , password , nom , prenom , gsm , ville , adresse , code_postal , role_id ) VALUES (:email , :password , :nom , :prenom , :gsm , :ville , :adresse , :code_postal , :role_id )");
+        $stmt->bindValue(':email', $data['email'] , PDO::PARAM_STR);
+        $stmt->bindValue(':password', $data['password'] , PDO::PARAM_STR);
+        $stmt->bindValue(':nom', $data['nom'] , PDO::PARAM_STR);
+        $stmt->bindValue(':prenom', $data['prenom'] , PDO::PARAM_STR);
+        $stmt->bindValue(':gsm', $data['gsm'] , PDO::PARAM_STR);
+        $stmt->bindValue(':ville', $data['ville'] , PDO::PARAM_STR);
+        $stmt->bindValue(':adresse', $data['adresse'] , PDO::PARAM_STR);
+        $stmt->bindValue(':code_postal', $data['code_postal'] , PDO::PARAM_STR);
+        $stmt->bindValue(':role_id', $data['role_id'] , PDO::PARAM_INT);
+        $stmt->execute();
+        return $this->pdo->lastInsertId();
     }
 }

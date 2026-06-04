@@ -75,6 +75,10 @@ $router->add('POST', '/auth/login', 'AuthController', 'login');
 $router->add('GET', '/auth/register', 'AuthController', 'registerForm');
 $router->add('POST', '/auth/register', 'AuthController', 'register');
 
+//Création de compte pour employé par admin
+$router->add('GET' , '/admin/employe-register' , 'AdminController' , 'ShowRegisterEmploye');
+$router->add('POST' , '/admin/employe-register' , 'AdminController' , 'registerEmploye');
+
 // Authentification — déconnexion
 $router->add('GET', '/auth/logout', 'AuthController', 'logOut');
 

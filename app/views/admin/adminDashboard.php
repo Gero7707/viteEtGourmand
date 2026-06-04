@@ -18,6 +18,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <a href="/create-menu">Créer un menu</a><br>
     <a href="/plats">Plats</a><br>
     <a href="/changer-horaire">Changer horaire</a><br>
+    <a href="/admin/employe-register">Créer compte employé</a>
     <hr>
     <h1>Dashboard de l'Administrateur</h1>
     <h4>Employés</h4>

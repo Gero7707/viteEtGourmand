@@ -1,0 +1,43 @@
+:root{
+
+    /* Couleurs principales */
+
+    --bleu-tres-fonce : #0F1D36;
+    --bleu-nuit : #1B2A4A;
+    --bleu-moyen : #2A3F6A;
+    --dore : #D4A853;
+    --dore-clair : #E8C475; 
+    --dore-tres-clair : #F5E6C4;
+
+    /* Neutres (textes, fonds, bordures) */
+
+    --noir-doux : #1a1a1a;
+    --texte :  #333333;
+    --secondaire : #666666;
+    --placeholder : #6b6b6b;
+    --bordure : #e8e8e8;
+    --fond-carte : #f5f5f5;
+    --fond-plus-clair : #fafafa;
+
+    /* Couleurs sémantiques (statuts, alertes) */
+
+    --success-valide : #2E7D4F;
+    --error-annule :  #C62828;
+    --attention-en-cours : #E68A00;
+    --info-lien : #1565C0;
+
+    /* Accessibilité */
+
+    --dore-fond-clair : #8A5E1A;
+    --attention-texte :#9A5C00;
+
+    /* Typographie */
+
+    --font-logo: "Great Vibes", cursive;
+    --font-principale: "Manrope", sans-serif;
+}
+
+
+.titre{
+    font-family: var(--font-logo);
+}

@@ -46,25 +46,59 @@ require_once __DIR__ . '/../views/layout/header.php';
         <p><?= htmlspecialchars($_GET['error']) ?></p>
     <?php endif ?>
     <br><hr><br>
-
-    <h3>Carousel</h3>
+        <section class="section-carousel">
+            <h3>Carousel</h3>
+        </section>
     
-    <br><hr><br>
-    <?php foreach($avis as $carteAvis) : ?>
-        <p><?= htmlspecialchars($carteAvis['nom_complet']) ?></p>
-        <p><?= htmlspecialchars($carteAvis['note']) ?></p>
-        <p><?= htmlspecialchars($carteAvis['description']) ?></p>
-        <p><?= htmlspecialchars(str_replace(':00', 'h',date('d-m-Y  à  H:i', strtotime($carteAvis['date_avis'])))) ?></p>
-        <hr>
-    <?php endforeach ?>
-    <a href="/avis">Voir tous les avis</a>
+    <section class="section-savoir-faire">
+        <h3 class="text-center mb-5">Notre savoir faire</h3>
+        <div class="d-flex carte-savoir-faire mb-4 mt-5">
+            <img src="/assets/img/menus/banquet.jpg" alt="baquet" class="img-carte1 observer">
+            <div class="p-5 texte text-center texte-carte1 observer">
+                <p class="mb-5 mt-5">Depuis 1999, Vite & Gourmand met son expertise au service de vos réceptions. </p>
+                <p class="mb-5">Chaque menu est élaboré avec des produits frais et de saison, <br> sélectionnés auprès de producteurs locaux bordelais.</p>
+                <p >De l'entrée au dessert, nos plats allient saveurs authentiques et <br> présentation soignée pour faire de chaque repas un moment inoubliable.</p>
+            </div>
+        </div>
 
-
-    <br><hr><br>
+        <div class="d-flex carte-savoir-faire mb-4 mt-5">
+            <div class="p-5 texte text-center texte-carte2 observer">
+                <p class="mb-5">Notre équipe accompagne vos événements de A à Z :conception de menus personnalisés, préparation dans nos cuisines, livraison et mise en place chez vous.</p>
+                <p class="mb-5">Mariages, repas d'entreprise, fêtes de famille ou galas, nous nous adaptons à chaque occasion avec le même souci du détail et de l'excellence. </p>
+                <p >Plus de 2 000 événements réussis à Bordeaux et dans toute la Gironde.</p>
+            </div>
+            <img src="/assets/img/menus/menu-estival.jpg" alt="menu-estival" class="img-carte2 observer">
+            
+        </div>
+    </section>
     
+    <section class="section-avis bg-primary m-auto mt-5 pt-5 pb-4">
+        <h3 class="text-secondary text-center mb-5">Avis clients</h3>
+                
+            <div class="row">
+                <?php foreach($avis as $carteAvis) : ?>
+                    <div class="col-1"></div>
+                    <div class="carte-avis mb-5 col-4">
+                        <p class="titre-avis"><?= htmlspecialchars($carteAvis['nom_complet']) ?><span class="note-avis"> - <?= htmlspecialchars($carteAvis['note']) ?>/5</span></p>
+                        <?php for($i = 0; $i < $carteAvis['note']; $i++): ?>
+                            <i class="fa-solid fa-star"></i>
+                        <?php endfor ?>
+                        <?php for($i = 0; $i < 5 - $carteAvis['note']; $i++): ?>
+                            <i class="fa-regular fa-star"></i>
+                        <?php endfor ?>
+                        <p class="description-avis"><?= htmlspecialchars($carteAvis['description']) ?></p>
+                        <p class="date-avis"><?= htmlspecialchars(str_replace(':00', 'h',date('d-m-Y  à  H:i', strtotime($carteAvis['date_avis'])))) ?></p>
+                    </div>
+                    <div class="col-1"></div>
+                <?php endforeach ?>
+            </div>
+        <div class="text-center mb-5">
+            <a href="/avis" class="avis bg-secondary">Voir tous les avis</a>
+        </div>
+    </section>
     
 </main>
-
+<script src="/assets/js/intersectionObserver.js"></script>
 
 <?php
 require_once __DIR__ . '/../views/layout/footer.php';

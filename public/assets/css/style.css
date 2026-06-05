@@ -44,7 +44,9 @@
 }
 *{font-size: 18px;}
 
-
+body{
+    background-color:var(--fond-plus-clair) ;
+}
 
 /* Header et style , ceratins élément généraux comme pour la taille des line connexion, commander ... */
 header{
@@ -104,10 +106,155 @@ a{text-decoration: none;}
     font-size: 1.4rem;
     width: 72%;
     margin: auto;
+    color: var(--texte);
 }
-.lien-intro{
+.lien-intro, .avis{
     width: 11rem;
     padding: 0.5rem;
     border-radius: 8px;
     font-size: 1.5rem;
 }
+
+.lien-intro:hover{
+    background-color: var(--dore-clair) !important;
+}
+
+/* Section carousel  */
+
+.section-carousel{
+    height: 100vh;
+}
+
+/* Section savoir faire  */
+
+.carte-savoir-faire{
+    justify-content: space-around;
+}
+
+img{
+    width: 40%;
+    border-radius: 10px;
+}
+
+.texte{
+    background-color: var(--fond-carte);
+    border-radius: 10px;
+}
+.texe p{
+    font-size: 1.25rem;
+    color: var(--texte);
+}
+
+@keyframes translation-gauche{
+    from{
+        opacity: 0;
+        transform : translateX(-500px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes translation-droite{
+    from{
+        opacity: 0.5;
+        transform : translateX(500px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.img-carte1,.texte-carte2, .img-carte2 ,.texte-carte1{
+    opacity: 0;
+}
+
+.img-carte1.visible ,.texte-carte2.visible{
+    animation: translation-gauche 0.9s ease-in forwards;
+}
+
+.img-carte2.visible , .texte-carte1.visible{
+    animation: translation-droite 0.9s ease-in forwards;
+}
+
+/* Carte avis */
+
+.section-avis{
+    width: 80%;
+    border-radius: 10px;
+}
+
+.section-avis a{
+    margin: auto;
+}
+
+.carte-avis{
+    background-color: var(--fond-carte);
+    /* width: 25%; */
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.avis{
+    color: var(--bleu-nuit);
+}
+
+.avis:hover{
+    border : 1px solid var(--dore);
+    color: var(--dore);
+    background-color: var(--bleu-nuit) !important;
+}
+
+.fa-star{
+    color: var(--dore);
+}
+
+
+footer{
+    background-color: var(--bleu-nuit);
+    color: var(--fond-plus-clair);
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+footer i{
+    color: var(--dore);
+}
+
+.horaire{
+    font-size: 1rem;
+    margin: 0;
+}
+
+.logo{
+    width: 2rem;
+    height: 2rem;
+}
+
+.fa-at,.fa-phone{
+    margin-right: 0.5rem;
+}
+
+.reseaux{
+    justify-content: space-between;
+    align-items: center;
+    width: 10%;
+}
+
+.reseaux i{
+    font-size: 2rem;
+}
+
+.mentions,.coordonnees{
+    flex-direction: column;
+    align-items: center;
+}
+
+.mentions a{
+    color: var(--dore);
+}
+
+
+

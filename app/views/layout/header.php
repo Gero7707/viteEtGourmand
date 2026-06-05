@@ -13,11 +13,23 @@
 </head>
 <body>
     
-    <header>
-        <p class="titre">Vite et Gourmand</p>
-        <ul>
+    <header class="bg-primary">
+        <p class="titre text-secondary">Vite & Gourmand</p>
+        <ul class="d-flex lien-header" >
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/menus">Nos menus</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
+        
+    <div class="d-flex auth">
+        <?php if(!isset($_SESSION['utilisateur_id'])): ?>
+            <a href="/auth/login" class="border-secondary text-secondary btn-largeur ancre-auth">Connexion</a>
+            <a href="/auth/register" class="border-secondary text-secondary btn-largeur ancre-auth">Créer un compte </a>
+        <?php elseif(isset($_SESSION['utilisateur_id'])) : ?>
+            <a href="/auth/logout" class="border-secondary text-secondary btn-largeur ancre-auth">Déconnexion</a>
+        <?php endif ?>
+    </div>
+        
     </header>
     
 

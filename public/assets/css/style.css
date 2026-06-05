@@ -3,9 +3,13 @@
     /* Couleurs principales */
 
     --bleu-tres-fonce : #0F1D36;
+    --bs-primary : #1B2A4A;/*variable bootstrap*/
+    --bs-primary-rgb: 27, 42, 74;
     --bleu-nuit : #1B2A4A;
     --bleu-moyen : #2A3F6A;
     --dore : #D4A853;
+    --bs-secondary : #D4A853;/*variable bootstrap*/
+    --bs-secondary-rgb :212, 168, 83;
     --dore-clair : #E8C475; 
     --dore-tres-clair : #F5E6C4;
 
@@ -13,18 +17,20 @@
 
     --noir-doux : #1a1a1a;
     --texte :  #333333;
+    --bs-body-color: #333333;/*variable bootstrap*/
     --secondaire : #666666;
     --placeholder : #6b6b6b;
     --bordure : #e8e8e8;
     --fond-carte : #f5f5f5;
+    --bs-body-bg: #f5f5f5; /*variable bootstrap*/
     --fond-plus-clair : #fafafa;
 
     /* Couleurs sémantiques (statuts, alertes) */
 
-    --success-valide : #2E7D4F;
-    --error-annule :  #C62828;
-    --attention-en-cours : #E68A00;
-    --info-lien : #1565C0;
+    --bs-success : #2E7D4F;/*variable bootstrap*/
+    --bs-danger :  #C62828;/*variable bootstrap*/
+    --bs-warning : #E68A00;/*variable bootstrap*/
+    --bs-info : #1565C0;/*variable bootstrap*/
 
     /* Accessibilité */
 
@@ -36,8 +42,59 @@
     --font-logo: "Great Vibes", cursive;
     --font-principale: "Manrope", sans-serif;
 }
+*{font-size: 18px;}
 
+
+
+/* Header et style , ceratins élément généraux comme pour la taille des line connexion, commander ... */
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+li{list-style: none;}
+a{text-decoration: none;}
 
 .titre{
     font-family: var(--font-logo);
+    font-size: 2.25rem;
+    margin: 0.5rem 0 0 1rem ;
 }
+
+.lien-header{
+    width: 25%;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+.lien-header a{
+    text-decoration: none;
+    color:var(--fond-plus-clair) ;
+}
+
+.lien-header a:hover{
+    color: var(--dore);
+}
+
+.auth{
+    width: 30%;
+    justify-content: space-between;
+    margin: 1rem 1rem ;
+}
+
+.btn-largeur{
+    width: 11rem;
+    text-align: center;
+}
+
+.ancre-auth{
+    border : 1px solid;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.ancre-auth:hover{
+    background-color:var(--dore) ;
+    color: var(--bleu-nuit) !important; 
+}
+

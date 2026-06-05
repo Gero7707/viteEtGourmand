@@ -1,9 +1,10 @@
 <?php
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
-<a href="/auth/logout">Déconnexion</a>
 <main>
-    <p>Bonjour  <?= $_SESSION['prenom'] ?>  !</p><br>
+    <div class="text-center mt-2 intro">
+        <p class="fw-mediumbold text-center">Bonjour  <?= $_SESSION['prenom'] ?>  !</p><br>
+    </div>
     <hr>
     <?php if ($_GET['error'] ?? null): ?>
         <p><?= htmlspecialchars($_GET['error']) ?></p><br>
@@ -12,6 +13,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <p><?= htmlspecialchars($_GET['success']) ?></p><br>
         <hr>
     <?php endif ?>
+    <a href="/">Voir accueil</a><br>
     <a href="/commandes-client">Commandes</a><br>
     <a href="/avis-valider">Avis</a><br>
     <a href="/menus">Menus</a><br>

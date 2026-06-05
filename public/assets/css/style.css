@@ -98,3 +98,16 @@ a{text-decoration: none;}
     color: var(--bleu-nuit) !important; 
 }
 
+/* Intro et lien menu */
+
+.intro p{
+    font-size: 1.4rem;
+    width: 72%;
+    margin: auto;
+}
+.lien-intro{
+    width: 11rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-size: 1.5rem;
+}

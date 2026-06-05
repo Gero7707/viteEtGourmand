@@ -10,7 +10,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <p><?= htmlspecialchars($_GET['success']) ?></p><br>
         <hr>
     <?php endif ?>
-    <p>Bonjour  <?= $_SESSION['prenom'] ?>  !</p><br>
+    <div class="text-center mt-2 intro">
+        <p class="fw-mediumbold text-center">Bonjour  <?= $_SESSION['prenom'] ?>  !</p><br>
+    </div>
     <hr>
     <a href="/">Voir accueil</a><br>
     <a href="/commandes-client">Commandes</a><br>
@@ -18,8 +20,8 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <a href="/menus">Menus</a><br>
     <a href="/create-menu">Créer un menu</a><br>
     <a href="/plats">Plats</a><br>
+    <a href="/plats/create">Créer un plat</a><br>
     <a href="/changer-horaire">Changer horaire</a><br>
-    <a href="/auth/logout">Déconnexion</a><br>
 </main>
 <?php
 require_once __DIR__ . '/../../views/layout/footer.php';

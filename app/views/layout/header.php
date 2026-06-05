@@ -21,14 +21,17 @@
             <li><a href="/contact">Contact</a></li>
         </ul>
         
-    <div class="d-flex auth">
-        <?php if(!isset($_SESSION['utilisateur_id'])): ?>
-            <a href="/auth/login" class="border-secondary text-secondary btn-largeur ancre-auth">Connexion</a>
-            <a href="/auth/register" class="border-secondary text-secondary btn-largeur ancre-auth">Créer un compte </a>
-        <?php elseif(isset($_SESSION['utilisateur_id'])) : ?>
-            <a href="/auth/logout" class="border-secondary text-secondary btn-largeur ancre-auth">Déconnexion</a>
-        <?php endif ?>
-    </div>
+        <div class="d-flex auth">
+            <?php if(!isset($_SESSION['utilisateur_id'])): ?>
+                <a href="/auth/login" class="border-secondary text-secondary btn-largeur ancre-auth">Connexion</a>
+                <a href="/auth/register" class="border-secondary text-secondary btn-largeur ancre-auth">Créer un compte </a>
+            <?php elseif(isset($_SESSION['utilisateur_id'])) : ?>
+                <a href="/auth/logout" class="border-secondary text-secondary btn-largeur ancre-auth">Déconnexion</a>
+                <?php if($_SESSION['role_id'] === 1) : ?>
+                    <a href="/profile" class="border-secondary text-secondary btn-largeur ancre-auth">Voir profil</a>
+                <?php endif ?>
+            <?php endif ?>
+        </div>
         
     </header>
     

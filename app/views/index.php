@@ -10,8 +10,8 @@ require_once __DIR__ . '/../views/layout/header.php';
                 <p class="fw-mediumbold text-center">L'art de la réception, depuis 1999 </p>
                 <p class="fw-mediumbold text-center mb-2">Vite & Gourmand, traiteur événementiel à Bordeaux. Des menus raffinés, livrés chez vous,pour tous vos événements.</p>
             </div>
-            <div>
-            <a href="/menus" class="fw-mediumbold bg-secondary text-primary lien-intro ">Découvrir nos menus</a>
+            <div class="text-center">
+                <a href="/menus" class="fw-mediumbold bg-secondary text-primary lien-intro ">Découvrir nos menus</a>
             </div>
         </div>
     <?php elseif(isset($_SESSION['utilisateur_id'])): ?>
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../views/layout/header.php';
                     <p class="fw-mediumbold text-center">L'art de la réception, depuis 1999 </p>
                     <p class="fw-mediumbold text-center mb-2">Vite & Gourmand, traiteur événementiel à Bordeaux. Des menus raffinés, livrés chez vous,pour tous vos événements.</p>
                 </div>
-                <div>
+                <div class="text-center">
                     <a href="/menus" class="fw-mediumbold bg-secondary text-primary lien-intro ">Découvrir nos menus</a>
                 </div>
             </div>
@@ -63,31 +63,26 @@ require_once __DIR__ . '/../views/layout/header.php';
                         <div class="img-wrapper">
                             <img src="/assets/img/menus/banquet.jpg" alt="" data-swiper-parallax-x="30%" loading="lazy">
                         </div>
-                        <p>Banquet</p>
                     </div>
                     <div class="swiper-slide"> 
                         <div class="img-wrapper">
                             <img src="/assets/img/menus/brunch-paques.jpg" alt="" data-swiper-parallax-x="30%" loading="lazy">
                         </div>
-                        <p>Pacques</p>
                     </div>
                     <div class="swiper-slide"> 
                         <div class="img-wrapper">
                             <img src="/assets/img/menus/jardin-ete.jpg" alt="" data-swiper-parallax-x="30%" loading="lazy">
                         </div>
-                        <p>C'est l'été</p>
                     </div>
                     <div class="swiper-slide"> 
                         <div class="img-wrapper">
                             <img src="/assets/img/menus/menu-estival.jpg" alt="" data-swiper-parallax-x="30%" loading="lazy">
                         </div>
-                        <p>C'est toujours l'été</p>
                     </div>
                     <div class="swiper-slide"> 
                         <div class="img-wrapper">
                             <img src="/assets/img/menus/fete.jpg" alt="" data-swiper-parallax-x="30%" loading="lazy">
                         </div>
-                        <p>C'est la fête</p>
                     </div>
                 </div>
                 <div class="swiper-button-next"></div>
@@ -106,7 +101,7 @@ require_once __DIR__ . '/../views/layout/header.php';
         </div>
 
         <div class="d-flex carte-savoir-faire mb-4 mt-5">
-            <div class="p-5 texte text-center texte-carte2 observer w-50">
+            <div class="p-5 texte text-center texte-carte2 observer ">
                 <p class="mb-5">Notre équipe accompagne vos événements de A à Z :conception de menus personnalisés, préparation dans nos cuisines, livraison et mise en place chez vous.</p>
                 <p class="mb-5">Mariages, repas d'entreprise, fêtes de famille ou galas, nous nous adaptons à chaque occasion avec le même souci du détail et de l'excellence. </p>
                 <p >Plus de 2 000 événements réussis à Bordeaux et dans toute la Gironde.</p>
@@ -121,8 +116,8 @@ require_once __DIR__ . '/../views/layout/header.php';
                 
             <div class="row">
                 <?php foreach($avis as $carteAvis) : ?>
-                    <div class="col-1"></div>
-                    <div class="carte-avis mb-5 col-4">
+                    <div class="col-lg-1 col-sm-2"></div>
+                    <div class="carte-avis mb-5 col-lg-4 col-sm-8">
                         <p class="titre-avis"><?= htmlspecialchars($carteAvis['nom_complet']) ?><span class="note-avis"> - <?= htmlspecialchars($carteAvis['note']) ?>/5</span></p>
                         <?php for($i = 0; $i < $carteAvis['note']; $i++): ?>
                             <i class="fa-solid fa-star"></i>
@@ -133,7 +128,7 @@ require_once __DIR__ . '/../views/layout/header.php';
                         <p class="description-avis"><?= htmlspecialchars($carteAvis['description']) ?></p>
                         <p class="date-avis"><?= htmlspecialchars(str_replace(':00', 'h',date('d-m-Y  à  H:i', strtotime($carteAvis['date_avis'])))) ?></p>
                     </div>
-                    <div class="col-1"></div>
+                    <div class="col-lg-1 col-sm-2"></div>
                 <?php endforeach ?>
             </div>
         <div class="text-center mb-5">

@@ -59,6 +59,10 @@ header{
     justify-content: space-between;
 }
 
+.dropdown{
+        display: none;
+    }
+
 li{list-style: none;}
 a{text-decoration: none;}
 
@@ -252,6 +256,10 @@ img{
     margin-right: 2rem;
 }
 
+.texte-carte2{
+    width: 50%;
+}
+
 /* Carte avis */
 
 .section-avis{
@@ -296,6 +304,10 @@ footer i{
     color: var(--dore);
 }
 
+footer i:hover , .mentions a:hover{
+    color: var(--dore-clair);
+}
+
 .horaire{
     font-size: 1rem;
     margin: 0;
@@ -330,4 +342,95 @@ footer i{
 }
 
 
+@media (max-width: 767.98px){
 
+    /* Header  */
+
+    .titre{
+        font-size: 1.6rem !important;
+    }
+
+    .dropdown{
+        display: block;
+        background-color: var(--bleu-nuit);
+        margin: auto;
+    }
+
+    .dropdown .btn ,  .dropdown .show{
+        color: var(--dore) !important;
+        border: 1px solid var(--dore) !important;
+    }
+
+    .lien-header li, .ancre-auth  {
+        display: none;
+    }
+
+    .auth{
+        width: 0%;
+    }
+
+    .dropdown-menu{
+        background-color: var(--bleu-moyen);
+    }
+
+    .dropdown-item{
+        color: var(--dore) !important;
+    }
+
+    /* Section intro */
+
+    .intro,.carte-savoir-faire{flex-direction: column;}
+    .intro p{
+        font-size: 0.9rem;
+    }
+
+    .intro a{
+        font-size: 1rem;
+        padding: 0.3rem;
+        margin: auto;
+    }
+
+    /* Section savoir faire */
+
+    .texte-carte2{
+        width: 100%;
+    }
+
+    .img-carte1 , .img-carte2{
+        width: 80%;
+        margin-left: 2rem;
+    }
+
+    /* Section avis */
+
+    .row>*{
+        width: 85%;
+        margin: auto;
+    }
+
+    .section-avis a{
+        font-size: 1rem;
+    }
+
+    footer{
+        flex-direction: column;
+    }
+
+    footer p{
+        font-size:0.8rem ;
+    }
+
+    .liste-horaire{
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .horaire{
+        font-size: 0.8rem;
+    }
+
+    .reseaux{
+        width: 100%;
+        justify-content:space-around ;
+    }
+}

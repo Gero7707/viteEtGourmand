@@ -1,5 +1,5 @@
 <footer class="mt-5 d-flex">
-    <div class="mt-2">
+    <div class="mt-2 liste-horaire">
         <?php foreach($horaire  as $jour) : ?>
             <p class="horaire"><?= htmlspecialchars($jour['jour']) ?> - <?= htmlspecialchars(str_replace('h00', 'h',ltrim( $jour['heure_ouverture'], '0'))) ?> - <?= htmlspecialchars(str_replace('h00', 'h',ltrim($jour['heure_fermeture'], '0'))) ?></p>
         <?php endforeach ?>

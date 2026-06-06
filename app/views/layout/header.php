@@ -15,6 +15,7 @@
 <body>
     
     <header class="bg-primary">
+        
         <p class="titre text-secondary">Vite & Gourmand</p>
         <ul class="d-flex lien-header" >
             <li><a href="/">Accueil</a></li>
@@ -32,6 +33,24 @@
                     <a href="/profile" class="border-secondary text-secondary btn-largeur ancre-auth">Voir profil</a>
                 <?php endif ?>
             <?php endif ?>
+        </div>
+        <div class="dropdown ">
+            <a class="btn  " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+
+            <ul class="dropdown-menu">
+                <?php if(!isset($_SESSION['utilisateur_id'])): ?>
+                    <li><a class="dropdown-item" href="/auth/login">Connexion</a></li>
+                    <li><a class="dropdown-item" href="/auth/register">Créer un compte</a></li>
+                <?php elseif(isset($_SESSION['utilisateur_id'])) : ?>
+                    <li><a class="dropdown-item" href="/auth/logout">Déconnexion</a></li>
+                    <?php if($_SESSION['role_id'] === 1) : ?>
+                        <li><a class="dropdown-item" href="/profile">Voir profil</a></li>
+                    <?php endif ?>
+                <?php endif ?>
+                <li><a class="dropdown-item" href="/avis">Avis clients</a></li>
+            </ul>
         </div>
         
     </header>

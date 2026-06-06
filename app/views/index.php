@@ -5,20 +5,27 @@ require_once __DIR__ . '/../views/layout/header.php';
 <main>
     <?php if(!isset($_SESSION['utilisateur_id'])): ?>
         
-        <div class="text-center mt-2 intro">
-            <p class="fw-mediumbold text-center">L'art de la réception, depuis 1999 </p><br>
-            <p class="fw-mediumbold text-center mb-4">Vite & Gourmand, traiteur événementiel à Bordeaux. Des menus raffinés, livrés chez vous,pour tous vos événements.</p>
+        <div class="d-flex mt-2 intro justify-content-around">
+            <div>
+                <p class="fw-mediumbold text-center">L'art de la réception, depuis 1999 </p>
+                <p class="fw-mediumbold text-center mb-2">Vite & Gourmand, traiteur événementiel à Bordeaux. Des menus raffinés, livrés chez vous,pour tous vos événements.</p>
+            </div>
+            <div>
             <a href="/menus" class="fw-mediumbold bg-secondary text-primary lien-intro ">Découvrir nos menus</a>
-        
+            </div>
         </div>
     <?php elseif(isset($_SESSION['utilisateur_id'])): ?>
 
         <?php if($_SESSION['role_id'] === 1) : ?>
-            <div class="text-center mt-2 intro">
-                <p class="fw-mediumbold text-center">Bonjour  <?= $_SESSION['prenom'] ?>  !</p><br>
-                <p class="fw-mediumbold text-center">L'art de la réception, depuis 1999 </p><br>
-                <p class="fw-mediumbold text-center mb-4">Vite & Gourmand, traiteur événementiel à Bordeaux. Des menus raffinés, livrés chez vous,pour tous vos événements.</p>
-                <a href="/menus" class="fw-mediumbold bg-secondary text-primary lien-intro ">Découvrir nos menus</a>
+            <div class="d-flex mt-2 intro justify-content-around">
+                <div>
+                    <p class="fw-mediumbold text-center">Bonjour  <?= $_SESSION['prenom'] ?>  !</p><br>
+                    <p class="fw-mediumbold text-center">L'art de la réception, depuis 1999 </p>
+                    <p class="fw-mediumbold text-center mb-2">Vite & Gourmand, traiteur événementiel à Bordeaux. Des menus raffinés, livrés chez vous,pour tous vos événements.</p>
+                </div>
+                <div>
+                    <a href="/menus" class="fw-mediumbold bg-secondary text-primary lien-intro ">Découvrir nos menus</a>
+                </div>
             </div>
         <?php elseif ($_SESSION['role_id'] === 2) :  ?>
         <a href="/commandes-client">Commandes</a><br>
@@ -45,13 +52,50 @@ require_once __DIR__ . '/../views/layout/header.php';
     <?php if ($_GET['error'] ?? null): ?>
         <p><?= htmlspecialchars($_GET['error']) ?></p>
     <?php endif ?>
-    <br><hr><br>
         <section class="section-carousel">
-            <h3>Carousel</h3>
+            <!-- Slider main container -->
+            <div class="swiper">
+                <div class="swiper-button-prev"></div>
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide"> 
+                        <div class="img-wrapper">
+                            <img src="/assets/img/menus/banquet.jpg" alt="" data-swiper-parallax-x="30%" loading="lazy">
+                        </div>
+                        <p>Banquet</p>
+                    </div>
+                    <div class="swiper-slide"> 
+                        <div class="img-wrapper">
+                            <img src="/assets/img/menus/brunch-paques.jpg" alt="" data-swiper-parallax-x="30%" loading="lazy">
+                        </div>
+                        <p>Pacques</p>
+                    </div>
+                    <div class="swiper-slide"> 
+                        <div class="img-wrapper">
+                            <img src="/assets/img/menus/jardin-ete.jpg" alt="" data-swiper-parallax-x="30%" loading="lazy">
+                        </div>
+                        <p>C'est l'été</p>
+                    </div>
+                    <div class="swiper-slide"> 
+                        <div class="img-wrapper">
+                            <img src="/assets/img/menus/menu-estival.jpg" alt="" data-swiper-parallax-x="30%" loading="lazy">
+                        </div>
+                        <p>C'est toujours l'été</p>
+                    </div>
+                    <div class="swiper-slide"> 
+                        <div class="img-wrapper">
+                            <img src="/assets/img/menus/fete.jpg" alt="" data-swiper-parallax-x="30%" loading="lazy">
+                        </div>
+                        <p>C'est la fête</p>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+            </div>
         </section>
     
     <section class="section-savoir-faire">
-        <h3 class="text-center mb-5">Notre savoir faire</h3>
+        <h3 class="text-center mb-5 mt-5">Notre savoir faire</h3>
         <div class="d-flex carte-savoir-faire mb-4 mt-5">
             <img src="/assets/img/menus/banquet.jpg" alt="baquet" class="img-carte1 observer">
             <div class="p-5 texte text-center texte-carte1 observer">
@@ -62,7 +106,7 @@ require_once __DIR__ . '/../views/layout/header.php';
         </div>
 
         <div class="d-flex carte-savoir-faire mb-4 mt-5">
-            <div class="p-5 texte text-center texte-carte2 observer">
+            <div class="p-5 texte text-center texte-carte2 observer w-50">
                 <p class="mb-5">Notre équipe accompagne vos événements de A à Z :conception de menus personnalisés, préparation dans nos cuisines, livraison et mise en place chez vous.</p>
                 <p class="mb-5">Mariages, repas d'entreprise, fêtes de famille ou galas, nous nous adaptons à chaque occasion avec le même souci du détail et de l'excellence. </p>
                 <p >Plus de 2 000 événements réussis à Bordeaux et dans toute la Gironde.</p>
@@ -98,8 +142,9 @@ require_once __DIR__ . '/../views/layout/header.php';
     </section>
     
 </main>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 <script src="/assets/js/intersectionObserver.js"></script>
-
+<script src="/assets/js/Swiper.js"></script>
 <?php
 require_once __DIR__ . '/../views/layout/footer.php';
 ?>

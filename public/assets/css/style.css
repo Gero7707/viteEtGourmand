@@ -42,7 +42,12 @@
     --font-logo: "Great Vibes", cursive;
     --font-principale: "Manrope", sans-serif;
 }
-*{font-size: 18px;}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+}
 
 body{
     background-color:var(--fond-plus-clair) ;
@@ -103,8 +108,8 @@ a{text-decoration: none;}
 /* Intro et lien menu */
 
 .intro p{
-    font-size: 1.4rem;
-    width: 72%;
+    font-size: 1.1rem;
+    width: 100%;
     margin: auto;
     color: var(--texte);
 }
@@ -119,10 +124,74 @@ a{text-decoration: none;}
     background-color: var(--dore-clair) !important;
 }
 
-/* Section carousel  */
+/* Section carosel */
 
 .section-carousel{
-    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    background-color: var(--bs-body-bg);
+    margin-top: 1rem;
+}
+
+.swiper{
+    width: 100%;
+    height: 80vh;
+}
+
+.swiper-slide{
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 40px;
+}
+
+.swiper-slide .img-wrapper{
+    width: 100%;
+    height: 100%;
+    transform: scale(1.3);
+    transition: 0.5s;
+}
+
+.swiper-slide-active .img-wrapper{
+    transform: scale(1);
+}
+
+.swiper-slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    filter: grayscale(1);
+}
+
+.swiper-slide-active img{
+    filter: grayscale(0);
+}
+
+.swiper-slide p{
+    font-family: "Manrope" sans-serif;
+    z-index: 2;
+    position: absolute;
+    left: 25px;
+    bottom: 15px;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.swiper-slide-active p{
+    color: #D4A853;
+}
+
+.fa-caret-left, .fa-caret-right{
+    font-size: 4rem;
+    color: #D4A853;
 }
 
 /* Section savoir faire  */
@@ -177,6 +246,10 @@ img{
 
 .img-carte2.visible , .texte-carte1.visible{
     animation: translation-droite 0.9s ease-in forwards;
+}
+
+.img-carte2{
+    margin-right: 2rem;
 }
 
 /* Carte avis */

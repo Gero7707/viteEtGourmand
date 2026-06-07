@@ -23,6 +23,13 @@ class AvisModel{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getAvisByCommandeId(int $id){
+        $stmt = $this->pdo->prepare("SELECT avis.* from avis WHERE commande_id = :id");
+        $stmt->bindValue(':id' , $id , PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function noterCommande(array $data){
         $stmt = $this->pdo->prepare("INSERT INTO avis(note , description , statut , date_avis , commande_id , utilisateur_id) VALUES (:note , :description , :statut , :date_avis , :commande_id , :utilisateur_id) ");
         $stmt->bindValue(':note', $data['note'], PDO::PARAM_INT);

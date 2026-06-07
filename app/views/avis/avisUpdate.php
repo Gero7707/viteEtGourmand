@@ -23,6 +23,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <button type="submit">Valider</button>
     </form>
 </main>
+<script src="/assets/js/form.js"></script>
 <?php
 require_once __DIR__ . '/../../views/layout/footer.php';
 ?>

@@ -34,7 +34,15 @@ class AvisController{
         $horaire = $this->horaire->getHoraire();
         $commande = $this->commande->findById($id);
         $utilisateurId = $_SESSION['utilisateur_id'];
+        $avis = $this->avis->getAvisByCommandeId($id);
+        if($avis !== false){
+            header('location: /profile');
+            exit();
+        }
         if($utilisateurId === $commande['utilisateur_id'] && $commande['statut'] === "terminee"){
+            // Empêche la mise en cache de la page pour forcer le navigateur à recharger depuis le serveur
+            header('Cache-Control: no-store, no-cache, must-revalidate');
+            header('Pragma: no-cache');
             require_once __DIR__ . '/../views/avis/avisForm.php';
         }else {
             $error = "Accès non autorisé .";
@@ -48,6 +56,11 @@ class AvisController{
         Auth::verifyCsrfToken();
         $commande = $this->commande->findById($id);
         $utilisateurId = $_SESSION['utilisateur_id'];
+        $avis = $this->avis->getAvisByCommandeId($id);
+        if($avis !== false){
+            header('location: /profile');
+            exit();
+        }
         if($utilisateurId === $commande['utilisateur_id'] && $commande['statut'] === "terminee"){
             $note = $_POST['note'];
             if(empty($note)){

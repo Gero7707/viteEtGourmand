@@ -49,6 +49,9 @@
                         <li><a class="dropdown-item" href="/profile">Voir profil</a></li>
                     <?php endif ?>
                 <?php endif ?>
+                <li><a class="dropdown-item" href="/">Accueil</a></li>
+                <li><a class="dropdown-item" href="/menus">Nos menus</a></li>
+                <li><a class="dropdown-item" href="/contact">Contact</a></li>
                 <li><a class="dropdown-item" href="/avis">Avis clients</a></li>
             </ul>
         </div>

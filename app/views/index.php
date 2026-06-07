@@ -5,7 +5,7 @@ require_once __DIR__ . '/../views/layout/header.php';
 <main>
     <?php if(!isset($_SESSION['utilisateur_id'])): ?>
         
-        <div class="d-flex mt-2 intro justify-content-around">
+        <div class="d-flex mt-2 intro flex-column">
             <div>
                 <p class="fw-mediumbold text-center">L'art de la réception, depuis 1999 </p>
                 <p class="fw-mediumbold text-center mb-2">Vite & Gourmand, traiteur événementiel à Bordeaux. Des menus raffinés, livrés chez vous,pour tous vos événements.</p>
@@ -17,11 +17,11 @@ require_once __DIR__ . '/../views/layout/header.php';
     <?php elseif(isset($_SESSION['utilisateur_id'])): ?>
 
         <?php if($_SESSION['role_id'] === 1) : ?>
-            <div class="d-flex mt-2 intro justify-content-around">
+            <div class="d-flex mt-2 intro flex-column">
                 <div>
-                    <p class="fw-mediumbold text-center">Bonjour  <?= $_SESSION['prenom'] ?>  !</p><br>
-                    <p class="fw-mediumbold text-center">L'art de la réception, depuis 1999 </p>
-                    <p class="fw-mediumbold text-center mb-2">Vite & Gourmand, traiteur événementiel à Bordeaux. Des menus raffinés, livrés chez vous,pour tous vos événements.</p>
+                    <p class="fw-bolder text-center  text-success">Bonjour  <?= $_SESSION['prenom'] ?>  !</p>
+                    <p class="fw-medium text-center">L'art de la réception, depuis 1999 </p>
+                    <p class="fw-medium text-center mb-2">Vite & Gourmand, traiteur événementiel à Bordeaux. Des menus raffinés, livrés chez vous,pour tous vos événements.</p>
                 </div>
                 <div class="text-center">
                     <a href="/menus" class="fw-mediumbold bg-secondary text-primary lien-intro ">Découvrir nos menus</a>

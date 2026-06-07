@@ -1,14 +1,12 @@
 <?php
-require_once __DIR__ . '/../../views/layout/header.php';
 $pageSpecificCss = ['style.css', 'formulaire.css']; 
+
+require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 
-<main>
-    <a href="/">Accueil</a><br>
+<main class="d-flex justify-content-center">
     <?php if(isset($_SESSION['utilisateur_id'])): ?>
-        <?php if($_SESSION['role_id'] === 1) : ?>
-            <a href="/profile">Voir profil</a><br>
-        <?php elseif ($_SESSION['role_id'] === 2) :  ?>
+        <?php if ($_SESSION['role_id'] === 2) :  ?>
         <a href="/commandes-client">Commandes</a><br>
         <a href="/avis-valider">Avis</a><br>
         <a href="/menus">Menus</a><br>
@@ -21,7 +19,6 @@ $pageSpecificCss = ['style.css', 'formulaire.css'];
         <a href="/plats">Plats</a><br>
         <a href="/admin/dashboard">Dashboard</a><br>
         <?php endif ?>
-        <a href="/auth/logout">Déconnexion</a><br>
     <?php endif ?>
 
     <?php if ($_GET['error'] ?? null): ?>
@@ -29,19 +26,22 @@ $pageSpecificCss = ['style.css', 'formulaire.css'];
     <?php elseif($_GET['success'] ?? null) :?>
         <p><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
-    
-    <form action="/contact" method="POST">
-        <?= Auth::csrfField() ?>
-        <label for="titre">Sujet</label><br>
-        <input type="text" id="titre" name="titre" required><br>
 
-        <label for="email">Email</label><br>
-        <input type="email" id="email" name="email" value="<?= htmlspecialchars($email) ?>" required><br>
+    <div class="d-flex flex-column justify-content-center form-contact">
+        <h3 class="text-center mt-3">Formuliare de contact</h3>
+        <form action="/contact" method="POST" class="text-center">
+            <?= Auth::csrfField() ?>
+            <label class="mt-3" for="titre">Sujet</label><br>
+            <input type="text" id="titre" name="titre" required><br>
 
-        <label for="message">Message</label><br>
-        <textarea name="message" id="message" rows="5" cols="33" required></textarea>
-        <button type="submit">Envoyer</button>
-    </form>
+            <label class="mt-5"  for="email">Email</label><br>
+            <input type="email" id="email" name="email" value="<?= htmlspecialchars($email) ?>" required><br>
+
+            <label class="mt-5" for="message">Message</label><br>
+            <textarea name="message" id="message" required></textarea><br>
+            <button class="mt-5 mb-3" type="submit">Envoyer</button>
+        </form>
+    </div>
     
 
 </main>

@@ -1,4 +1,5 @@
 <?php
+$pageSpecificCss = 'style.css';
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 
@@ -32,6 +33,5 @@ require_once __DIR__ . '/../../views/layout/header.php';
 </main>
 
 
-<?php
-require_once __DIR__ . '/../../views/layout/footer.php';
-?>
+
+$pageSpecificCss = 'style.css';

@@ -1,0 +1,77 @@
+body{
+    background-image: url('/assets/img/menus/klm.webp');
+    background-size:cover;
+}
+
+.form-contact{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    border: 1px solid var(--bs-secondary);
+    width: 40%;
+    border-radius: 8px;
+    background-color: var(--bleu-moyen);
+    color:var(--fond-plus-clair);
+}
+
+.form-contact a{
+    color: var(--fond-plus-clair);
+}
+
+.form-contact a:hover{
+    color: var(--bs-secondary);
+}
+
+form input ,form textarea , button{
+    border-radius: 8px;
+}
+
+button{
+    width: 11rem;
+    height: 2.75rem;
+    background-color: var(--bleu-moyen);
+    color: var(--bs-secondary);
+    border: 1px solid var(--bs-secondary);
+}
+
+button:hover{
+    color: var(--bleu-nuit);
+    background-color: var(--bs-secondary);
+}
+
+form input , form textarea{
+    width: 55%;
+}
+form textarea{
+    height: 10rem;
+}
+
+input:focus-visible , textarea:focus-visible{
+    outline: none;
+}
+
+input:focus , textarea:focus{
+    border: 3px solid var(--bs-secondary) !important;
+}
+
+textarea{
+    resize: none;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bs-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bs-secondary);
+    border-radius: 4px;
+}
+
+@media (max-width: 767.98px){
+    .form-contact{
+        width: 80%;
+    }
+}

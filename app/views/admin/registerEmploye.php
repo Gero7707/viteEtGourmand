@@ -1,4 +1,5 @@
 <?php
+$pageSpecificCss = 'style.css';
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 

@@ -120,6 +120,7 @@ class AuthController{
      * GET /auth/register — Affiche le formulaire d'inscription
      */
     public function registerForm(){
+        $horaire = $this->horaire->getHoraire();
         require_once __DIR__ . '/../views/auth/register.php';
     }
 

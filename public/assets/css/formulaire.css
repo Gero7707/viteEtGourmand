@@ -38,7 +38,7 @@ button:hover{
     background-color: var(--bs-secondary);
 }
 
-form input , form textarea{
+form input[type="text"] , form input[type="password"] , form input[type="email"] , form textarea{
     width: 55%;
 }
 form textarea{
@@ -55,6 +55,14 @@ input:focus , textarea:focus{
 
 textarea{
     resize: none;
+}
+
+.texte-check, .texte-check a{
+    font-size: 0.9rem;
+}
+
+.texte-check a{
+    text-decoration: underline;
 }
 
 ::-webkit-scrollbar {
@@ -74,4 +82,8 @@ textarea{
     .form-contact{
         width: 80%;
     }
+
+    form input[type="text"] , form input[type="password"] , form input[type="email"] , form textarea{
+    width: 65%;
+}
 }

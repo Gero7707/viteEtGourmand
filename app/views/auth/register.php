@@ -1,32 +1,34 @@
 <?php
-$pageSpecificCss = 'style.css';
+$pageSpecificCss = ['style.css','formulaire.css'];
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
-<main>
-    <form action="/auth/register" method="POST">
-        <?= Auth::csrfField() ?>
-        <label for="email">Email</label><br>
-        <input type="email" name="email" id="email" required><br>
+<main class="d-flex justify-content-center">
+    <div class="d-flex flex-column justify-content-center form-contact">
+        <form action="/auth/register" method="POST" class="text-center">
+            <h3 class="text-center mt-3">Créer votre compte</h3>
+            <?= Auth::csrfField() ?>
+            <label class="mt-3" for="email">Email</label><br>
+            <input type="email" name="email" id="email" required><br>
 
-        <label for="nom">Nom</label><br>
-        <input type="text" name="nom" id="nom" required><br>
+            <label class="mt-3" for="nom">Nom</label><br>
+            <input type="text" name="nom" id="nom" required><br>
 
-        <label for="prenom">Prénom</label><br>
-        <input type="text" name="prenom" id="prenom" required><br>
+            <label class="mt-3" for="prenom">Prénom</label><br>
+            <input type="text" name="prenom" id="prenom" required><br>
 
-        <label for="password">Mot de passe</label><br>
-        <input type="password" name="password" id="password" required><br>
-        
-        <label for="password_confirm">Confirmer le mot de passe</label><br>
-        <input type="password" name="password_confirm" id="password_confirm" required><br>
+            <label class="mt-3" for="password">Mot de passe</label><br>
+            <input type="password" name="password" id="password" required><br>
+            
+            <label class="mt-3" for="password_confirm">Confirmer le mot de passe</label><br>
+            <input type="password" name="password_confirm" id="password_confirm" required><br>
+            
+            <label class="mt-3 texte-check" for="rgpd"><input type="checkbox" name="rgpd" id="rgpd" required>J'accepte que mes données personnelles <br> soient collectées et traitées conformément à notre <br>
+                <a href="/mentions-legales">politique de confidentialité</a>
+            </label><br>
 
-        <input type="checkbox" name="rgpd" id="rgpd" required>
-        <label for="rgpd">J'accepte que mes données personnelles soient collectées et traitées conformément à notre 
-            <a href="/mentions-legales">politique de confidentialité</a>
-        </label><br>
-
-        <button type="submit">Créer votre compte</button>
-    </form>
+            <button class="mt-3 mb-3" type="submit">Créer votre compte</button>
+        </form>
+    </div>
     <?php if ($_GET['error'] ?? null): ?>
         <p><?= htmlspecialchars($_GET['error']) ?></p>
     <?php endif ?>

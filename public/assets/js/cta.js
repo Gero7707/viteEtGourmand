@@ -16,4 +16,6 @@ document.addEventListener('DOMContentLoaded', () =>{
             fileUploadPlat.style.display = 'block';
         });
     }
+
+    
 });

@@ -9,7 +9,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/a5f2a52ad7.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <?php
+    $chemin = $_SERVER['DOCUMENT_ROOT'] . '/Assets/CSS/' ;   
+    if(isset($pageSpecificCss)) {
+        if (is_array($pageSpecificCss)) {
+            foreach ($pageSpecificCss as $cssFile) {
+
+                echo '<link rel="stylesheet" href="/Assets/CSS/' . htmlspecialchars($cssFile) . '?v=' . filemtime($chemin .$cssFile) . '">' . PHP_EOL;
+            }
+        } else {
+
+            // Ajout de '?v=' . time() pour le cache busting.
+            echo '<link rel="stylesheet" href="/Assets/CSS/' . htmlspecialchars($pageSpecificCss) . '?v=' . filemtime($chemin . $pageSpecificCss) . '">' . PHP_EOL;
+        }
+    }
+    ?>
     <title>Vite et gourmand</title>
 </head>
 <body>

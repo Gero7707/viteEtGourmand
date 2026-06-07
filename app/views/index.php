@@ -1,11 +1,13 @@
 <?php
+$pageSpecificCss = 'style.css';
 require_once __DIR__ . '/../views/layout/header.php';
+
 ?>
 
 <main>
     <?php if(!isset($_SESSION['utilisateur_id'])): ?>
         
-        <div class="d-flex mt-2 intro flex-column">
+        <div class="d-flex  intro flex-column">
             <div>
                 <p class="fw-mediumbold text-center">L'art de la réception, depuis 1999 </p>
                 <p class="fw-mediumbold text-center mb-2">Vite & Gourmand, traiteur événementiel à Bordeaux. Des menus raffinés, livrés chez vous,pour tous vos événements.</p>
@@ -17,7 +19,7 @@ require_once __DIR__ . '/../views/layout/header.php';
     <?php elseif(isset($_SESSION['utilisateur_id'])): ?>
 
         <?php if($_SESSION['role_id'] === 1) : ?>
-            <div class="d-flex mt-2 intro flex-column">
+            <div class="d-flex intro flex-column">
                 <div>
                     <p class="fw-bolder text-center  text-success">Bonjour  <?= $_SESSION['prenom'] ?>  !</p>
                     <p class="fw-medium text-center">L'art de la réception, depuis 1999 </p>

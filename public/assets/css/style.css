@@ -57,10 +57,18 @@ body{
     background-color:var(--fond-plus-clair) ;
 }
 
+main{
+    margin-top: 5rem;
+}
+
 /* Header et style , ceratins élément généraux comme pour la taille des line connexion, commander ... */
 header{
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    z-index: 3;
 }
 
 .dropdown{
@@ -383,6 +391,9 @@ footer i:hover , .mentions a:hover{
     }
 
     /* Section intro */
+    main{
+        margin-top: 3rem;
+    }
 
     .intro,.carte-savoir-faire{flex-direction: column;}
     .intro p{

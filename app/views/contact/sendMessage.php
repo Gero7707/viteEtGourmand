@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../views/layout/header.php';
+$pageSpecificCss = ['style.css', 'formulaire.css']; 
 ?>
 
 <main>

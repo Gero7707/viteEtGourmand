@@ -5,6 +5,7 @@ require_once __DIR__ . '/../models/MenuModel.php';
 require_once __DIR__ . '/../models/AvisModel.php';
 require_once __DIR__ . '/../services/GeoService.php';
 require_once __DIR__ . '/../services/MailService.php';
+require_once __DIR__ . '/../models/PlatModel.php';
 
 class CommandeController{
     private HoraireModel $horaire;
@@ -18,6 +19,8 @@ class CommandeController{
 
     private AvisModel $avis;
 
+    private PlatModel $plat;
+
 
     public function __construct(){
         $this->commandes = new CommandeModel();
@@ -26,6 +29,7 @@ class CommandeController{
         $this->geo = new GeoService();
         $this->mailService = new MailService();
         $this->avis = new AvisModel();
+        $this->plat = new PlatModel();
     }
 
     public function showCommandes(){
@@ -57,7 +61,13 @@ class CommandeController{
             exit();
         }
         $horaire = $this->horaire->getHoraire();
+        $plat = $this->plat->getPlatById($menu_id);
         $menu = $this->menu->findById($menu_id);
+        $plat = $this->menu->getMenuPlats($menu_id);
+        foreach($plat as &$p) {
+            $p['allergenes'] = $this->plat->getPlatAllergenes($p['plat_id']);
+        }
+        unset($p); 
         $data = [
             'email' => $_SESSION['email'],
             'nom' => $_SESSION['nom'],
@@ -249,8 +259,8 @@ class CommandeController{
         
         $this->mailService->sendEmail($emailCommande,$titre,$message);
         
-
-        header('location: /profile');
+        $successMessage = "Merci pour votre commande no " . $numeroCommande . ", elle est désormé en attente d'acceptation . Vous pouvez encore la modifier ou l'annuler tant qu'elle n'est pas encore acceptée.";
+        header('location: /profile?success=' . $successMessage);
         exit();
     }
 

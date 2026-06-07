@@ -32,7 +32,6 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php endforeach ?>
         <a href="/profile/edit">Modifier profil</a>
 </main>
-
-
-
-$pageSpecificCss = 'style.css';
+<?php
+require_once __DIR__ . '/../../views/layout/footer.php';
+?>

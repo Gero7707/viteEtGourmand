@@ -4,13 +4,13 @@ body{
 }
 
 .form-contact{
-    margin-top: 5rem;
     margin-bottom: 5rem;
     border: 1px solid var(--bs-secondary);
     width: 40%;
     border-radius: 8px;
-    background-color: var(--bleu-moyen);
+    background-color: var(--bleu-tres-fonce);
     color:var(--fond-plus-clair);
+    min-height: 45rem;
 }
 
 .form-contact a{
@@ -21,26 +21,36 @@ body{
     color: var(--bs-secondary);
 }
 
-form input ,form textarea , button{
-    border-radius: 8px;
+form input ,form textarea , button , .btn-annuler{
+    border-radius: 5px;
 }
 
-button{
+.btn-annuler{
+    padding-top: 0.5rem;
+}
+
+button , .btn-annuler{
     width: 11rem;
     height: 2.75rem;
     background-color: var(--bleu-moyen);
-    color: var(--bs-secondary);
+    color: var(--bs-secondary) !important;
     border: 1px solid var(--bs-secondary);
 }
 
-button:hover{
-    color: var(--bleu-nuit);
+button:hover , .btn-annuler:hover{
+    color: var(--bleu-nuit) !important;
     background-color: var(--bs-secondary);
 }
+
 
 form input[type="text"] , form input[type="password"] , form input[type="email"] , form textarea{
     width: 55%;
 }
+
+form input[type='number'], form input[type='date'] , form input[type='time']{
+    width: 7rem;
+}
+
 form textarea{
     height: 10rem;
 }
@@ -50,7 +60,7 @@ input:focus-visible , textarea:focus-visible{
 }
 
 input:focus , textarea:focus{
-    border: 3px solid var(--bs-secondary) !important;
+    border: 2px solid var(--bs-secondary) !important;
 }
 
 textarea{
@@ -84,6 +94,6 @@ textarea{
     }
 
     form input[type="text"] , form input[type="password"] , form input[type="email"] , form textarea{
-    width: 65%;
-}
+        width: 65%;
+    }
 }

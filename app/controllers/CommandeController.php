@@ -295,6 +295,12 @@ class CommandeController{
         $menu_id = $commande['menu_id'];
         $menu = $this->menu->findById($menu_id);
         $horaire = $this->horaire->getHoraire();
+        $plat = $this->plat->getPlatById($id);
+        $plat = $this->menu->getMenuPlats($menu_id);
+        foreach($plat as &$p) {
+            $p['allergenes'] = $this->plat->getPlatAllergenes($p['plat_id']);
+        }
+        unset($p);
         $utilisateurId = $_SESSION['utilisateur_id'];
         if($utilisateurId === $commande['utilisateur_id'] && $commande['statut'] === "en_attente"){
             require_once __DIR__ . '/../views/commande/updateCommande.php';

@@ -57,10 +57,25 @@
 
 body{
     background-color:var(--fond-plus-clair) ;
+    overflow-x: hidden;
 }
 
 main{
     margin-top: 5rem;
+}
+/* ============================================================================================================================================================================ */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bs-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bs-secondary);
+    border-radius: 4px;
 }
 
 /* ============================================================================================================================================================================ */
@@ -420,8 +435,13 @@ footer i:hover , .mentions a:hover{
 }
 
 .texte-carte-commande{
-    width: 60%;
+    width: 80%;
     margin: auto;
+    border-left: 2px solid var(--bs-secondary);
+    background-color: var(--bordure);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
 .plats p ,menu-choisi h5, .prix-menu p {

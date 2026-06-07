@@ -11,11 +11,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php endif ?>
     <hr>
     <?php if ($_GET['error'] ?? null): ?>
-        <p><?= htmlspecialchars($_GET['error']) ?></p><br>
-        <hr>
-    <?php elseif($_GET['success'] ?? null) :?>
-        <p><?= htmlspecialchars($_GET['success']) ?></p><br>
-        <hr>
+        <p class="error-message mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
+    <?php endif ?>
+    <?php if ($_GET['success'] ?? null): ?>
+        <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
     <?php foreach($plat as $cartePlat) : ?>
         <h4><?= htmlspecialchars($cartePlat['titre_plat']) ?></h4>

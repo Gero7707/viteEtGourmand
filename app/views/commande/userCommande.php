@@ -10,6 +10,13 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <a href="/commandes-client">Retour aux commandes</a>
     <?php endif ?>
 
+    <?php if ($_GET['error'] ?? null): ?>
+        <p class="error-message mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
+    <?php endif ?>
+    <?php if ($_GET['success'] ?? null): ?>
+        <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
+    <?php endif ?>
+
     <h3>Commande no : <?=   htmlspecialchars($commandes['numero_commande']) ?></h3>
 
     <h4><?= htmlspecialchars($commandes['titre']) ?></h4>

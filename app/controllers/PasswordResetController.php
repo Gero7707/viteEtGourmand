@@ -1,18 +1,23 @@
 <?php
 require_once __DIR__ . '/../models/UserModel.php';
 require_once __DIR__ . '/../services/MailService.php';
+require_once __DIR__ . '/../models/HoraireModel.php';
 
 
 class PasswordResetController{
     private UserModel $users;
     private MailService $mailService;
 
+    private HoraireModel $horaire;
+
     public function __construct(){
         $this->users = new UserModel();
         $this->mailService = new MailService();
+        $this->horaire = new HoraireModel();
     }
 
     public function forgotPasswordForm(){
+        $horaire =$this->horaire->getHoraire();
         require_once __DIR__ . '/../views/auth/forgotPassword.php';
     }
 
@@ -34,8 +39,8 @@ class PasswordResetController{
             $expires = date('Y-m-d H:i:s', time() + 3600);
             $this->users->saveResetToken($email, $token, $expires);
             $this->mailService->sendEmail($email,$subject,$body);
-            $succesMessage = "Lien lien de réinitialisation a été envoyé ! Verifiez votre boîte de reception .";
-            header('location: /auth/login?success='  . urlencode($succesMessage));
+            $successMessage = "Lien lien de réinitialisation a été envoyé ! Verifiez votre boîte de reception .";
+            header('location: /auth/login?success='  . urlencode($successMessage));
             exit();
         }else{
             $error = "Email n'existe pas en base de données !";
@@ -47,6 +52,7 @@ class PasswordResetController{
 
     public function resetPasswordForm(){
         $token = $_GET['token'] ?? '';
+        $this->horaire->getHoraire();
         require_once __DIR__ . '/../views/auth/resetPassword.php';
     }
     public function resetPassword(){

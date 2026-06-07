@@ -21,16 +21,19 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <?php endif ?>
     <?php endif ?>
 
-    <?php if ($_GET['error'] ?? null): ?>
-        <p><?= htmlspecialchars($_GET['error']) ?></p>
-    <?php elseif($_GET['success'] ?? null) :?>
-        <p><?= htmlspecialchars($_GET['success']) ?></p>
-    <?php endif ?>
 
     <div class="d-flex flex-column justify-content-center form-contact">
         <h3 class="text-center mt-3">Formuliare de contact</h3>
         <form action="/contact" method="POST" class="text-center">
             <?= Auth::csrfField() ?>
+
+            <?php if ($_GET['error'] ?? null): ?>
+            <p class="error-message mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
+            <?php endif ?>
+            <?php if ($_GET['success'] ?? null): ?>
+                <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
+            <?php endif ?>
+
             <label class="mt-3" for="titre">Sujet</label><br>
             <input type="text" id="titre" name="titre" required><br>
 

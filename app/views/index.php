@@ -94,8 +94,8 @@ require_once __DIR__ . '/../views/layout/header.php';
     <section class="section-savoir-faire">
         <h3 class="text-center mb-5 mt-5">Notre savoir faire</h3>
         <div class="d-flex carte-savoir-faire mb-4 mt-5">
-            <img src="/assets/img/menus/banquet.jpg" alt="baquet" class="img-carte1 observer">
-            <div class="p-5 texte text-center texte-carte1 observer">
+            <img src="/assets/img/menus/banquet.jpg" alt="baquet" class="img-carte1 observer mb-5">
+            <div class="d-flex flex-column texte text-center texte-carte1 observer">
                 <p class="mb-5 mt-5">Depuis 1999, Vite & Gourmand met son expertise au service de vos réceptions. </p>
                 <p class="mb-5">Chaque menu est élaboré avec des produits frais et de saison, <br> sélectionnés auprès de producteurs locaux bordelais.</p>
                 <p >De l'entrée au dessert, nos plats allient saveurs authentiques et <br> présentation soignée pour faire de chaque repas un moment inoubliable.</p>
@@ -103,12 +103,12 @@ require_once __DIR__ . '/../views/layout/header.php';
         </div>
 
         <div class="d-flex carte-savoir-faire mb-4 mt-5">
-            <div class="p-5 texte text-center texte-carte2 observer ">
-                <p class="mb-5">Notre équipe accompagne vos événements de A à Z :conception de menus personnalisés, préparation dans nos cuisines, livraison et mise en place chez vous.</p>
+            <div class="d-flex flex-column texte text-center texte-carte2 observer ">
+                <p class="mb-5 mt-5">Notre équipe accompagne vos événements de A à Z :conception de menus personnalisés, préparation dans nos cuisines, livraison et mise en place chez vous.</p>
                 <p class="mb-5">Mariages, repas d'entreprise, fêtes de famille ou galas, nous nous adaptons à chaque occasion avec le même souci du détail et de l'excellence. </p>
                 <p >Plus de 2 000 événements réussis à Bordeaux et dans toute la Gironde.</p>
             </div>
-            <img src="/assets/img/menus/menu-estival.jpg" alt="menu-estival" class="img-carte2 observer">
+            <img src="/assets/img/menus/menu-estival.jpg" alt="menu-estival" class="img-carte2 observer mt-5">
             
         </div>
     </section>

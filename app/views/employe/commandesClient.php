@@ -11,7 +11,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php elseif($_SESSION['role_id'] === 3 )  : ?>
         <a href="/admin/dashboard">Dashboard</a><br>
     <?php endif ?>
-
+    <?php if ($_GET['error'] ?? null): ?>
+        <p class="error-message mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
+    <?php endif ?>
+    <?php if ($_GET['success'] ?? null): ?>
+        <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
+    <?php endif ?>
     
     <table>
         <thead>

@@ -18,6 +18,14 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <p><?= htmlspecialchars($menu['conditions_delai']) ?></p><br>
     <form action="/commandes/create" method="POST">
         <?= Auth::csrfField() ?>
+
+        <?php if ($_GET['error'] ?? null): ?>
+            <p class="error-message mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
+        <?php endif ?>
+        <?php if ($_GET['success'] ?? null): ?>
+            <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
+        <?php endif ?>
+        
         <input type="hidden" name="menu_id" id="menu_id" value="<?= htmlspecialchars($menu['menu_id']) ?>">
         <input type="hidden" name="distance_km" id="distance_km" value="0">
 

@@ -5,11 +5,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
 <main>
     <a href="/plats">Retour aux plats</a><br>
     <?php if ($_GET['error'] ?? null): ?>
-        <p><?= htmlspecialchars($_GET['error']) ?></p><br>
-        <hr>
-    <?php elseif($_GET['success'] ?? null) :?>
-        <p><?= htmlspecialchars($_GET['success']) ?></p><br>
-        <hr>
+        <p class="error-message mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
+    <?php endif ?>
+    <?php if ($_GET['success'] ?? null): ?>
+        <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
     <hr>
     <h4>Modifier un plat</h4>

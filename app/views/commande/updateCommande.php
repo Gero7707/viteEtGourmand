@@ -22,6 +22,13 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <input type="hidden" name="commande_id" id="commande_id" value="<?= htmlspecialchars($commande['commande_id']) ?>">
         <input type="hidden" name="distance_km" id="distance_km" value="0">
 
+        <?php if ($_GET['error'] ?? null): ?>
+            <p class="error-message mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
+        <?php endif ?>
+        <?php if ($_GET['success'] ?? null): ?>
+            <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
+        <?php endif ?>
+
         <label for="adresse_livraison">Adresse</label><br>
         <input type="text" name="adresse_livraison" id="adresse_livraison" value="<?= htmlspecialchars($commande['adresse_livraison'] ?? '') ?>" required><br>
         <small>Indiquez l'adresse du lieu de l'événement (salle des fêtes, domicile, lieu de réception...)</small><br>

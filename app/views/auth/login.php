@@ -13,16 +13,17 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <label class="mt-3" for="password">Mot de passe</label><br>
             <input type="password" name="password" id="password" ><br>
             <button class="mt-3" type="submit">Valider</button>
+            <?php if ($_GET['error'] ?? null): ?>
+                <p class="error-message mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
+            <?php endif ?>
+            <?php if ($_GET['success'] ?? null): ?>
+                <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
+            <?php endif ?>
         </form><br>
         <a href="/auth/forgot-password" class="mdp-oublie text-center mb-5">Mot de passe oublié </a>
     </div>
     
-    <?php if ($_GET['error'] ?? null): ?>
-        <p><?= htmlspecialchars($_GET['error']) ?></p>
-    <?php endif ?>
-    <?php if ($_GET['success'] ?? null): ?>
-        <p><?= htmlspecialchars($_GET['success']) ?></p>
-    <?php endif ?>
+    
 </main>
 
 <?php

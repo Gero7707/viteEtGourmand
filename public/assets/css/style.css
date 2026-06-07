@@ -61,6 +61,15 @@ main{
     margin-top: 5rem;
 }
 
+/* Messages */
+
+.success-message{
+    color: var(--bs-success);
+    background-color: var(--bs-body-bg);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
 /* Header et style , ceratins élément généraux comme pour la taille des line connexion, commander ... */
 header{
     display: flex;
@@ -220,8 +229,10 @@ a{text-decoration: none;}
 .texte{
     background-color: var(--fond-carte);
     border-radius: 10px;
+    padding: 2.5rem;
+    justify-content: center;
 }
-.texe p{
+.texte p{
     font-size: 1.25rem;
     color: var(--texte);
 }
@@ -370,7 +381,8 @@ footer i:hover , .mentions a:hover{
     /* Header  */
 
     .titre{
-        font-size: 1.6rem !important;
+        font-size: 1.7rem;
+        width: 60%;
     }
 
     .dropdown{
@@ -386,6 +398,7 @@ footer i:hover , .mentions a:hover{
 
     .lien-header li, .ancre-auth  {
         display: none;
+        width: 8%;
     }
 
     .auth{
@@ -428,8 +441,14 @@ footer i:hover , .mentions a:hover{
 
     /* Section savoir faire */
 
-    .texte-carte2{
-        width: 100%;
+    .texte{
+        padding: 2.5rem !important;
+        margin: auto;
+        width: 85%;
+    }
+
+    .texte p{
+        font-size: 1.25rem;
     }
 
     .img-carte1 , .img-carte2{

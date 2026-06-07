@@ -7,6 +7,14 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <form action="/auth/register" method="POST" class="text-center">
             <h3 class="text-center mt-3">Créer votre compte</h3>
             <?= Auth::csrfField() ?>
+
+            <?php if ($_GET['error'] ?? null): ?>
+                <p class="error-message mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
+            <?php endif ?>
+            <?php if ($_GET['success'] ?? null): ?>
+                <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
+            <?php endif ?>
+            
             <label class="mt-3" for="email">Email</label><br>
             <input type="email" name="email" id="email" required><br>
 
@@ -21,7 +29,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
             
             <label class="mt-3" for="password_confirm">Confirmer le mot de passe</label><br>
             <input type="password" name="password_confirm" id="password_confirm" required><br>
-            
+
             <label class="mt-3 texte-check" for="rgpd"><input type="checkbox" name="rgpd" id="rgpd" required>J'accepte que mes données personnelles <br> soient collectées et traitées conformément à notre <br>
                 <a href="/mentions-legales">politique de confidentialité</a>
             </label><br>

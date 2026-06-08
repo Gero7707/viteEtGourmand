@@ -82,14 +82,14 @@ main{
 
 /* Messages */
 
-.success-message{
+.success-message , .success-message-php{
     color: var(--bs-success);
     background-color: var(--bs-body-bg);
     padding: 1rem;
     border-radius: 8px;
 }
 
-.error-message{
+.error-message ,.error-message-php{
     color: var(--bs-danger);
     background-color: var(--bs-body-bg);
     padding: 1rem;
@@ -169,7 +169,7 @@ a{text-decoration: none;}
 }
 
 .lien-intro, .avis{
-    width: 13rem;
+    width: 15rem;
     border-radius: 8px;
     font-size: 1.5rem;
     display: block;
@@ -363,6 +363,7 @@ a{text-decoration: none;}
 
 .avis{
     color: var(--bleu-nuit);
+    border: 1px solid transparent;
 }
 
 .avis:hover{

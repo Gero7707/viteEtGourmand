@@ -4,26 +4,13 @@ $pageSpecificCss = ['style.css', 'formulaire.css'];
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 
-<main class="d-flex justify-content-center">
-    <?php if(isset($_SESSION['utilisateur_id'])): ?>
-        <?php if ($_SESSION['role_id'] === 2) :  ?>
-        <a href="/commandes-client">Commandes</a><br>
-        <a href="/avis-valider">Avis</a><br>
-        <a href="/menus">Menus</a><br>
-        <a href="/plats">Plats</a><br>
-        <a href="/employe/dashboard">Dashboard</a><br>
-        <?php elseif ($_SESSION['role_id'] === 3) :  ?>
-        <a href="/commandes-client">Commandes</a><br>
-        <a href="/avis-valider">Avis</a><br>
-        <a href="/menus">Menus</a><br>
-        <a href="/plats">Plats</a><br>
-        <a href="/admin/dashboard">Dashboard</a><br>
-        <?php endif ?>
-    <?php endif ?>
+<main class="d-flex justify-content-around display">
+    <div class="img-contact">
+        <img  src="/assets/img/menus/table.jpg" alt="">
+    </div>
 
-
-    <div class="d-flex flex-column justify-content-center form-contact">
-        <h3 class="text-center mt-3">Formuliare de contact</h3>
+    <div class="d-flex flex-column justify-content-center form-contact mt-5">
+        <h3 class="text-center">Formuliare de contact</h3>
         <form action="/contact" method="POST" class="text-center">
             <?= Auth::csrfField() ?>
 
@@ -45,7 +32,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <button class="mt-5 mb-3" type="submit">Envoyer</button>
         </form>
     </div>
-    
+    <div class="img-contact">
+        <img  src="/assets/img/menus/fiesta.jpg" alt="">
+    </div>
 
 </main>
 <?php

@@ -460,9 +460,8 @@ footer i:hover , .mentions a:hover{
     border-radius: 8px;
 }
 
-.fa-square{
+.fa-square , .fa-circle , .fa-diamond{
     color: var(--bs-secondary);
-    gap: 1rem;
 }
 
 .plats{

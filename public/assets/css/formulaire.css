@@ -3,12 +3,16 @@ body{
     background-size:cover;
 }
 
+.error-message{
+    display: none;
+}
+
 .form-contact{
     margin-bottom: 5rem;
     border: 1px solid var(--bs-secondary);
     width: 40%;
     border-radius: 8px;
-    background-color: var(--bleu-tres-fonce);
+    background-color: var(--bleu-nuit);
     color:var(--fond-plus-clair);
     min-height: 45rem;
 }
@@ -26,7 +30,7 @@ body{
     border: 1px solid var(--bs-secondary);
     width: 40%;
     border-radius: 8px;
-    background-color: var(--bleu-tres-fonce);
+    background-color: var(--bleu-nuit);
     color:var(--fond-plus-clair);
     min-height: 42rem;
 }
@@ -49,7 +53,7 @@ thead,tbody,td{
 }
 
 
-form input ,form textarea , button , .btn-annuler{
+form input ,form textarea , button , select, .btn-annuler{
     border-radius: 5px;
 }
 

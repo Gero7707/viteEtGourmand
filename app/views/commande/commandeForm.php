@@ -9,7 +9,13 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <div class="d-flex justify-content-around">
                 <div class="d-flex flex-column mt-1">
                     <h5><?= htmlspecialchars($menu['titre']) ?></h5>
-                    <p class="theme-carte"><i class="fa-solid fa-square"></i>       &nbsp;<?= htmlspecialchars($menu['regime']) ?></p> 
+                    <p class="theme-carte"><?php if($menu['regime'] === 'Classique') : ?>
+                                                <i class="fa-solid fa-square"></i>   
+                                            <?php elseif($menu['regime'] === 'Vegan') : ?>
+                                                <i class="fa-solid fa-circle"></i>
+                                            <?php elseif($menu['regime'] === 'Végétarien') : ?>
+                                                <i class="fa-solid fa-diamond"></i>
+                                            <?php endif ?>     &nbsp;<?= htmlspecialchars($menu['regime']) ?></p>
                 </div>
 
                 <div class="d-flex flex-column prix-menu mt-1 mb-5">
@@ -21,9 +27,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <div class="texte-carte-commande">
                 <p><?= htmlspecialchars($menu['description']) ?></p>
             </div>
-            <div class="plats d-flex flex-column align-items-start m-auto">
+            <div class="plats d-flex flex-column  m-auto">
                 <?php foreach($plat as $p) : ?>
-                    <p><strong><?= ucfirst(htmlspecialchars($p['type_plat'])) ?></strong> : <?= htmlspecialchars($p['titre_plat']) ?></p>
+                    <p class="mt-2"><strong><?= ucfirst(htmlspecialchars($p['type_plat'])) ?></strong> : <?= htmlspecialchars($p['titre_plat']) ?></p>
                     <p><i class="fa-solid fa-arrow-right"></i>Allergènes :
                         <?php foreach($p['allergenes'] as $allergene) : ?>
                             <?= htmlspecialchars($allergene['libelle']) ?> ,
@@ -67,7 +73,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
             
 
-            <div class="d-flex justify-content-around">
+            <div class="d-flex justify-content-around mt-2">
                 <div class="d-flex flex-column align-content-center">
                     <label class="mt-3" for="date_prestation">Date prestation</label><br>
                     <input type="date" name="date_prestation" id="date_prestation" required>

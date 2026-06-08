@@ -169,14 +169,28 @@ a{text-decoration: none;}
 }
 
 .lien-intro, .avis{
-    width: 11rem;
-    padding: 0.5rem;
+    width: 13rem;
     border-radius: 8px;
     font-size: 1.5rem;
+    display: block;
+    text-align: center;
 }
 
-.lien-intro:hover{
+.lien-intro{
+    margin: auto;
+}
+
+.lien-intro:hover , .lien-intro-entreprise:hover{
     background-color: var(--dore-clair) !important;
+}
+
+.lien-intro-entreprise{
+    width: 11rem;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
 }
 
 /* ============================================================================================================================================================================ */

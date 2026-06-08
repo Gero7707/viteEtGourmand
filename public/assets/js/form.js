@@ -11,12 +11,12 @@ const form = document.querySelector('form')
 const errorMessage = document.querySelector('.error-message');
 const successMessage = document.querySelector('.success-message');
 
-const inputs = document.querySelectorAll('input , select , textarea');
+const inputs = document.querySelectorAll('input , select , textarea ,input[type="checkbox"] ');
 
-const btnMenu = document.querySelector('.btn-menu');
+const btnSubmitForm = document.querySelector('.btn-form');
 
 
-btnMenu.addEventListener('click' , (e) =>{
+btnSubmitForm.addEventListener('click' , (e) =>{
     e.preventDefault();
     let isValid = true;
     inputs.forEach(input =>{
@@ -30,7 +30,7 @@ btnMenu.addEventListener('click' , (e) =>{
         errorMessage.style.display = 'block';
         errorMessage.textContent = "Veuillez remplir tous les champs du formulaire ."
     }else if (isValid){
-        fomr.submit();
+        form.submit();
         return;
     }
 });

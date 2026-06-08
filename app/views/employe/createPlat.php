@@ -1,46 +1,57 @@
 <?php
-$pageSpecificCss = 'style.css';
+$pageSpecificCss = ['style.css' , 'formulaire.css'];
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 
 
 <main>
-    <a href="/">Accueil</a><br>
-    <a href="/plats">Plats</a><br>
-    <?php if ($_GET['error'] ?? null): ?>
-        <p class="error-message mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
+    <?php if($_GET['success'] ?? null) :?>
+        <p class="success-message mt-1 text-center"><?= htmlspecialchars($_GET['success']) ?></p><br>
     <?php endif ?>
-    <?php if ($_GET['success'] ?? null): ?>
-        <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
-    <?php endif ?>
-    <hr>
-    <h4>Créer un plat</h4>
-    <form action="/plats/create" method="POST" enctype="multipart/form-data">
-        <?= Auth::csrfField() ?>
-        <label for="titre_plat">Titre du plat </label><br>
-        <input type="text" name="titre_plat" id="titre_plat" required><br>
+    <div class="d-flex justify-content-center">
+        <div class="d-flex flex-column text-center form-contact">
+            <h4 class="text-center mt-4 mb-5">Créer un plat</h4>
+            <form action="/plats/create" method="POST" enctype="multipart/form-data" class="text-center">
+                <?= Auth::csrfField() ?>
 
-        <label for="type_plat">Type </label><br>
-        <select name="type_plat" id="type_plat" required>
-            <option value="entree">Entrée</option>
-            <option value="plat">Plat</option>
-            <option value="dessert">Dessert</option>
-        </select><br>
+                <label class="mt-3" for="titre_plat">Titre du plat :</label><br>
+                <input  class="mb-3" type="text" name="titre_plat" id="titre_plat" required><br>
 
-        <label for="allergene">Allergenes</label><br>
-            <?php foreach($allergenes as $allergene) : ?>
-                <input type="checkbox" name="allergenes[]" id="allergene_<?= $allergene['allergene_id'] ?>" value="<?= $allergene['allergene_id'] ?>">
-                <label for="allergene_<?= $allergene['allergene_id'] ?>"><?= $allergene['libelle'] ?></label><br>
-            <?php endforeach ?>
+                <div class="cadre-input">
+                    <label class="mt-3" for="type_plat">Type :</label><br>
+                    <select name="type_plat" id="type_plat" required>
+                        <option value=""></option>
+                        <option value="entree">Entrée</option>
+                        <option value="plat">Plat</option>
+                        <option value="dessert">Dessert</option>
+                    </select><br>
+                </div>
+                <div class="cadre-input">
+                    <label class="mt-4 mb-2" for="allergene">Allergenes :</label><br>
+                    <div class="check-allergene m-auto">
+                        <?php foreach($allergenes as $allergene) : ?>
+                            <div class="d-flex flex-start">
+                                <input type="checkbox" name="allergenes[]" id="allergene_<?= $allergene['allergene_id'] ?>" value="<?= $allergene['allergene_id'] ?>">
+                                <label for="allergene_<?= $allergene['allergene_id'] ?>"><?= $allergene['libelle'] ?></label><br>
+                            </div>
+                        <?php endforeach ?>
+                    </div>
+                </div>
+                <div class="cadre-input">
+                    <label  class="mt-3" for="chemin_photo">Image</label><br>
+                    <input type="file" name="chemin_photo" id="chemin_photo" required><br>
+                </div>
+                
 
-        <label for="chemin_photo">Image</label><br>
-        <input type="file" name="chemin_photo" id="chemin_photo" required><br>
-
-        <button type="submit">Céer plat</button>
-    </form>
+                <button class="mt-3 mb-3 btn-form" type="submit">Céer plat</button>
+            </form>
+        </div>
+    </div>
+    <p class="error-message mt-1 text-center"></p><br>
 </main>
 
 
 <?php
+$loadScriptJs = 'form.js';
 require_once __DIR__ . '/../../views/layout/footer.php';
 ?>

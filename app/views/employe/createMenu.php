@@ -55,7 +55,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <label class="mt-3 mb-1" for="img_menu">Image du menu</label><br>
                 <input type="file" name="img_menu" id="img_menu" ><br>
 
-                <button class="btn-menu mt-3 mb-3" type="submit">Céer menu</button>
+                <button class="btn-form mt-3 mb-3" type="submit">Céer menu</button>
             </form>
             
         </div>

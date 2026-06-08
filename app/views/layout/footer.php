@@ -24,5 +24,16 @@
 </footer>
 <script src="/assets/js/form.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<?php
+if(isset( $loadScriptJs)){
+    if(is_array($loadScriptJs)){
+        foreach($loadScriptJs as $jsFile){
+            echo '<script src="/assets/js/'. htmlspecialchars($jsFile) . '"></script>'  . PHP_EOL;
+        }
+    }else{
+        echo '<script src="/assets/js/'. htmlspecialchars($loadScriptJs) . '"></script>'  . PHP_EOL;
+    }
+}
+?>
 </body>
 </html>

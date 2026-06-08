@@ -140,8 +140,11 @@ require_once __DIR__ . '/../views/layout/header.php';
     
 </main>
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-<script src="/assets/js/intersectionObserver.js"></script>
-<script src="/assets/js/Swiper.js"></script>
+
+<!-- <script src="/assets/js/intersectionObserver.js"></script>
+<script src="/assets/js/Swiper.js"></script> -->
+
 <?php
+$loadScriptJs = ['intersectionObserver.js' , 'Swiper.js' ];
 require_once __DIR__ . '/../views/layout/footer.php';
 ?>

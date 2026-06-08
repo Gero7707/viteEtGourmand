@@ -22,3 +22,4 @@ etoiles.forEach(etoile => {
         noteContainer.appendChild(vueNote);
     })
 });
+

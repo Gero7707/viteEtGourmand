@@ -2,7 +2,7 @@ body{
     background-image: url('/assets/img/menus/klm.webp');
     background-size:cover;
 }
-
+/* Message pour tous les formulaires */
 .error-message{
     display: none;
 }
@@ -73,6 +73,13 @@ form input ,form textarea , button , select, .btn-annuler{
 
 .texte-annule{
     height: 40%;
+}
+
+.container-avis{
+    background-color: var(--fond-carte);
+    width: 80%;
+    margin: auto;
+    border-radius: 8px;
 }
 
 .btn-annuler{

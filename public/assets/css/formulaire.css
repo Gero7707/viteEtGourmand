@@ -21,6 +21,34 @@ body{
     color: var(--bs-secondary);
 }
 
+.form-horaire{
+    margin-bottom: 5rem;
+    border: 1px solid var(--bs-secondary);
+    width: 40%;
+    border-radius: 8px;
+    background-color: var(--bleu-tres-fonce);
+    color:var(--fond-plus-clair);
+    min-height: 42rem;
+}
+
+.form-horaire p{
+    margin-bottom: 0;
+    margin-top: 1rem;
+    background-color: var(--bleu-moyen);
+    padding: 0.3rem;
+    border-radius: 8px;
+}
+
+.form-horaire input {
+    margin-right: 4rem;
+}
+
+thead,tbody,td{
+    border: 1px solid var(--bs-secondary);
+    padding: 0.5rem;
+}
+
+
 form input ,form textarea , button , .btn-annuler{
     border-radius: 5px;
 }

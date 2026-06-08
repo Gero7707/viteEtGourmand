@@ -36,6 +36,14 @@ class HoraireController{
     public function ajouterJour(){
         Auth::checkEmploye();
         Auth::verifyCsrfToken();
+        
+        foreach($_POST['heure_ouverture'] as $jour => $heureOuverture){
+            $heureFermeture = $_POST['heure_fermeture'][$jour];
+            if(empty($heureOuverture) || empty($heureFermeture)){$error = "Vous devez indiquer les horaires d'ouverure et de fermeture .";
+            header('location: /changer-horaire?error=' . urlencode($error) );
+            exit();}
+        }
+
         foreach($_POST['heure_ouverture'] as $jour => $heureOuverture){
             $heureFermeture = $_POST['heure_fermeture'][$jour];
             $data = ['jour' => $jour ,

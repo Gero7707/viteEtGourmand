@@ -23,7 +23,7 @@ btnSubmitForm.addEventListener('click' , (e) =>{
         if(!input.value.trim()){
         isValid = false ;
         input.style.border = '1px solid var(--bs-danger)';
-        input.style.background = 'var(--bs-warning)';
+        input.style.background = 'var(--input-form)';
     }
     })
     if(!isValid){

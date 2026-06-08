@@ -10,15 +10,15 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php endif ?>
     <div class="d-flex justify-content-center">
         <div class="d-flex flex-column text-center form-contact">
-            <h4 class="text-center mt-4 mb-5">Créer un plat</h4>
+            <h3 class="text-center  mb-2">Créer un plat</h3>
             <form action="/plats/create" method="POST" enctype="multipart/form-data" class="text-center">
                 <?= Auth::csrfField() ?>
 
-                <label class="mt-3" for="titre_plat">Titre du plat :</label><br>
-                <input  class="mb-3" type="text" name="titre_plat" id="titre_plat" required><br>
-
+                <label class="mt-2" for="titre_plat">Titre du plat :</label><br>
+                <input  class="mb-1" type="text" name="titre_plat" id="titre_plat" required><br>
+                <hr>
                 <div class="cadre-input">
-                    <label class="mt-3" for="type_plat">Type :</label><br>
+                    <label  for="type_plat">Type :</label><br>
                     <select name="type_plat" id="type_plat" required>
                         <option value=""></option>
                         <option value="entree">Entrée</option>
@@ -26,8 +26,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         <option value="dessert">Dessert</option>
                     </select><br>
                 </div>
+                <hr>
                 <div class="cadre-input">
-                    <label class="mt-4 mb-2" for="allergene">Allergenes :</label><br>
+                    <label class=" mb-1" for="allergene">Allergenes :</label><br>
                     <div class="check-allergene m-auto">
                         <?php foreach($allergenes as $allergene) : ?>
                             <div class="d-flex flex-start">
@@ -37,8 +38,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         <?php endforeach ?>
                     </div>
                 </div>
+                <hr>
                 <div class="cadre-input">
-                    <label  class="mt-3" for="chemin_photo">Image</label><br>
+                    <label   for="chemin_photo">Image</label><br>
                     <input type="file" name="chemin_photo" id="chemin_photo" required><br>
                 </div>
                 

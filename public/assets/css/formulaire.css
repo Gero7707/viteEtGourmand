@@ -32,11 +32,13 @@ body{
 }
 
 .form-contact a{
-    color: var(--fond-plus-clair);
+    color: var(--texte);
+    transition: transform 0.3s ease ;
 }
 
 .form-contact a:hover{
     color: var(--bs-secondary);
+    transform: scale(1.1);
 }
 
 .img-contact{
@@ -76,7 +78,7 @@ body{
 }
 
 thead,tbody,td{
-    border: 1px solid var(--bs-secondary);
+    border: 1px solid var(--texte);
     padding: 0.5rem;
 }
 
@@ -88,7 +90,7 @@ form input ,form textarea , button , select, .btn-annuler{
 
 /* createPlat.php , updatePlat.php */
 .check-allergene{
-    width: 23%;
+    width: 38%;
 }
 
 .check-allergene input{
@@ -96,7 +98,6 @@ form input ,form textarea , button , select, .btn-annuler{
 }
 
 .cadre-input{
-    border: 1px solid var(--bs-secondary);
     border-radius: 8px;
     padding: 0.5rem;
 }
@@ -145,7 +146,7 @@ form textarea{
     height: 10rem;
 }
 
-input:focus-visible , textarea:focus-visible{
+input:focus-visible , textarea:focus-visible {
     outline: none;
 }
 

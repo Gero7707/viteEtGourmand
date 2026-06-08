@@ -18,7 +18,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
             
             <label class="mt-3" for="email">Entrez votre email :</label><br>
             <input class="mt-3" type="email" name="email" id="email" required><br>
-            <button class="mt-3 mb-5" type="submit">Réinitialiser MDP</button>
+            <button class="mt-3 mb-5 btn-form" type="submit">Réinitialiser MDP</button>
         </form>
     </div>
     
@@ -27,7 +27,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php if ($_GET['error'] ?? null): ?>
         <p><?= htmlspecialchars($_GET['error']) ?></p>
     <?php endif ?>
-    
+    <p class="error-message mt-1 text-center"></p><br>
 </main>
 
 <?php

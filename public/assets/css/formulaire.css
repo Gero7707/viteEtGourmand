@@ -71,6 +71,10 @@ form input ,form textarea , button , select, .btn-annuler{
     padding: 0.5rem;
 }
 
+.texte-annule{
+    height: 40%;
+}
+
 .btn-annuler{
     padding-top: 0.5rem;
 }

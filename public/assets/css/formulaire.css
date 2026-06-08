@@ -6,7 +6,7 @@ body{
 .error-message{
     display: none;
 }
-
+/* forgotPassword.php , login.php , register.php , resetPassword.php , avisForm.php , commandeForm.php , updateCommande.php , sendMessage.php , annulerCommandeEmploye.php , createMenu.php , createPlat.php , updateMenu.php , updatePlat.php , editProfile.php  */
 .form-contact{
     margin-bottom: 5rem;
     border: 1px solid var(--bs-secondary);
@@ -25,6 +25,7 @@ body{
     color: var(--bs-secondary);
 }
 
+/* changerHoraire.php */
 .form-horaire{
     margin-bottom: 5rem;
     border: 1px solid var(--bs-secondary);
@@ -52,11 +53,13 @@ thead,tbody,td{
     padding: 0.5rem;
 }
 
-
+/*  editProfile.php  pour btn-annuler , le reste est général */
 form input ,form textarea , button , select, .btn-annuler{
     border-radius: 5px;
 }
 
+
+/* createPlat.php , updatePlat.php */
 .check-allergene{
     width: 23%;
 }
@@ -71,10 +74,12 @@ form input ,form textarea , button , select, .btn-annuler{
     padding: 0.5rem;
 }
 
+/* annulerCommandeEmploye.php */
 .texte-annule{
     height: 40%;
 }
 
+/* validerAvis.php */
 .container-avis{
     background-color: var(--fond-carte);
     width: 80%;
@@ -82,6 +87,7 @@ form input ,form textarea , button , select, .btn-annuler{
     border-radius: 8px;
 }
 
+/* editProfile.php  */
 .btn-annuler{
     padding-top: 0.5rem;
 }
@@ -99,7 +105,7 @@ button:hover , .btn-annuler:hover{
     background-color: var(--bs-secondary);
 }
 
-
+/* Général */
 form input[type="text"] , form input[type="password"] , form input[type="email"] , form textarea{
     width: 55%;
 }
@@ -124,6 +130,8 @@ textarea{
     resize: none;
 }
 
+
+/* register.php */
 .texte-check, .texte-check a{
     font-size: 0.9rem;
 }
@@ -132,6 +140,8 @@ textarea{
     text-decoration: underline;
 }
 
+
+/* scroll bar custom */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -144,6 +154,8 @@ textarea{
     background: var(--bs-secondary);
     border-radius: 4px;
 }
+/* ================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================== Respnosive Mobile*/
+/* ==================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================  */
 
 @media (max-width: 767.98px){
     .form-contact{

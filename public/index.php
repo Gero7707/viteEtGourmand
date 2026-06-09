@@ -1,4 +1,9 @@
 <?php
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$whoops = new \Whoops\Run;
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops->register();
 /**
  * Point d'entrée unique de l'application — pattern Front Controller
  * Toutes les requêtes HTTP passent par ce fichier (configuré dans apache.conf)

@@ -87,6 +87,10 @@ form input ,form textarea , button , select, .btn-annuler{
     border-radius: 5px;
 }
 
+form input{
+    margin-left: 7rem;
+}
+
 
 /* createPlat.php , updatePlat.php */
 .check-allergene{

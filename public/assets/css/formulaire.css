@@ -21,7 +21,7 @@ body{
     border-radius: 8px 8px 0 0 ;
 }
 
-.form-contact , .img-contact img{
+.form-contact , .form-horaire{
     box-shadow:
         0 2.8px 2.2px rgba(0, 0, 0, 0.034),
         0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -41,15 +41,6 @@ body{
     transform: scale(1.1);
 }
 
-.img-contact{
-    width: 18%;
-}
-
-.img-contact img{
-    width: 22rem;
-    border-radius: 8px ;
-}
-
 .display{
     align-items: center;
 }
@@ -57,13 +48,21 @@ body{
 /* changerHoraire.php */
 .form-horaire{
     margin-bottom: 5rem;
-    border: 1px solid var(--bs-secondary);
-    width: 40%;
+    width: 30%;
     border-radius: 8px;
-    background-color: var(--bleu-nuit);
-    color:var(--fond-plus-clair);
-    min-height: 42rem;
+    background-color: var(--fond-carte);
+    color:var(--texte);
 }
+
+table{
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden
+}
+th:first-child { border-radius: 8px 0 0 0; }
+th:last-child { border-radius: 0 8px 0 0; }
+tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+tr:last-child td:last-child { border-radius: 0 0 8px 0; }
 
 .form-horaire p{
     margin-bottom: 0;
@@ -71,13 +70,14 @@ body{
     background-color: var(--bleu-moyen);
     padding: 0.3rem;
     border-radius: 8px;
+    color: var(--fond-plus-clair);
 }
 
 .form-horaire input {
     margin-right: 4rem;
 }
 
-thead,tbody,td{
+thead,tbody,td, th{
     border: 1px solid var(--texte);
     padding: 0.5rem;
 }
@@ -91,10 +91,14 @@ form input{
     margin-left: 7rem;
 }
 
+/* createMenu.php createPlat */
+.input-img{
+    width: 21rem;
+}
 
 /* createPlat.php , updatePlat.php */
 .check-allergene{
-    width: 38%;
+    width: 71%;
 }
 
 .check-allergene input{
@@ -138,12 +142,8 @@ button:hover , .btn-annuler:hover{
 }
 
 /* Général */
-form input[type="text"] , form input[type="password"] , form input[type="email"] , form textarea{
+form input[type="text"] , form input[type="password"] , form input[type="email"] , form textarea ,form input[type='number'], form input[type='date'] , form input[type='time']{
     width: 55%;
-}
-
-form input[type='number'], form input[type='date'] , form input[type='time']{
-    width: 7rem;
 }
 
 form textarea{

@@ -9,10 +9,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <h3 class="text-center mt-3">Connexion</h3>
             <form action="/auth/login" method="POST" class="text-center">
                 <?= Auth::csrfField() ?>
-                <label class="mt-3" for="login">Email/Pseudo</label><br>
-                <input  type="text" name="login" id="login" required><br>
-                <label class="mt-3" for="password">Mot de passe</label><br>
-                <input type="password" name="password" id="password" ><br>
+                <label class="form-label" for="login">Email/Pseudo</label><br>
+                <input class="form-control"  type="text" name="login" id="login" required><br>
+                
+                <label class="form-label" class="mt-3" for="password">Mot de passe</label><br>
+                <input class="form-control" type="password" name="password" id="password" ><br>
+
                 <button class="mt-3 btn-form" type="submit">Valider</button>
             </form><br>
             <a href="/auth/forgot-password" class="mdp-oublie text-center mb-5">Mot de passe oublié </a>
@@ -29,5 +31,5 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
 <?php
 $loadScriptJs = 'form.js';
-require_once __DIR__ . '/../../views/layout/footer.php';
+require_once __DIR__ . '/../../views/layout/importJs.php';
 ?>

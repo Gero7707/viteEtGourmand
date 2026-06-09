@@ -20,6 +20,7 @@ btnSubmitForm.addEventListener('click' , (e) =>{
     e.preventDefault();
     let isValid = true;
     inputs.forEach(input =>{
+        if(input.type === 'file') return;
         if(!input.value.trim()){
         isValid = false ;
         input.style.border = '1px solid var(--bs-danger)';

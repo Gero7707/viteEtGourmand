@@ -14,12 +14,17 @@ document.addEventListener('DOMContentLoaded', () =>{
 
 
     btnCalculerPrix.addEventListener('click' , async () =>{
+        errorMessage.textContent = '';
         if(!adresse.value || !codePostal.value || !ville.value || !gsm.value || !nbPersonne.value || !datePrestation.value || !heureLivraison.value){
             errorMessage.textContent = "Veuillez remplir tous les champs ! ";
+            errorMessage.style.color = "var(--bs-danger)";
+            errorMessage.style.backgroundColor = 'var(--bs-body-bg)';
             return;
         }
         if(parseInt(nbPersonne.value) < 0){
             errorMessage.textContent = "Vous ne pouvez pas entrer un nombre négatif";
+            errorMessage.style.color = 'var(--bs-danger)';
+            errorMessage.style.backgroundColor = 'var(--bs-body-bg)';
             return;
         }
 
@@ -37,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () =>{
                 })
             });
             const data = await response.json();
-            
             if(data.success) {
                 btnValider.disabled = false;
                 fraisDiv.innerHTML = '';
@@ -56,6 +60,8 @@ document.addEventListener('DOMContentLoaded', () =>{
             }
         } catch(error) {
             errorMessage.textContent = "Une erreur est survenue, veuillez réessayer.";
+            errorMessage.style.color = 'var(--bs-danger)';
+            errorMessage.style.backgroundColor = 'var(--bs-body-bg)';
         }
         finally{
             btnCalculerPrix.disabled = false;

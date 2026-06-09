@@ -5,7 +5,6 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
 <main>
     
-    <hr>
     <?php if ($_GET['error'] ?? null): ?>
         <p class="error-message mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
     <?php endif ?>
@@ -16,7 +15,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <div class="d-flex justify-content-around" >
 
         <div class=" flex-column justify-content-center form-horaire">
-            <h4 class="text-center mt-3 mb-3">Changer les horiares</h4>
+            <h3 class="text-center mt-3 mb-3">Changer les horiares</h3>
             <form action="/changer-horaire" method="POST" class="text-center">
                 <?= Auth::csrfField() ?>
                 <?php foreach($horaires as $horaire) : ?>
@@ -24,14 +23,14 @@ require_once __DIR__ . '/../../views/layout/header.php';
                     <input type="hidden" name="horaire_id[]" value="<?= $horaire['horaire_id'] ?>">
                     <p><?= htmlspecialchars($horaire['jour']) ?></p>
 
-                    <label class="mt-3" for="heure_ouverture[<?= $horaire['horaire_id'] ?>]">Ouverture</label>
-                    <input type="time" name="heure_ouverture[<?= $horaire['horaire_id'] ?>]" value="<?= htmlspecialchars($horaire['heure_ouverture']) ?>">
+                    <label class="form-label" for="heure_ouverture[<?= $horaire['horaire_id'] ?>]">Ouverture</label>
+                    <input class="form-control" type="time" name="heure_ouverture[<?= $horaire['horaire_id'] ?>]" value="<?= htmlspecialchars($horaire['heure_ouverture']) ?>">
                     
-                    <label class="mt-3" for="heure_fermeture[<?= $horaire['horaire_id'] ?>]">Fermeture</label>
-                    <input type="time" name="heure_fermeture[<?= $horaire['horaire_id'] ?>]" value="<?= htmlspecialchars($horaire['heure_fermeture']) ?>"><br>
+                    <label class="form-label" for="heure_fermeture[<?= $horaire['horaire_id'] ?>]">Fermeture</label>
+                    <input class="form-control" type="time" name="heure_fermeture[<?= $horaire['horaire_id'] ?>]" value="<?= htmlspecialchars($horaire['heure_fermeture']) ?>"><br>
                 <?php endforeach ?>
                 
-                <button class="mt-3" type="submit">Changer Horaire</button>
+                <button class="mt-3 mb-3" type="submit">Changer Horaire</button>
             </form>
         </div>
 
@@ -42,12 +41,14 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <?php foreach($jourManquants  as $jourManquant) : ?>
                     <input type="hidden" name="jour[]" id="jour" value="<?= htmlspecialchars($jourManquant) ?>">
                     <p><?= htmlspecialchars($jourManquant) ?></p><br>
-                    <label for="heure_ouverture[<?= $jourManquant ?>]">Ouverture</label><
-                    <input type="time" name="heure_ouverture[<?= $jourManquant ?>]">
-                    <label for="heure_fermeture[<?= $jourManquant ?>]">Fermeture</label>
-                    <input type="time" name="heure_fermeture[<?= $jourManquant ?>]"><br>
+                    <p class="error-message mt-1 text-center"></p><br>
+                    <label class="form-label" for="heure_ouverture[<?= $jourManquant ?>]">Ouverture :</label>
+                    <input class="form-control" type="time" name="heure_ouverture[<?= $jourManquant ?>]">
+
+                    <label class="form-label" for="heure_fermeture[<?= $jourManquant ?>]">Fermeture :</label>
+                    <input class="form-control" type="time" name="heure_fermeture[<?= $jourManquant ?>]"><br>
                 <?php endforeach ?>
-                <button class="mt-3" type="submit">Ajouter un jour</button>
+                <button class="mt-3 btn-form" type="submit">Ajouter un jour</button>
             </form>
         
             <div class="d-flex flex-column align-items-center">
@@ -60,7 +61,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         </tr>
                     </thead>
                     <tbody>
-                        <? foreach($horaires as $horaire) : ?>
+                        <?php foreach($horaires as $horaire) : ?>
                             <tr>
                                 <td><?= htmlspecialchars($horaire['jour']) ?></td>
                                 <td>
@@ -81,4 +82,5 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
 <?php
 $loadScriptJs  = 'form.js';
+require_once __DIR__ . '/../../views/layout/importJs.php';
 ?>

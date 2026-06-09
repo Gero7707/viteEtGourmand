@@ -68,6 +68,6 @@ require_once __DIR__ . '/../../views/layout/header.php';
 </main>
 <script src="/assets/js/cta.js"></script>
 <?php
-$loadScriptJs = 'form.js';
+$loadScriptJs = ['form.js' , 'cta.js'];
 require_once __DIR__ . '/../../views/layout/footer.php';
 ?>

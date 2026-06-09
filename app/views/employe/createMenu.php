@@ -67,6 +67,6 @@ require_once __DIR__ . '/../../views/layout/header.php';
     
 </main>
 <?php
-$loadScriptJs = 'form.js';
+$loadScriptJs = ['form.js' , 'cta.js'];
 require_once __DIR__ . '/../../views/layout/footer.php';
 ?>

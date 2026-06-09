@@ -172,6 +172,12 @@ textarea{
     text-decoration: underline;
 }
 
+/* avisUpdate.php */
+
+.div-etoiles{
+    display: none;
+}
+
 
 /* scroll bar custom */
 ::-webkit-scrollbar {

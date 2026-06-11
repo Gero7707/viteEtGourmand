@@ -35,6 +35,20 @@ class MenuModel{
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function getAllAllergene(int $menu_id){
+        $stmt= $this->pdo->prepare("SELECT DISTINCT allergene.libelle 
+                                    FROM menu
+                                    JOIN menu_plat ON menu_plat.menu_id = menu.menu_id
+                                    JOIN plat ON plat.plat_id = menu_plat.plat_id
+                                    JOIN plat_allergene ON plat.plat_id = plat_allergene.plat_id 
+                                    JOIN allergene ON allergene.allergene_id = plat_allergene.allergene_id
+                                    WHERE menu.menu_id = :id
+                                    ");
+        $stmt->bindValue(':id', $menu_id , PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function getMenuPlats(int $menu_id){
         $stmt = $this->pdo-> prepare("SELECT plat.*
                                     FROM menu_plat

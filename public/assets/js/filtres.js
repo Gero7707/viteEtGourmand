@@ -15,6 +15,26 @@ document.addEventListener('DOMContentLoaded', () =>{
     const messageInput = document.getElementById('messageInput');
     const cartes = document.querySelectorAll('.carte-menu');
     const messageFiltre = document.getElementById('messageFiltre');
+
+    const modalAllergenes =document.querySelector('.modal-allergenes');
+
+
+    cartes.forEach(carte =>{
+        carte.querySelector('.liste-allergene').addEventListener('mouseenter' , async ()=>{
+            menuId = carte.dataset.menuId;
+            try{
+                const response = await fetch('/fetch/menu-allergene/' + menuId)
+                const data = await response.json();
+                carte.querySelector('.modal-allergenes').textContent = data.map(allergene => allergene.libelle).join(', ');
+            }catch(error){
+                carte.querySelector('.modal-allergenes').textContent = "Allergènes non disponibles.";
+            }
+        })
+    })
+
+
+
+
     let fourchette = { min: null, max: null };
 
     function filtrer(){

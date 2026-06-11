@@ -57,7 +57,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <div class="row justify-content-center px-5 gx-5 " id="carteContainer">
                     <p id="messageFiltre"></p>
                     <?php foreach($menus as $menu) : ?>
-                        <article class="carte-menu mb-5 col-lg-4 mx-4 col-sm-12 " data-theme="<?= $menu['theme_id'] ?>" data-prix="<?= $menu['prix_par_personne'] ?>" data-regime = "<?= $menu['regime_id'] ?>" data-nombre = "<?= $menu['nombre_personne_minimum'] ?>" >
+                        <article class="carte-menu mb-5 col-lg-4 mx-4 col-sm-12 " data-menu-id="<?= $menu['menu_id'] ?>" data-theme="<?= $menu['theme_id'] ?>" data-prix="<?= $menu['prix_par_personne'] ?>" data-regime = "<?= $menu['regime_id'] ?>" data-nombre = "<?= $menu['nombre_personne_minimum'] ?>" >
                             
                             <div class="d-flex justify-content-between en-tete-carte-menu">
                                 <h4><?= htmlspecialchars($menu['titre']) ?></h4>
@@ -84,7 +84,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                 <div class="d-flex flex-column img-nb-personne">
                                     <img src="<?= htmlspecialchars($menu['image']) ?>" alt="">
                                     <p>A partir de <?= htmlspecialchars($menu['nombre_personne_minimum']) ?> personnes</p><br>
+                                    <p class="liste-allergene" data-menu-id="<?= $menu['menu_id'] ?>"><i class="fa-regular fa-hand-point-right"></i>Allergènes</p>
+                                    <div class="modal-allergenes"></div>
                                 </div>
+                                
                             </div>
                             
                             

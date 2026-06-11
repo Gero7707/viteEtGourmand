@@ -393,4 +393,18 @@ class MenuController{
             exit();
         }
     }
+
+
+    public function getAllAllergene(int $id){
+        header('Content-Type: application/json');
+
+        try {
+            $resultat = $this->menus->getAllAllergene($id );
+            // , JSON_UNESCAPED_UNICODE
+            echo json_encode($resultat);
+        } catch (Exception $e) {
+            echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+        }
+        exit;
+    }
 }

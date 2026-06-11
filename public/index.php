@@ -177,6 +177,9 @@ $router->add('POST' , '/ajout-jour' , 'HoraireController' , 'ajouterJour');
 $router->add('POST' , '/supp-jour/{id}' , 'HoraireController' , 'supprimerJour');
 
 
+//Afficher les allergènes dans une modal
+$router->add('GET' , '/fetch/menu-allergene/{id}' , 'MenuController' , 'getAllAllergene');
+
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode
 $router->dispatch($url);

@@ -19,6 +19,8 @@ class PlatModel{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    
+
     public function getAllPlats(){
         $stmt = $this->pdo->query("SELECT plat.*, menu.titre AS menu_titre
                                     FROM plat

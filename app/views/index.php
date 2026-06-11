@@ -55,9 +55,6 @@ require_once __DIR__ . '/../views/layout/header.php';
 
     <?php endif ?>
 
-    <?php if ($_GET['error'] ?? null): ?>
-        <p><?= htmlspecialchars($_GET['error']) ?></p>
-    <?php endif ?>
         <section class="section-carousel">
             <!-- Slider main container -->
             <div class="swiper">
@@ -145,8 +142,6 @@ require_once __DIR__ . '/../views/layout/header.php';
 </main>
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
-<!-- <script src="/assets/js/intersectionObserver.js"></script>
-<script src="/assets/js/Swiper.js"></script> -->
 
 <?php
 $loadScriptJs = ['intersectionObserver.js' , 'Swiper.js' ];

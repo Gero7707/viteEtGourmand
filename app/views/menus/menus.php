@@ -11,35 +11,41 @@ require_once __DIR__ . '/../../views/layout/header.php';
 <main >
     <div class="d-flex justify-content-aroun">
         <section class="section-filtres">
-            <button id="init-filtres" type="submit">Réinitialiser</button>
+            <button id="init-filtres" type="button">Réinitialiser</button>
             <div class="filtres">
                 <h4 class="mt-5">Filtres</h4>
                 <ul>
-                    <li>Prix :<br>
-                        <ul>
-                            <li><i class="fa-solid fa-arrow-right"></i>&nbsp; < à 20€</li>
-                            <li><i class="fa-solid fa-arrow-right"></i>&nbsp; de 20€ à 30€</li>
-                            <li><i class="fa-solid fa-arrow-right"></i>&nbsp; > 30€</li><br>
+                    <li>Prix :
+                        <p id="messageBouton"></p>
+                        <ul class="liste-bouton">
+                            <li><button class="btn-filtre" type="button" data-min="0" data-max="19.99"><i class="fa-solid fa-arrow-right"></i>&nbsp; < à 20€</button></li>
+                            <li><button class="btn-filtre" type="button" data-min="20" data-max="29.99"><i class="fa-solid fa-arrow-right"></i>&nbsp; de 20€ à 30€</button></li>
+                            <li><button class="btn-filtre" type="button" data-min="30" data-max="100"><i class="fa-solid fa-arrow-right"></i>&nbsp; > 30€</button></li><br>
                         </ul>
-                        <label for="prix_max">Prix max :</label>
-                        <input type="number" name="prix_max" id="prix_max" class="mb-5">
+                        <p id="messageInput"></p>
+                        <label for="prixMax">Prix max :</label>
+                        
+                        <input type="number" name="prixMax" id="prixMax" class="mb-5">
+                        
                     </li>
                     <li class="mb-5">Thème : 
                             <select name="theme" id="theme">
-                                <option value="noel">Noêl</option>
-                                <option value="pacques">Pacques</option>
-                                <option value="classique">Classique</option>
-                                <option value="evenement">Evènement</option>
+                                <option value=""></option>
+                                <option value="1">Classique</option>
+                                <option value="2">Noêl</option>
+                                <option value="3">Pacques</option>
+                                <option value="4">Evènement</option>
                             </select></li>
                     <li class="mb-5">Régime :
                         <select name="regime" id="regime">
-                            <option value="vegan">Végan</option>
-                            <option value="vegetarien">Végétarien</option>
-                            <option value="classique">Classique</option>
+                            <option value=""></option>
+                            <option value="1">Classique</option>
+                            <option value="2">Végétarien</option>
+                            <option value="3">Végan</option>
                         </select>
                     </li>
-                    <li><label for="nb_personne">Nombre personnes :</label><br>
-                        <i class="fa-solid fa-arrow-right"></i><input class="iput-nombre" type="number" name="nb_personne" id="nb_personne" placeholder="min 4"><br>
+                    <li><label for="nombre">Nombre personnes :</label><br>
+                        <i class="fa-solid fa-arrow-right"></i><input class="iput-nombre" type="number" name="nombre" id="nombre" placeholder="min 4"><br>
                         
                     </li>
                 </ul>
@@ -48,10 +54,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
         <section class="section-menus bg-primary mt-5 pt-5 pb-4 mb-4">
                     
-                <div class="row">
+                <div class="row justify-content-center px-5 gx-5 " id="carteContainer">
+                    <p id="messageFiltre"></p>
                     <?php foreach($menus as $menu) : ?>
-                        <div class="col-lg-1 col-sm-2"></div>
-                        <div class="carte-menu mb-5 col-lg-4 col-sm-8">
+                        <article class="carte-menu mb-5 col-lg-4 mx-4 col-sm-12 " data-theme="<?= $menu['theme_id'] ?>" data-prix="<?= $menu['prix_par_personne'] ?>" data-regime = "<?= $menu['regime_id'] ?>" data-nombre = "<?= $menu['nombre_personne_minimum'] ?>" >
                             
                             <div class="d-flex justify-content-between en-tete-carte-menu">
                                 <h4><?= htmlspecialchars($menu['titre']) ?></h4>
@@ -63,7 +69,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                             <div class="texte-img d-flex">
                                 <div class="theme-description d-flex flex-column">
                                     <div>
-                                        <p class="theme-carte"><?php if($menu['regime'] === 'Classique') : ?>
+                                        <p class="theme-carte" ><?php if($menu['regime'] === 'Classique') : ?>
                                                                     <i class="fa-solid fa-square"></i>   
                                                                 <?php elseif($menu['regime'] === 'Vegan') : ?>
                                                                     <i class="fa-solid fa-circle"></i>
@@ -91,8 +97,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                     </form>
                                 <?php endif ?>
                             </div>
-                        </div>
-                        <div class="col-lg-1 col-sm-2"></div>
+                        </article>
                     <?php endforeach ?>
                 </div>
         </section>
@@ -104,6 +109,6 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
 
 <?php
-$loadScriptJs = '';
+$loadScriptJs = 'filtres.js';
 require_once __DIR__ . '/../../views/layout/importJs.php';
 ?>

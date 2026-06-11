@@ -120,7 +120,7 @@ require_once __DIR__ . '/../views/layout/header.php';
     <section class="section-avis bg-primary m-auto mt-5 pt-5 pb-4">
         <h3 class="text-secondary text-center mb-5">Avis clients</h3>
                 
-            <div class="row">
+            <div class="row-accueil row">
                 <?php foreach($avis as $carteAvis) : ?>
                     <div class="col-lg-1 col-sm-2"></div>
                     <div class="carte-avis mb-5 col-lg-4 col-sm-8">

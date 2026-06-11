@@ -51,10 +51,11 @@
 /* ================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================ */
 *{
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-size: 18px;
 }
+
+
 
 body{
     background-color:var(--fond-plus-clair) ;
@@ -388,6 +389,7 @@ a{text-decoration: none;}
     background-color: var(--fond-carte);
     padding: 1rem;
     border-radius: 10px;
+    width: 45%;
 }
 
 .en-tete-carte-menu a{
@@ -406,9 +408,7 @@ a{text-decoration: none;}
 }
 
 
-.carte-menu:first-child{
-    justify-content: flex-end;
-}
+
 
 .prix{
     margin-left: auto;
@@ -486,6 +486,22 @@ a{text-decoration: none;}
     margin-left: 4rem;
 }
 
+.liste-bouton button{
+    border: none;
+    padding: 0;
+    color: var(--fond-plus-clair) !important;
+    margin-top: 0;
+    margin-left: 0;
+    width: 8rem;
+    height: 2rem;
+    text-align: start;
+}
+
+.liste-bouton button:hover{
+    color: var(--texte) !important;
+    background-color: var(--fond-plus-clair) !important;
+}
+
 .section-filtres{
     color: var(--fond-plus-clair);
 }
@@ -501,6 +517,15 @@ a{text-decoration: none;}
 
 .filtres{
     margin-left: 2rem;
+}
+
+#messageInput , #messageBouton{
+    border-radius: 8px;
+    padding: 0.3rem;
+    width: 90%;
+    display: block;
+    text-align: center;
+    margin-right: 2rem;
 }
 
 footer{
@@ -658,7 +683,7 @@ Mobiles
 
     /* Section avis */
 
-    .row>*{
+    .row-avis>* , .row-accueil>*{
         width: 85%;
         margin: auto;
     }

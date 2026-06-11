@@ -82,6 +82,91 @@ thead,tbody,td, th{
     padding: 0.5rem;
 }
 
+/* ====================================================================================================================================================================================================================================================================================================================================================== ====================================================================================================================================================================================================================================================================================================================================================== */
+
+/* Commandes vue du formulaire */
+
+/* Affichage du menu choisi */
+.menu-choisi{
+    margin-bottom: 5rem;
+    border: 1px solid var(--bs-secondary);
+    
+    border-radius: 8px;
+    background-color: var(--bleu-tres-fonce);
+    color:var(--fond-plus-clair);
+    
+    padding: 3rem;
+}
+
+.carte-menu-commande{
+    background-color: var(--fond-carte);
+    color: var(--texte);
+    border-radius: 8px;
+    padding: 3rem;
+    border: 1px solid var(--texte);
+    width: 40%;
+    max-height: 43rem;
+}
+
+.texte-carte-commande{
+    width: 80%;
+    margin: auto;
+    border-left: 2px solid var(--bs-secondary);
+    background-color: var(--bordure);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    
+}
+
+.plats p ,menu-choisi h5, .prix-menu p {
+    margin-bottom: 0;
+}
+
+.prix-menu :nth-child(2){
+    color: var(--dore);
+}
+
+.theme-carte{
+    background-color: var(--bleu-nuit);
+    padding: 0.3rem;
+    color: var(--fond-carte);
+    width: 8rem;
+    border-radius: 8px;
+}
+
+.fa-square , .fa-circle , .fa-diamond{
+    color: var(--bs-secondary);
+}
+
+.plats{
+    margin-bottom: 1rem;
+    margin-left: 3.5rem;
+    background-color: var(--bleu-moyen);
+    color: var(--fond-carte);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.conditions{
+    border-left: 2px solid var(--bs-secondary);
+    border-radius: 8px;
+    background-color: var(--dore-tres-clair);
+    width: 80%;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+.texte-carte-commande, .plats , .theme-carte{
+    box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
 /*  editProfile.php  pour btn-annuler , le reste est général */
 form input ,form textarea , button , select, .btn-annuler{
     border-radius: 5px;

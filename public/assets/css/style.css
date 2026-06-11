@@ -377,6 +377,131 @@ a{text-decoration: none;}
     color: var(--dore);
 }
 
+/* Section des menus */
+.section-menus{
+    width: 75%;
+    border-radius: 10px;
+    margin-left: auto;
+}
+
+.carte-menu{
+    background-color: var(--fond-carte);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.en-tete-carte-menu a{
+    background-color: var(--bs-secondary);
+    padding: 0.3rem;
+    border-radius: 8px;
+    display: block;
+    text-align: center;
+    color: var(--bleu-nuit);
+    margin-left: auto;
+}
+
+.en-tete-carte-menu a:hover{
+    background-color: var(--dore-clair);
+    transform: scale(1.1);
+}
+
+
+.carte-menu:first-child{
+    justify-content: flex-end;
+}
+
+.prix{
+    margin-left: auto;
+    color: var(--bs-secondary);
+    width: 50%;
+
+}
+
+.prix p{
+    font-size: 1.25rem;
+}
+
+.theme-description{
+    width: 55%;
+}
+
+.theme-description :nth-child(2){
+    padding: 0.5rem;
+}
+
+.theme-description i{
+    margin-left: 0.5rem;
+}
+
+.theme-description :first-child p{
+    margin-left: 3rem;
+}
+
+.mg-nb-personne img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 8px;
+}
+
+.img-nb-personne{
+    width: 40%;
+}
+
+.img-nb-personne p{
+    font-size: 0.9rem;
+}
+
+.action-entreprise a{
+    width: 11rem;
+    height: 2.75rem;
+    background-color: var(--bleu-moyen);
+    color: var(--bs-secondary) !important;
+    border: 1px solid var(--bs-secondary);
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+    padding-top: 0.6rem;
+}
+
+.action-entreprise a:hover{
+    color: var(--bleu-nuit) !important;
+    background-color: var(--bs-secondary);
+}
+
+
+/* Section filtres */
+.section-filtres{
+    width: 20%;
+    background-color: var(--bleu-moyen);
+    height: 100vh;
+    position: fixed;
+    top:80px;
+}
+
+.section-filtres button{
+    border : 1px solid;
+    padding: 0.2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    margin-left: 4rem;
+}
+
+.section-filtres{
+    color: var(--fond-plus-clair);
+}
+
+.section-filtres input{
+    width: 4rem;
+    border-radius: 8px;
+}
+
+.section-filtres .iput-nombre{
+    margin-left:3rem ;
+}
+
+.filtres{
+    margin-left: 2rem;
+}
 
 footer{
     background-color: var(--bleu-nuit);
@@ -429,88 +554,7 @@ footer i:hover , .mentions a:hover{
 
 /* ====================================================================================================================================================================================================================================================================================================================================================== ====================================================================================================================================================================================================================================================================================================================================================== */
 
-/* Commandes vue du formulaire */
 
-/* Affichage du menu choisi */
-.menu-choisi{
-    margin-bottom: 5rem;
-    border: 1px solid var(--bs-secondary);
-    
-    border-radius: 8px;
-    background-color: var(--bleu-tres-fonce);
-    color:var(--fond-plus-clair);
-    
-    padding: 3rem;
-}
-
-.carte-menu-commande{
-    background-color: var(--fond-carte);
-    color: var(--texte);
-    border-radius: 8px;
-    padding: 3rem;
-    border: 1px solid var(--texte);
-    width: 40%;
-    max-height: 43rem;
-}
-
-.texte-carte-commande{
-    width: 80%;
-    margin: auto;
-    border-left: 2px solid var(--bs-secondary);
-    background-color: var(--bordure);
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    
-}
-
-.plats p ,menu-choisi h5, .prix-menu p {
-    margin-bottom: 0;
-}
-
-.prix-menu :nth-child(2){
-    color: var(--dore);
-}
-
-.theme-carte{
-    background-color: var(--bleu-nuit);
-    padding: 0.3rem;
-    color: var(--fond-carte);
-    width: 8rem;
-    border-radius: 8px;
-}
-
-.fa-square , .fa-circle , .fa-diamond{
-    color: var(--bs-secondary);
-}
-
-.plats{
-    margin-bottom: 1rem;
-    margin-left: 3.5rem;
-    background-color: var(--bleu-moyen);
-    color: var(--fond-carte);
-    border-radius: 8px;
-    padding: 2rem;
-}
-
-.conditions{
-    border-left: 2px solid var(--bs-secondary);
-    border-radius: 8px;
-    background-color: var(--dore-tres-clair);
-    width: 80%;
-    margin: auto;
-    margin-bottom: 3rem;
-}
-
-.texte-carte-commande, .plats , .theme-carte{
-    box-shadow:
-        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-        0 12.5px 10px rgba(0, 0, 0, 0.06),
-        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-        0 100px 80px rgba(0, 0, 0, 0.12);
-}
 
 
 

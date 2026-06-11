@@ -8,7 +8,7 @@
         <h6>Coordonnées :</h6>
         <p>4 rue de Rosiers</p>
         <p>33000 Bordeaux</p>
-        <p><i class="fa-solid fa-at"></i>vite&gourmand@mail.com</p>
+        <p><a href="mailto:vite&gourmand@mail.com"><i class="fa-solid fa-at"></i></a> vite&gourmand@mail.com</p>
         <p><i class="fa-solid fa-phone"></i>0612345678</p>
     </div>
     <div class="d-flex reseaux">

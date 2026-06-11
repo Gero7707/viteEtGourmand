@@ -42,7 +42,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
                 <label class="form-label" for="code_postal">Code Postal</label><br>
                 <input class="form-control mb-5" type="text" name="code_postal" id="code_postal" required>
-
+                <p class="error-message mt-1 text-center"></p><br>
                 <button class="btn-form mb-5" type="submit">Créer compte</button>
             </form>
         </div>

@@ -443,7 +443,7 @@ class CommandeController{
         $statutActuel = $this->commandes->findById($id);
         $transition = [
             'en_attente' => 'acceptee', 
-            'accepte' => 'en_preparation', 
+            'acceptee' => 'en_preparation', 
             'en_preparation' => 'en_livraison', 
             'en_livraison' => 'livree', 
             'livree' => 'attente_retour_materiel', 

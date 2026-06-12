@@ -5,62 +5,82 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
 <main>
     <?php if($_SESSION['role_id'] === 1 ) : ?>
-        <a href="/profile">Retour profil</a><br>
+        <a class="liens-retour" href="/profile">Retour profil</a><br>
     <?php elseif($_SESSION['role_id'] === 2 || $_SESSION['role_id'] === 3 )  : ?>
-        <a href="/commandes-client">Retour aux commandes</a>
+        <a class="liens-retour" href="/commandes-client">Retour aux commandes</a>
     <?php endif ?>
 
     <?php if ($_GET['error'] ?? null): ?>
-        <p class="error-message mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
+        <p class="error-message mt-1 text-center"><?= htmlspecialchars($_GET['error']) ?></p>
     <?php endif ?>
     <?php if ($_GET['success'] ?? null): ?>
-        <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
+        <p class="success-message mt-1 text-center"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
 
-    <h3>Commande no : <?=   htmlspecialchars($commandes['numero_commande']) ?></h3>
+    <section class="section-commande-client">
+        <h3 class="text-center">Commande no : <?=   htmlspecialchars($commandes['numero_commande']) ?></h3>
 
-    <h4><?= htmlspecialchars($commandes['titre']) ?></h4>
-    <?php if($_SESSION['role_id'] === 3 || $_SESSION['role_id'] === 2) : ?>
-        <p>Client :<?= htmlspecialchars($commandes['nom_complet']) ?> </p><br>
-        <p>Adresse : <?= htmlspecialchars($commandes['adresse_livraison']) ?> </p><br>
-        <p>Ville : <?= htmlspecialchars($commandes['ville'] ?? '') ?> </p><br>
-        <p>Code postal :<?= htmlspecialchars($commandes['code_postal'] ?? '') ?></p><br>
-        <p>Téléphone : <?= htmlspecialchars($commandes['gsm'] ?? '') ?></p><br>
-        <p>Email : <?= htmlspecialchars($commandes['utilisateur_email']) ?></p><br>
-    <?php endif ?>
-    <hr>
-    <p>Date de commande : <?= htmlspecialchars($commandes['date_commande']) ?></p><br>
-    <p>Date de prestation : <?= htmlspecialchars($commandes['date_prestation']) ?></p><br>
-    <p>Heure de livraison : <?= htmlspecialchars($commandes['heure_livraison']) ?></p><br>
-    <p>Adresse de la livraison : <?= htmlspecialchars($commandes['adresse_livraison'] ?? '') ?></p><br>
-    <p>Ville : <?= htmlspecialchars($commandes['ville']) ?> - <?= htmlspecialchars($commandes['code_postal']) ?></p><br>
-    <p>Nombre de personne : <?=   htmlspecialchars($commandes['nombre_personne']) ?></p><br>
-    <p>Statut: <?= htmlspecialchars($commandes['statut']) ?></p><br>
-    <p>Prêt de matériel : <?= $commandes['pret_materiel'] ? 'Oui' : 'Non' ?></p><br>
-    <p>Restitué : <?= $commandes['restitution_materiel'] ? 'Oui' : 'Non' ?></p>
-
-    <h4>Historique</h4>
-    <?php foreach($historique as $statut) : ?>
-        <p>Statut : <?= htmlspecialchars($statut['statut']) ?></p><br>
-        <p><?= htmlspecialchars($statut['date_modification']) ?></p><br>
-    <?php endforeach ?>
-    
-    <?php if($_SESSION['role_id'] === 1) : ?>
-        <?php if($commandes['statut'] === 'en_attente') : ?>
-            <form action="/commandes/annuler/<?= $commandes['commande_id'] ?>" method="POST">
-                <?= Auth::csrfField() ?>
-                <button type="submit">Annuler</button>
-            </form>
-            <a href="/commandes/edit/<?= $commandes['commande_id'] ?>">Modifier</a>
+        <h4 class="text-center"><?= htmlspecialchars($commandes['titre']) ?></h4>
+        <?php if($_SESSION['role_id'] === 3 || $_SESSION['role_id'] === 2) : ?>
+            <hr>
+            <p><span>Client</span> :<?= htmlspecialchars($commandes['nom_complet']) ?> </p><br>
+            <p><span>Adresse</span> : <?= htmlspecialchars($commandes['adresse_livraison']) ?> </p><br>
+            <p><span>Ville</span> : <?= htmlspecialchars($commandes['ville'] ?? '') ?> </p><br>
+            <p><span>Code postal</span> :<?= htmlspecialchars($commandes['code_postal'] ?? '') ?></p><br>
+            <p><span>Téléphone</span> : <?= htmlspecialchars($commandes['gsm'] ?? '') ?></p><br>
+            <p><span>Email</span> : <?= htmlspecialchars($commandes['utilisateur_email']) ?></p><br>
+            
         <?php endif ?>
-        <?php if( $commandes['statut'] === 'terminee' && $avis === false) : ?>
-            <a href="/avis/noter/<?= $commandes['commande_id'] ?>">Noter commande</a>
-        <?php elseif($commandes['statut'] === 'terminee' && $avis['statut'] === 'en_attente') : ?>
-            <p>Votre avis estt en attente de validation .</p>
-        <?php elseif($commandes['statut'] === 'terminee' && $avis['statut'] === 'valide') : ?>
-            <a href="/avis/edit/<?= $avis['avis_id'] ?>">Modifier Avis</a>
-        <?php endif ?>
-    <?php endif ?>
+        <hr>
+        <p><span>Date de commande</span> : <?= htmlspecialchars($commandes['date_commande']) ?></p><br>
+        <p><span>Date de prestation</span> : <?= htmlspecialchars($commandes['date_prestation']) ?></p><br>
+        <p><span>Heure de livraison</span> : <?= htmlspecialchars($commandes['heure_livraison']) ?></p><br>
+        <p><span>Adresse de la livraison</span> : <?= htmlspecialchars($commandes['adresse_livraison'] ?? '') ?></p><br>
+        <p><span>Ville</span> : <?= htmlspecialchars($commandes['ville']) ?> - <?= htmlspecialchars($commandes['code_postal']) ?></p><br>
+        <p><span>Nombre de personne</span> : <?=   htmlspecialchars($commandes['nombre_personne']) ?></p><br>
+        <p><span>Statut</span> : <?= htmlspecialchars($commandes['statut']) ?></p><br>
+        <p><span>Prêt de matériel</span> : <?= $commandes['pret_materiel'] ? 'Oui' : 'Non' ?></p><br>
+        <p><span>Restitué</span> : <?= $commandes['restitution_materiel'] ? 'Oui' : 'Non' ?></p>
+
+        <h4 class="text-center">Historique</h4>
+        <table class="tableau-historique">
+            <thead>
+                <tr>
+                    <th>Statut</th>
+                    <th class="th-historique">Date/heure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($historique as $statut) : ?>
+                    <tr>
+                        <td><?= htmlspecialchars(str_replace('_', ' ',ucfirst($statut['statut'])) ) ?></td>
+                        <td><?= date('d/m/Y H:i', strtotime($statut['date_modification'])) ?></td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+        
+        
+        
+            <?php if($_SESSION['role_id'] === 1) : ?>
+                <div class="actions-commande">
+                    <?php if($commandes['statut'] === 'en_attente') : ?>
+                        <form action="/commandes/annuler/<?= $commandes['commande_id'] ?>" method="POST">
+                            <?= Auth::csrfField() ?>
+                            <button type="submit">Annuler</button>
+                        </form>
+                        <a href="/commandes/edit/<?= $commandes['commande_id'] ?>">Modifier</a>
+                    <?php endif ?>
+                    <?php if( $commandes['statut'] === 'terminee' && $avis === false) : ?>
+                        <a href="/avis/noter/<?= $commandes['commande_id'] ?>">Noter commande</a>
+                        <?php elseif($commandes['statut'] === 'terminee' && $avis['statut'] === 'en_attente') : ?>
+                        <p class="text-success mt-4">Votre avis est en attente de validation .</p>
+                    <?php elseif($commandes['statut'] === 'terminee' && $avis['statut'] === 'valide') : ?>
+                        <a href="/avis/edit/<?= $avis['avis_id'] ?>">Modifier Avis</a>
+                    <?php endif ?>
+                </div>
+            <?php endif ?>
+    </section>
 </main>
 <?php
 require_once __DIR__ . '/../../views/layout/footer.php';

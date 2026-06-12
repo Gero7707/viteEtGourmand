@@ -192,7 +192,7 @@ a{text-decoration: none;}
     color: var(--texte);
 }
 
-.lien-intro, .avis ,.commander a{
+.lien-intro, .avis ,.commander a , .modif-profil a{
     width: 15rem;
     border-radius: 8px;
     font-size: 1.5rem;
@@ -204,7 +204,7 @@ a{text-decoration: none;}
     margin: auto;
 }
 
-.lien-intro:hover , .lien-intro-entreprise:hover  ,.commander a:hover{
+.lien-intro:hover , .lien-intro-entreprise:hover  ,.commander a:hover, .modif-profil a:hover{
     background-color: var(--dore-clair) !important;
 }
 
@@ -684,6 +684,65 @@ a{text-decoration: none;}
     text-align: center;
     margin: auto;
     padding: 1rem;
+}
+
+
+/* =================================================================================================================================================================================== */
+/* Profile utilisateur  */
+.section-profile-user, .section-commandes{
+    background-color: var(--fond-carte);
+    box-shadow: var(--shadow);
+    color: var(--texte);
+    padding: 1.5rem;
+    margin: auto;
+    width: 50%;
+    border-radius: 8px;
+}
+
+.section-profile-user h5, .section-commandes h5{
+    background-color: var(--dore);
+    color: var(--bleu-tres-fonce);
+    border-radius: 8px;
+}
+
+.donnees-user{
+    margin: auto;
+    width: 38%;
+}
+
+.donnees-user p{
+    margin-right: auto;
+}
+
+.donnees-user span{
+    text-decoration: underline;
+}
+
+.modif-profil{
+    text-align: center;
+}
+
+.modif-profil a {
+    background-color: var(--dore);
+    color: var(--bleu-tres-fonce);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table i{
+    color: var(--dore);
+    margin-left: 0.5rem;
+}
+
+table i:hover {
+    color: var(--bleu-nuit);
+    transform: scale(1.3);
+}
+
+tr {
+    border-bottom: 1px solid var(--bleu-tres-fonce);
 }
 /* =================================================================================================================================================================================== */
 

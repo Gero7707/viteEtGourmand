@@ -9,6 +9,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
 <?php endif ?>
 <main >
+    <p class=" arborescence text-center"><a href="/">Accueil<</a>Menus</p>
     <div class="d-flex justify-content-aroun">
         <section class="section-filtres">
             <button id="init-filtres" type="button">Réinitialiser</button>
@@ -53,7 +54,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         </section>
 
         <section class="section-menus bg-primary mt-5 pt-5 pb-4 mb-4">
-                    
+                
                 <div class="row justify-content-center px-5 gx-5 " id="carteContainer">
                     <p id="messageFiltre"></p>
                     <?php foreach($menus as $menu) : ?>

@@ -2,7 +2,7 @@ const swiper = new Swiper(".swiper" , {
     grabCursor: true,
     slidePerView: 1.5,
     centeredSlides: true,
-    initialSlide: 2,
+    initialSlide: 0,
     speed: 900,
     parallax: true,
     spaceBetween: 40,

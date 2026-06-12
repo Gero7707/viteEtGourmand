@@ -253,7 +253,7 @@ class PlatController{
             header('Location: /plats?error=' . urlencode($error));
             exit();
         }
-        if($plat['chemin_photo']){
+        if($plat['chemin_photo']  && file_exists(__DIR__ . "/../../public/" . $plat['chemin_photo'])){
             unlink(__DIR__ . "/../../public/" . $plat['chemin_photo']);
         }
 

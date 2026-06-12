@@ -13,24 +13,38 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
     <p class="arborescence"><a href="/">Accueil</a>><a href="/menus">Menus</a>><?= htmlspecialchars($menus['titre']) ?></p>
     <section class="section-detail d-flex justify-content-around mb-5">
-        <div class="img-estimateur mt-4">
+        <div class="img-estimateur ">
             <div class="img-menu-detail">
-
+                <div class="swiper swiper-menu-detail">
+                    <div class="swiper-button-prev"></div>
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <?php foreach($plat as $p) : ?>
+                        <div class="swiper-slide"> 
+                            <div class="img-wrapper position-img">
+                                <img src="/<?= htmlspecialchars($p['chemin_photo']) ?>" alt="" data-swiper-parallax-x="30%" loading="lazy">
+                            </div>
+                            <p><?= htmlspecialchars($p['titre_plat']) ?></p>
+                        </div>
+                        <?php endforeach ?>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                </div>
             </div>
-            <div>
-                <form action="">
-                    <label for="prix_estime">Estimateur de prix :Entrer un nombre de personnes . Minimum <?= htmlspecialchars($menus['nombre_personne_minimum']) ?></label>
-                    <input type="number" name="prix_estime" id="prix_estime">
-                    <button type="submit">Estimer le prix total</button>
-                </form>
+            
+            <div class="commander">
+                <a class=" fw-mediumbold bg-secondary text-primary" href="/commandes/create/<?=  htmlspecialchars($menus['menu_id']); ?>">Commander</a>
+                <p>Vous pouvez faire une estimation du prix total à la page commander .</p>
             </div>
-            <div>
-                <a href="/commandes/create/<?=  htmlspecialchars($menus['menu_id']); ?>">Commander</a>
+            <div class="citation mt-5">
+                <p>"La cuisine est un voyage à travers le monde des saveurs."</p>
+                <p>Anne-Sophie Pic</p>
             </div>
         </div>
 
 
-        <article class="infos-completes mt-4 ">
+        <article class="infos-completes  ">
             <div class="d-flex justify-content-around entete-menu-detail">
                 <div class="titre-menu d-flex flex-column">
                     <h3><?= htmlspecialchars($menus['titre']) ?></h3><br>
@@ -87,11 +101,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
 </main>
 
-                    <!-- <img src="/<?= htmlspecialchars($p['chemin_photo']) ?>" alt="" width="50" height="50"> -->
+                    
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 <?php
-// $loadScriptJs = '';
+$loadScriptJs = 'Swiper.js';
 require_once __DIR__ . '/../../views/layout/importJs.php';
+require_once __DIR__ . '/../../views/layout/footer.php';
 ?>

@@ -341,7 +341,10 @@ class MenuController{
                 header('Location: /menus/edit/'. $id .'?error=' . urlencode($error));
                 exit();
             }
-            unlink(__DIR__ . "/../../public/" . $menu['chemin']);
+
+            if($menu['chemin'] && file_exists(__DIR__ . "/../../public/" . $menu['chemin'])){
+                unlink(__DIR__ . "/../../public/" . $menu['chemin']);
+            }
             $this->menus->deleteImage($id);
             move_uploaded_file($source, $destination);
 

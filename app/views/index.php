@@ -64,27 +64,27 @@ require_once __DIR__ . '/../views/layout/header.php';
                     <!-- Slides -->
                     <div class="swiper-slide"> 
                         <div class="img-wrapper">
-                            <img src="/assets/img/menus/banquet.jpg" alt="" data-swiper-parallax-x="30%" loading="lazy">
+                            <img src="/assets/img/accueil/banquet.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
                         </div>
                     </div>
                     <div class="swiper-slide"> 
                         <div class="img-wrapper">
-                            <img src="/assets/img/menus/brunch-paques.jpg" alt="" data-swiper-parallax-x="30%" loading="lazy">
+                            <img src="/assets/img/accueil/table.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
                         </div>
                     </div>
                     <div class="swiper-slide"> 
                         <div class="img-wrapper">
-                            <img src="/assets/img/menus/jardin-ete.jpg" alt="" data-swiper-parallax-x="30%" loading="lazy">
+                            <img src="/assets/img/accueil/banquet-3.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
                         </div>
                     </div>
                     <div class="swiper-slide"> 
                         <div class="img-wrapper">
-                            <img src="/assets/img/menus/menu-estival.jpg" alt="" data-swiper-parallax-x="30%" loading="lazy">
+                            <img src="/assets/img/accueil/banquet-2.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
                         </div>
                     </div>
                     <div class="swiper-slide"> 
                         <div class="img-wrapper">
-                            <img src="/assets/img/menus/fete.jpg" alt="" data-swiper-parallax-x="30%" loading="lazy">
+                            <img src="/assets/img/accueil/fete.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
                         </div>
                     </div>
                 </div>

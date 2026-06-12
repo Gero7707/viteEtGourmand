@@ -76,7 +76,7 @@ main{
 
 .arborescence , .arborescence a{
     color: var(--texte);
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .arborescence a:hover{
@@ -85,6 +85,7 @@ main{
 
 .arborescence{
     margin-left: 3rem;
+    margin-bottom: 0 !important;
 }
 /* ============================================================================================================================================================================ */
 
@@ -191,7 +192,7 @@ a{text-decoration: none;}
     color: var(--texte);
 }
 
-.lien-intro, .avis{
+.lien-intro, .avis ,.commander a{
     width: 15rem;
     border-radius: 8px;
     font-size: 1.5rem;
@@ -203,7 +204,7 @@ a{text-decoration: none;}
     margin: auto;
 }
 
-.lien-intro:hover , .lien-intro-entreprise:hover{
+.lien-intro:hover , .lien-intro-entreprise:hover  ,.commander a:hover{
     background-color: var(--dore-clair) !important;
 }
 
@@ -234,12 +235,19 @@ a{text-decoration: none;}
     border-radius: 40px;
 }
 
+.swiper-menu-detail{
+    width: 95% !important;
+    height: 90vh !important;
+}
+
 .swiper-slide{
     position: relative;
     height: 100%;
     overflow: hidden;
     border-radius: 40px;
 }
+
+
 
 .swiper-slide .img-wrapper{
     width: 100%;
@@ -268,9 +276,10 @@ a{text-decoration: none;}
     font-family: "Manrope" sans-serif;
     z-index: 2;
     position: absolute;
-    left: 25px;
-    bottom: 15px;
-    color: rgba(255, 255, 255, 0.3);
+    width: 80%;
+    left: 45px;
+    top: 15px;
+    color: var(--texte);
     font-size: 1.5rem;
     font-weight: 500;
     font-style: italic;
@@ -280,7 +289,11 @@ a{text-decoration: none;}
 }
 
 .swiper-slide-active p{
-    color: #D4A853;
+    color: var(--texte);
+    background-color: var(--fond-carte);
+    padding: 0.3rem;
+    border-radius: 8px;
+    text-align: center;
 }
 
 .fa-caret-left, .fa-caret-right{
@@ -392,7 +405,7 @@ a{text-decoration: none;}
 .fa-star{
     color: var(--dore);
 }
-
+/* =================================================================================================================================================================================== */
 /* Section des menus */
 .section-menus{
     width: 75%;
@@ -484,7 +497,7 @@ a{text-decoration: none;}
     background-color: var(--bs-secondary);
 }
 
-
+/* =================================================================================================================================================================================== */
 /* Section filtres */
 .section-filtres{
     width: 20%;
@@ -543,7 +556,7 @@ a{text-decoration: none;}
     text-align: center;
     margin-right: 2rem;
 }
-
+/* =================================================================================================================================================================================== */
 /* Modal allergènes */
 
 .modal-allergenes{
@@ -553,7 +566,7 @@ a{text-decoration: none;}
     height: 100px;
     background-color: var(--dore-tres-clair);
     color: var(--texte);
-    top: 340px; 
+    top: 310px; 
     left: 50px;
     border-radius: 8px;
     padding: 0.8rem;
@@ -563,7 +576,7 @@ a{text-decoration: none;}
     display: block;
 }
 
-
+/* =================================================================================================================================================================================== */
 /* Menu détaillé */
 
 .section-detail{
@@ -643,14 +656,41 @@ a{text-decoration: none;}
 
 .img-estimateur{
     width: 42%;
+    border-radius: 8px;
+}
+
+.img-menu-detail{
+    margin-bottom: 15rem;
+}
+
+.commander a{
+    margin: auto;
+}
+.commander p{
+    color: var(--fond-plus-clair);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.commander {
+    margin-bottom: 8rem;
+}
+
+.citation{
+    width: 60%;
     background-color: var(--fond-carte);
     border-radius: 8px;
-    padding: 2rem;
+    border-left: 5px solid var(--dore);
+    text-align: center;
+    margin: auto;
+    padding: 1rem;
 }
+/* =================================================================================================================================================================================== */
 
 footer{
     background-color: var(--bleu-nuit);
     color: var(--fond-plus-clair);
+    
     justify-content: space-between;
     padding: 2rem;
 }

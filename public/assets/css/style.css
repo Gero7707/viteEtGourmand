@@ -457,12 +457,27 @@ a{text-decoration: none;}
     padding: 0.5rem;
 }
 
-.theme-description i{
+.theme-description i , .theme-carte i{
     margin-left: 0.5rem;
+    margin-right: 0.2rem;
 }
 
 .theme-description :first-child p{
     margin-left: 3rem;
+}
+
+.theme-carte {
+    margin-bottom: 0 !important;
+}
+
+.nomenclature{
+    margin-left: 2rem;
+}
+
+
+.nomenclature p , .nomenclature p i , .nomenclature p small{
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .mg-nb-personne img{

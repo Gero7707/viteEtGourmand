@@ -54,8 +54,14 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                                                     <i class="fa-solid fa-circle"></i>
                                                                 <?php elseif($menus['regime'] === 'Végétarien') : ?>
                                                                     <i class="fa-solid fa-diamond"></i>
-                                                                <?php endif ?>     &nbsp;<?= htmlspecialchars($menus['regime']) ?></p>
+                                                                <?php endif ?>     &nbsp;<?= htmlspecialchars($menus['theme']) ?></p>
+                    <div class="nomenclature mt-1">
+                        <p><i class="fa-solid fa-square"></i> <small>: régime Classique</small></p>
+                        <p><i class="fa-solid fa-circle"></i> <small>: régime Vegan</small></p>
+                        <p><i class="fa-solid fa-diamond"></i> <small>: régime Végétarien</small></p>
+                    </div>
                 </div>
+                
                 
                 <div class="prix-nb-quantite d-flex flex-column">
                     <p>Prix pour <?= htmlspecialchars($menus['nombre_personne_minimum']) ?> personnes :</p>

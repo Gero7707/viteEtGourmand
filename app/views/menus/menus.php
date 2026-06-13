@@ -64,11 +64,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                 <h4><?= htmlspecialchars($menu['titre']) ?></h4>
                                 <a href="/menus/<?=  htmlspecialchars($menu['menu_id']); ?>">Voir menu</a><br>
                             </div>
-                            <div class="prix mt-4">
+                            <div class="prix mt-1">
                                 <p>Prix : <?= htmlspecialchars($menu['prix_par_personne']) ?>€/pers</p><br>
                             </div>
                             <div class="texte-img d-flex">
                                 <div class="theme-description d-flex flex-column">
+                                    
                                     <div>
                                         <p class="theme-carte" ><?php if($menu['regime'] === 'Classique') : ?>
                                                                     <i class="fa-solid fa-square"></i>   
@@ -76,7 +77,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                                                     <i class="fa-solid fa-circle"></i>
                                                                 <?php elseif($menu['regime'] === 'Végétarien') : ?>
                                                                     <i class="fa-solid fa-diamond"></i>
-                                                                <?php endif ?>     &nbsp;<?= htmlspecialchars($menu['regime']) ?></p>
+                                                                <?php endif ?>     &nbsp;<?= htmlspecialchars($menu['theme']) ?></p>
+                                    </div>
+                                    <div class="nomenclature">
+                                        <p><i class="fa-solid fa-square"></i> <small>: régime Classique</small></p>
+                                        <p><i class="fa-solid fa-circle"></i> <small>: régime Vegan</small></p>
+                                        <p><i class="fa-solid fa-diamond"></i> <small>: régime Végétarien</small></p>
                                     </div>
                                     <div>
                                         <p><?= htmlspecialchars($menu['description']) ?></p>

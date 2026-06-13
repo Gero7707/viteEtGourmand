@@ -5,11 +5,28 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
 
 <main>
-    <a href="/">Accueil</a><br>
-    <?php if($_SESSION['role_id'] === 2 ) : ?>
-        <a href="/employe/dashboard">Dashboard</a><br>
-    <?php elseif($_SESSION['role_id'] === 3 )  : ?>
-        <a href="/admin/dashboard">Dashboard</a><br>
+    <?php if ($_SESSION['role_id'] === 2) :  ?>
+        <div class="d-flex justify-content-around">
+            <a href="/employe/dashboard" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Dashoard</a><br>
+            <a href="/commandes-client" class="text-centerfw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Commandes</a><br>
+            <a href="/avis-valider" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Avis</a><br>
+            <a href="/menus" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Menus</a><br>
+            <a href="/create-menu" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Créer un menu</a><br>
+            <a href="/plats" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Plats</a><br>
+            <a href="/plats/create" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Créer un plat</a><br>
+            <a href="/changer-horaire" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Changer horaire</a><br>
+        </div>
+    <?php elseif ($_SESSION['role_id'] === 3) :  ?>
+        <div class="d-flex justify-content-around">
+            <a href="/admin/dashboard" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Dashoard</a><br>
+            <a href="/commandes-client" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Commandes</a><br>
+            <a href="/avis-valider" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Avis</a><br>
+            <a href="/menus" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Menus</a><br>
+            <a href="/create-menu" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Créer un menu</a><br>
+            <a href="/plats" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Plats</a><br>
+            <a href="/plats/create" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Créer un plat</a><br>
+            <a href="/changer-horaire" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Changer horaire</a><br>
+        </div>
     <?php endif ?>
     <?php if ($_GET['error'] ?? null): ?>
         <p class="error-message mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
@@ -17,53 +34,51 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php if ($_GET['success'] ?? null): ?>
         <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>Menu</th>
-                <th>Nom Client</th>
-                <th>No Commande</th>
-                <th>Date prestation</th>
-                <th>Nombre</th>
-                <th>Statut</th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($commandes as $commande) : ?>
+    <section class="section-commandes-entreprise mt-3">
+        <h4 class="text-center mb-4">Commandes Clients</h4>
+        <table class="tableau-commande-entreprise">
+            <thead>
                 <tr>
-                    <td><?= htmlspecialchars($commande['titre']) ?></td>
-                    <td><?= htmlspecialchars($commande['nom_complet']) ?></td>
-                    <td><?= htmlspecialchars($commande['numero_commande']) ?></td>
-                    <td><?= htmlspecialchars($commande['date_prestation']) ?></td>
-                    <td><?= htmlspecialchars($commande['nombre_personne']) ?></td>
-                    <td><?= htmlspecialchars($commande['statut']) ?></td>
-                    <td>
-                        <?php if($commande['statut'] !== 'terminee' && $commande['statut'] !== 'annulee') : ?>
-                            <form action="/commandes/update/<?= $commande['commande_id'] ?>" method="POST">
-                                <?= Auth::csrfField() ?>
-                                <button type="submit">Modifier statut</button>
-                            </form>
-                        <?php endif ?>
-                    </td>
-                    <td>
-                        <a href="/commandes/<?= $commande['commande_id'] ?>">Voir</a>
-                    </td>
-                    <td>
-                        <?php if($commande['statut'] !== 'terminee' && $commande['statut'] !== 'annulee') : ?>
-                            <a href="/commandes/annuler-commande/<?= $commande['commande_id'] ?>">Annuler Commande</a>
-                        <?php endif ?>
-                    </td>
+                    <th>Menu</th>
+                    <th>Nom Client</th>
+                    <th>No Commande</th>
+                    <th>Date prestation</th>
+                    <th>Nombre</th>
+                    <th>Statut</th>
+                    <th>Voir</th>
+                    <th>Statut</th>
+                    <th>Annuler</th>
                 </tr>
-            <?php endforeach ?>
-        </tbody>
-    </table>
-    
+            </thead>
+            <tbody>
+                <?php foreach($commandes as $commande) : ?>
+                    <tr>
+                        <td><?= htmlspecialchars($commande['titre']) ?></td>
+                        <td><?= htmlspecialchars($commande['nom_complet']) ?></td>
+                        <td><?= htmlspecialchars($commande['numero_commande']) ?></td>
+                        <td><?= htmlspecialchars($commande['date_prestation']) ?></td>
+                        <td><?= htmlspecialchars($commande['nombre_personne']) ?></td>
+                        <td><?= htmlspecialchars($commande['statut']) ?></td>
+                        <td>
+                            <a class="voir-commande-client" href="/commandes/<?= $commande['commande_id'] ?>"><i class="fa-solid fa-eye"></i></a>
+                        </td>
+                        <td>
+                            <?php if($commande['statut'] !== 'terminee' && $commande['statut'] !== 'annulee') : ?>
+                                <form action="/commandes/update/<?= $commande['commande_id'] ?>" method="POST">
+                                    <?= Auth::csrfField() ?>
+                                    <button type="submit">Modifier statut</button>
+                                </form>
+                            <?php endif ?>
+                        </td>
+                        <td>
+                            <?php if($commande['statut'] !== 'terminee' && $commande['statut'] !== 'annulee') : ?>
+                                <a class="annuler-commande" href="/commandes/annuler-commande/<?= $commande['commande_id'] ?>">Annuler Commande</a>
+                            <?php endif ?>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </section>
 </main> 
 
-<?php
-require_once __DIR__ . '/../../views/layout/footer.php';
-?>

@@ -704,7 +704,7 @@ a{text-decoration: none;}
 
 /* =================================================================================================================================================================================== */
 /* Profile utilisateur  */
-.section-profile-user, .section-commandes, .section-commande-client{
+.section-profile-user, .section-commandes, .section-commande-client, .section-commandes-entreprise{
     background-color: var(--fond-carte);
     box-shadow: var(--shadow);
     color: var(--texte);
@@ -748,12 +748,12 @@ a{text-decoration: none;}
     border-collapse: collapse;
 }
 
-.tableau-commande i{
+.tableau-commande i , .voir-commande-client{
     color: var(--bleu-nuit);
     margin-left: 0.5rem;
 }
 
-.tableau-commande i:hover {
+.tableau-commande i:hover , .voir-commande-client:hover{
     color: var(--dore);
     transform: scale(1.5);
 }
@@ -801,6 +801,43 @@ tr {
 .actions-commande a:hover , .liens-retour:hover {
     background-color: var(--dore-clair);
 }
+
+/* Commandes client entreprise  */
+
+.section-commandes-entreprise{
+    width: 95%;
+}
+
+.tableau-commande-entreprise{
+    width: 95%;
+    margin: auto;
+}
+
+.section-commandes-entreprise h4{
+    background-color: var(--dore);
+    border-radius: 8px;
+}
+
+.tableau-commande-entreprise button , .annuler-commande , .section-commande-client button{
+    background-color: var(--dore);
+    color: var(--bleu-tres-fonce);
+    border-radius: 8px;
+    border: none;
+    padding: 0.3rem;
+}
+
+.tableau-commande-entreprise button:hover ,.annuler-commande:hover , .section-commande-client button:hover{
+    background-color: var(--dore-clair);
+}
+
+.voir-commande-client{
+    margin: 0 1.5rem 0 1.5rem;
+}
+
+.tableau-commande-entreprise td{
+    padding: 0.2rem;
+}
+
 
 /* =================================================================================================================================================================================== */
 /* Section Plats */

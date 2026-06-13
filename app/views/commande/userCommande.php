@@ -79,7 +79,14 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         <a href="/avis/edit/<?= $avis['avis_id'] ?>">Modifier Avis</a>
                     <?php endif ?>
                 </div>
-            <?php endif ?>
+            <?php elseif($_SESSION['role_id'] === 2 || $_SESSION['role_id'] === 3) : ?>
+                <?php if($commandes['statut'] !== 'terminee' && $commandes['statut'] !== 'annulee') : ?>
+                    <form action="/commandes/update/<?= $commandes['commande_id'] ?>" method="POST">
+                        <?= Auth::csrfField() ?>
+                        <button type="submit">Modifier statut</button>
+                    </form>
+                <?php endif ?>
+            <? endif ?>
     </section>
 </main>
 <?php

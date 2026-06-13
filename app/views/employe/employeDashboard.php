@@ -43,9 +43,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
                     <tr>
                         <td><?= htmlspecialchars($commande['titre']) ?></td>
                         <td><?= htmlspecialchars($commande['nom_complet']) ?></td>
-                        <td><?= htmlspecialchars($commande['date_prestation']) ?></td>
+                        <td><?= date('d/m/Y ', strtotime($commande['date_prestation'])) ?></td>
                         <td><?= htmlspecialchars($commande['nombre_personne']) ?></td>
-                        <td><?= htmlspecialchars($commande['statut']) ?></td>
+                        <td><?= htmlspecialchars(str_replace('_', ' ',ucfirst($commande['statut'])) )  ?></td>
                         <td>
                             <a class="voir-commande-client" href="/commandes/<?= $commande['commande_id'] ?>"><i class="fa-solid fa-eye"></i></a>
                         </td>

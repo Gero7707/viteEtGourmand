@@ -32,13 +32,13 @@ require_once __DIR__ . '/../../views/layout/header.php';
             
         <?php endif ?>
         <hr>
-        <p><span>Date de commande</span> : <?= htmlspecialchars($commandes['date_commande']) ?></p><br>
-        <p><span>Date de prestation</span> : <?= htmlspecialchars($commandes['date_prestation']) ?></p><br>
-        <p><span>Heure de livraison</span> : <?= htmlspecialchars($commandes['heure_livraison']) ?></p><br>
+        <p><span>Date de commande</span> : <?= date('d/m/Y', strtotime($commandes['date_commande']) )?></p><br>
+        <p><span>Date de prestation</span> : <?= date('d/m/Y', strtotime($commandes['date_prestation'])) ?></p><br>
+        <p><span>Heure de livraison</span> : <?= str_replace(':', ' h ', ltrim(date('H:i', strtotime($commandes['heure_livraison'])), '0')) ?></p><br>
         <p><span>Adresse de la livraison</span> : <?= htmlspecialchars($commandes['adresse_livraison'] ?? '') ?></p><br>
         <p><span>Ville</span> : <?= htmlspecialchars($commandes['ville']) ?> - <?= htmlspecialchars($commandes['code_postal']) ?></p><br>
         <p><span>Nombre de personne</span> : <?=   htmlspecialchars($commandes['nombre_personne']) ?></p><br>
-        <p><span>Statut</span> : <?= htmlspecialchars($commandes['statut']) ?></p><br>
+        <p><span>Statut</span> : <?= htmlspecialchars(str_replace('_', ' ',ucfirst($commandes['statut']))) ?></p><br>
         <p><span>Prêt de matériel</span> : <?= $commandes['pret_materiel'] ? 'Oui' : 'Non' ?></p><br>
         <p><span>Restitué</span> : <?= $commandes['restitution_materiel'] ? 'Oui' : 'Non' ?></p>
 
@@ -54,7 +54,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <?php foreach($historique as $statut) : ?>
                     <tr>
                         <td><?= htmlspecialchars(str_replace('_', ' ',ucfirst($statut['statut'])) ) ?></td>
-                        <td><?= date('d/m/Y H:i', strtotime($statut['date_modification'])) ?></td>
+                        <td><?= str_replace(':', ' h ',date('d/m/Y \à H:i', strtotime($statut['date_modification']))) ?></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>

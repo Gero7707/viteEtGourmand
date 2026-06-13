@@ -21,7 +21,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <?php endfor ?>
                 <p><?= htmlspecialchars($carteAvis['note']) ?>/5</p>
                 <p><?= htmlspecialchars($carteAvis['description']) ?></p>
-                <p><?= htmlspecialchars(str_replace(':00', 'h',date('d-m-Y  à  H:i', strtotime($carteAvis['date_avis'])))) ?></p>
+                <p><?= htmlspecialchars(str_replace(':00', 'h',date('d/m/Y  \à  H:i', strtotime($carteAvis['date_avis'])))) ?></p>
                 
                 <form action="/avis-valider/<?= $carteAvis['avis_id'] ?>" method="POST">
                     <?= Auth::csrfField() ?>

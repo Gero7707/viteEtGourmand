@@ -129,7 +129,7 @@ require_once __DIR__ . '/../views/layout/header.php';
                             <i class="fa-regular fa-star"></i>
                         <?php endfor ?>
                         <p class="description-avis"><?= htmlspecialchars($carteAvis['description']) ?></p>
-                        <p class="date-avis"><?= htmlspecialchars(str_replace(':00', 'h',date('d-m-Y  à  H:i', strtotime($carteAvis['date_avis'])))) ?></p>
+                        <p class="date-avis"><?= htmlspecialchars(str_replace(':00', 'h',date('Y-m-d  à  H:i', strtotime($carteAvis['date_avis'])))) ?></p>
                     </div>
                     <div class="col-lg-1 col-sm-2"></div>
                 <?php endforeach ?>

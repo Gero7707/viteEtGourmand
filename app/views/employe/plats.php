@@ -42,16 +42,18 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <div class="d-flex ">
                     <div class="titre-plat d-flex flex-column">
                         <p><span>Type</span> : <?= htmlspecialchars(ucfirst($cartePlat['type_plat'])) ?></p>
-                        <p><span>Assigné à</span> : <?= htmlspecialchars($cartePlat['menu_titre'] ?? 'N\'est pas assigné à un menu') ?></p>
+                        <p><span>Assigné à</span> : <?= !empty($cartePlat['menus_du_plat']) 
+                                                        ? implode(', ', array_column($cartePlat['menus_du_plat'], 'titre')) 
+                                                        : 'N\'est pas assigné à un menu' ?></p>
                     </div>
                     <div class="img-plat">
                         <img src="<?= htmlspecialchars($cartePlat['chemin_photo']) ?>" alt="<?= htmlspecialchars($cartePlat['titre_plat']) ?>" >
                     </div>
                 </div>
                 <div class="mt-2 catre-allergene">
-                    <p><span>Allergènes</span> :<?php foreach($cartePlat['allergenes'] as $allergene) : ?>
+                    <p><span>Allergènes</span> :
                         <?= implode(' - ', array_map('htmlspecialchars', array_column($cartePlat['allergenes'], 'libelle'))) ?>
-                    <?php endforeach ?></p>
+                    </p>
                 </div>
                 <div class="d-flex justify-content-around">
                     <div class="text-center modifier">
@@ -61,12 +63,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
                             <button type="submit">Supprimer</button><br>
                         </form>
                     </div>
-                    <?php if(!empty($cartePlat['menu'])) : ?>
+                    <?php if(!empty($cartePlat['menus_disponibles'])) : ?>
                         <div class="text-center">
                             <form action="plats/associer/<?= htmlspecialchars($cartePlat['plat_id']) ?>" method="POST">
                                 <?= Auth::csrfField() ?>
                                 <select name="menu_id" id="menu_id"  required>
-                                    <? foreach($cartePlat['menu'] as $menu) : ?>
+                                    <? foreach($cartePlat['menus_disponibles'] as $menu) : ?>
                                         <option value="<?= htmlspecialchars($menu['menu_id']) ?>"><?= htmlspecialchars($menu['titre']) ?></option>
                                     <? endforeach ?>
                                 </select><br>

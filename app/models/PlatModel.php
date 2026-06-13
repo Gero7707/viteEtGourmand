@@ -37,6 +37,18 @@ class PlatModel{
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function getMenusDuPlat(int $plat_id){
+        $stmt = $this->pdo->prepare("SELECT menu.*  
+                                    FROM plat
+                                    JOIN menu_plat ON menu_plat.plat_id = plat.plat_id 
+                                    JOIN menu ON menu_plat.menu_id = menu.menu_id 
+                                    WHERE plat.plat_id = :plat_id
+                                    ");
+        $stmt->bindValue(':plat_id' , $plat_id , PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function createPlat(array $data){
         $stmt = $this->pdo->prepare("INSERT INTO plat (titre_plat , type_plat , chemin_photo) VALUES (:titre_plat , :type_plat , :chemin_photo)");
         $stmt->bindValue(':titre_plat' , $data['titre_plat'] ,PDO::PARAM_STR );

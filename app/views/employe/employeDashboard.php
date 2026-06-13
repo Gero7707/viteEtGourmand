@@ -25,7 +25,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <a href="/changer-horaire" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Changer horaire</a><br>
     </div>
 
-    <div class="dashboard-commandes mt-4">
+    <div class="dashboard-commandes mt-4 mb-5">
         <h4 class="text-center mb-4">Commandes Clients</h4>
         <table class="tableau-commande-entreprise">
             <thead>

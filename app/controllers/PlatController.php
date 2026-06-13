@@ -19,9 +19,11 @@ class PlatController{
     public function showAllPlats(){
         $horaire = $this->horaire->getHoraire();
         $plat = $this->plats->getAllPlats();
+
         foreach($plat as &$p) {
             $p['allergenes'] = $this->plats->getPlatAllergenes($p['plat_id']);
-            $p['menu'] = $this->plats->getMenusDisponibles($p['plat_id']);
+            $p['menus_disponibles'] = $this->plats->getMenusDisponibles($p['plat_id']);
+            $p['menus_du_plat'] = $this->plats->getMenusDuPlat($p['plat_id']);
         }
         unset($p);
         require_once __DIR__ . '/../views/employe/plats.php';

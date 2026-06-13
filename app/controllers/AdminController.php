@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../models/UserModel.php';
 require_once __DIR__ . '/../../core/Auth.php';
 require_once __DIR__ . '/../models/HoraireModel.php';
+require_once __DIR__ . '/../models/CommandeModel.php';
 require_once __DIR__ . '/../services/MailService.php';
 
 class AdminController{
@@ -12,15 +13,19 @@ class AdminController{
 
     private MailService $mail;
 
+    private CommandeModel $commandes;
+
     public function __construct(){
         $this->users = new UserModel();
         $this->horaire = new HoraireModel();
         $this->mail = new MailService();
+        $this->commandes = new CommandeModel();
     }
     public function dashboard(){
         Auth::checkAdmin();
         $horaire = $this->horaire->getHoraire();
         $employes = $this->users->getEmploye();
+        $commandes = $this->commandes->getAllCommandes();
         require_once __DIR__ . '/../views/admin/adminDashboard.php';
     }
 

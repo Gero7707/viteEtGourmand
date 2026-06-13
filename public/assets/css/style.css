@@ -704,7 +704,7 @@ a{text-decoration: none;}
 
 /* =================================================================================================================================================================================== */
 /* Profile utilisateur  */
-.section-profile-user, .section-commandes, .section-commande-client, .section-commandes-entreprise{
+.section-profile-user, .section-commandes, .section-commande-client, .section-commandes-entreprise , .dashboard-commandes , .admin-dashboard{
     background-color: var(--fond-carte);
     box-shadow: var(--shadow);
     color: var(--texte);
@@ -808,17 +808,17 @@ tr {
     width: 95%;
 }
 
-.tableau-commande-entreprise{
+.tableau-commande-entreprise , .tableau-dashboard-admin{
     width: 95%;
     margin: auto;
 }
 
-.section-commandes-entreprise h4{
+.section-commandes-entreprise h4 , .admin-dashboard h4 , .dashboard-commandes h4{
     background-color: var(--dore);
     border-radius: 8px;
 }
 
-.tableau-commande-entreprise button , .annuler-commande , .section-commande-client button{
+.tableau-commande-entreprise button , .annuler-commande , .section-commande-client button , .tableau-dashboard-admin button , .modif-profil-employe{
     background-color: var(--dore);
     color: var(--bleu-tres-fonce);
     border-radius: 8px;
@@ -826,18 +826,27 @@ tr {
     padding: 0.3rem;
 }
 
-.tableau-commande-entreprise button:hover ,.annuler-commande:hover , .section-commande-client button:hover{
+.tableau-commande-entreprise button:hover ,.annuler-commande:hover , .section-commande-client button:hover , .tableau-dashboard-admin button:hover , .modif-profil-employe:hover{
     background-color: var(--dore-clair);
 }
 
+.tableau-dashboard-admin button{
+    width: 6rem;
+}
 .voir-commande-client{
     margin: 0 1.5rem 0 1.5rem;
 }
 
-.tableau-commande-entreprise td{
+.tableau-commande-entreprise td ,.tableau-dashboard-admin td{
     padding: 0.2rem;
 }
 
+
+/* Dashboard employé/Admin */
+
+.dashboard-commandes, .admin-dashboard{
+    width: 80%;
+}
 
 /* =================================================================================================================================================================================== */
 /* Section Plats */

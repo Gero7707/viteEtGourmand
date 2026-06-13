@@ -802,6 +802,64 @@ tr {
     background-color: var(--dore-clair);
 }
 
+/* =================================================================================================================================================================================== */
+/* Section Plats */
+/* =================================================================================================================================================================================== */
+
+.section-plats{
+    background-color: var(--fond-plus-clair);
+    box-shadow: var(--shadow);
+    width: 80%;
+    margin: auto;
+}
+
+.carte-plat{
+    width: 45%;
+    background-color: var(--fond-carte);
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.carte-plat h5{
+    background-color: var(--bleu-moyen);
+    color: var(--fond-plus-clair);
+    padding: 0.5rem;
+    border-radius: 8px 8px 0 0;
+
+}
+
+.img-plat img{
+    width :35%;
+}
+
+.titre-plat {
+    flex: 0 0 60%;
+}
+
+.img-plat {
+    flex: 0 0 40%;
+}
+
+.catre-allergene span, .titre-plat span{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.modifier a{
+    display: block;
+    color: var(--dore);
+}
+
+.modifier a:hover{
+    transform: scale(1.5);
+}
+
+.message-plat{
+    background-color: var(--bs-warning);
+    border-radius: 10px;
+    padding: 0.5rem;
+}
 
 
 /* =================================================================================================================================================================================== */

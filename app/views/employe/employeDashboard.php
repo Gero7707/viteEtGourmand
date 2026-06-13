@@ -24,12 +24,27 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <a href="/plats/create" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Créer un plat</a><br>
         <a href="/changer-horaire" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Changer horaire</a><br>
     </div>
+    <hr>
+
+    <div class="text-center input-select">
+        <label for="statut">Filtrer par statut :</label>
+        <select name="statut" id="statut">
+            <option value=""></option>
+            <option value="en_attente">En attente</option>
+            <option value="acceptee">Acceptée</option>
+            <option value="en_preparation">En préparation</option>
+            <option value="en_livraison">En livraison</option>
+            <option value="livree">Livrée</option>
+            <option value="attente_retour_materiel">Attente retour matériel</option>
+            <option value="terminee">Terminée</option>
+        </select>
+    </div>
 
     <div class="dashboard-commandes mt-4 mb-5">
         <h4 class="text-center mb-4">Commandes Clients</h4>
         <table class="tableau-commande-entreprise">
             <thead>
-                <tr>
+                <tr >
                     <th>Menu</th>
                     <th>Nom Client</th>
                     <th>Date prestation</th>
@@ -40,7 +55,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
             </thead>
             <tbody>
                 <?php foreach($commandes as $commande) : ?>
-                    <tr>
+                    <tr class="ligne-commande" data-statut="<?= $commande['statut'] ?>">
                         <td><?= htmlspecialchars($commande['titre']) ?></td>
                         <td><?= htmlspecialchars($commande['nom_complet']) ?></td>
                         <td><?= date('d/m/Y ', strtotime($commande['date_prestation'])) ?></td>
@@ -55,3 +70,8 @@ require_once __DIR__ . '/../../views/layout/header.php';
         </table>
     </div>
 </main>
+
+<?php
+$loadScriptJs = 'filtreAdminEmploye.js';
+require_once __DIR__ . '/../../views/layout/importJs.php';
+?>

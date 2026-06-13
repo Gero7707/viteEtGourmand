@@ -841,6 +841,10 @@ tr {
     padding: 0.2rem;
 }
 
+.input-select select{
+    border-radius: 5px;
+}
+
 
 /* Dashboard employé/Admin */
 

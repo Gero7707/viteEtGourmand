@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () =>{
+
+    // Filtre sur les types de plats
     const type = document.getElementById('type');
     const cartesPlats = document.querySelectorAll('.carte-plat');
 
@@ -11,6 +13,24 @@ document.addEventListener('DOMContentLoaded', () =>{
             }
         })
     }
-    type.addEventListener('change' , filtrerTypePlat);
+    if(type) {
+        type.addEventListener('change', filtrerTypePlat);
+    }
 
+
+    //Filtres sur le staut des commandes
+    const statut = document.getElementById('statut');
+    const commandes = document.querySelectorAll('.ligne-commande');
+
+    function filtrerStatutCommande(){
+        let inputStatut = statut.value;
+        commandes.forEach(commande =>{
+            commande.style.display = "table-row";
+            if(inputStatut !== '' && inputStatut !== commande.dataset.statut){
+                commande.style.display = "none";
+            }
+        })
+    }
+
+    statut.addEventListener('change' , filtrerStatutCommande);
 });

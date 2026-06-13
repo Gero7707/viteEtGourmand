@@ -34,9 +34,26 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php if ($_GET['success'] ?? null): ?>
         <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
-    <section class="section-commandes-entreprise mt-3">
+    <hr>
+    <?php if($_SESSION['role_id'] === 2 || $_SESSION['role_id'] === 3) : ?>
+        <div class="text-center input-select">
+            <label for="statut">Filtrer par statut :</label>
+            <select name="statut" id="statut">
+                <option value=""></option>
+                <option value="en_attente">En attente</option>
+                <option value="acceptee">Acceptée</option>
+                <option value="en_preparation">En préparation</option>
+                <option value="en_livraison">En livraison</option>
+                <option value="livree">Livrée</option>
+                <option value="attente_retour_materiel">Attente retour matériel</option>
+                <option value="terminee">Terminee</option>
+            </select>
+        </div>
+    <?php endif ?>
+
+    <section class="section-commandes-entreprise mt-3 mb-5">
         <h4 class="text-center mb-4">Commandes Clients</h4>
-        <table class="tableau-commande-entreprise">
+        <table class="tableau-commande-entreprise" >
             <thead>
                 <tr>
                     <th>Menu</th>
@@ -52,7 +69,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
             </thead>
             <tbody>
                 <?php foreach($commandes as $commande) : ?>
-                    <tr>
+                    <tr class="ligne-commande" data-statut="<?= $commande['statut'] ?>">
                         <td><?= htmlspecialchars($commande['titre']) ?></td>
                         <td><?= htmlspecialchars($commande['nom_complet']) ?></td>
                         <td><?= htmlspecialchars($commande['numero_commande']) ?></td>
@@ -81,4 +98,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         </table>
     </section>
 </main> 
-
+<?php
+$loadScriptJs = 'filtreAdminEmploye.js';
+require_once __DIR__ . '/../../views/layout/importJs.php';
+?>

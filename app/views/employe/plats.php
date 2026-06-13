@@ -44,9 +44,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <option value="dessert">Dessert</option>
         </select>
     </div>
-    <section class="section-plats row">
+    <section class="section-plats row mb-5">
         <?php foreach($plat as $cartePlat) : ?>
-            <div class="carte-plat  col-lg-4 mx-4 col-sm-12 mt-3"  data-type="<?= $cartePlat['type_plat'] ?>">
+            <div class="carte-plat  col-lg-4 mx-4 col-sm-12 mt-3 mb-3"  data-type="<?= $cartePlat['type_plat'] ?>">
                 <h5 class="text-center"><?= htmlspecialchars($cartePlat['titre_plat']) ?></h5>
                 <div class="d-flex ">
                     <div class="titre-plat d-flex flex-column">

@@ -161,7 +161,7 @@ form input ,form textarea , button , select, .btn-annuler{
 }
 
 form input{
-    margin-left: 7rem;
+    margin:auto;
 }
 
 /* createMenu.php createPlat */
@@ -233,6 +233,19 @@ input:focus , textarea:focus{
 
 textarea{
     resize: none;
+}
+
+/* Annuler un formulaire */
+.annuler{
+    color: var(--dore) !important;
+    display: block;
+    width: 30%;
+    margin: auto;
+}
+
+.annuler:hover{
+    transform: scale(1.3) !important;
+    transition: 0.5s ease-in-out !important;
 }
 
 

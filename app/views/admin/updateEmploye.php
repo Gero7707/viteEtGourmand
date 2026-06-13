@@ -37,9 +37,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <label  class="form-label" for="code_postal">Code postal</label><br>
                 <input  class="form-control" type="text" name="code_postal" id="code_postal" value="<?= htmlspecialchars($user['code_postal'] ?? '') ?>"><br>
 
-                <div class="d-flex justify-content-around">
+                <div >
+                    <a class="annuler" href="/admin/dashboard">Annuler</a><br>
                     <button class="btn-form mb-5" type="submit">Valider</button>
-                    <a href="/profile">Annuler</a>
+                    
                 </div>
             </form>
         </div>

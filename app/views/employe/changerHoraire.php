@@ -29,6 +29,11 @@ require_once __DIR__ . '/../../views/layout/header.php';
                     <label class="form-label" for="heure_fermeture[<?= $horaire['horaire_id'] ?>]">Fermeture</label>
                     <input class="form-control" type="time" name="heure_fermeture[<?= $horaire['horaire_id'] ?>]" value="<?= htmlspecialchars($horaire['heure_fermeture']) ?>"><br>
                 <?php endforeach ?>
+                <?php if ($_SESSION['role_id'] === 2) :  ?>
+                    <a class="annuler" href="/employe/dashboard">Annuler</a><br>
+                <?php elseif ($_SESSION['role_id'] === 3) :  ?>
+                    <a class="annuler" href="/admin/dashboard">Annuler</a><br>
+                <?php endif ?>
                 
                 <button class="mt-3 mb-3" type="submit">Changer Horaire</button>
             </form>

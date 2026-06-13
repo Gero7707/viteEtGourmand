@@ -468,6 +468,7 @@ class CommandeController{
             $this->mailService->sendEmail($email , $titre , $message);
         }
 
+        
         if($statutSuivant === 'terminee'){
             $titre = "Enquète satisfaction .";
             $lien = getenv('APP_URL') . '/avis/noter/' . $statutActuel['commande_id'];

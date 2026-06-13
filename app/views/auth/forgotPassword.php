@@ -16,6 +16,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <?= Auth::csrfField() ?>
                 <label class="form-label" for="email">Entrez votre email :</label><br>
                 <input class="form-control" type="email" name="email" id="email" required><br>
+                <a class="annuler" href="/">Annuler</a><br>
                 <button class="mt-3 mb-5 btn-form" type="submit">Réinitialiser MDP</button>
             </form>
         </div>

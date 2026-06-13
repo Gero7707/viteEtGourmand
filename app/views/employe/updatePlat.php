@@ -47,6 +47,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                     <button type="button" id="btn-showUpload-plat">Changer Image</button><br>
                 </div>
                 <p class="error-message mt-1 text-center"></p><br>
+                <a class="annuler" href="/plats">Annuler</a><br>
                 <button class="btn-form mt-3 mb-3" type="submit">Modifier plat</button>
             </form>
         </div>

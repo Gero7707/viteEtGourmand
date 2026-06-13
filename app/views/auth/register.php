@@ -35,7 +35,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <label class="form-label" class="mt-3 texte-check" for="rgpd"><input type="checkbox" name="rgpd" id="rgpd" required>J'accepte que mes données personnelles <br> soient collectées et traitées conformément à notre <br>
                     <a href="/mentions-legales">politique de confidentialité</a>
                 </label><br>
-
+                <a class="annuler" href="/">Annuler</a><br>
                 <button class="mt-3 mb-3 btn-form" type="submit">Créer votre compte</button>
             </form>
         </div>

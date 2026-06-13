@@ -20,6 +20,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <label class="form-label" for="commentaires">Motif et mode de contact :</label><br>
                 <textarea class="texte-annule" name="commentaires" id="commentaires"></textarea><br>
                 <p class="error-message mt-1 text-center"></p><br>
+                <a class="annuler" href="/commandes-client">Annuler</a><br>
                 <button class="btn-form mb-5 " type="submit">Annuler Commande</button>
             </form>
         </div>

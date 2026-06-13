@@ -48,6 +48,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 </div>
                 
                 <p class="error-message mt-1 text-center"></p><br>
+                <a class="annuler" href="/plats">Annuler</a><br>
                 <button class="mt-3 mb-3 btn-form" type="submit">Céer plat</button>
             </form>
         </div>

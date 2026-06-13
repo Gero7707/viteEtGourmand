@@ -30,7 +30,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
                 <label class="form-label" for="description">Donnez votre avis :</label><br>
                 <textarea name="description" id="description" rows="5" cols="33"><?= htmlspecialchars($avis['description']) ?></textarea><br>
-                
+                <a class="annuler" href="/profile">Annuler</a><br>
                 <button class="btn-form mb-5" type="submit">Valider</button>
             </form>
         </div>

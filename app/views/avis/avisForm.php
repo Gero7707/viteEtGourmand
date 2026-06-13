@@ -26,7 +26,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 </div>
                 <label class="form-label" class="mt-5"  for="description">Donnez votre avis :</label><br>
                 <textarea  name="description" id="description" rows="5" cols="33"></textarea><br>
-
+                <a class="annuler" href="/profile">Annuler</a><br>
                 <button class="mt-5 mb-5 btn-form"  type="submit">Valider</button>
             </form>
         </div>

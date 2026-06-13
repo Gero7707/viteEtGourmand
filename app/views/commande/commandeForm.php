@@ -81,8 +81,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <p class="error-message mt-1 text-center"></p><br>
             <div id="resultatCalculFrais"></div>
 
-            <div class="d-flex justify-content-around">
-                <button class="mt-3" type="button" id="calcul_frais">Calculer les frais</button>
+            <div >
+                <button class="mt-3" type="button" id="calcul_frais">Calculer les frais</button><br><br>
+                <a class="annuler" href="/menus">Annuler</a><br>
                 <button  class="mt-3 mb-3 btn-form" type="submit" id="btnValider" disabled>Valider</button>
             </div>
         </form>

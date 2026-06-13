@@ -26,9 +26,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <input class="form-control" type="email" id="email" name="email" value="<?= htmlspecialchars($email) ?>" required><br>
 
                 <label class="form-label" for="message">Message :</label><br>
-                <textarea name="message" id="message" required></textarea><br>
-
-                <button class="mt-5 mb-3 btn-form" type="submit">Envoyer</button>
+                <textarea name="message" id="message" required></textarea><br><br>
+                <a class="annuler" href="/">Annuler</a><br>
+                <button class=" mb-3 btn-form" type="submit">Envoyer</button>
             </form>
         </div>
     </div>

@@ -63,6 +63,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <input   class="form-control input-img" type="file" name="img_menu" id="img_menu" ><br>
                 <button class="mt-3 mb-4" type="button" id="btn-showUpload-menu">Changer Image</button><br>
                 <hr>
+                <a class="annuler" href="/menus">Annuler</a><br>
                 <p class="error-message mt-1 text-center"></p><br>
                 <button class="btn-form mt-3 mb-3" type="submit">Modifier menu</button>
             </form>

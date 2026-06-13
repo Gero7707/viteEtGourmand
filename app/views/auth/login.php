@@ -14,7 +14,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 
                 <label class="form-label" class="mt-3" for="password">Mot de passe</label><br>
                 <input class="form-control" type="password" name="password" id="password" ><br>
-
+                <a class="annuler" href="/">Annuler</a><br>
                 <button class="mt-3 btn-form" type="submit">Valider</button>
             </form><br>
             <a href="/auth/forgot-password" class="mdp-oublie text-center mb-5">Mot de passe oublié </a>

@@ -35,9 +35,18 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php if ($_GET['success'] ?? null): ?>
         <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
+    <div class="text-center">
+        <label for="type">Filtrer par type de plat :</label>
+        <select name="type" id="type">
+            <option value=""></option>
+            <option value="entree">Entrée</option>
+            <option value="plat">Plat</option>
+            <option value="dessert">Dessert</option>
+        </select>
+    </div>
     <section class="section-plats row">
         <?php foreach($plat as $cartePlat) : ?>
-            <div class="carte-plat  col-lg-4 mx-4 col-sm-12 mt-3">
+            <div class="carte-plat  col-lg-4 mx-4 col-sm-12 mt-3"  data-type="<?= $cartePlat['type_plat'] ?>">
                 <h5 class="text-center"><?= htmlspecialchars($cartePlat['titre_plat']) ?></h5>
                 <div class="d-flex ">
                     <div class="titre-plat d-flex flex-column">
@@ -87,7 +96,6 @@ require_once __DIR__ . '/../../views/layout/header.php';
     </section>
 </main>
 <?php
-$loadScriptJs = '';
-
+$loadScriptJs = 'filtreAdminEmploye.js';
 require_once __DIR__ . '/../../views/layout/importJs.php';
 ?>

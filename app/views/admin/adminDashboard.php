@@ -30,6 +30,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
     <section class="admin-dashboard">
         <h4 class="text-center mb-3">Employés</h4>
+        <a href="/admin/employe-register">Créer compte employé</a>
             <table class="tableau-dashboard-admin">
                 <thead>
                     <tr>

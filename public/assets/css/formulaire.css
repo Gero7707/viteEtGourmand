@@ -35,6 +35,10 @@ body{
     transform: scale(1.1);
 }
 
+.bottom-annuler{
+    padding-bottom: 3rem;
+}
+
 .display{
     align-items: center;
 }

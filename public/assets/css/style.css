@@ -413,6 +413,11 @@ a{text-decoration: none;}
     width: 75%;
     border-radius: 10px;
     margin-left: auto;
+    box-shadow: var(--shadow);
+}
+
+.menus-main{
+    padding-right: 3rem;
 }
 
 .carte-menu{
@@ -482,6 +487,10 @@ a{text-decoration: none;}
     margin: 0 !important;
 }
 
+.menu-description{
+    padding: 1.2rem;
+}
+
 .mg-nb-personne img{
     width: 10rem;
     height: 10rem;
@@ -495,6 +504,10 @@ a{text-decoration: none;}
 
 .img-nb-personne p{
     font-size: 0.9rem;
+}
+
+.action-entreprise{
+    margin-top: auto;
 }
 
 .action-entreprise a{

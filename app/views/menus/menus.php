@@ -8,8 +8,8 @@ require_once __DIR__ . '/../../views/layout/header.php';
 <?php if ($_GET['success'] ?? null): ?>
     <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
 <?php endif ?>
-<main >
-    <p class=" arborescence text-center"><a href="/">Accueil<</a>Menus</p>
+<main class="menus-main">
+    <p class=" arborescence text-center "><a href="/">Accueil<</a>Menus</p>
     <div class="d-flex justify-content-aroun">
         <section class="section-filtres">
             <button id="init-filtres" type="button">Réinitialiser</button>
@@ -53,12 +53,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
             </div>
         </section>
 
-        <section class="section-menus bg-primary mt-5 pt-5 pb-4 mb-4">
+        <section class="section-menus bg-primary mt-5 pt-5 pb-4 mb-5">
                 
                 <div class="row justify-content-center px-5 gx-5 " id="carteContainer">
                     <p id="messageFiltre"></p>
                     <?php foreach($menus as $menu) : ?>
-                        <article class="carte-menu mb-5 col-lg-4 mx-4 col-sm-12 " data-menu-id="<?= $menu['menu_id'] ?>" data-theme="<?= $menu['theme_id'] ?>" data-prix="<?= $menu['prix_par_personne'] ?>" data-regime = "<?= $menu['regime_id'] ?>" data-nombre = "<?= $menu['nombre_personne_minimum'] ?>" >
+                        <article class="carte-menu mb-5 col-lg-4 mx-4 col-sm-12 d-flex flex-column" data-menu-id="<?= $menu['menu_id'] ?>" data-theme="<?= $menu['theme_id'] ?>" data-prix="<?= $menu['prix_par_personne'] ?>" data-regime = "<?= $menu['regime_id'] ?>" data-nombre = "<?= $menu['nombre_personne_minimum'] ?>" >
                             
                             <div class="d-flex justify-content-between en-tete-carte-menu">
                                 <h4><?= htmlspecialchars($menu['titre']) ?></h4>
@@ -85,7 +85,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                         <p><i class="fa-solid fa-diamond"></i> <small>: régime Végétarien</small></p>
                                     </div>
                                     <div>
-                                        <p><?= htmlspecialchars($menu['description']) ?></p>
+                                        <p class="menu-description"><?= htmlspecialchars($menu['description']) ?></p>
                                     </div>
                                 </div>
                                 <div class="d-flex flex-column img-nb-personne">

@@ -12,7 +12,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
     <div class="d-flex justify-content-center">
-        <div class="d-flex flex-column text-center form-contact">
+        <div class="d-flex flex-column text-center form-contact bottom-annuler">
             <h3 class="texte-center  mb-5">Annuler la commande</h3>
             <form action="/commandes/annuler-commande/<?= $commandes['commande_id'] ?>" method="POST">
                 <?= Auth::csrfField() ?>

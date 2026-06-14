@@ -449,7 +449,11 @@ class CommandeController{
             'livree' => 'attente_retour_materiel', 
             'attente_retour_materiel' => 'terminee'
         ];
-        $statutSuivant = $transition[$statutActuel['statut']];
+        if(!isset($transition[$statutActuel['statut']])){
+            header('Location: /commandes-client?error=' . urlencode('Statut invalide'));
+            exit();
+        }
+                $statutSuivant = $transition[$statutActuel['statut']];
         $this->commandes->updateStatutCommande($id ,$statutSuivant);
 
         $dateModif = date('Y-m-d H:i:s');

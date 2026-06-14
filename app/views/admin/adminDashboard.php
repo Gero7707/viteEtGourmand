@@ -4,10 +4,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 <main>
     <?php if ($_GET['error'] ?? null): ?>
-        <p class="error-message text-center mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
+        <p class="error-message-php text-center mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
     <?php endif ?>
     <?php if ($_GET['success'] ?? null): ?>
-        <p class="success-message text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
+        <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
     <div class="text-center mt-2 intro">
         <p class="fw-mediumbold text-center">Bonjour  <?= $_SESSION['prenom'] ?>  !</p><br>

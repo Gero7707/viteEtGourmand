@@ -25,10 +25,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
         </div>
     </div>
     <?php if ($_GET['error'] ?? null): ?>
-        <p class="error-message mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
+        <p class="error-message-php text-center mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
     <?php endif ?>
     <?php if ($_GET['success'] ?? null): ?>
-        <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
+        <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
     <p class="error-message mt-1 text-center"></p><br>
 </main>

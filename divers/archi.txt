@@ -1,0 +1,11 @@
+Dossier racine ---app _controllers
+		  |   |_models
+		  |   |_views
+                  core _Router.php
+                  |   |_Database.php
+                  public_ .htaccess
+                  |     |_ index.php
+                  .env
+		  apache.conf
+                  docker-compose
+                  Dockerfile

@@ -10,9 +10,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php if ($_GET['success'] ?? null): ?>
         <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
-    <div class="text-center mt-2 intro">
-        <p class="fw-mediumbold text-center">Bonjour  <?= $_SESSION['prenom'] ?>  !</p><br>
-    </div>
+    <?php if($_SESSION['flash_bienvenue'] ?? false): ?>
+        <div class="text-center mt-2 intro">
+            <p class="fw-mediumbold text-center">Bonjour  <?= $_SESSION['prenom'] ?>  !</p><br>
+        </div>
+        <?php unset($_SESSION['flash_bienvenue']); ?>
+    <?php endif ?>
     <hr>
     <div class="d-flex justify-content-around">
         <a href="/employe/dashboard" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Dashoard</a><br>

@@ -74,7 +74,7 @@ class AuthController{
             $_SESSION['adresse'] = $user['adresse'];
 
             $this->loginAttempts->resetAttempts($ip,$emailToStore);
-            
+            $_SESSION['flash_bienvenue'] = true;
             if($_SESSION['role_id'] === 3){
                 header('location: /admin/dashboard');
                 exit();

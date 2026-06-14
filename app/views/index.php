@@ -21,7 +21,10 @@ require_once __DIR__ . '/../views/layout/header.php';
         <?php if($_SESSION['role_id'] === 1) : ?>
             <div class="d-flex intro flex-column">
                 <div>
-                    <p class="fw-bolder text-center  text-success">Bonjour  <?= $_SESSION['prenom'] ?>  !</p>
+                    <?php if($_SESSION['flash_bienvenue'] ?? false): ?>
+                        <p class="fw-bolder text-center  text-success">Bonjour  <?= $_SESSION['prenom'] ?>  !</p>
+                        <?php unset($_SESSION['flash_bienvenue']); ?>
+                    <?php endif ?>
                     <p class="fw-medium text-center">L'art de la réception, depuis 1999 </p>
                     <p class="fw-medium text-center mb-2">Vite & Gourmand, traiteur événementiel à Bordeaux. Des menus raffinés, livrés chez vous,pour tous vos événements.</p>
                 </div>

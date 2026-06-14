@@ -27,7 +27,7 @@
 
     /* Couleurs sémantiques (statuts, alertes) */
 
-    --bs-success : #9bcfb1;/*variable bootstrap*/
+    --bs-success : #63af83;/*variable bootstrap*/
     --bs-success-rgb :46, 125 , 79;
     --success-bg : #e9fcef;
     --bs-danger :  #C62828;/*variable bootstrap*/

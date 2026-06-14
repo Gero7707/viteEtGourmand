@@ -28,20 +28,6 @@ require_once __DIR__ . '/../../views/layout/header.php';
     </div>
     <hr>
 
-    <div class="text-center input-select">
-        <label for="statut">Filtrer par statut :</label>
-        <select name="statut" id="statut">
-            <option value=""></option>
-            <option value="en_attente">En attente</option>
-            <option value="acceptee">Acceptée</option>
-            <option value="en_preparation">En préparation</option>
-            <option value="en_livraison">En livraison</option>
-            <option value="livree">Livrée</option>
-            <option value="attente_retour_materiel">Attente retour matériel</option>
-            <option value="terminee">Terminee</option>
-        </select>
-    </div>
-
     <section class="admin-dashboard">
         <h4 class="text-center mb-3">Employés</h4>
             <table class="tableau-dashboard-admin">
@@ -87,6 +73,20 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 </tbody>
             </table>
     </section>
+    <hr>
+    <div class="text-center input-select">
+        <label for="statut">Filtrer par statut :</label>
+        <select name="statut" id="statut">
+            <option value=""></option>
+            <option value="en_attente">En attente</option>
+            <option value="acceptee">Acceptée</option>
+            <option value="en_preparation">En préparation</option>
+            <option value="en_livraison">En livraison</option>
+            <option value="livree">Livrée</option>
+            <option value="attente_retour_materiel">Attente retour matériel</option>
+            <option value="terminee">Terminee</option>
+        </select>
+    </div>
 
     <div class="dashboard-commandes mt-4">
         <h4 class="text-center mb-4">Commandes Clients</h4>
@@ -108,7 +108,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         <td><?= htmlspecialchars($commande['nom_complet']) ?></td>
                         <td><?= date('d/m/Y', strtotime($commande['date_prestation']) )?></td>
                         <td><?= htmlspecialchars($commande['nombre_personne']) ?></td>
-                        <td><?= htmlspecialchars(str_replace('_', ' ',ucfirst($commande['statut']) ))?></td>
+                        <td><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],
+                                                            ['En attente', 'En préparation', 'En livraison', 'Attente retour matériel', 'Terminée', 'Acceptée', 'Annulée', 'Livrée'],
+                                                            $commande['statut'])) ?>
+                        </td>
                         <td>
                             <a class="voir-commande-client" href="/commandes/<?= $commande['commande_id'] ?>"><i class="fa-solid fa-eye"></i></a>
                         </td>
@@ -122,3 +125,8 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <h2>Stats</h2>
     </section>
 </main>
+
+<?php
+$loadScriptJs = 'filtreAdminEmploye.js';
+require_once __DIR__ . '/../../views/layout/importJs.php';
+?>

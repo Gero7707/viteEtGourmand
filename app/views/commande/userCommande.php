@@ -53,7 +53,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <tbody>
                 <?php foreach($historique as $statut) : ?>
                     <tr>
-                        <td><?= htmlspecialchars(str_replace('_', ' ',ucfirst($statut['statut'])) ) ?></td>
+                        <td><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],
+                                                            ['En attente', 'En préparation', 'En livraison', 'Attente retour matériel', 'Terminée', 'Acceptée', 'Annulée', 'Livrée'],
+                                                            $statut['statut'])) ?>
+                        </td>
                         <td><?= str_replace(':', ' h ',date('d/m/Y \à H:i', strtotime($statut['date_modification']))) ?></td>
                     </tr>
                 <?php endforeach ?>

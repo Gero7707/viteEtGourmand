@@ -10,6 +10,13 @@ FROM php:8.3.23-apache
 RUN docker-php-ext-install pdo pdo_mysql
 
 # ============================================================
+# EXTENSION MONGODB
+# pecl — gestionnaire de packages PHP pour les extensions C
+# mongodb — driver natif pour la connexion à MongoDB
+# ============================================================
+RUN pecl install mongodb && docker-php-ext-enable mongodb
+
+# ============================================================
 # MODULES APACHE
 # rewrite — permet la réécriture d'URL (nécessaire pour le router maison)
 # headers — permet d'envoyer des headers HTTP personnalisés (sécurité dans apache.conf)

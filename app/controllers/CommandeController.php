@@ -453,7 +453,7 @@ class CommandeController{
             header('Location: /commandes-client?error=' . urlencode('Statut invalide'));
             exit();
         }
-                $statutSuivant = $transition[$statutActuel['statut']];
+        $statutSuivant = $transition[$statutActuel['statut']];
         $this->commandes->updateStatutCommande($id ,$statutSuivant);
 
         $dateModif = date('Y-m-d H:i:s');

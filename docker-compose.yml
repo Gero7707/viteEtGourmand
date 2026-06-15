@@ -27,9 +27,22 @@ services:
       MAILTRAP_USERNAME: ${MAILTRAP_USERNAME}
       MAILTRAP_PASSWORD: ${MAILTRAP_PASSWORD}
       APP_URL: ${APP_URL}
+      MONGO_HOST: mongodb
+      MONGO_PORT: 27017
+      MONGO_DB: ${MONGO_DB}
 
     depends_on:
       - mysql 
+      - mongodb
+  
+  mongodb:
+    image: mongo:7
+    container_name: vite_gourmand_mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
 
 
   mysql:
@@ -48,3 +61,4 @@ services:
 
 volumes:
   db_data:
+  mongodb_data:

@@ -27,6 +27,7 @@ session_start([
 // Ordre important : Database et Router avant les controllers
 // ============================================================
 require_once __DIR__ . '/../core/Database.php';  // Singleton PDO — connexion BDD
+require_once __DIR__ . '/../core/MongoDatabase.php';  // Singleton MongoDB
 require_once __DIR__ . '/../core/Router.php';     // Router maison — dispatch par URL
 require_once __DIR__ . '/../core/Auth.php';       // Méthodes statiques de sécurité — CSRF, checkAuth, checkAdmin
 

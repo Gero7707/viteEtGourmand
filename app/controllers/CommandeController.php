@@ -6,6 +6,7 @@ require_once __DIR__ . '/../models/AvisModel.php';
 require_once __DIR__ . '/../services/GeoService.php';
 require_once __DIR__ . '/../services/MailService.php';
 require_once __DIR__ . '/../models/PlatModel.php';
+require_once __DIR__ . '/../models/MongoModel.php';
 
 class CommandeController{
     private HoraireModel $horaire;
@@ -21,6 +22,8 @@ class CommandeController{
 
     private PlatModel $plat;
 
+    private MongoModel $mongo;
+
 
     public function __construct(){
         $this->commandes = new CommandeModel();
@@ -30,6 +33,7 @@ class CommandeController{
         $this->mailService = new MailService();
         $this->avis = new AvisModel();
         $this->plat = new PlatModel();
+        $this->mongo = new MongoModel();
     }
 
     public function showCommandes(){
@@ -480,6 +484,17 @@ class CommandeController{
             $email = $statutActuel['utilisateur_email'];
 
             $this->mailService->sendEmail($email , $titre , $message);
+        }
+
+        if ($statutSuivant === 'terminee') {
+            $data = [
+                'commande_id'  => $id,
+                'menu_id'      => $statutActuel['menu_id'],
+                'menu_titre'   => $statutActuel['titre'],
+                'prix_total'   =>(float) $statutActuel['prix_menu'],
+                'date_terminee' => $dateModif
+            ];
+            $this->mongo->insertCommande($data);
         }
 
         $successMessage = "Le statut de la commande est : " . str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],

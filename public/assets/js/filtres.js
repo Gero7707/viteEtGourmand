@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     const modalAllergenes =document.querySelector('.modal-allergenes');
 
-
     cartes.forEach(carte =>{
         carte.querySelector('.liste-allergene').addEventListener('mouseenter' , async ()=>{
             menuId = carte.dataset.menuId;
@@ -43,31 +42,32 @@ document.addEventListener('DOMContentLoaded', () =>{
         let inputRegime = regime.value;
         let inputNombre = nbPersonne.value.trim();
         let compteur = 0;
+
         messageFiltre.textContent = "";
         cartes.forEach(carte  =>{
-            carte.style.display = "block";
+            carte.classList.remove('d-none');
             
             if(inputPrix !== '' && parseFloat(inputPrix) < parseFloat(carte.dataset.prix)){
-                carte.style.display = "none";
+                carte.classList.add('d-none');
             }
 
             if(inputRegime !== '' && inputRegime !== carte.dataset.regime){
-                carte.style.display = "none";
+                carte.classList.add('d-none');
             }
 
             if( inputTheme !== '' && inputTheme !== carte.dataset.theme){
-                carte.style.display = "none";
+                carte.classList.add('d-none');
             }
             if( inputNombre !== '' && parseFloat(inputNombre) < parseFloat(carte.dataset.nombre)){
-                carte.style.display = "none";
+                carte.classList.add('d-none');
             }
 
             if(fourchette.min !== null && (parseFloat(carte.dataset.prix) < parseFloat(fourchette.min) ||  parseFloat(carte.dataset.prix) > parseFloat(fourchette.max))){
-                carte.style.display = "none";
+                carte.classList.add('d-none');
                 
             }
 
-            if(carte.style.display !== 'none'){
+            if(!carte.classList.contains('d-none')){
                 compteur ++;
             }
 

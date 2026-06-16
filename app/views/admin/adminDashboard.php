@@ -28,10 +28,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
     </div>
     <hr>
 
-    <section class="admin-dashboard">
+    <section class="admin-dashboard mb-5">
         <h4 class="text-center mb-3">Employés</h4>
-        <a href="/admin/employe-register">Créer compte employé</a>
-            <table class="tableau-dashboard-admin">
+        <a href="/admin/employe-register" class="creer-employe">Créer compte employé</a>
+            <table class="tableau-dashboard-admin mt-4 mb-4">
                 <thead>
                     <tr>
                         <th>Nom</th>
@@ -75,7 +75,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
             </table>
     </section>
     <hr>
-    <div class="text-center input-select">
+    <div class="text-center input-select mt-5">
         <label for="statut">Filtrer par statut :</label>
         <select name="statut" id="statut">
             <option value=""></option>
@@ -89,7 +89,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         </select>
     </div>
 
-    <div class="dashboard-commandes mt-4">
+    <div class="dashboard-commandes mt-4 mb-4">
         <h4 class="text-center mb-4">Commandes Clients</h4>
         <table class="tableau-commande-entreprise">
             <thead>
@@ -122,45 +122,48 @@ require_once __DIR__ . '/../../views/layout/header.php';
         </table>
     </div>
     
-    <section class="mt-4">
+    <section class="mt-5 mb-5 section-graphique">
         <h2 class="text-center">Statistiques</h2>
-        <h4 class="text-center">Commandes par menu</h4>
+        <h4 >Commandes par menu :</h4>
         <canvas id="graphiqueCommandes" data-commandes="<?= htmlspecialchars(json_encode($commandesParMenu)) ?>"></canvas>
     </section>
 
-    <form method="GET" action="/admin/dashboard" id="formulaire-ca">
-        <select name="menu" id="filtre-menu">
-            <option value="">Tous les menus</option>
-            <?php foreach($caParMenu as $ligne) : ?>
-                <option value="<?= htmlspecialchars($ligne['_id']) ?>"
-                    <?= ($_GET['menu'] ?? '') === $ligne['_id'] ? 'selected' : '' ?>>
-                    <?= htmlspecialchars($ligne['_id']) ?>
-                </option>
-            <?php endforeach ?>
-        </select>
+    <section class="section-chifre-affiare mb-5 p-5">
+        <h4 >Chiffre d'affaires :</h4>
+        <form method="GET" action="/admin/dashboard" class="d-flex flex-column align-items-center" id="formulaire-ca">
+            <select name="menu" id="filtre-menu">
+                <option value="">Tous les menus</option>
+                <?php foreach($caParMenu as $ligne) : ?>
+                    <option value="<?= htmlspecialchars($ligne['_id']) ?>"
+                        <?= ($_GET['menu'] ?? '') === $ligne['_id'] ? 'selected' : '' ?>>
+                        <?= htmlspecialchars($ligne['_id']) ?>
+                    </option>
+                <?php endforeach ?>
+            </select>
 
-        <input type="month" name="mois" id="filtre-mois" value="<?= htmlspecialchars($_GET['mois'] ?? '') ?>">
+            <input type="month" name="mois" id="filtre-mois" value="<?= htmlspecialchars($_GET['mois'] ?? '') ?>">
 
-        <button type="submit">Filtrer</button>
-        <a href="/admin/dashboard" id="lien-reset">Réinitialiser</a>
-    </form>
+            <button type="submit">Filtrer</button>
+            <a href="/admin/dashboard" id="lien-reset">Réinitialiser</a>
+        </form>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Menu</th>
-                <th>CA (€)</th>
-            </tr>
-        </thead>
-        <tbody id="tbody-ca">
-            <?php foreach($caParMenu as $ligne) : ?>
+        <table>
+            <thead>
                 <tr>
-                    <td><?= htmlspecialchars($ligne['_id']) ?></td>
-                    <td><?= number_format($ligne['ca'], 2, ',', ' ') ?> €</td>
+                    <th>Menu</th>
+                    <th>Chiffre d'affaires (€)</th>
                 </tr>
-            <?php endforeach ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody id="tbody-ca">
+                <?php foreach($caParMenu as $ligne) : ?>
+                    <tr>
+                        <td><?= htmlspecialchars($ligne['_id']) ?></td>
+                        <td><?= number_format($ligne['ca'], 2, ',', ' ') ?> €</td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </section>
         
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </main>

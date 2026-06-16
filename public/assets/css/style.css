@@ -89,6 +89,86 @@ main{
     margin-left: 3rem;
     margin-bottom: 0 !important;
 }
+
+
+/* ============================================================================================================================================================================ */
+/* ============================================================================================================================================================================ */
+
+/* Graphiques */
+canvas{
+    width: 90% !important;
+    margin: auto;
+}
+
+.section-graphique , .section-chifre-affiare{
+    background-color: var(--fond-carte);
+    border-radius: 8px;
+    width: 60%;
+    box-shadow: var(--shadow);
+    margin: auto;
+}
+
+.section-graphique h2{
+    background-color: var(--dore);
+    border-radius: 8px;
+}
+
+.section-graphique h4{
+    margin-left: 1rem;
+}
+
+.section-chifre-affiare form select , .section-chifre-affiare form input, .section-chifre-affiare form button , .section-chifre-affiare form a{
+    width: 25%;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    padding: 0.2rem;
+}
+
+.section-chifre-affiare form a{
+    display: block;
+    text-align: center;
+    background-color: var(--dore);
+    color: var(--bleu-tres-fonce);
+    transition: all 0.3s ease;
+}
+
+.section-chifre-affiare form button{
+    background-color: var(--dore);
+    color: var(--bleu-tres-fonce);
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.section-chifre-affiare form a:hover , .section-chifre-affiare form button:hover{
+    background-color: var(--dore-clair);
+    transform: scale(1.2) ;
+    
+}
+
+.section-chifre-affiare table{
+    margin: auto;
+    width: 70%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.section-chifre-affiare table thead{
+    background-color: var(--dore);
+}
+
+.section-chifre-affiare table thead th:first-child {
+    border-radius: 8px 0 0 0;
+}
+
+.section-chifre-affiare table thead th:last-child {
+    border-radius: 0 8px 0 0;
+}
+
+.section-chifre-affiare table th, .section-chifre-affiare table td {
+    border-bottom: 1px solid var(--bleu-tres-fonce);
+}
+
+
 /* ============================================================================================================================================================================ */
 
 ::-webkit-scrollbar {
@@ -865,6 +945,21 @@ tr {
 
 .dashboard-commandes, .admin-dashboard{
     width: 80%;
+}
+
+.creer-employe{
+    display: inline-block;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    background-color: var(--dore);
+    padding: 0.1rem;
+    color: var(--bleu-tres-fonce);
+    transition: all ease 0.3s;
+}
+
+.creer-employe:hover{
+    background-color: var(--dore-clair);
+    transform: scale(1.1);
 }
 
 /* =================================================================================================================================================================================== */

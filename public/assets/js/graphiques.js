@@ -12,7 +12,8 @@ new Chart(ctx, {
         datasets: [{
             label: 'Nombre de commandes',
             data: data,             // valeurs
-            backgroundColor: '#C9A84C'  // couleur de tes barres
+            backgroundColor: '#1565C0' , // couleur de tes barres
+            hoverBackgroundColor:'#2A3F6A'
         }]
     }
 });

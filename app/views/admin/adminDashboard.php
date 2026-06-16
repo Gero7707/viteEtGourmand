@@ -122,12 +122,18 @@ require_once __DIR__ . '/../../views/layout/header.php';
         </table>
     </div>
     
-    <section>
-        <h2>Stats</h2>
+    <section class="mt-4">
+        <h2 class="text-center">Statistiques</h2>
+        <h4 class="text-center">Commandes par menu</h4>
+        <canvas id="graphiqueCommandes"></canvas>
     </section>
+    <script>
+        const commandesParMenu = <?= json_encode($commandesParMenu) ?>;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </main>
 
 <?php
-$loadScriptJs = 'filtreAdminEmploye.js';
+$loadScriptJs = ['filtreAdminEmploye.js' , 'graphiques.js'];
 require_once __DIR__ . '/../../views/layout/importJs.php';
 ?>

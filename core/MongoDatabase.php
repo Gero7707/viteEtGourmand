@@ -7,14 +7,9 @@ class MongoDatabase{
     private object $mongo;
 
     private function __construct(){
-        $host     = getenv('MONGO_HOST');
-        $port     = getenv('MONGO_PORT');
-        $dbname   = getenv('MONGO_DB');
-        // $username = getenv('');
-        // $password = getenv('');
 
         try{
-            $dsn = "mongodb://{$host}:{$port}";
+            $dsn = getenv('MONGO_DSN') ?: 'mongodb://' . getenv('MONGO_HOST') . ':' . getenv('MONGO_PORT');
             $this->mongo = new MongoDB\Client($dsn);
         }catch(Exception $e){
             die("Database connection failure: " . $e->getMessage());

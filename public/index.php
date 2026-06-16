@@ -181,6 +181,9 @@ $router->add('POST' , '/supp-jour/{id}' , 'HoraireController' , 'supprimerJour')
 //Afficher les allergènes dans une modal
 $router->add('GET' , '/fetch/menu-allergene/{id}' , 'MenuController' , 'getAllAllergene');
 
+//Afficher filtres ca adminDashboard
+$router->add('GET' , '/admin/stats-ca' , 'AdminController' , 'statsCA');
+
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode
 $router->dispatch($url);

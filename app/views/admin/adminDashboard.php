@@ -125,11 +125,43 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <section class="mt-4">
         <h2 class="text-center">Statistiques</h2>
         <h4 class="text-center">Commandes par menu</h4>
-        <canvas id="graphiqueCommandes"></canvas>
+        <canvas id="graphiqueCommandes" data-commandes="<?= htmlspecialchars(json_encode($commandesParMenu)) ?>"></canvas>
     </section>
-    <script>
-        const commandesParMenu = <?= json_encode($commandesParMenu) ?>;
-    </script>
+
+    <form method="GET" action="/admin/dashboard" id="formulaire-ca">
+        <select name="menu" id="filtre-menu">
+            <option value="">Tous les menus</option>
+            <?php foreach($caParMenu as $ligne) : ?>
+                <option value="<?= htmlspecialchars($ligne['_id']) ?>"
+                    <?= ($_GET['menu'] ?? '') === $ligne['_id'] ? 'selected' : '' ?>>
+                    <?= htmlspecialchars($ligne['_id']) ?>
+                </option>
+            <?php endforeach ?>
+        </select>
+
+        <input type="month" name="mois" id="filtre-mois" value="<?= htmlspecialchars($_GET['mois'] ?? '') ?>">
+
+        <button type="submit">Filtrer</button>
+        <a href="/admin/dashboard" id="lien-reset">Réinitialiser</a>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Menu</th>
+                <th>CA (€)</th>
+            </tr>
+        </thead>
+        <tbody id="tbody-ca">
+            <?php foreach($caParMenu as $ligne) : ?>
+                <tr>
+                    <td><?= htmlspecialchars($ligne['_id']) ?></td>
+                    <td><?= number_format($ligne['ca'], 2, ',', ' ') ?> €</td>
+                </tr>
+            <?php endforeach ?>
+        </tbody>
+    </table>
+        
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </main>
 

@@ -31,7 +31,30 @@ class AdminController{
         $employes = $this->users->getEmploye();
         $commandes = $this->commandes->getAllCommandes();
         $commandesParMenu = $this->mongo->getCommandesParMenu();
+        $filtres = [
+            'menu' => $_GET['menu'] ?? '',
+            'mois' => $_GET['mois'] ?? '',
+        ];
+        $caParMenu = $this->mongo->getCAParMenu($filtres);
         require_once __DIR__ . '/../views/admin/adminDashboard.php';
+    }
+
+    public function statsCA() {
+        Auth::checkAdmin();
+        $filtres = [
+            'menu' => $_GET['menu'] ?? '',
+            'mois' => $_GET['mois'] ?? '',
+        ];
+        $caParMenu = $this->mongo->getCAParMenu($filtres);
+        // Convertir les objets MongoDB en tableaux PHP simples
+        $data = array_map(fn($ligne) => [
+            'menu' => (string) $ligne['_id'],
+            'ca'   => (float) $ligne['ca']
+        ], $caParMenu);
+
+        header('Content-Type: application/json');
+        echo json_encode($data);
+        exit;
     }
 
     public function showRegisterEmploye(){

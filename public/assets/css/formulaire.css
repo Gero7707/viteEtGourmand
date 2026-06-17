@@ -127,7 +127,7 @@ thead,tbody,td, th{
 
 .theme-carte, .regime-carte{
     background-color: var(--bleu-moyen);
-    padding: 0.3rem;
+    padding: 0.5rem;
     color: var(--fond-carte);
     width: 8rem;
     border-radius: 8px;

@@ -4,7 +4,14 @@ document.addEventListener('DOMContentLoaded', () =>{
     if(!carteContainer){
         return;
     }
+    
 
+
+    const openFiltres = document.querySelector('.open-filtres');
+    const slider = document.querySelector('.section-filtres');
+    const closeFiltres = document.getElementById('close-filtres');
+    if(!openFiltres || !closeFiltres) return;
+    
     const btnFiltre = document.querySelectorAll('.btn-filtre');
     const btnInitFiltres = document.getElementById('init-filtres');
     const prixMax = document.getElementById('prixMax');
@@ -31,7 +38,13 @@ document.addEventListener('DOMContentLoaded', () =>{
         })
     })
 
+    openFiltres.addEventListener('click' , () =>{
+        slider.classList.toggle('open');
+    });
 
+    closeFiltres.addEventListener('click' , () =>{
+        slider.classList.toggle('open')
+    })
 
 
     let fourchette = { min: null, max: null };

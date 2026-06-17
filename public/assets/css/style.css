@@ -383,11 +383,16 @@ a{text-decoration: none;}
 }
 /* =================================================================================================================================================================================== */
 /* Section des menus */
+.container-filtre-menus{
+    width: 100vw;
+}
+
 .section-menus{
     width: 75%;
     border-radius: 10px;
     margin-left: auto;
     box-shadow: var(--shadow);
+    background-color: var(--bs-primary);
 }
 
 .menus-main{
@@ -949,11 +954,29 @@ Mobiles
         width: 80%;
     }
 
+    .section-filtres{
+        display: none;
+    }
+
+    .section-menus{
+        width: 95%;
+        margin: auto;
+    }
+
 }
 
 @media (max-width: 1199.99px){
     .tableau-historique{
         width: 65%;
+    }
+
+    .carte-menu{
+        padding: 0.5rem;
+    }
+
+    .menu-description{
+        padding: 0;
+        font-size: 0.9rem;
     }
 }
 
@@ -969,8 +992,6 @@ Mobiles
     main{
         margin-top: 3rem;
     }
-
-    
 
     .intro,.carte-savoir-faire{flex-direction: column;}
     .intro p{
@@ -1030,5 +1051,51 @@ Mobiles
 
     .tableau-historique td{
         font-size: 0.8rem;
+    }
+
+    .section-menus{
+        background-color: var(--fond-plus-clair);
+        box-shadow: none;
+    }
+
+    .carte-menu{
+        width: 85%;
+        box-shadow: var(--shadow);
+    }
+
+    .en-tete-carte-menu{
+        flex-direction: column;
+    }
+
+    .en-tete-carte-menu a , .en-tete-carte-menu h4 , .prix, .theme-regime, .texte-description, .img-nb-personne{
+        margin: auto;
+    }
+
+    .en-tete-carte-menu a{
+        margin-top: 1rem;
+    }
+
+    .texte-img{
+        flex-direction: column-reverse;
+    }
+
+    .theme-description{
+        width: 100%;
+    }
+
+    .theme-description :nth-child(2){
+        text-align: center;
+    }
+
+    .theme-description :nth-child(2), .theme-carte ,.regime-carte{
+        padding: 0 !important;
+    }
+
+    .theme-carte, .regime-carte{
+        margin-left: 0;
+    }
+
+    .theme-description :first-child p{
+        margin-left: 0;
     }
 }

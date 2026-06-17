@@ -1,5 +1,5 @@
 <?php
-$pageSpecificCss = 'style.css';
+$pageSpecificCss = ['style.css' , 'carousel.css'];
 require_once __DIR__ . '/../views/layout/header.php';
 
 ?>
@@ -58,42 +58,42 @@ require_once __DIR__ . '/../views/layout/header.php';
 
     <?php endif ?>
 
-        <section class="section-carousel">
-            <!-- Slider main container -->
-            <div class="swiper">
-                <div class="swiper-button-prev"></div>
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide"> 
-                        <div class="img-wrapper">
-                            <img src="/assets/img/accueil/banquet.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="swiper-slide"> 
-                        <div class="img-wrapper">
-                            <img src="/assets/img/accueil/table.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="swiper-slide"> 
-                        <div class="img-wrapper">
-                            <img src="/assets/img/accueil/banquet-3.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="swiper-slide"> 
-                        <div class="img-wrapper">
-                            <img src="/assets/img/accueil/banquet-2.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="swiper-slide"> 
-                        <div class="img-wrapper">
-                            <img src="/assets/img/accueil/fete.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
-                        </div>
+    <section class="section-carousel">
+        <!-- Slider main container -->
+        <div class="swiper">
+            <div class="swiper-button-prev"></div>
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"> 
+                    <div class="img-wrapper">
+                        <img src="/assets/img/accueil/banquet.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
                     </div>
                 </div>
-                <div class="swiper-button-next"></div>
+                <div class="swiper-slide"> 
+                    <div class="img-wrapper">
+                        <img src="/assets/img/accueil/table.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
+                    </div>
+                </div>
+                <div class="swiper-slide"> 
+                    <div class="img-wrapper">
+                        <img src="/assets/img/accueil/banquet-3.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
+                    </div>
+                </div>
+                <div class="swiper-slide"> 
+                    <div class="img-wrapper">
+                        <img src="/assets/img/accueil/banquet-2.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
+                    </div>
+                </div>
+                <div class="swiper-slide"> 
+                    <div class="img-wrapper">
+                        <img src="/assets/img/accueil/fete.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
+                    </div>
+                </div>
             </div>
-        </section>
+            <div class="swiper-button-next"></div>
+        </div>
+    </section>
     
     <section class="section-savoir-faire">
         <h3 class="text-center mb-5 mt-5">Notre savoir faire</h3>

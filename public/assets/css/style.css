@@ -931,10 +931,6 @@ Mobiles
         font-size: 1.4rem;
     }
 
-    .ancre-auth{
-        padding: 0.4rem !important;
-        width: 10rem !important;
-    }
     .texte{
         padding: 0.8rem;
         width: 45%;
@@ -947,14 +943,6 @@ Mobiles
 
     .section-commandes{
         width: 80%;
-    }
-}
-
-@media (max-width: 1199.9px){
-    .ancre-auth{
-        padding: 0.2rem !important;
-        width: 8rem !important;
-        font-size: 0.9rem !important;
     }
 
 }
@@ -972,9 +960,7 @@ Mobiles
         margin-top: 3rem;
     }
 
-    .lien-header , .auth{
-        width: 0rem !important;
-    }
+    
 
     .intro,.carte-savoir-faire{flex-direction: column;}
     .intro p{
@@ -1024,7 +1010,7 @@ Mobiles
         width: 90%;
     }
 
-    .fa-eye {
-        font-size: 1.5rem !important;
+    .tableau-commande i {
+        font-size: 1.5rem ;
     }
 }

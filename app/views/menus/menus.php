@@ -10,11 +10,11 @@ require_once __DIR__ . '/../../views/layout/header.php';
 <?php endif ?>
 <main class="menus-main">
     <div class="d-flex justify-content-between div-arbo">
-        <button type="button" class="d-xxl-none open-filtres">Filtrer</button>
+        <button type="button" class="open-filtres">Filtrer</button>
         <p class=" arborescence text-center "><a href="/">Accueil<</a>Menus</p>
     </div>
     <div class="d-flex container-filtre-menus">
-        <section class="section-filtres  ">
+        <section class="section-filtres">
             <div class="d-flex justify-content-between init-close">
                 <button id="init-filtres" type="button">Réinitialiser</button>
                 <i class="fa-solid fa-circle-xmark" id="close-filtres"></i>
@@ -22,39 +22,48 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <div class="filtres">
                 <h4 class="mt-5">Filtres</h4>
                 <ul>
-                    <li>Prix :
-                        <p id="messageBouton"></p>
-                        <ul class="liste-bouton">
-                            <li><button class="btn-filtre" type="button" data-min="0" data-max="19.99"><i class="fa-solid fa-arrow-right"></i>&nbsp; < à 20€</button></li>
-                            <li><button class="btn-filtre" type="button" data-min="20" data-max="29.99"><i class="fa-solid fa-arrow-right"></i>&nbsp; de 20€ à 30€</button></li>
-                            <li><button class="btn-filtre" type="button" data-min="30" data-max="100"><i class="fa-solid fa-arrow-right"></i>&nbsp; > 30€</button></li><br>
-                        </ul>
-                        <p id="messageInput"></p>
-                        <label for="prixMax">Prix max :</label>
+                    <div class="filtre-large">
+                        <div>
+                            <li>Prix :
+                                <p id="messageBouton"></p>
+                                <ul class="liste-bouton">
+                                    <li><button class="btn-filtre" type="button" data-min="0" data-max="19.99"><i class="fa-solid fa-arrow-right"></i>&nbsp; < à 20€</button></li>
+                                    <li><button class="btn-filtre" type="button" data-min="20" data-max="29.99"><i class="fa-solid fa-arrow-right"></i>&nbsp; de 20€ à 30€</button></li>
+                                    <li><button class="btn-filtre" type="button" data-min="30" data-max="100"><i class="fa-solid fa-arrow-right"></i>&nbsp; > 30€</button></li>
+                                </ul>
+                                <p id="messageInput"></p>
+                                <label for="prixMax">Prix max :</label>
+                                
+                                <input type="number" name="prixMax" id="prixMax" class="mb-5">
+                                
+                            </li>
+                        </div>
+                        <div>
+                            <li class="mb-5 filtre-theme">Thème : 
+                                <select name="theme" id="theme">
+                                    <option value=""></option>
+                                    <option value="1">Classique</option>
+                                    <option value="2">Noêl</option>
+                                    <option value="3">Pacques</option>
+                                    <option value="4">Evènement</option>
+                                </select>
+                            </li>
                         
-                        <input type="number" name="prixMax" id="prixMax" class="mb-5">
-                        
-                    </li>
-                    <li class="mb-5">Thème : 
-                            <select name="theme" id="theme">
-                                <option value=""></option>
-                                <option value="1">Classique</option>
-                                <option value="2">Noêl</option>
-                                <option value="3">Pacques</option>
-                                <option value="4">Evènement</option>
-                            </select></li>
-                    <li class="mb-5">Régime :
-                        <select name="regime" id="regime">
-                            <option value=""></option>
-                            <option value="1">Classique</option>
-                            <option value="2">Végétarien</option>
-                            <option value="3">Végan</option>
-                        </select>
-                    </li>
-                    <li><label for="nombre">Nombre personnes :</label><br>
-                        <i class="fa-solid fa-arrow-right"></i><input class="iput-nombre" type="number" name="nombre" id="nombre" placeholder="min 4"><br>
-                        
-                    </li>
+                            <li class="mb-5 filtre-regime">Régime :
+                                <select name="regime" id="regime">
+                                    <option value=""></option>
+                                    <option value="1">Classique</option>
+                                    <option value="2">Végétarien</option>
+                                    <option value="3">Végan</option>
+                                </select>
+                            </li>
+                        </div>
+                        <div>
+                            <li><label for="nombre">Nombre personnes :</label><br>
+                                <i class="fa-solid fa-arrow-right"></i><input class="iput-nombre" type="number" name="nombre" id="nombre" placeholder="min 4"><br>
+                            </li>
+                        </div>
+                    </div>
                 </ul>
             </div>
         </section>

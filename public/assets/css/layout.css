@@ -127,7 +127,8 @@ footer i:hover , .mentions a:hover{
 
     .titre{
         font-size: 1.3rem;
-        width: 90%;
+        /* width: 90%; */
+        margin: 0.5rem 0 0 0.2rem;
     }
 
     footer{

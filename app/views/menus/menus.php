@@ -9,10 +9,16 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
 <?php endif ?>
 <main class="menus-main">
-    <p class=" arborescence text-center "><a href="/">Accueil<</a>Menus</p>
+    <div class="d-flex justify-content-between div-arbo">
+        <button type="button" class="d-xxl-none open-filtres">Filtrer</button>
+        <p class=" arborescence text-center "><a href="/">Accueil<</a>Menus</p>
+    </div>
     <div class="d-flex container-filtre-menus">
-        <section class="section-filtres">
-            <button id="init-filtres" type="button">Réinitialiser</button>
+        <section class="section-filtres  ">
+            <div class="d-flex justify-content-between init-close">
+                <button id="init-filtres" type="button">Réinitialiser</button>
+                <i class="fa-solid fa-circle-xmark" id="close-filtres"></i>
+            </div>
             <div class="filtres">
                 <h4 class="mt-5">Filtres</h4>
                 <ul>

@@ -505,13 +505,30 @@ a{text-decoration: none;}
 
 /* =================================================================================================================================================================================== */
 /* Section filtres */
+.div-arbo{
+    width: 55%;
+}
+.open-filtres{
+    width: auto;
+    padding: 0.5rem;
+    margin-left: 1rem;
+}
+
 .section-filtres{
-    width: 20%;
+    width: 31%;
     background-color: var(--bleu-moyen);
     height: 100vh;
     position: fixed;
-    top:80px;
+    top:67px;
+    z-index: 3;
+    transform: translateX(-100%);
+    transition: transform 0.9s ease;
 }
+
+.section-filtres.open {
+    transform: translateX(0);
+}
+
 
 .section-filtres button{
     border : 1px solid;
@@ -519,6 +536,13 @@ a{text-decoration: none;}
     border-radius: 8px;
     margin-top: 2rem;
     margin-left: 4rem;
+}
+
+.fa-circle-xmark{
+    font-size: 2.5rem;
+    color: var(--dore);
+    margin-top: 2rem;
+    margin-right: 1rem;
 }
 
 .liste-bouton button{
@@ -954,9 +978,6 @@ Mobiles
         width: 80%;
     }
 
-    .section-filtres{
-        display: none;
-    }
 
     .section-menus{
         width: 95%;

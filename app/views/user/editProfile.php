@@ -52,5 +52,6 @@ require_once __DIR__ . '/../../views/layout/header.php';
 </main>
 <?php
 $loadScriptJs = 'form.js';
+require_once __DIR__ . '/../../views/layout/footer.php';
 require_once __DIR__ . '/../../views/layout/importJs.php';
 ?>

@@ -18,16 +18,16 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <h3 class="text-center mt-3 mb-3">Changer les horiares</h3>
             <form action="/changer-horaire" method="POST" class="text-center">
                 <?= Auth::csrfField() ?>
-                <?php foreach($horaires as $horaire) : ?>
+                <?php foreach($horaireRaw as $heur) : ?>
 
-                    <input type="hidden" name="horaire_id[]" value="<?= $horaire['horaire_id'] ?>">
-                    <p><?= htmlspecialchars($horaire['jour']) ?></p>
+                    <input type="hidden" name="horaire_id[]" value="<?= $heur['horaire_id'] ?>">
+                    <p><?= htmlspecialchars($heur['jour']) ?></p>
 
-                    <label class="form-label" for="heure_ouverture[<?= $horaire['horaire_id'] ?>]">Ouverture</label>
-                    <input class="form-control" type="time" name="heure_ouverture[<?= $horaire['horaire_id'] ?>]" value="<?= htmlspecialchars($horaire['heure_ouverture']) ?>">
+                    <label class="form-label" for="heure_ouverture[<?= $heur['horaire_id'] ?>]">Ouverture</label>
+                    <input class="form-control" type="time" name="heure_ouverture[<?= $heur['horaire_id'] ?>]" value="<?= htmlspecialchars($heur['heure_ouverture']) ?>">
                     
-                    <label class="form-label" for="heure_fermeture[<?= $horaire['horaire_id'] ?>]">Fermeture</label>
-                    <input class="form-control" type="time" name="heure_fermeture[<?= $horaire['horaire_id'] ?>]" value="<?= htmlspecialchars($horaire['heure_fermeture']) ?>"><br>
+                    <label class="form-label" for="heure_fermeture[<?= $heur['horaire_id'] ?>]">Fermeture</label>
+                    <input class="form-control" type="time" name="heure_fermeture[<?= $heur['horaire_id'] ?>]" value="<?= htmlspecialchars($heur['heure_fermeture']) ?>"><br>
                 <?php endforeach ?>
                 <?php if ($_SESSION['role_id'] === 2) :  ?>
                     <a class="annuler" href="/employe/dashboard">Annuler</a><br>
@@ -66,11 +66,11 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($horaires as $horaire) : ?>
+                        <?php foreach($horaireRaw as $heur) : ?>
                             <tr>
-                                <td><?= htmlspecialchars($horaire['jour']) ?></td>
+                                <td><?= htmlspecialchars($heur['jour']) ?></td>
                                 <td>
-                                    <form action="/supp-jour/<?= $horaire['horaire_id']  ?>" method="POST">
+                                    <form action="/supp-jour/<?= $heur['horaire_id']  ?>" method="POST">
                                         <?= Auth::csrfField() ?>
                                         <button type="submit">Supprimer</button>
                                     </form>

@@ -11,10 +11,11 @@ class HoraireController{
 
     public function showFormHoraire(){
         Auth::checkEmploye();
-        $horaires = $this->horaires->getHoraireRaw();
+        $horaireRaw = $this->horaires->getHoraireRaw();
+        $horaire = $this->horaires->getHoraire();
 
         $jours = ['Lundi' , 'Mardi' , 'Mercredi' , 'Jeudi' , 'Vendredi' , 'Samedi' , 'Dimanche'];
-        $joursEnBase = array_column($horaires, 'jour');
+        $joursEnBase = array_column($horaire, 'jour');
         $jourManquants = array_diff($jours, $joursEnBase);
 
         require_once __DIR__ . '/../views/employe/changerHoraire.php';

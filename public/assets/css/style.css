@@ -134,7 +134,7 @@ canvas{
     margin: auto;
 }
 
-.section-graphique , .section-chifre-affiare{
+.section-graphique , .section-chiffre-affaire{
     background-color: var(--fond-carte);
     border-radius: 8px;
     width: 60%;
@@ -151,14 +151,14 @@ canvas{
     margin-left: 1rem;
 }
 
-.section-chifre-affiare form select , .section-chifre-affiare form input, .section-chifre-affiare form button , .section-chifre-affiare form a{
+.section-chiffre-affaire form select , .section-chiffre-affaire form input, .section-chiffre-affaire form button , .section-chiffre-affaire form a{
     width: 25%;
     margin-bottom: 1.5rem;
     border-radius: 8px;
     padding: 0.2rem;
 }
 
-.section-chifre-affiare form a{
+.section-chiffre-affaire form a{
     display: block;
     text-align: center;
     background-color: var(--dore);
@@ -166,39 +166,39 @@ canvas{
     transition: all 0.3s ease;
 }
 
-.section-chifre-affiare form button{
+.section-chiffre-affaire form button{
     background-color: var(--dore);
     color: var(--bleu-tres-fonce);
     transition: all 0.3s ease;
     border: none;
 }
 
-.section-chifre-affiare form a:hover , .section-chifre-affiare form button:hover{
+.section-chiffre-affaire form a:hover , .section-chiffre-affaire form button:hover{
     background-color: var(--dore-clair);
     transform: scale(1.2) ;
     
 }
 
-.section-chifre-affiare table{
+.section-chiffre-affaire table{
     margin: auto;
     width: 70%;
     border-collapse: separate;
     border-spacing: 0;
 }
 
-.section-chifre-affiare table thead{
+.section-chiffre-affaire table thead{
     background-color: var(--dore);
 }
 
-.section-chifre-affiare table thead th:first-child {
+.section-chiffre-affaire table thead th:first-child {
     border-radius: 8px 0 0 0;
 }
 
-.section-chifre-affiare table thead th:last-child {
+.section-chiffre-affaire table thead th:last-child {
     border-radius: 0 8px 0 0;
 }
 
-.section-chifre-affiare table th, .section-chifre-affiare table td {
+.section-chiffre-affaire table th, .section-chiffre-affaire table td {
     border-bottom: 1px solid var(--bleu-tres-fonce);
 }
 
@@ -528,6 +528,8 @@ a{text-decoration: none;}
     margin-top: 2rem;
     margin-left: 4rem;
 }
+
+
 
 .fa-circle-xmark{
     font-size: 2.5rem;
@@ -1242,8 +1244,6 @@ Mobiles
         margin-bottom: 1rem !important;
         height: 1.8rem !important;
     }
-
-    .filtre-theme , .filtre-regime
 
     .filtre-large p{
         margin-bottom: 0 !important;

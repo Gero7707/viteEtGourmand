@@ -17,7 +17,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <section class="section-filtres">
             <div class="d-flex justify-content-between init-close">
                 <button id="init-filtres" type="button">Réinitialiser</button>
-                <i class="fa-solid fa-circle-xmark" id="close-filtres"></i>
+                <i class="fa-solid fa-circle-xmark d-xxl-none" id="close-filtres"></i>
             </div>
             <div class="filtres">
                 <h4 class="mt-5">Filtres</h4>

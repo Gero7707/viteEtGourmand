@@ -126,7 +126,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <canvas id="graphiqueCommandes" data-commandes="<?= htmlspecialchars(json_encode($commandesParMenu)) ?>"></canvas>
     </section>
 
-    <section class="section-chifre-affiare mb-5 p-5">
+    <section class="section-chiffre-affaire mb-5 p-5">
         <h4 >Chiffre d'affaires :</h4>
         <form method="GET" action="/admin/dashboard" class="d-flex flex-column align-items-center" id="formulaire-ca">
             <select name="menu" id="filtre-menu">

@@ -48,6 +48,30 @@
                 <?php endif ?>
             <?php endif ?>
         </div>
+
+        <div class="dropdown menu-restau d-md-none">
+            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-utensils"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <?php if ($_SESSION['role_id'] === 2) :  ?>
+                <li><a class="dropdown-item" href="/employe/dashboard" >Dashoard</a></li>
+                <li><a class="dropdown-item" href="/commandes-client" >Commandes</a></li>
+                <li><a class="dropdown-item" href="/avis-valider" >Avis</a></li>
+                <li><a class="dropdown-item" href="/menus">Menus</a></li>
+                <li><a class="dropdown-item" href="/plats">Plats</a></li>
+                <li><a class="dropdown-item" href="/changer-horaire" >Horaires</a></li>
+                <?php elseif ($_SESSION['role_id'] === 3) :  ?>
+                <li><a class="dropdown-item" href="/employe/dashboard" >Dashoard</a></li>
+                <li><a class="dropdown-item" href="/commandes-client" >Commandes</a></li>
+                <li><a class="dropdown-item" href="/avis-valider" >Avis</a></li>
+                <li><a class="dropdown-item" href="/menus">Menus</a></li>
+                <li><a class="dropdown-item" href="/plats">Plats</a></li>
+                <li><a class="dropdown-item" href="/changer-horaire" >Horaires</a></li>
+        <?php endif ?>
+            </ul>
+        </div>
+
         <div class="dropdown ">
             <a class="btn  " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa-solid fa-bars"></i>

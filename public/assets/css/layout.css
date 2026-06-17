@@ -126,36 +126,8 @@ footer i:hover , .mentions a:hover{
     /* Header  */
 
     .titre{
-        font-size: 1.7rem;
-        width: 60%;
-    }
-
-    .dropdown{
-        display: block;
-        background-color: var(--bleu-nuit);
-        margin: auto;
-    }
-
-    .dropdown .btn ,  .dropdown .show{
-        color: var(--dore) !important;
-        border: 1px solid var(--dore) !important;
-    }
-
-    .lien-header li, .ancre-auth  {
-        display: none;
-        width: 8%;
-    }
-
-    .auth{
-        width: 0%;
-    }
-
-    .dropdown-menu{
-        background-color: var(--bleu-moyen);
-    }
-
-    .dropdown-item{
-        color: var(--dore) !important;
+        font-size: 1.3rem;
+        width: 90%;
     }
 
     footer{
@@ -178,5 +150,61 @@ footer i:hover , .mentions a:hover{
     .reseaux{
         width: 100%;
         justify-content:space-around ;
+    }
+
+    .texte p, .carte-avis p{
+        font-size: 0.9rem;
+    }
+
+    .menu-restau{
+        margin-right: 1rem !important;
+    }
+
+}
+
+@media(max-width: 1199.9px){
+    footer{
+        padding: 1rem !important;
+    }
+
+    footer p{
+        font-size: 0.9rem !important;
+    }
+
+    .lien-header{
+        width: 32%;
+    }
+}
+
+@media(max-width: 991.9px){
+    .dropdown{
+        display: block;
+        background-color: var(--bleu-nuit);
+        margin: auto;
+    }
+    .lien-header li, .ancre-auth  {
+        display: none;
+    }
+
+    .dropdown .btn ,  .dropdown .show{
+        color: var(--dore) !important;
+        border: 1px solid var(--dore) !important;
+    }
+
+    .dropdown-menu{
+        background-color: var(--bleu-moyen);
+    }
+
+    .dropdown-item{
+        color: var(--dore) !important;
+    }
+
+    .titre{
+        width: 90%;
+        font-size: 1.4rem;
+    }
+
+    .img-carte1, .img-carte2{
+        height: 75%;
     }
 }

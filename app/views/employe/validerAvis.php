@@ -4,10 +4,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 
 <main>
-    <p class="error-message mt-1 text-center"></p><br>
-    <?php if ($_GET['success'] ?? null): ?>
-        <p class="success-message mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
-    <?php endif ?>
+    
 
     <?php if ($_SESSION['role_id'] === 2) :  ?>
         <div class="d-flex justify-content-around">
@@ -32,6 +29,11 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <a href="/changer-horaire" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Changer horaire</a><br>
         </div>
     <?php endif ?>
+    <hr>
+    <p class="error-message mt-1 text-center"></p><br>
+    <?php if ($_GET['success'] ?? null): ?>
+        <p class="success-message-php mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
+    <?php endif ?>
     
     <div class="container-avis text-center mt-3">
         <?php foreach($avis as $carteAvis) : ?>
@@ -50,8 +52,8 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 
                 <form action="/avis-valider/<?= $carteAvis['avis_id'] ?>" method="POST">
                     <?= Auth::csrfField() ?>
-                    <button type="submit" name="statut" value="valide">Valider</button>
-                    <button type="submit" name="statut" value="refuse">Refuser</button>
+                    <button class="btn-form" type="submit" name="statut" value="valide">Valider</button>
+                    <button class="btn-form" type="submit" name="statut" value="refuse">Refuser</button>
                 </form>
                 <hr>
             </div>

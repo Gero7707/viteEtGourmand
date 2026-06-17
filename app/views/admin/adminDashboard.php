@@ -16,7 +16,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <?php unset($_SESSION['flash_bienvenue']); ?>
     <?php endif ?>
 
-    <div class="d-flex justify-content-around">
+    <div class="d-flex justify-content-around ">
         <a href="/admin/dashboard" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Dashoard</a><br>
         <a href="/commandes-client" class="text-centerfw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Commandes</a><br>
         <a href="/avis-valider" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Avis</a><br>

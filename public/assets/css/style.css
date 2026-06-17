@@ -65,8 +65,6 @@
     font-size: 18px;
 }
 
-
-
 body{
     background-color:var(--fond-plus-clair) ;
     overflow-x: hidden;
@@ -89,7 +87,6 @@ main{
     margin-left: 3rem;
     margin-bottom: 0 !important;
 }
-
 
 /* ============================================================================================================================================================================ */
 /* ============================================================================================================================================================================ */
@@ -168,7 +165,6 @@ canvas{
     border-bottom: 1px solid var(--bleu-tres-fonce);
 }
 
-
 /* ============================================================================================================================================================================ */
 
 ::-webkit-scrollbar {
@@ -203,65 +199,9 @@ canvas{
 }
 /* ============================================================================================================================================================================ */
 
-/* Header et style , ceratins élément généraux comme pour la taille des line connexion, commander ... */
-header{
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    width: 100vw;
-    top: 0;
-    z-index: 3;
-}
-
-.dropdown{
-        display: none;
-    }
-
 li{list-style: none;}
 a{text-decoration: none;}
 
-.titre{
-    font-family: var(--font-logo);
-    font-size: 2.25rem;
-    margin: 0.5rem 0 0 1rem ;
-}
-
-.lien-header{
-    width: 25%;
-    justify-content: space-between;
-    margin-top: 1.5rem;
-}
-
-.lien-header a{
-    text-decoration: none;
-    color:var(--fond-plus-clair) ;
-}
-
-.lien-header a:hover{
-    color: var(--dore);
-}
-
-.auth{
-    width: 30%;
-    justify-content: space-between;
-    margin: 1rem 1rem ;
-}
-
-.btn-largeur{
-    width: 11rem;
-    text-align: center;
-}
-
-.ancre-auth{
-    border : 1px solid;
-    padding: 0.5rem;
-    border-radius: 8px;
-}
-
-.ancre-auth:hover{
-    background-color:var(--dore) ;
-    color: var(--bleu-nuit) !important; 
-}
 
 /* ============================================================================================================================================================================ */
 
@@ -298,8 +238,6 @@ a{text-decoration: none;}
     text-align: center;
     margin-top: 1rem;
 }
-
-
 
 /* Section savoir faire  */
 
@@ -437,9 +375,6 @@ a{text-decoration: none;}
     background-color: var(--dore-clair);
     transform: scale(1.1);
 }
-
-
-
 
 .prix{
     margin-left: auto;
@@ -938,63 +873,6 @@ tr {
 }
 
 
-/* =================================================================================================================================================================================== */
-
-footer{
-    background-color: var(--bleu-nuit);
-    color: var(--fond-plus-clair);
-    
-    justify-content: space-between;
-    padding: 2rem;
-}
-
-footer i{
-    color: var(--dore);
-}
-
-footer i:hover , .mentions a:hover{
-    color: var(--dore-clair);
-}
-
-.horaire{
-    font-size: 1rem;
-    margin: 0;
-}
-
-.logo{
-    width: 2rem;
-    height: 2rem;
-}
-
-.fa-at,.fa-phone{
-    margin-right: 0.5rem;
-}
-
-.reseaux{
-    justify-content: space-between;
-    align-items: center;
-    width: 10%;
-}
-
-.reseaux i{
-    font-size: 2rem;
-}
-
-.mentions,.coordonnees{
-    flex-direction: column;
-    align-items: center;
-}
-
-.mentions a{
-    color: var(--dore);
-}
-
-
-/* ====================================================================================================================================================================================================================================================================================================================================================== ====================================================================================================================================================================================================================================================================================================================================================== */
-
-
-
-
 
 /* ============================================================================================================================================================================ */
 /* Icones avis */
@@ -1003,53 +881,13 @@ footer i:hover , .mentions a:hover{
     font-size: 1.5rem;
 }
 
-
-
-
 /* ====================================================================================================================================================================================================================================================================================================================================================== ====================================================================================================================================================================================================================================================================================================================================================== 
 
 Mobiles
 
 ====================================================================================================================================================================================================================================================================================================================================================== ====================================================================================================================================================================================================================================================================================================================================================== */
 
-
-
 @media (max-width: 767.98px){
-
-    /* Header  */
-
-    .titre{
-        font-size: 1.7rem;
-        width: 60%;
-    }
-
-    .dropdown{
-        display: block;
-        background-color: var(--bleu-nuit);
-        margin: auto;
-    }
-
-    .dropdown .btn ,  .dropdown .show{
-        color: var(--dore) !important;
-        border: 1px solid var(--dore) !important;
-    }
-
-    .lien-header li, .ancre-auth  {
-        display: none;
-        width: 8%;
-    }
-
-    .auth{
-        width: 0%;
-    }
-
-    .dropdown-menu{
-        background-color: var(--bleu-moyen);
-    }
-
-    .dropdown-item{
-        color: var(--dore) !important;
-    }
 
     /* Section intro */
     main{
@@ -1065,16 +903,6 @@ Mobiles
         font-size: 1rem;
         padding: 0.3rem;
         margin: auto;
-    }
-
-    /* Carousel */
-
-    .swiper{
-        height: 60vh;
-    }
-
-    .section-carousel{
-        height: 60vh;
     }
 
     /* Section savoir faire */
@@ -1103,27 +931,5 @@ Mobiles
 
     .section-avis a{
         font-size: 1rem;
-    }
-
-    footer{
-        flex-direction: column;
-    }
-
-    footer p{
-        font-size:0.8rem ;
-    }
-
-    .liste-horaire{
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-    .horaire{
-        font-size: 0.8rem;
-    }
-
-    .reseaux{
-        width: 100%;
-        justify-content:space-around ;
     }
 }

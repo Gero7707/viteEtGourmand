@@ -1,5 +1,5 @@
 <?php
-$pageSpecificCss = ['style.css' , 'carousel.css'];
+$pageSpecificCss = ['style.css' , 'carousel.css' , 'layout.css'];
 require_once __DIR__ . '/../views/layout/header.php';
 
 ?>

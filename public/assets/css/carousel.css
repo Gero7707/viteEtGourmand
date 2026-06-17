@@ -84,3 +84,14 @@
     font-size: 4rem;
     color: #D4A853;
 }
+
+
+@media (max-width: 767.98px){
+    .swiper{
+        height: 60vh;
+    }
+
+    .section-carousel{
+        height: 60vh;
+    }
+}

@@ -941,10 +941,16 @@ Mobiles
         margin-bottom: 1rem !important;
     }
 
-    .section-commandes{
+    .section-commandes, .section-commande-client{
         width: 80%;
     }
 
+}
+
+@media (max-width: 1199.99px){
+    .tableau-historique{
+        width: 65%;
+    }
 }
 
 @media (max-width: 991.9px){
@@ -1006,11 +1012,19 @@ Mobiles
         width: 90%;
     }
 
-    .section-commandes{
-        width: 90%;
+    .section-commandes, .section-commande-client{
+        width: 95%;
     }
 
     .tableau-commande i {
         font-size: 1.5rem ;
+    }
+
+    .tableau-historique{
+        width: 100%;
+    }
+
+    .tableau-historique td{
+        font-size: 0.8rem;
     }
 }

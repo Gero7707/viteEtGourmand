@@ -252,7 +252,6 @@ a{text-decoration: none;}
 }
 
 .lien-intro, .avis ,.commander a , .modif-profil a{
-    width: 15rem;
     border-radius: 8px;
     font-size: 1.5rem;
     display: block;
@@ -724,6 +723,7 @@ a{text-decoration: none;}
 .modif-profil a {
     background-color: var(--dore);
     color: var(--bleu-tres-fonce);
+    margin: auto !important;
 }
 
 .tableau-commande {
@@ -944,6 +944,10 @@ Mobiles
         font-size: 1rem;
         margin-bottom: 1rem !important;
     }
+
+    .section-commandes{
+        width: 80%;
+    }
 }
 
 @media (max-width: 1199.9px){
@@ -971,8 +975,6 @@ Mobiles
     .lien-header , .auth{
         width: 0rem !important;
     }
-
-
 
     .intro,.carte-savoir-faire{flex-direction: column;}
     .intro p{
@@ -1011,5 +1013,18 @@ Mobiles
 
     .section-avis a{
         font-size: 1rem;
+    }
+
+    /* Profil user */
+    .section-profile-user,.donnees-user{
+        width: 90%;
+    }
+
+    .section-commandes{
+        width: 90%;
+    }
+
+    .fa-eye {
+        font-size: 1.5rem !important;
     }
 }

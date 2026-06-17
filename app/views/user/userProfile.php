@@ -19,7 +19,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <p><span>Nom</span> : <?= htmlspecialchars($user['nom'])  ?></p><br>
             <p><span>Prenom</span> : <?= htmlspecialchars($user['prenom'])  ?></p><br>
             <p><span>Téléphone</span> :  <?= htmlspecialchars($user['gsm']?? '' )  ?></p><br>
-            <p><span>Adresse</span> :  <?= htmlspecialchars($user['adresse'] ?? '' )  ?><br><?= htmlspecialchars($user['code_postal'] ?? '' )  ?>  , <?= htmlspecialchars($user['ville'] ?? '' )  ?></p>
+            <p><span>Adresse</span> : <br> <?= htmlspecialchars($user['adresse'] ?? '' )  ?><br><?= htmlspecialchars($user['code_postal'] ?? '' )  ?>  , <?= htmlspecialchars($user['ville'] ?? '' )  ?></p>
             <hr>
             <div class="modif-profil">
                 <a href="/profile/edit">Modifier profil</a>
@@ -32,8 +32,8 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <table class="tableau-commande">
             <thead>
                 <tr>
-                    <th>Menu</th>
-                    <th>No commande</th>
+                    <th class=" d-none d-md-table-cell">Menu</th>
+                    <th class=" d-none d-md-table-cell">No commande</th>
                     <th>Date commande</th>
                     <th>Statut</th>
                     <th>Voir</th>
@@ -42,8 +42,8 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <tbody>
                 <?php foreach($commandes as $commande) : ?>
                     <tr>
-                        <td><?= htmlspecialchars($commande['titre'])  ?></p></td>
-                        <td><?= htmlspecialchars($commande['numero_commande'])  ?></td>
+                        <td class=" d-none d-md-table-cell"><?= htmlspecialchars($commande['titre'])  ?></p></td>
+                        <td class=" d-none d-md-table-cell"><?= htmlspecialchars($commande['numero_commande'])  ?></td>
                         <td><?= date('d/m/Y', strtotime($commande['date_commande']))  ?></td>
                         <td><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],
                                                             ['En attente', 'En préparation', 'En livraison', 'Attente retour matériel', 'Terminée', 'Acceptée', 'Annulée', 'Livrée'],

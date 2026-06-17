@@ -252,7 +252,6 @@ a{text-decoration: none;}
 }
 
 .lien-intro, .avis ,.commander a , .modif-profil a{
-    width: 15rem;
     border-radius: 8px;
     font-size: 1.5rem;
     display: block;
@@ -724,6 +723,7 @@ a{text-decoration: none;}
 .modif-profil a {
     background-color: var(--dore);
     color: var(--bleu-tres-fonce);
+    margin: auto !important;
 }
 
 .tableau-commande {
@@ -931,10 +931,6 @@ Mobiles
         font-size: 1.4rem;
     }
 
-    .ancre-auth{
-        padding: 0.4rem !important;
-        width: 10rem !important;
-    }
     .texte{
         padding: 0.8rem;
         width: 45%;
@@ -944,13 +940,9 @@ Mobiles
         font-size: 1rem;
         margin-bottom: 1rem !important;
     }
-}
 
-@media (max-width: 1199.9px){
-    .ancre-auth{
-        padding: 0.2rem !important;
-        width: 8rem !important;
-        font-size: 0.9rem !important;
+    .section-commandes{
+        width: 80%;
     }
 
 }
@@ -968,11 +960,7 @@ Mobiles
         margin-top: 3rem;
     }
 
-    .lien-header , .auth{
-        width: 0rem !important;
-    }
-
-
+    
 
     .intro,.carte-savoir-faire{flex-direction: column;}
     .intro p{
@@ -1011,5 +999,18 @@ Mobiles
 
     .section-avis a{
         font-size: 1rem;
+    }
+
+    /* Profil user */
+    .section-profile-user,.donnees-user{
+        width: 90%;
+    }
+
+    .section-commandes{
+        width: 90%;
+    }
+
+    .tableau-commande i {
+        font-size: 1.5rem ;
     }
 }

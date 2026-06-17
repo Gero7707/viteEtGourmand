@@ -161,6 +161,9 @@ footer i:hover , .mentions a:hover{
         margin-right: 1rem !important;
     }
 
+    .lien-header , .auth{
+        width: 0rem ;
+    }
 }
 
 @media(max-width: 1199.9px){
@@ -207,5 +210,21 @@ footer i:hover , .mentions a:hover{
 
     .img-carte1, .img-carte2{
         height: 75%;
+    }
+}
+
+@media (max-width: 1199.9px){
+    .ancre-auth{
+        padding: 0.2rem !important;
+        width: 8rem !important;
+        font-size: 0.9rem !important;
+    }
+
+}
+
+@media  (max-width: 1400px) {
+.ancre-auth{
+        padding: 0.4rem;
+        width: 10rem ;
     }
 }

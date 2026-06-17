@@ -70,20 +70,13 @@ require_once __DIR__ . '/../../views/layout/header.php';
                             <div class="texte-img d-flex">
                                 <div class="theme-description d-flex flex-column">
                                     
-                                    <div>
-                                        <p class="theme-carte" ><?php if($menu['regime'] === 'Classique') : ?>
-                                                                    <i class="fa-solid fa-square"></i>   
-                                                                <?php elseif($menu['regime'] === 'Vegan') : ?>
-                                                                    <i class="fa-solid fa-circle"></i>
-                                                                <?php elseif($menu['regime'] === 'Végétarien') : ?>
-                                                                    <i class="fa-solid fa-diamond"></i>
-                                                                <?php endif ?>     &nbsp;<?= htmlspecialchars($menu['theme']) ?></p>
+                                    <div class="theme-regime">
+                                        <p>Thème :</p>
+                                        <p class="theme-carte mb-5" ><?= htmlspecialchars($menu['theme']) ?></p>
+                                        <p>Régime :</p>
+                                        <p class="regime-carte "><?= htmlspecialchars($menu['regime']) ?></p>
                                     </div>
-                                    <div class="nomenclature">
-                                        <p><i class="fa-solid fa-square"></i> <small>: régime Classique</small></p>
-                                        <p><i class="fa-solid fa-circle"></i> <small>: régime Vegan</small></p>
-                                        <p><i class="fa-solid fa-diamond"></i> <small>: régime Végétarien</small></p>
-                                    </div>
+                                    
                                     <div>
                                         <p class="menu-description"><?= htmlspecialchars($menu['description']) ?></p>
                                     </div>
@@ -121,4 +114,5 @@ require_once __DIR__ . '/../../views/layout/header.php';
 <?php
 $loadScriptJs = 'filtres.js';
 require_once __DIR__ . '/../../views/layout/importJs.php';
+require_once __DIR__ . '/../../views/layout/footer.php';
 ?>

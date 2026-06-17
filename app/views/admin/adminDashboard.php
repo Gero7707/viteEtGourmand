@@ -171,4 +171,5 @@ require_once __DIR__ . '/../../views/layout/header.php';
 <?php
 $loadScriptJs = ['filtreAdminEmploye.js' , 'graphiques.js'];
 require_once __DIR__ . '/../../views/layout/importJs.php';
+require_once __DIR__ . '/../../views/layout/footer.php';
 ?>

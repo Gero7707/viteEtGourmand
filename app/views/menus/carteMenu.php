@@ -1,5 +1,5 @@
 <?php
-$pageSpecificCss = ['style.css' , 'formulaire.css'];
+$pageSpecificCss = ['style.css' , 'formulaire.css' , 'carousel.css' , 'layout.css'];
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 <main>
@@ -48,18 +48,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <div class="d-flex justify-content-around entete-menu-detail">
                 <div class="titre-menu d-flex flex-column">
                     <h3><?= htmlspecialchars($menus['titre']) ?></h3><br>
-                    <p class="theme-carte" ><?php if($menus['regime'] === 'Classique') : ?>
-                                                                    <i class="fa-solid fa-square"></i>   
-                                                                <?php elseif($menus['regime'] === 'Vegan') : ?>
-                                                                    <i class="fa-solid fa-circle"></i>
-                                                                <?php elseif($menus['regime'] === 'Végétarien') : ?>
-                                                                    <i class="fa-solid fa-diamond"></i>
-                                                                <?php endif ?>     &nbsp;<?= htmlspecialchars($menus['theme']) ?></p>
-                    <div class="nomenclature mt-1">
-                        <p><i class="fa-solid fa-square"></i> <small>: régime Classique</small></p>
-                        <p><i class="fa-solid fa-circle"></i> <small>: régime Vegan</small></p>
-                        <p><i class="fa-solid fa-diamond"></i> <small>: régime Végétarien</small></p>
-                    </div>
+                    <p>Thème :</p>
+                    <p class="theme-carte" ><?= htmlspecialchars($menus['theme']) ?></p>
+                    <p>Régime :</p>
+                    <p class="regime-carte mt-2"><?= htmlspecialchars($menus['regime']) ?></p>
                 </div>
                 
                 

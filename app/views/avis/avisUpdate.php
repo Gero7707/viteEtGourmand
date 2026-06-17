@@ -1,5 +1,5 @@
 <?php
-$pageSpecificCss = ['style.css' , 'formulaire.css'];
+$pageSpecificCss = ['style.css' , 'formulaire.css' , 'layout.css'];
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 
@@ -39,5 +39,6 @@ require_once __DIR__ . '/../../views/layout/header.php';
 <script src="/assets/js/form.js"></script>
 <?php
 $loadScriptJs = ['form.js' , 'etoiles.js' ];
+require_once __DIR__ . '/../../views/layout/importJs.php';
 require_once __DIR__ . '/../../views/layout/footer.php';
 ?>

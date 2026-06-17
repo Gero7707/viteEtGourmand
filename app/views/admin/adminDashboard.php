@@ -1,5 +1,5 @@
 <?php
-$pageSpecificCss = 'style.css';
+$pageSpecificCss = ['style.css' , 'layout.css'];
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 <main>
@@ -15,16 +15,14 @@ require_once __DIR__ . '/../../views/layout/header.php';
         </div>
         <?php unset($_SESSION['flash_bienvenue']); ?>
     <?php endif ?>
-
-    <div class="d-flex justify-content-around">
+    
+    <div class="d-flex justify-content-around ">
         <a href="/admin/dashboard" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Dashoard</a><br>
-        <a href="/commandes-client" class="text-centerfw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Commandes</a><br>
-        <a href="/avis-valider" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Avis</a><br>
-        <a href="/menus" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Menus</a><br>
-        <a href="/create-menu" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Créer un menu</a><br>
-        <a href="/plats" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Plats</a><br>
-        <a href="/plats/create" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Créer un plat</a><br>
-        <a href="/changer-horaire" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Changer horaire</a><br>
+                <a href="/commandes-client" class="text-centerfw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Commandes</a><br>
+                <a href="/avis-valider" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Avis</a><br>
+                <a href="/menus" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Menus</a><br>
+                <a href="/plats" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Plats</a><br>
+                <a href="/changer-horaire" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Horaires</a><br>
     </div>
     <hr>
 
@@ -171,4 +169,5 @@ require_once __DIR__ . '/../../views/layout/header.php';
 <?php
 $loadScriptJs = ['filtreAdminEmploye.js' , 'graphiques.js'];
 require_once __DIR__ . '/../../views/layout/importJs.php';
+require_once __DIR__ . '/../../views/layout/footer.php';
 ?>

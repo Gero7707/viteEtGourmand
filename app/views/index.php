@@ -1,5 +1,5 @@
 <?php
-$pageSpecificCss = 'style.css';
+$pageSpecificCss = ['style.css' , 'carousel.css' , 'layout.css'];
 require_once __DIR__ . '/../views/layout/header.php';
 
 ?>
@@ -32,68 +32,65 @@ require_once __DIR__ . '/../views/layout/header.php';
                     <a href="/menus" class="fw-mediumbold bg-secondary text-primary lien-intro  ">Découvrir nos menus</a>
                 </div>
             </div>
+        
         <?php elseif ($_SESSION['role_id'] === 2) :  ?>
-            <div class="d-flex justify-content-around">
+            <div class="d-none d-md-flex justify-content-around">
                 <a href="/employe/dashboard" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Dashoard</a><br>
                 <a href="/commandes-client" class="text-centerfw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Commandes</a><br>
                 <a href="/avis-valider" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Avis</a><br>
                 <a href="/menus" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Menus</a><br>
-                <a href="/create-menu" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Créer un menu</a><br>
                 <a href="/plats" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Plats</a><br>
-                <a href="/plats/create" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Créer un plat</a><br>
-                <a href="/changer-horaire" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Changer horaire</a><br>
+                <a href="/changer-horaire" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Horaires</a><br>
             </div>
         <?php elseif ($_SESSION['role_id'] === 3) :  ?>
-            <div class="d-flex justify-content-around">
+            <div class="d-none d-md-flex justify-content-around">
                 <a href="/admin/dashboard" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Dashoard</a><br>
                 <a href="/commandes-client" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Commandes</a><br>
                 <a href="/avis-valider" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Avis</a><br>
                 <a href="/menus" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Menus</a><br>
-                <a href="/create-menu" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Créer un menu</a><br>
                 <a href="/plats" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Plats</a><br>
-                <a href="/plats/create" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Créer un plat</a><br>
-                <a href="/changer-horaire" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Changer horaire</a><br>
+                <a href="/changer-horaire" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Horaires</a><br>
             </div>
         <?php endif ?>
 
     <?php endif ?>
 
-        <section class="section-carousel">
-            <!-- Slider main container -->
-            <div class="swiper">
-                <div class="swiper-button-prev"></div>
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide"> 
-                        <div class="img-wrapper">
-                            <img src="/assets/img/accueil/banquet.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="swiper-slide"> 
-                        <div class="img-wrapper">
-                            <img src="/assets/img/accueil/table.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="swiper-slide"> 
-                        <div class="img-wrapper">
-                            <img src="/assets/img/accueil/banquet-3.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="swiper-slide"> 
-                        <div class="img-wrapper">
-                            <img src="/assets/img/accueil/banquet-2.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="swiper-slide"> 
-                        <div class="img-wrapper">
-                            <img src="/assets/img/accueil/fete.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
-                        </div>
+    <section class="section-carousel">
+        <!-- Slider main container -->
+        <div class="swiper">
+            <div class="swiper-button-prev"></div>
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"> 
+                    <div class="img-wrapper">
+                        <img src="/assets/img/accueil/banquet.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
                     </div>
                 </div>
-                <div class="swiper-button-next"></div>
+                <div class="swiper-slide"> 
+                    <div class="img-wrapper">
+                        <img src="/assets/img/accueil/table.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
+                    </div>
+                </div>
+                <div class="swiper-slide"> 
+                    <div class="img-wrapper">
+                        <img src="/assets/img/accueil/banquet-3.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
+                    </div>
+                </div>
+                <div class="swiper-slide"> 
+                    <div class="img-wrapper">
+                        <img src="/assets/img/accueil/banquet-2.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
+                    </div>
+                </div>
+                <div class="swiper-slide"> 
+                    <div class="img-wrapper">
+                        <img src="/assets/img/accueil/fete.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
+                    </div>
+                </div>
             </div>
-        </section>
+            <div class="swiper-button-next"></div>
+        </div>
+    </section>
     
     <section class="section-savoir-faire">
         <h3 class="text-center mb-5 mt-5">Notre savoir faire</h3>
@@ -108,7 +105,7 @@ require_once __DIR__ . '/../views/layout/header.php';
 
         <div class="d-flex carte-savoir-faire mb-4 mt-5">
             <div class="d-flex flex-column texte text-center texte-carte2 observer ">
-                <p class="mb-5 mt-5">Notre équipe accompagne vos événements de A à Z :conception de menus personnalisés, préparation dans nos cuisines, livraison et mise en place chez vous.</p>
+                <p class="mb-5 mt-5">Notre équipe accompagne vos événements de A à Z . Conception de menus personnalisés, préparation dans nos cuisines, livraison et mise en place chez vous.</p>
                 <p class="mb-5">Mariages, repas d'entreprise, fêtes de famille ou galas, nous nous adaptons à chaque occasion avec le même souci du détail et de l'excellence. </p>
                 <p >Plus de 2 000 événements réussis à Bordeaux et dans toute la Gironde.</p>
             </div>

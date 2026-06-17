@@ -125,12 +125,17 @@ thead,tbody,td, th{
     color: var(--dore);
 }
 
-.theme-carte{
-    background-color: var(--bleu-nuit);
+.theme-carte, .regime-carte{
+    background-color: var(--bleu-moyen);
     padding: 0.3rem;
     color: var(--fond-carte);
     width: 8rem;
     border-radius: 8px;
+    text-align:center ;
+}
+
+.theme-regime p{
+    margin-bottom: 0.5rem !important;
 }
 
 .fa-square , .fa-circle , .fa-diamond{

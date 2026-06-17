@@ -1,5 +1,5 @@
 <?php
-$pageSpecificCss = ['style.css' , 'formulaire.css'];
+$pageSpecificCss = ['style.css' , 'formulaire.css' , 'layout.css'];
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 <main>
@@ -58,4 +58,5 @@ require_once __DIR__ . '/../../views/layout/header.php';
 <?php
 $loadScriptJs = ['form.js' , 'cta.js'];
 require_once __DIR__ . '/../../views/layout/importJs.php';
+require_once __DIR__ . '/../../views/layout/footer.php';
 ?>

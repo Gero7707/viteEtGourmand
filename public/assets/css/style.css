@@ -258,6 +258,10 @@ a{text-decoration: none;}
     text-align: center;
 }
 
+.lien-intro, .avis{
+    width: 15rem;
+}
+
 .lien-intro{
     margin: auto;
 }

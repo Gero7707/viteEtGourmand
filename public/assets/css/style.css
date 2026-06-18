@@ -125,6 +125,10 @@ main{
 main{
     view-transition-name: main-content;
 }
+
+.liens-retour{
+    margin-left: 2rem;
+}
 /* ============================================================================================================================================================================ */
 /* ============================================================================================================================================================================ */
 
@@ -1115,6 +1119,24 @@ Mobiles
     .message-plat p{
         margin-top: 0 !important;
     }
+
+    .section-commandes-entreprise{
+        width: 99%;
+    }
+
+    .tableau-commande-entreprise, .tableau-dashboard-admin{
+        width: 100%;
+    }
+
+    .tableau-commande-entreprise td, .tableau-dashboard-admin td{
+        font-size: 0.8rem;
+    }
+
+    .tableau-commande-entreprise th, .tableau-dashboard-admin th{
+        font-size: 1rem;
+    }
+
+
 }
 
 @media (max-width: 1199.99px){
@@ -1481,5 +1503,12 @@ Mobiles
 
     .carte-plat{
         width: 87%;
+    }
+    .fa-eye{
+        font-size: 1.5rem;
+    }
+
+    .voir-commande-client{
+        margin: 0;
     }
 }

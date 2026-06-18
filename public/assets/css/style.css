@@ -67,11 +67,11 @@
 
 body{
     background-color:var(--fond-plus-clair) ;
-    overflow-x: hidden;
 }
 
 main{
     margin-top: 5rem;
+    overflow: hidden;
 }
 
 .arborescence , .arborescence a{
@@ -453,6 +453,15 @@ a{text-decoration: none;}
     margin-bottom: 0 !important;
 }
 
+.theme-carte , .regime-carte {
+    background-color: var(--bleu-moyen);
+    padding: 0.5rem;
+    color: var(--fond-carte);
+    width: 8rem;
+    border-radius: 8px;
+    text-align:center ;
+}
+
 .nomenclature{
     margin-left: 2rem;
 }
@@ -576,6 +585,26 @@ a{text-decoration: none;}
     margin-left: 2rem;
 }
 
+.init-close button{
+    background-color: var(--bleu-moyen);
+    border: 1px solid var(--dore);
+    color: var(--dore);
+    padding: 0.3rem;
+}
+
+.init-close button:hover{
+    background-color: var(--dore);
+    color: var(--bleu-tres-fonce);
+}
+
+.section-filtres li button{
+    background-color: var(--bleu-moyen);
+}
+
+.filtre-theme select , .filtre-regime select{
+    border-radius: 8px;
+}
+
 #messageInput , #messageBouton{
     border-radius: 8px;
     padding: 0.3rem;
@@ -606,7 +635,13 @@ a{text-decoration: none;}
 
 /* =================================================================================================================================================================================== */
 /* Menu détaillé */
+.commander{
+    display: block;
+}
 
+.commander-small{
+    display: none;
+}
 .section-detail{
     width: 94%;
     background-color: var(--bleu-nuit);
@@ -694,6 +729,7 @@ a{text-decoration: none;}
 .commander a{
     margin: auto;
 }
+
 .commander p{
     color: var(--fond-plus-clair);
     text-align: center;
@@ -958,10 +994,6 @@ Mobiles
 
 @media  (max-width: 1400px) {
 
-    main{
-        overflow: hidden;
-    }
-
     .lien-intro-entreprise{
         width: 8rem;
         font-size: 1.4rem;
@@ -998,17 +1030,7 @@ Mobiles
         color: var(--bleu-tres-fonce) !important;
     }
 
-    .init-close button{
-        background-color: var(--bleu-moyen);
-        border: 1px solid var(--dore);
-        color: var(--dore);
-        padding: 0.3rem;
-    }
-
-    .init-close button:hover{
-        background-color: var(--dore);
-        color: var(--bleu-tres-fonce);
-    }
+    
 
     .section-filtres{
     transform: translateX(-100%);
@@ -1018,9 +1040,7 @@ Mobiles
         transform: translateX(0);
     }
 
-    .section-filtres li button{
-        background-color: var(--bleu-moyen);
-    }
+    
 
     .filtres h4{
     margin-top: 0 !important;
@@ -1051,15 +1071,56 @@ Mobiles
         margin-bottom: 0.5rem !important;
     }
 
+    .titre-menu h3{
+        font-size: 1.4rem;
+    }
+
+    .prix-nb-quantite p{
+        font-size: 1.1rem;
+        font-weight: 400;
+    }
+
+    .titre-menu p{
+        margin-bottom: 0;
+    }
+
+    .theme-carte, .regime-carte{
+        padding: 0.3rem !important;
+    }
+
+    .description, .composition-menu p{
+        font-size: 1rem;
+    }
+
+    .composition-menu h5{
+        font-size: 1.2rem;
+    }
+
+    .composition-menu{
+        width: 91%;
+    }
+
+    .conditions-menus p{
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 1199.99px){
+
     .tableau-historique{
         width: 65%;
     }
 
     .carte-menu{
         padding: 0.5rem;
+    }
+
+    .theme-carte, .regime-carte{
+        padding: 0.1rem !important;
+    }
+
+    .prix-nb-quantite{
+        margin-left: 1rem;
     }
 
     .menu-description{
@@ -1070,9 +1131,35 @@ Mobiles
     .section-filtres{
         width: 32%;
     }
+
+    .composition-menu{
+        padding:  1.5rem 1.5rem 1.5rem 2rem ;
+    }
+
+    .citation {
+        width: 80%;
+    }
+
+    .composition-menu h5{
+        font-size: 1rem;
+    }
+
+    .composition-menu p{
+        font-size: 0.9rem;
+    }
+
+    .conditions-menus h6{
+        font-size: 0.9rem;
+    }
+
+    .conditions-menus p{
+        font-size: 0.8rem;
+    }
 }
 
 @media (max-width: 991.9px){
+
+
     .lien-intro-entreprise{
         width: 6.5rem;
         font-size: 1.1rem;
@@ -1295,5 +1382,75 @@ Mobiles
 
     .filtre-large input , .filtre-large select {
         height: 1.2rem;
+    }
+
+    .citation{
+        display: none;
+    }
+
+    .section-detail{
+        flex-direction: column;
+        padding: 0.5rem;
+        width: 98%;
+    }
+
+    .img-estimateur ,.infos-completes, .composition-menu, .conditions-menus{
+        width: 100%;
+    }
+
+    .entete-menu-detail{
+        flex-direction: column;
+        margin-left: 0;
+        margin: auto;margin-bottom: 0.5rem;
+    }
+
+    .titre-menu{
+        margin-bottom: 0.5rem;
+    }
+
+    .theme-carte, .regime-carte{
+        width: 6rem !important;
+    }
+
+    .prix-nb-quantite{
+        margin-left: 0;
+    }
+
+    .prix-nb-quantite p{
+        font-size: 1rem;
+        margin-bottom: 0.2rem !important;
+    }
+
+    .description{
+        margin-top: 0.5rem !important;
+    }
+
+    .commander-small{
+        display: block;
+    }
+
+    .commander-small p{
+        color: var(--fond-plus-clair);
+        text-align: center;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .commander-small {
+        text-align: center;
+        margin-top: 1rem;
+        width: 95%;
+    }
+    .commander-small a{
+        padding: 0.5rem 3rem 0.5rem 3rem;
+        border-radius: 8px;
+    }
+
+    .commander{
+        display: none;
+    }
+
+    .img-menu-detail {
+        margin-bottom: 2rem;
     }
 }

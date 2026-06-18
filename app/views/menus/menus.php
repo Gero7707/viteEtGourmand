@@ -69,7 +69,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
             </div>
         </section>
 
-        <section class="section-menus mt-1 pt-1 pb-2 mb-5">
+        <section class="section-menus mt-1 pt-1 pb-2 mb-5 ">
                 
                 <div class="row justify-content-center  gx-5 " id="carteContainer">
                     <p id="messageFiltre"></p>

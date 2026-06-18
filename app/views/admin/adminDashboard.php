@@ -62,7 +62,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                     <form action="/admin/activer/<?= htmlspecialchars($employe['utilisateur_id']) ?>" method="POST">
                                         <?= Auth::csrfField() ?>
                                         <button class="d-none d-md-block" type="submit">Activer</button>
-                                        <button class="d-none d-md-block" type="submit"><i class="fa-solid fa-toggle-on"></i></button>
+                                        <button class="d-md-block" type="submit"><i class="fa-solid fa-toggle-on"></i></button>
                                     </form>
                                 <?php endif ?>
                             </td>

@@ -49,7 +49,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <div class="titre-menu d-flex flex-column">
                     <h3><?= htmlspecialchars($menus['titre']) ?></h3><br>
                     <p>Thème :</p>
-                    <p class="theme-carte" ><?= htmlspecialchars($menus['theme']) ?></p>
+                    <p class="theme-carte mt-2" ><?= htmlspecialchars($menus['theme']) ?></p>
                     <p>Régime :</p>
                     <p class="regime-carte mt-2"><?= htmlspecialchars($menus['regime']) ?></p>
                 </div>
@@ -69,7 +69,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                     <h5><?= htmlspecialchars(ucfirst($p['type_plat'])) ?> :</h5>
                     <p><?= htmlspecialchars($p['titre_plat']) ?></p>
                     <p><i class="fa-solid fa-arrow-turn-up"></i>Allergènes : <?php foreach($p['allergenes'] as $allergene) : ?>
-                                        <?= htmlspecialchars($allergene['libelle']) ?> , 
+                                        <?= implode(', ', array_column($p['allergenes'], 'libelle')) ?>
                                     <?php endforeach ?></p>
                     
 
@@ -84,7 +84,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
                 <?php endforeach ?>
             </div>
-            <div class="conditions-menus mt-4 mb-5">
+            <div class="conditions-menus mt-4 ">
                 <h6>Delai :</h6>
                 <p><?= htmlspecialchars($menus['conditions_delai']) ?></p>
                 <h6>Stockage :</h6>
@@ -94,7 +94,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
             </div>
 
         </article>
-        
+
+        <div class="commander-small">
+            <a class=" fw-mediumbold bg-secondary text-primary" href="/commandes/create/<?=  htmlspecialchars($menus['menu_id']); ?>">Commander</a>
+            <p>Vous pouvez faire une estimation du prix total à la page commander .</p>
+        </div>
+
     </section>
 
 </main>

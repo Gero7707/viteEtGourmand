@@ -85,6 +85,20 @@
     color: #D4A853;
 }
 
+@media (max-width: 1400px){
+    .swiper-slide p {
+        font-size: 1.2rem;
+    }
+}
+
+
+@media (max-width: 1199.99px){
+    .swiper-menu-detail{
+        height: 72vh !important;
+    }
+
+    
+}
 
 @media (max-width: 767.98px){
     .swiper{
@@ -93,5 +107,9 @@
 
     .section-carousel{
         height: 60vh;
+    }
+
+    .swiper-menu-detail{
+        width: 100%;
     }
 }

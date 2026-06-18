@@ -17,7 +17,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
 
-    <section class="section-commande-client">
+    <section class="section-commande-client mb-5">
         <h3 class="text-center">Commande no : <?=   htmlspecialchars($commandes['numero_commande']) ?></h3>
 
         <h4 class="text-center"><?= htmlspecialchars($commandes['titre']) ?></h4>

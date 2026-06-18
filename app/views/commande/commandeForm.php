@@ -3,18 +3,15 @@ $pageSpecificCss = ['style.css' , 'formulaire.css' , 'layout.css'];
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 
-<main class="d-flex justify-content-around">
+<main class="d-flex justify-content-around main-commande">
     <div class="carte-menu-commande">
         <div class="d-flex justify-content-around">
             <div class="d-flex flex-column mt-1">
                 <h5><?= htmlspecialchars($menu['titre']) ?></h5>
-                <p class="theme-carte"><?php if($menu['regime'] === 'Classique') : ?>
-                                            <i class="fa-solid fa-square"></i>   
-                                        <?php elseif($menu['regime'] === 'Vegan') : ?>
-                                            <i class="fa-solid fa-circle"></i>
-                                        <?php elseif($menu['regime'] === 'Végétarien') : ?>
-                                            <i class="fa-solid fa-diamond"></i>
-                                        <?php endif ?>     &nbsp;<?= htmlspecialchars($menu['regime']) ?></p>
+                <p>Theme :</p>
+                <p class="theme-carte"><?= htmlspecialchars($menu['theme']) ?></p>
+                <p>Régime :</p>
+                <p class="regime-carte"><?= htmlspecialchars($menu['regime']) ?></p>
             </div>
             <div class="d-flex flex-column prix-menu mt-1 mb-5">
                 <h6>Prix pour <?= htmlspecialchars($menu['nombre_personne_minimum']) ?> personnes :</h6>

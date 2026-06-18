@@ -55,20 +55,17 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                 <?php if($employe['actif'] === 1) : ?>
                                     <form action="/admin/desactiver/<?= htmlspecialchars($employe['utilisateur_id']) ?>" method="POST">
                                         <?= Auth::csrfField() ?>
-                                        <button class="d-none d-md-block" type="submit">Desactiver</button>
-                                        <button class=" d-md-block" type="submit"><i class="fa-solid fa-toggle-off"></i></button>
+                                        <button type="submit"><i class="fa-solid fa-toggle-off"></i></button>
                                     </form>
                                 <?php elseif($employe['actif'] === 0) : ?>
                                     <form action="/admin/activer/<?= htmlspecialchars($employe['utilisateur_id']) ?>" method="POST">
                                         <?= Auth::csrfField() ?>
-                                        <button class="d-none d-md-block" type="submit">Activer</button>
-                                        <button class="d-md-block" type="submit"><i class="fa-solid fa-toggle-on"></i></button>
+                                        <button type="submit"><i class="fa-solid fa-toggle-on"></i></button>
                                     </form>
                                 <?php endif ?>
                             </td>
                             <td>
-                                <a class="modif-profil-employe d-none d-md-block" href="/admin/update-employe/<?= htmlspecialchars($employe['utilisateur_id']) ?>">Modifier</a>
-                                <a class="modif-profil-employe  d-md-none" href="/admin/update-employe/<?= htmlspecialchars($employe['utilisateur_id']) ?>"><i class="fa-solid fa-pencil"></i></a>
+                                <a class="modif-profil-employe " href="/admin/update-employe/<?= htmlspecialchars($employe['utilisateur_id']) ?>"><i class="fa-solid fa-pencil"></i></a>
                             </td>
                         </tr>
                     <?php endforeach ?>

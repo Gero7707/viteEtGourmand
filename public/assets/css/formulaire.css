@@ -101,9 +101,9 @@ thead,tbody,td, th{
     color: var(--texte);
     border-radius: 8px;
     padding: 3rem;
-    border: 1px solid var(--texte);
     width: 40%;
     max-height: 43rem;
+    box-shadow: var(--shadow);
 }
 
 .texte-carte-commande{
@@ -192,6 +192,7 @@ form input{
     padding: 0.5rem;
 }
 
+
 /* annulerCommandeEmploye.php */
 .texte-annule{
     height: 40%;
@@ -226,6 +227,14 @@ button:hover , .btn-annuler:hover{
 /* Général */
 form input[type="text"] , form input[type="password"] , form input[type="email"] , form textarea ,form input[type='number'], form input[type='date'] , form input[type='time']{
     width: 55%;
+}
+
+form input[type="checkbox"]{
+    margin: 0;
+}
+
+.check-allergene label{
+    margin-left: 2rem;
 }
 
 form textarea{
@@ -296,9 +305,41 @@ textarea{
     }
 }
 
+@media (max-width: 1200px){
+    .input-img{
+        width: 17rem;
+    }
+
+    .carte-menu-commande{
+        padding: 1.5rem;
+    }
+
+    .plats{
+        padding: 0.5rem;
+        width: 90%;
+    }
+
+    .prix-menu{
+        margin-left: 2rem;
+    }
+}
+
+@media (max-width: 991.9px){
+    .carte-menu-commande{
+        max-height: 49rem;
+    }
+
+    .theme-carte, .regime-carte{
+        width: 6rem;
+    }
+
+}
+
 @media (max-width: 767.98px){
     .form-contact{
         width: 90%;
+        margin: auto;
+        margin-bottom: 3rem;
     }
 
     form input[type="text"] , form input[type="password"] , form input[type="email"] , form textarea{
@@ -307,5 +348,15 @@ textarea{
 
     button, .btn-annuler{
         width : 8rem;
+    }
+
+    .main-commande{
+        flex-direction: column;
+    }
+
+    .carte-menu-commande{
+        width: 96%;
+        margin: auto;
+        margin-bottom: 5rem;
     }
 }

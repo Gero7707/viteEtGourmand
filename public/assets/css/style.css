@@ -885,7 +885,7 @@ tr {
 }
 
 .tableau-dashboard-admin button{
-    width: 6rem;
+    width: 2rem;
 }
 .voir-commande-client{
     margin: 0 1.5rem 0 1.5rem;
@@ -1481,6 +1481,10 @@ Mobiles
         margin-top: 0.5rem !important;
     }
 
+    .composition-menu , .infos-completes{
+        padding: 0.5rem ;
+    }
+
     .commander-small{
         display: block;
     }
@@ -1528,10 +1532,6 @@ Mobiles
 
     .tableau-dashboard-admin button, .modif-profil-employe{
         padding: 0.3rem;
-    }
-
-    .tableau-dashboard-admin button{
-        width: 2rem;
     }
 
     .section-chiffre-affaire{

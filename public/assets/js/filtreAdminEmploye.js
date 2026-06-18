@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () =>{
     //Filtres sur le staut des commandes
     const statut = document.getElementById('statut');
     const commandes = document.querySelectorAll('.ligne-commande');
-
+    if(!statut  || !commandes)return;
+    
     function filtrerStatutCommande(){
         let inputStatut = statut.value;
         commandes.forEach(commande =>{

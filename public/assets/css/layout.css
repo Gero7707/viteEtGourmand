@@ -35,6 +35,7 @@ header{
 .lien-header a{
     text-decoration: none;
     color:var(--fond-plus-clair) ;
+    font-size: 1.2rem;
 }
 
 .lien-header a:hover{

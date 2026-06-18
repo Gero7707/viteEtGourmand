@@ -26,7 +26,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
             </div>
         </div>
     </section>
-    <section class="section-commandes">
+    <section class="section-commandes mb-5">
         <h5 class="text-center">Vos commandes</h5>
 
         <table class="tableau-commande">

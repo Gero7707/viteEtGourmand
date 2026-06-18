@@ -486,8 +486,8 @@ a{text-decoration: none;}
     margin-top: auto;
 }
 
-.action-entreprise a{
-    width: 11rem;
+.action-entreprise a, .action-entreprise button{
+    width: 8rem;
     height: 2.75rem;
     background-color: var(--bleu-moyen);
     color: var(--bs-secondary) !important;
@@ -498,7 +498,11 @@ a{text-decoration: none;}
     padding-top: 0.6rem;
 }
 
-.action-entreprise a:hover{
+.action-entreprise button{
+    padding-bottom: 0.6rem;
+}
+
+.action-entreprise a:hover , .action-entreprise button:hover{
     color: var(--bleu-nuit) !important;
     background-color: var(--bs-secondary);
 }
@@ -953,6 +957,11 @@ Mobiles
 
 
 @media  (max-width: 1400px) {
+
+    main{
+        overflow: hidden;
+    }
+
     .lien-intro-entreprise{
         width: 8rem;
         font-size: 1.4rem;
@@ -976,6 +985,17 @@ Mobiles
         width: auto;
         padding: 0.5rem;
         margin-left: 1rem;
+        width: 8rem;
+        height: 2.75rem;
+        background-color: var(--bleu-moyen);
+        color: var(--bs-secondary) !important;
+        border: 1px solid var(--bs-secondary);
+        border-radius: 5px;
+    }
+
+    .open-filtres:hover{
+        background-color: var(--dore);
+        color: var(--bleu-tres-fonce) !important;
     }
 
     .section-filtres{
@@ -1091,8 +1111,6 @@ Mobiles
     main{
         margin-top: 3rem;
     }
-
-    
 
     .intro,.carte-savoir-faire{
         flex-direction: column;

@@ -11,7 +11,7 @@ header{
     position: fixed;
     width: 100vw;
     top: 0;
-    z-index: 3;
+    z-index: 10;
 }
 
 .dropdown{
@@ -161,8 +161,13 @@ footer i:hover , .mentions a:hover{
         margin-right: 1rem !important;
     }
 
+    .menu-restau button{
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+    }
+
     .lien-header , .auth{
-        width: 0rem ;
+        width: 0rem !important;
     }
 }
 

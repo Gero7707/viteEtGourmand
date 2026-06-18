@@ -1,5 +1,5 @@
 <?php
-$pageSpecificCss = ['style.css' , 'formulaire.css' , 'layout.css'];
+$pageSpecificCss = ['layout.css' ,'style.css' ];
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 <?php if ($_GET['error'] ?? null): ?>
@@ -12,6 +12,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <div class="d-flex justify-content-between div-arbo">
         <button type="button" class="open-filtres">Filtrer</button>
         <p class=" arborescence text-center "><a href="/">Accueil<</a>Menus</p>
+        
     </div>
     <div class="d-flex container-filtre-menus">
         <section class="section-filtres">

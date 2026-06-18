@@ -59,7 +59,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         <?= implode(' - ', array_map('htmlspecialchars', array_column($cartePlat['allergenes'], 'libelle'))) ?>
                     </p>
                 </div>
-                <div class="d-flex justify-content-around">
+                <div class="d-flex justify-content-around modif-assoc">
                     <div class="text-center modifier">
                         <a class="mb-2" href="/plats/edit/<?= htmlspecialchars($cartePlat['plat_id']) ?>">Modifier</a>
                         <form action="/plats/delete/<?= htmlspecialchars($cartePlat['plat_id']) ?>" method="POST">

@@ -50,7 +50,7 @@
         </div>
         <?php if(isset($_SESSION['utilisateur_id'])  && ($_SESSION['role_id'] === 2  || $_SESSION['role_id'] === 3)) : ?>
             <div class="dropdown menu-restau d-md-none">
-                <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa-solid fa-utensils"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

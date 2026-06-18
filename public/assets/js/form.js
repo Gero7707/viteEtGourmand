@@ -23,8 +23,8 @@ btnSubmitForm.addEventListener('click' , (e) =>{
         if(input.type === 'file') return;
         if(!input.value.trim()){
         isValid = false ;
-        input.style.border = '1px solid var(--bs-danger)';
-        input.style.background = 'var(--input-form)';
+        input.style.border = '1px solid #C62828';
+        input.style.background = '#eeb7b7';
     }
     })
     if(!isValid){

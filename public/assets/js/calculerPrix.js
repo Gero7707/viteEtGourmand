@@ -17,14 +17,14 @@ document.addEventListener('DOMContentLoaded', () =>{
         errorMessage.textContent = '';
         if(!adresse.value || !codePostal.value || !ville.value || !gsm.value || !nbPersonne.value || !datePrestation.value || !heureLivraison.value){
             errorMessage.textContent = "Veuillez remplir tous les champs ! ";
-            errorMessage.style.color = "var(--bs-danger)";
-            errorMessage.style.backgroundColor = 'var(--bs-body-bg)';
+            errorMessage.style.color = "#C62828";
+            errorMessage.style.backgroundColor = '#eeb7b7';
             return;
         }
         if(parseInt(nbPersonne.value) < 0){
             errorMessage.textContent = "Vous ne pouvez pas entrer un nombre négatif";
-            errorMessage.style.color = 'var(--bs-danger)';
-            errorMessage.style.backgroundColor = 'var(--bs-body-bg)';
+            errorMessage.style.color = '#C62828';
+            errorMessage.style.backgroundColor = '#eeb7b7';
             return;
         }
 
@@ -60,8 +60,8 @@ document.addEventListener('DOMContentLoaded', () =>{
             }
         } catch(error) {
             errorMessage.textContent = "Une erreur est survenue, veuillez réessayer.";
-            errorMessage.style.color = 'var(--bs-danger)';
-            errorMessage.style.backgroundColor = 'var(--bs-body-bg)';
+            errorMessage.style.color = '#C62828';
+            errorMessage.style.backgroundColor = '#eeb7b7';
         }
         finally{
             btnCalculerPrix.disabled = false;

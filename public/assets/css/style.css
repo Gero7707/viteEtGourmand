@@ -998,12 +998,28 @@ Mobiles
         color: var(--bleu-tres-fonce) !important;
     }
 
+    .init-close button{
+        background-color: var(--bleu-moyen);
+        border: 1px solid var(--dore);
+        color: var(--dore);
+        padding: 0.3rem;
+    }
+
+    .init-close button:hover{
+        background-color: var(--dore);
+        color: var(--bleu-tres-fonce);
+    }
+
     .section-filtres{
     transform: translateX(-100%);
     transition: transform 0.9s ease;
     }
     .section-filtres.open {
         transform: translateX(0);
+    }
+
+    .section-filtres li button{
+        background-color: var(--bleu-moyen);
     }
 
     .filtres h4{
@@ -1106,7 +1122,7 @@ Mobiles
     }
 }
 
-@media (max-width: 767.9px){
+@media (max-width: 768px){
      /* Section intro */
     main{
         margin-top: 3rem;

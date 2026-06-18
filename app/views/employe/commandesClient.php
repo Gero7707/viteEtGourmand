@@ -53,42 +53,42 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <thead>
                 <tr>
                     <th>Menu</th>
-                    <th>Nom Client</th>
-                    <th>No Commande</th>
-                    <th>Date prestation</th>
-                    <th>Nombre</th>
-                    <th>Statut</th>
+                    <th class=" d-none d-xxl-table-cell">Nom Client</th>
+                    <th class=" d-none d-xxl-table-cell">No Commande</th>
+                    <th class=" d-none d-md-table-cell">Date prestation</th>
+                    <th class=" d-none d-md-table-cell">Nombre</th>
+                    <th class=" d-none d-md-table-cell">Statut</th>
                     <th>Voir</th>
-                    <th>Statut</th>
-                    <th>Annuler</th>
+                    <th class=" d-none d-md-table-cell">Modifier</th>
+                    <th class=" d-none d-md-table-cell">Annuler</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($commandes as $commande) : ?>
                     <tr class="ligne-commande" data-statut="<?= $commande['statut'] ?>">
                         <td><?= htmlspecialchars($commande['titre']) ?></td>
-                        <td><?= htmlspecialchars($commande['nom_complet']) ?></td>
-                        <td><?= htmlspecialchars($commande['numero_commande']) ?></td>
-                        <td><?= date('d/m/Y', strtotime($commande['date_prestation']) )?></td>
-                        <td><?= htmlspecialchars($commande['nombre_personne']) ?></td>
-                        <td><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],
+                        <td class=" d-none d-xxl-table-cell"><?= htmlspecialchars($commande['nom_complet']) ?></td>
+                        <td class=" d-none d-xxl-table-cell"><?= htmlspecialchars($commande['numero_commande']) ?></td>
+                        <td class=" d-none d-md-table-cell"><?= date('d/m/Y', strtotime($commande['date_prestation']) )?></td>
+                        <td class=" d-none d-md-table-cell"><?= htmlspecialchars($commande['nombre_personne']) ?></td>
+                        <td class=" d-none d-md-table-cell"><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],
                                                             ['En attente', 'En préparation', 'En livraison', 'Attente retour matériel', 'Terminée', 'Acceptée', 'Annulée', 'Livrée'],
                                                             $commande['statut'])) ?>
                         </td>
                         <td>
                             <a class="voir-commande-client" href="/commandes/<?= $commande['commande_id'] ?>"><i class="fa-solid fa-eye"></i></a>
                         </td>
-                        <td>
+                        <td class=" d-none d-md-table-cell">
                             <?php if($commande['statut'] !== 'terminee' && $commande['statut'] !== 'annulee') : ?>
                                 <form action="/commandes/update/<?= $commande['commande_id'] ?>" method="POST">
                                     <?= Auth::csrfField() ?>
-                                    <button type="submit">Modifier statut</button>
+                                    <button type="submit">Statut</button>
                                 </form>
                             <?php endif ?>
                         </td>
-                        <td>
+                        <td class=" d-none d-md-table-cell">
                             <?php if($commande['statut'] !== 'terminee' && $commande['statut'] !== 'annulee') : ?>
-                                <a class="annuler-commande" href="/commandes/annuler-commande/<?= $commande['commande_id'] ?>">Annuler Commande</a>
+                                <a class="annuler-commande" href="/commandes/annuler-commande/<?= $commande['commande_id'] ?>">Annuler</a>
                             <?php endif ?>
                         </td>
                     </tr>

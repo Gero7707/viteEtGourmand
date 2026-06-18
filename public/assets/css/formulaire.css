@@ -358,5 +358,14 @@ textarea{
         width: 96%;
         margin: auto;
         margin-bottom: 5rem;
+        max-height: 55rem;
+    }
+
+    .texte-carte-commande{
+        width: 93%;
+    }
+
+    .plats{
+        width: 100%;
     }
 }

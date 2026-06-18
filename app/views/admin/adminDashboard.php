@@ -16,7 +16,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <?php unset($_SESSION['flash_bienvenue']); ?>
     <?php endif ?>
     
-    <div class="d-flex justify-content-around ">
+    <div class="d-flex justify-content-around d-none d-md-flex">
         <a href="/admin/dashboard" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Dashoard</a><br>
                 <a href="/commandes-client" class="text-centerfw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Commandes</a><br>
                 <a href="/avis-valider" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Avis</a><br>
@@ -32,40 +32,43 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <table class="tableau-dashboard-admin mt-4 mb-4">
                 <thead>
                     <tr>
-                        <th>Nom</th>
+                        <th class="d-none d-md-flex">Nom</th>
                         <th>Prénom</th>
-                        <th>Email</th>
+                        <th  class="d-none d-md-flex">Email</th>
                         <th>Téléphone</th>
-                        <th>Ville</th>
+                        <th class="d-none d-md-flex">Ville</th>
+                        <th class="d-none d-md-flex">Actif</th>
                         <th>Actif</th>
-                        <th></th>
-                        <th></th>
+                        <th>Modif</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach($employes as $employe) : ?>
                         <tr>
-                            <td><?= htmlspecialchars($employe['nom']) ?></td>
+                            <td class="d-none d-md-flex"><?= htmlspecialchars($employe['nom']) ?></td>
                             <td><?= htmlspecialchars($employe['prenom']) ?></td>
-                            <td><?= htmlspecialchars($employe['email']) ?></td>
+                            <td class="d-none d-md-flex"><?= htmlspecialchars($employe['email']) ?></td>
                             <td><?= htmlspecialchars($employe['gsm'] ?? '') ?></td>
-                            <td><?= htmlspecialchars($employe['ville'] ?? '') ?></td>
-                            <td><?= $employe['actif'] ? 'Oui' : 'Non' ?></td>
+                            <td class="d-none d-md-flex"><?= htmlspecialchars($employe['ville'] ?? '') ?></td>
+                            <td class="d-none d-md-flex"><?= $employe['actif'] ? 'Oui' : 'Non' ?></td>
                             <td>
                                 <?php if($employe['actif'] === 1) : ?>
                                     <form action="/admin/desactiver/<?= htmlspecialchars($employe['utilisateur_id']) ?>" method="POST">
                                         <?= Auth::csrfField() ?>
-                                        <button type="submit">Desactiver</button>
+                                        <button class="d-none d-md-block" type="submit">Desactiver</button>
+                                        <button class=" d-md-block" type="submit"><i class="fa-solid fa-toggle-off"></i></button>
                                     </form>
                                 <?php elseif($employe['actif'] === 0) : ?>
                                     <form action="/admin/activer/<?= htmlspecialchars($employe['utilisateur_id']) ?>" method="POST">
                                         <?= Auth::csrfField() ?>
-                                        <button type="submit">Activer</button>
+                                        <button class="d-none d-md-block" type="submit">Activer</button>
+                                        <button class="d-none d-md-block" type="submit"><i class="fa-solid fa-toggle-on"></i></button>
                                     </form>
                                 <?php endif ?>
                             </td>
                             <td>
-                                <a class="modif-profil-employe" href="/admin/update-employe/<?= htmlspecialchars($employe['utilisateur_id']) ?>">Modifier profil</a>
+                                <a class="modif-profil-employe d-none d-md-block" href="/admin/update-employe/<?= htmlspecialchars($employe['utilisateur_id']) ?>">Modifier</a>
+                                <a class="modif-profil-employe  d-md-none" href="/admin/update-employe/<?= htmlspecialchars($employe['utilisateur_id']) ?>"><i class="fa-solid fa-pencil"></i></a>
                             </td>
                         </tr>
                     <?php endforeach ?>
@@ -93,10 +96,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <thead>
                 <tr>
                     <th>Menu</th>
-                    <th>Nom Client</th>
-                    <th>Date prestation</th>
-                    <th>Nombre</th>
-                    <th>Statut</th>
+                    <th class="d-none d-md-flex">Nom Client</th>
+                    <th class="d-none d-md-flex">Date prestation</th>
+                    <th class="d-none d-md-flex">Nombre</th>
+                    <th class="d-none d-md-flex">Statut</th>
                     <th>Voir</th>
                 </tr>
             </thead>
@@ -104,10 +107,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <?php foreach($commandes as $commande) : ?>
                     <tr class="ligne-commande" data-statut="<?= $commande['statut'] ?>">
                         <td><?= htmlspecialchars($commande['titre']) ?></td>
-                        <td><?= htmlspecialchars($commande['nom_complet']) ?></td>
-                        <td><?= date('d/m/Y', strtotime($commande['date_prestation']) )?></td>
-                        <td><?= htmlspecialchars($commande['nombre_personne']) ?></td>
-                        <td><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],
+                        <td class="d-none d-md-flex"><?= htmlspecialchars($commande['nom_complet']) ?></td>
+                        <td class="d-none d-md-flex"><?= date('d/m/Y', strtotime($commande['date_prestation']) )?></td>
+                        <td class="d-none d-md-flex"><?= htmlspecialchars($commande['nombre_personne']) ?></td>
+                        <td class="d-none d-md-flex"><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],
                                                             ['En attente', 'En préparation', 'En livraison', 'Attente retour matériel', 'Terminée', 'Acceptée', 'Annulée', 'Livrée'],
                                                             $commande['statut'])) ?>
                         </td>
@@ -123,7 +126,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <section class="mt-5 mb-5 section-graphique">
         <h2 class="text-center">Statistiques</h2>
         <h4 >Commandes par menu :</h4>
-        <canvas id="graphiqueCommandes" data-commandes="<?= htmlspecialchars(json_encode($commandesParMenu)) ?>"></canvas>
+        <div class="conteneur-graphique">
+            <canvas id="graphiqueCommandes" data-commandes="<?= htmlspecialchars(json_encode($commandesParMenu)) ?>"></canvas>
+        </div>
+        
     </section>
 
     <section class="section-chiffre-affaire mb-5 p-5">

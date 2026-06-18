@@ -1197,6 +1197,16 @@ Mobiles
     .modif-assoc button{
         width: 8rem;
     }
+
+    .admin-dashboard, .dashboard-commandes{
+        width: 95%;
+    }
+
+    .section-graphique, .section-chiffre-affaire{
+        width: 75%;
+    }
+
+    
 }
 
 @media (max-width: 991.9px){
@@ -1248,6 +1258,10 @@ Mobiles
 
     .filtre-large input , .filtre-large select {
         height: 1.2rem;
+    }
+
+    .tableau-dashboard-admin button, .modif-profil-employe{
+        padding: 0.1rem;
     }
 }
 
@@ -1510,5 +1524,52 @@ Mobiles
 
     .voir-commande-client{
         margin: 0;
+    }
+
+    .tableau-dashboard-admin button, .modif-profil-employe{
+        padding: 0.3rem;
+    }
+
+    .tableau-dashboard-admin button{
+        width: 2rem;
+    }
+
+    .section-chiffre-affaire{
+        padding: 0.2rem !important;
+        width: 99%;
+    }
+
+    .section-chiffre-affaire table {
+        width: 100%;
+    }
+
+    .section-chiffre-affaire th {
+        font-size: 0.9rem;
+    }
+
+    .section-chiffre-affaire td{
+        font-size: 0.8rem;
+    }
+
+    .section-chiffre-affaire form input ,.section-chiffre-affaire form  select , .section-chiffre-affaire form button , .section-chiffre-affaire form a{
+        width: 40%;
+    }
+
+    .section-graphique{
+        width: 95%;
+        height: 25rem;
+    }
+
+    .conteneur-graphique{
+        position: relative;
+        height: 18rem;
+    }
+
+    .section-graphique canvas{
+        height: 13rem;
+    }
+
+    #graphiqueCommandes {
+        height: 13rem;
     }
 }

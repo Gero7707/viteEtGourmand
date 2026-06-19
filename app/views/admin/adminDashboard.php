@@ -120,9 +120,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
         </table>
     </div>
     
-    <section class="mt-5 mb-5 section-graphique">
+    <section class="mt-5 mb-1 section-graphique">
         <h2 class="text-center">Statistiques</h2>
-        <h4 >Commandes par menu :</h4>
+        <h4 class="text-center">Commandes par menu :</h4>
         <div class="conteneur-graphique">
             <canvas id="graphiqueCommandes" data-commandes="<?= htmlspecialchars(json_encode($commandesParMenu)) ?>"></canvas>
         </div>
@@ -130,7 +130,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     </section>
 
     <section class="section-chiffre-affaire mb-5 p-5">
-        <h4 >Chiffre d'affaires :</h4>
+        <h4 class="text-center">Chiffre d'affaires :</h4>
         <form method="GET" action="/admin/dashboard" class="d-flex flex-column align-items-center" id="formulaire-ca">
             <select name="menu" id="filtre-menu">
                 <option value="">Tous les menus</option>
@@ -144,10 +144,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
             <input type="month" name="mois" id="filtre-mois" value="<?= htmlspecialchars($_GET['mois'] ?? '') ?>">
 
-            <button type="submit">Filtrer</button>
-            <a href="/admin/dashboard" id="lien-reset">Réinitialiser</a>
+            <button class="filtre-ca" type="submit">Filtrer</button>
+            <button  class="lien-reset" type="button">Réinitialiser</button>
         </form>
-
+        <p class="error-message mt-1 text-center"></p>
         <table>
             <thead>
                 <tr>

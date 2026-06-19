@@ -4,7 +4,7 @@ $pageSpecificCss = ['style.css', 'formulaire.css' , 'layout.css'];
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 
-<main>
+<main class="main-message">
     <p class="error-message mt-1 text-center"></p><br>
     <?php if ($_GET['error'] ?? null): ?>
         <p class="error-message-php text-center mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
@@ -13,7 +13,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
     <div  class="d-flex justify-content-center">
-        <div class="d-flex flex-column justify-content-center form-contact mt-5">
+        <div class="d-flex flex-column justify-content-center form-contact ">
             
             <h3 class="text-center">Formuliare de contact</h3>
             <form action="/contact" method="POST" class="text-center">

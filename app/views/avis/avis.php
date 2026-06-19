@@ -6,7 +6,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
 <main>
     
 
-    <section class="section-avis bg-primary m-auto mt-5 pt-5 pb-4 mb-5">
+    <section class="section-avis bg-primary m-auto mt-3 pt-5 pb-4 mb-5">
         <h3 class="text-secondary text-center mb-5">Avis clients</h3>
                 
             <div class="row-avis row">

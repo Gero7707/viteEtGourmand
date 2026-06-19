@@ -70,7 +70,7 @@ body{
 }
 
 main{
-    margin-top: 5rem;
+    margin-top: 4rem;
     overflow: hidden;
 }
 
@@ -128,6 +128,10 @@ main{
 
 .liens-retour{
     margin-top: 2rem;
+}
+
+.liens-retour-client{
+    margin-left: 1rem;
 }
 /* ============================================================================================================================================================================ */
 /* ============================================================================================================================================================================ */
@@ -191,7 +195,8 @@ canvas{
 }
 
 .section-chiffre-affaire table thead{
-    background-color: var(--dore);
+    background-color: var(--bs-info);
+    color: var(--fond-carte);
 }
 
 .section-chiffre-affaire table thead th:first-child {
@@ -205,6 +210,8 @@ canvas{
 .section-chiffre-affaire table th, .section-chiffre-affaire table td {
     border-bottom: 1px solid var(--bleu-tres-fonce);
 }
+
+
 
 /* ============================================================================================================================================================================ */
 
@@ -817,13 +824,18 @@ a{text-decoration: none;}
 }
 
 .tableau-commande i , .voir-commande-client{
-    color: var(--bleu-nuit);
+    color: var(--dore);
     margin-left: 0.5rem;
 }
 
-.tableau-commande i:hover , .voir-commande-client:hover{
-    color: var(--dore);
+.tableau-commande i:hover {
+    color: var(--dore-clair);
     transform: scale(1.5);
+}
+
+.voir-commande-client:hover{
+    transform: scale(1.5);
+    color: var(--dore-clair);
 }
 
 tr {
@@ -832,14 +844,16 @@ tr {
 /* =================================================================================================================================================================================== */
 /* Commandes client */
 
-.section-commande-client h3 , .section-commande-client h4{
+.section-commande-client h3{
     background-color: var(--dore);
     color: var(--bleu-tres-fonce);
     border-radius: 8px;
 }
 
 .section-commande-client h4{
-    background-color: var(--dore-clair);
+    background-color: var(--bs-info);
+    color: var(--fond-carte);
+    border-radius: 8px;
 }
 
 .section-commande-client span{
@@ -855,7 +869,7 @@ tr {
     width: 50%;
 }
 
-.actions-commande a , .liens-retour{
+.actions-commande a , .liens-retour, .liens-retour-client{
     background-color: var(--dore);
     border-radius: 8px;
     display: block;
@@ -891,12 +905,20 @@ tr {
     border-radius: 8px;
 }
 
-.tableau-commande-entreprise button , .annuler-commande , .section-commande-client button , .tableau-dashboard-admin button , .modif-profil-employe{
+.tableau-commande-entreprise button , .annuler-commande , .section-commande-client button , .tableau-dashboard-admin button {
     background-color: var(--dore);
     color: var(--bleu-tres-fonce);
     border-radius: 8px;
     border: none;
     padding: 0.3rem;
+}
+
+.modif-profil-employe{
+    padding: 0.5rem;
+    background-color: var(--dore);
+    color: var(--bleu-tres-fonce);
+    border-radius: 8px;
+    border: none;
 }
 
 .btn-annuler-commande{
@@ -912,6 +934,7 @@ tr {
 }
 .voir-commande-client{
     margin: 0 1.5rem 0 1.5rem;
+    color: var(--dore);
 }
 
 .tableau-commande-entreprise td ,.tableau-dashboard-admin td{
@@ -920,6 +943,7 @@ tr {
 
 .input-select select{
     border-radius: 5px;
+    padding: 0.2rem;
 }
 
 
@@ -933,14 +957,14 @@ tr {
     display: inline-block;
     margin-bottom: 2rem;
     border-radius: 5px;
-    background-color: var(--dore);
+    background-color: var(--bs-info);
     padding: 0.1rem;
-    color: var(--bleu-tres-fonce);
+    color: var(--fond-plus-clair);
     transition: all ease 0.3s;
 }
 
 .creer-employe:hover{
-    background-color: var(--dore-clair);
+    background-color: var(--bleu-moyen);
     transform: scale(1.1);
 }
 
@@ -1287,15 +1311,15 @@ Mobiles
         height: 1.2rem;
     }
 
-    .tableau-dashboard-admin button, .modif-profil-employe{
+    .tableau-dashboard-admin button{
         padding: 0.1rem;
     }
 }
 
 @media (max-width: 768px){
      /* Section intro */
-    main{
-        margin-top: 3rem;
+    .main-message{
+        margin-top: 2rem;
     }
 
     .liens-retour{
@@ -1541,6 +1565,10 @@ Mobiles
         display: none;
     }
 
+    .modal-allergenes{
+        top: 221px;
+    }
+
     .img-menu-detail {
         margin-bottom: 2rem;
     }
@@ -1561,7 +1589,7 @@ Mobiles
         margin: 0;
     }
 
-    .tableau-dashboard-admin button, .modif-profil-employe{
+    .tableau-dashboard-admin button{
         padding: 0.3rem;
     }
 
@@ -1591,7 +1619,7 @@ Mobiles
     }
 
     .section-graphique{
-        width: 95%;
+        width: 99%;
         height: 25rem;
     }
 

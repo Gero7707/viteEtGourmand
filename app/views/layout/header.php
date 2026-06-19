@@ -76,7 +76,7 @@
                     <?php if ($_SESSION['role_id'] === 2) :  ?>
                     <li><a class="dropdown-item" href="/employe/dashboard" >Dashoard</a></li>
                     <li><a class="dropdown-item" href="/commandes-client" >Commandes</a></li>
-                    <li><a class="dropdown-item" href="/avis-valider" >Avis</a></li>
+                    <li><a class="dropdown-item" href="/avis-valider" >Valider avis</a></li>
                     <li><a class="dropdown-item" href="/create-menu">Céer menu</a></li>
                     <li><a class="dropdown-item" href="/plats">Plats</a></li>
                     <li><a class="dropdown-item" href="/plats/create">Créer plats</a></li>
@@ -84,7 +84,7 @@
                     <?php elseif ($_SESSION['role_id'] === 3) :  ?>
                     <li><a class="dropdown-item" href="/admin/dashboard" >Dashoard</a></li>
                     <li><a class="dropdown-item" href="/commandes-client" >Commandes</a></li>
-                    <li><a class="dropdown-item" href="/avis-valider" >Avis</a></li>
+                    <li><a class="dropdown-item" href="/avis-valider" >Valider avis</a></li>
                     <li><a class="dropdown-item" href="/create-menu">Céer menu</a></li>
                     <li><a class="dropdown-item" href="/plats">Plats</a></li>
                     <li><a class="dropdown-item" href="/plats/create">Créer plats</a></li>

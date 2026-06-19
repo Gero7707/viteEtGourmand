@@ -36,15 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const filtreMenu = document.getElementById('filtre-menu');
     const filtreMois = document.getElementById('filtre-mois');
     const tbody = document.getElementById('tbody-ca');
-    const lienReset = document.getElementById('lien-reset');
+    const lienReset = document.querySelector('.lien-reset');
+    const errorMessage = document.querySelector('.error-message');
+    const filtreCa = document.querySelector('.filtre-ca');
 
-    formulaire.addEventListener('submit', async function(event) {
-        event.preventDefault(); // empêche le rechargement de page
+    errorMessage.style.display = "none";
 
-        // Récupère les valeurs des filtres
+    async function chargerData(){
         const menu = filtreMenu.value;
         const mois = filtreMois.value;
-
         // Construit l'URL avec les paramètres GET
         const url = `/admin/stats-ca?menu=${encodeURIComponent(menu)}&mois=${encodeURIComponent(mois)}`;
 
@@ -61,15 +61,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 </tr>
             `;
         });
+    }
+    chargerData();
+    filtreCa.addEventListener('click',(e) => {
+        e.preventDefault(); 
+        errorMessage.style.display = "none";
+        const mois = filtreMois.value;
+        if(mois.trim() === ''){
+            errorMessage.style.display = "block";
+            errorMessage.textContent = "Veillez remplir les champs du formulaire .";
+            return;
+        }
+        
+        chargerData();
     });
 
 
-    lienReset.addEventListener('click', function(event) {
-        event.preventDefault();
+    lienReset.addEventListener('click', (e) => {
+        e.preventDefault();
         filtreMenu.value = '';
         filtreMois.value = '';
-        //declencher le listener avec les inputs vides
-        formulaire.dispatchEvent(new Event('submit'));
+        errorMessage.style.display = "none";
+        chargerData();
     });
 
 });

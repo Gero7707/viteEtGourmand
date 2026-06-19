@@ -34,4 +34,48 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
 
     statut.addEventListener('change' , filtrerStatutCommande);
+
+
+    const formulairesStatut = document.querySelectorAll('.form-changer-statut');
+    const successMessage = document.querySelector('.success-message');
+    successMessage.style.display = "none";
+
+    async function afficher(form) {
+        successMessage.style.display = "none";
+        const url = form.action;
+        const formData = new FormData(form);
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            body: formData
+        });
+        const data = await response.json();
+        // data contient { success: true, nouveauStatut: 'acceptee' }
+        const tr = form.closest('tr');
+        const celluleStatut = tr.querySelector('.statut-commande');
+        const statutLabels = {
+            'en_attente': 'En attente',
+            'en_preparation': 'En préparation',
+            'en_livraison': 'En livraison',
+            'attente_retour_materiel': 'Attente retour matériel',
+            'terminee': 'Terminée',
+            'acceptee': 'Acceptée',
+            'annulee': 'Annulée',
+            'livree': 'Livrée'
+        };
+
+        celluleStatut.textContent = statutLabels[data.nouveauStatut];
+        successMessage.style.display = "block";
+        successMessage.textContent = `Le statut de la commande numéro  ${data.numeroCommande} est : ${statutLabels[data.nouveauStatut]} `
+        if(data.nouveauStatut === 'terminee' || data.nouveauStatut === 'annulee') {
+            form.remove();
+        }
+    }
+
+    formulairesStatut.forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            afficher(form);
+        });
+    });
 });

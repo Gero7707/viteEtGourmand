@@ -442,6 +442,7 @@ class CommandeController{
     }
 
     public function changerStatutCommande(int $id ){
+
         Auth::checkEmploye();
         Auth::verifyCsrfToken();
         $statutActuel = $this->commandes->findById($id);
@@ -497,11 +498,15 @@ class CommandeController{
             $this->mongo->insertCommande($data);
         }
 
-        $successMessage = "Le statut de la commande est : " . str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],
-                                                            ['En attente', 'En préparation', 'En livraison', 'Attente retour matériel', 'Terminée', 'Acceptée', 'Annulée', 'Livrée'],
-                                                            $statutSuivant);
+        $successMessage = "Le statut de la commande numéro ". $statutActuel['numero_commande'] . " est : " . str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],['En attente', 'En préparation', 'En livraison', 'Attente retour matériel', 'Terminée', 'Acceptée', 'Annulée', 'Livrée'], $statutSuivant);
+
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest') {
+            header('Content-Type: application/json');
+            echo json_encode(['success' => true, 'nouveauStatut' => $statutSuivant ,'statutFormate' => $successMessage, 'numeroCommande' => $statutActuel['numero_commande']]);
+            exit;
+        } 
         header('Location: /commandes-client?success=' . urlencode($successMessage));
-        exit(); 
+        exit;
     }
 
     public function showFormAnnuler(int $id){

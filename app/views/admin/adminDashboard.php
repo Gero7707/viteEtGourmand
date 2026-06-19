@@ -65,7 +65,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                 <?php endif ?>
                             </td>
                             <td>
-                                <a class="modif-profil-employe " href="/admin/update-employe/<?= htmlspecialchars($employe['utilisateur_id']) ?>"><i class="fa-solid fa-pencil"></i></a>
+                                <a class="modif-profil-employe px-2" href="/admin/update-employe/<?= htmlspecialchars($employe['utilisateur_id']) ?>"><i class="fa-solid fa-pencil"></i></a>
                             </td>
                         </tr>
                     <?php endforeach ?>

@@ -127,7 +127,7 @@ main{
 }
 
 .liens-retour{
-    margin-left: 2rem;
+    margin-top: 2rem;
 }
 /* ============================================================================================================================================================================ */
 /* ============================================================================================================================================================================ */
@@ -280,6 +280,18 @@ a{text-decoration: none;}
     font-size: 1.5rem;
     display: block;
     text-align: center;
+    margin-top: 1rem;
+}
+
+.lien-creer-menu , .lien-creer-plat{
+    border-radius: 8px;
+    display: block;
+    text-align: center;
+    padding: 0.5rem;
+    margin-left: 1rem;
+}
+
+.lien-creer-plat{
     margin-top: 1rem;
 }
 
@@ -852,6 +864,7 @@ tr {
     width: 8rem;
     padding: 0.3rem;
     color: var(--bleu-tres-fonce);
+    font-size: 0.9rem;
 }
 
 .actions-commande a{
@@ -884,6 +897,10 @@ tr {
     border-radius: 8px;
     border: none;
     padding: 0.3rem;
+}
+
+.btn-annuler-commande{
+    margin-top: 1.4rem;
 }
 
 .tableau-commande-entreprise button:hover ,.annuler-commande:hover , .section-commande-client button:hover , .tableau-dashboard-admin button:hover , .modif-profil-employe:hover{
@@ -1151,6 +1168,10 @@ Mobiles
         width: 65%;
     }
 
+    .lien-creer-menu{
+        font-size: 0.7rem;
+    }
+
     .carte-menu{
         padding: 0.5rem;
     }
@@ -1275,6 +1296,10 @@ Mobiles
      /* Section intro */
     main{
         margin-top: 3rem;
+    }
+
+    .liens-retour{
+        font-size: 0.7rem;
     }
 
     .intro,.carte-savoir-faire{

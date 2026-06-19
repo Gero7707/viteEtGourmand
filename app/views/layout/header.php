@@ -48,38 +48,14 @@
                 <?php endif ?>
             <?php endif ?>
         </div>
-        <?php if(isset($_SESSION['utilisateur_id'])  && ($_SESSION['role_id'] === 2  || $_SESSION['role_id'] === 3)) : ?>
-            <div class="dropdown menu-restau d-md-none">
-                <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-utensils"></i>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <?php if ($_SESSION['role_id'] === 2) :  ?>
-                    <li><a class="dropdown-item" href="/employe/dashboard" >Dashoard</a></li>
-                    <li><a class="dropdown-item" href="/commandes-client" >Commandes</a></li>
-                    <li><a class="dropdown-item" href="/avis-valider" >Avis</a></li>
-                    <li><a class="dropdown-item" href="/menus">Menus</a></li>
-                    <li><a class="dropdown-item" href="/create-menu">Céer menu</a></li>
-                    <li><a class="dropdown-item" href="/plats">Plats</a></li>
-                    <li><a class="dropdown-item" href="/plats/create">Créer plats</a></li>
-                    <li><a class="dropdown-item" href="/changer-horaire" >Horaires</a></li>
-                    <?php elseif ($_SESSION['role_id'] === 3) :  ?>
-                    <li><a class="dropdown-item" href="/admin/dashboard" >Dashoard</a></li>
-                    <li><a class="dropdown-item" href="/commandes-client" >Commandes</a></li>
-                    <li><a class="dropdown-item" href="/avis-valider" >Avis</a></li>
-                    <li><a class="dropdown-item" href="/menus">Menus</a></li>
-                    <li><a class="dropdown-item" href="/create-menu">Céer menu</a></li>
-                    <li><a class="dropdown-item" href="/plats">Plats</a></li>
-                    <li><a class="dropdown-item" href="/plats/create">Créer plats</a></li>
-                    <li><a class="dropdown-item" href="/changer-horaire" >Horaires</a></li>
-                    <?php endif ?>
-                </ul>
-            </div>
-        <?php endif ?>
 
         <div class="dropdown ">
             <a class="btn  " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-bars"></i>
+                <?php if(!isset($_SESSION['utilisateur_id']) || $_SESSION['role_id'] === 1): ?>
+                    <i class="fa-solid fa-bars"></i>
+                <?php elseif($_SESSION['role_id'] === 2  || $_SESSION['role_id'] === 3) : ?>
+                    <i class="fa-solid fa-utensils"></i>
+                <?php endif ?>
             </a>
 
             <ul class="dropdown-menu">
@@ -96,6 +72,25 @@
                 <li><a class="dropdown-item" href="/menus">Nos menus</a></li>
                 <li><a class="dropdown-item" href="/contact">Contact</a></li>
                 <li><a class="dropdown-item" href="/avis">Avis clients</a></li>
+                <?php if(isset($_SESSION['utilisateur_id'])  && ($_SESSION['role_id'] === 2  || $_SESSION['role_id'] === 3)) : ?>
+                    <?php if ($_SESSION['role_id'] === 2) :  ?>
+                    <li><a class="dropdown-item" href="/employe/dashboard" >Dashoard</a></li>
+                    <li><a class="dropdown-item" href="/commandes-client" >Commandes</a></li>
+                    <li><a class="dropdown-item" href="/avis-valider" >Avis</a></li>
+                    <li><a class="dropdown-item" href="/create-menu">Céer menu</a></li>
+                    <li><a class="dropdown-item" href="/plats">Plats</a></li>
+                    <li><a class="dropdown-item" href="/plats/create">Créer plats</a></li>
+                    <li><a class="dropdown-item" href="/changer-horaire" >Horaires</a></li>
+                    <?php elseif ($_SESSION['role_id'] === 3) :  ?>
+                    <li><a class="dropdown-item" href="/admin/dashboard" >Dashoard</a></li>
+                    <li><a class="dropdown-item" href="/commandes-client" >Commandes</a></li>
+                    <li><a class="dropdown-item" href="/avis-valider" >Avis</a></li>
+                    <li><a class="dropdown-item" href="/create-menu">Céer menu</a></li>
+                    <li><a class="dropdown-item" href="/plats">Plats</a></li>
+                    <li><a class="dropdown-item" href="/plats/create">Créer plats</a></li>
+                    <li><a class="dropdown-item" href="/changer-horaire" >Horaires</a></li>
+                    <?php endif ?>
+                <?php endif ?>
             </ul>
         </div>
         

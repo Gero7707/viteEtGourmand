@@ -289,6 +289,8 @@ a{text-decoration: none;}
     justify-content: space-around;
 }
 
+
+
 .texte{
     background-color: var(--fond-carte);
     border-radius: 10px;
@@ -338,7 +340,7 @@ a{text-decoration: none;}
     margin-right: 2rem;
 }
 
-.texte-carte2{
+.texte-carte2 , .texte-carte1{
     width: 50%;
 }
 
@@ -824,6 +826,10 @@ tr {
     border-radius: 8px;
 }
 
+.section-commande-client h4{
+    background-color: var(--dore-clair);
+}
+
 .section-commande-client span{
     text-decoration: underline;
     font-weight: bold;
@@ -1299,7 +1305,7 @@ Mobiles
 
     .img-carte1 , .img-carte2{
         width: 80%;
-        margin-left: 2rem;
+        margin: auto;
     }
 
     /* Section avis */
@@ -1532,6 +1538,10 @@ Mobiles
 
     .tableau-dashboard-admin button, .modif-profil-employe{
         padding: 0.3rem;
+    }
+
+    .col-desktop{
+        display: none;
     }
 
     .section-chiffre-affaire{

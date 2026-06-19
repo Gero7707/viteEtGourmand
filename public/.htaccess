@@ -1,6 +1,6 @@
 # Redirection HTTP → HTTPS (production uniquement - ne pas merger sur develop)
 RewriteEngine On
-RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Routeur MVC

@@ -12,9 +12,13 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <div class="d-flex justify-content-between div-arbo">
         <button type="button" class="open-filtres">Filtrer</button>
         <p class=" arborescence text-center "><a href="/">Accueil<</a>Menus</p>
-        <div>
-            <a class="fw-mediumbold bg-secondary text-primary lien-creer-menu" href="/create-menu"><i class="fa-solid fa-pencil"></i>Créer</a>
-        </div>
+        <?php if(isset($_SESSION['utilisateur_id'])):?>
+            <?php if($_SESSION['role_id'] === 2  || $_SESSION['role_id'] === 3) : ?>
+                <div>
+                    <a class="fw-mediumbold bg-secondary text-primary lien-creer-menu" href="/create-menu"><i class="fa-solid fa-pencil"></i>Créer</a>
+                </div>
+            <?php endif ?>
+        <?php endif ?>
     </div>
     <div class="d-flex container-filtre-menus">
         <section class="section-filtres">

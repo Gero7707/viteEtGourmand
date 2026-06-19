@@ -24,6 +24,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <a href="/changer-horaire" class="fw-mediumbold bg-secondary text-primary lien-intro-entreprise ">Horaires</a><br>
         </div>
     <?php endif ?>
+    <p class="success-message text-center"></p>
     <?php if ($_GET['error'] ?? null): ?>
         <p class="error-message-php text-center mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
     <?php endif ?>
@@ -31,6 +32,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
     <hr>
+
     <?php if($_SESSION['role_id'] === 2 || $_SESSION['role_id'] === 3) : ?>
         <div class="text-center input-select">
             <label for="statut">Filtrer par statut :</label>
@@ -71,7 +73,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         <td class=" d-none d-xxl-table-cell"><?= htmlspecialchars($commande['numero_commande']) ?></td>
                         <td class=" d-none d-md-table-cell"><?= date('d/m/Y', strtotime($commande['date_prestation']) )?></td>
                         <td class=" d-none d-md-table-cell"><?= htmlspecialchars($commande['nombre_personne']) ?></td>
-                        <td class=" d-none d-md-table-cell"><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annulee', 'livree'],
+                        <td class=" d-none d-md-table-cell statut-commande"><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annulee', 'livree'],
                                                             ['En attente', 'En préparation', 'En livraison', 'Attente retour matériel', 'Terminée', 'Acceptée', 'Annulée', 'Livrée'],
                                                             $commande['statut'])) ?>
                         </td>
@@ -80,9 +82,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         </td>
                         <td class=" d-none d-md-table-cell">
                             <?php if($commande['statut'] !== 'terminee' && $commande['statut'] !== 'annulee') : ?>
-                                <form action="/commandes/update/<?= $commande['commande_id'] ?>" method="POST">
+                                <form class="form-changer-statut" action="/commandes/update/<?= $commande['commande_id'] ?>" method="POST">
                                     <?= Auth::csrfField() ?>
-                                    <button type="submit">Statut</button>
+                                    <button class="changer-statut" type="submit">Statut</button>
                                 </form>
                             <?php endif ?>
                         </td>

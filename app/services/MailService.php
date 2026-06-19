@@ -59,7 +59,7 @@ class MailService{
 
         // Expéditeur affiché dans le client mail du destinataire
         // À personnaliser selon le projet
-        $this->mail->setFrom('guitarbox@outlook.fr', 'Vite & Gourmand');
+        $this->mail->setFrom('vince.63@outlook.fr', 'Vite & Gourmand');
 
         // Destinataire
         $this->mail->addAddress($to);

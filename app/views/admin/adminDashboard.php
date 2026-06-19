@@ -32,12 +32,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <table class="tableau-dashboard-admin mt-4 mb-4">
                 <thead>
                     <tr>
-                        <th class="d-none d-md-flex">Nom</th>
+                        <th class="col-desktop">Nom</th>
                         <th>Prénom</th>
-                        <th  class="d-none d-md-flex">Email</th>
+                        <th  class="col-desktop">Email</th>
                         <th>Téléphone</th>
-                        <th class="d-none d-md-flex">Ville</th>
-                        <th class="d-none d-md-flex">Actif</th>
+                        <th class="col-desktop">Ville</th>
+                        <th class="col-desktop">Actif</th>
                         <th>Actif</th>
                         <th>Modif</th>
                     </tr>
@@ -45,12 +45,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <tbody>
                     <?php foreach($employes as $employe) : ?>
                         <tr>
-                            <td class="d-none d-md-flex"><?= htmlspecialchars($employe['nom']) ?></td>
+                            <td class="col-desktop"><?= htmlspecialchars($employe['nom']) ?></td>
                             <td><?= htmlspecialchars($employe['prenom']) ?></td>
-                            <td class="d-none d-md-flex"><?= htmlspecialchars($employe['email']) ?></td>
+                            <td class="col-desktop"><?= htmlspecialchars($employe['email']) ?></td>
                             <td><?= htmlspecialchars($employe['gsm'] ?? '') ?></td>
-                            <td class="d-none d-md-flex"><?= htmlspecialchars($employe['ville'] ?? '') ?></td>
-                            <td class="d-none d-md-flex"><?= $employe['actif'] ? 'Oui' : 'Non' ?></td>
+                            <td class="col-desktop"><?= htmlspecialchars($employe['ville'] ?? '') ?></td>
+                            <td class="col-desktop"><?= $employe['actif'] ? 'Oui' : 'Non' ?></td>
                             <td>
                                 <?php if($employe['actif'] === 1) : ?>
                                     <form action="/admin/desactiver/<?= htmlspecialchars($employe['utilisateur_id']) ?>" method="POST">
@@ -93,10 +93,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <thead>
                 <tr>
                     <th>Menu</th>
-                    <th class="d-none d-md-flex">Nom Client</th>
-                    <th class="d-none d-md-flex">Date prestation</th>
-                    <th class="d-none d-md-flex">Nombre</th>
-                    <th class="d-none d-md-flex">Statut</th>
+                    <th class="col-desktop">Nom Client</th>
+                    <th class="col-desktop">Date prestation</th>
+                    <th class="col-desktop">Nombre</th>
+                    <th class="col-desktop">Statut</th>
                     <th>Voir</th>
                 </tr>
             </thead>
@@ -104,10 +104,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <?php foreach($commandes as $commande) : ?>
                     <tr class="ligne-commande" data-statut="<?= $commande['statut'] ?>">
                         <td><?= htmlspecialchars($commande['titre']) ?></td>
-                        <td class="d-none d-md-flex"><?= htmlspecialchars($commande['nom_complet']) ?></td>
-                        <td class="d-none d-md-flex"><?= date('d/m/Y', strtotime($commande['date_prestation']) )?></td>
-                        <td class="d-none d-md-flex"><?= htmlspecialchars($commande['nombre_personne']) ?></td>
-                        <td class="d-none d-md-flex"><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],
+                        <td class="col-desktop"><?= htmlspecialchars($commande['nom_complet']) ?></td>
+                        <td class="col-desktop"><?= date('d/m/Y', strtotime($commande['date_prestation']) )?></td>
+                        <td class="col-desktop"><?= htmlspecialchars($commande['nombre_personne']) ?></td>
+                        <td class="col-desktop"><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],
                                                             ['En attente', 'En préparation', 'En livraison', 'Attente retour matériel', 'Terminée', 'Acceptée', 'Annulée', 'Livrée'],
                                                             $commande['statut'])) ?>
                         </td>

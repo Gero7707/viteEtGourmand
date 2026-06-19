@@ -86,14 +86,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <?php if($commandes['statut'] !== 'terminee' && $commandes['statut'] !== 'annulee') : ?>
                     <form action="/commandes/update/<?= $commandes['commande_id'] ?>" method="POST">
                         <?= Auth::csrfField() ?>
-                        <button type="submit">Modifier statut</button>
+                        <button class="mt-3" type="submit">Modifier statut</button>
                     </form>
                 <?php endif ?>
             <? endif ?>
     </section>
 </main>
 <?php
-$loadScriptJs = 'form.js';
-require_once __DIR__ . '/../../views/layout/importJs.php';
 require_once __DIR__ . '/../../views/layout/footer.php';
 ?>

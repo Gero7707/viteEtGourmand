@@ -64,7 +64,7 @@
                     <li><a class="dropdown-item" href="/plats/create">Créer plats</a></li>
                     <li><a class="dropdown-item" href="/changer-horaire" >Horaires</a></li>
                     <?php elseif ($_SESSION['role_id'] === 3) :  ?>
-                    <li><a class="dropdown-item" href="/employe/dashboard" >Dashoard</a></li>
+                    <li><a class="dropdown-item" href="/admin/dashboard" >Dashoard</a></li>
                     <li><a class="dropdown-item" href="/commandes-client" >Commandes</a></li>
                     <li><a class="dropdown-item" href="/avis-valider" >Avis</a></li>
                     <li><a class="dropdown-item" href="/menus">Menus</a></li>

@@ -12,7 +12,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
     
-    <div class="d-flex justify-content-around" >
+    <div class="d-flex justify-content-around horaires-container" >
 
         <div class=" flex-column justify-content-center form-horaire">
             <h3 class="text-center mt-3 mb-3">Changer les horiares</h3>
@@ -35,11 +35,11 @@ require_once __DIR__ . '/../../views/layout/header.php';
                     <a class="annuler" href="/admin/dashboard">Annuler</a><br>
                 <?php endif ?>
                 
-                <button class="mt-3 mb-3" type="submit">Changer Horaire</button>
+                <button class="mt-3 mb-3" type="submit">Changer</button>
             </form>
         </div>
 
-        <div class=" text-center form-horaire">
+        <div class=" text-center form-horaire pb-4 mb-5">
             <h4 class="mt-3 mb-3">Ajouter un jour de travail</h4>
             <form action="/ajout-jour" method="POST">
                 <?= Auth::csrfField() ?>
@@ -53,7 +53,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                     <label class="form-label" for="heure_fermeture[<?= $jourManquant ?>]">Fermeture :</label>
                     <input class="form-control" type="time" name="heure_fermeture[<?= $jourManquant ?>]"><br>
                 <?php endforeach ?>
-                <button class="mt-3 btn-form" type="submit">Ajouter un jour</button>
+                <button class="mt-3 btn-form" type="submit"><i class="fa-solid fa-plus"></i></button>
             </form>
         
             <div class="d-flex flex-column align-items-center">

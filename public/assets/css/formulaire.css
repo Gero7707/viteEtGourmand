@@ -44,6 +44,10 @@ body{
 }
 
 /* changerHoraire.php */
+.horaires-container{
+    align-items: flex-start;
+}
+
 .form-horaire{
     margin-bottom: 5rem;
     width: 30%;
@@ -303,12 +307,18 @@ textarea{
 /* ==================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================  */
 
 @media (max-width : 1400px) {
-    .form-contact{
+    .form-contact, .form-horaire{
         width: 40%;
     }
+
+    
 }
 
 @media (max-width: 1200px){
+    .form-horaire{
+        width: 45%;
+    }
+
     .input-img{
         width: 17rem;
     }
@@ -325,6 +335,10 @@ textarea{
     .prix-menu{
         margin-left: 2rem;
     }
+
+    button , .btn-annuler{
+        width: 7rem;
+    }
 }
 
 @media (max-width: 991.9px){
@@ -336,6 +350,16 @@ textarea{
 }
 
 @media (max-width: 767.98px){
+    .horaires-container{
+        flex-direction: column;
+    }
+
+    .form-horaire{
+        width: 95%;
+        margin: auto;
+        margin-top: 3rem;
+    }
+
     .form-contact{
         width: 90%;
         margin: auto;

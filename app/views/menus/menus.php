@@ -12,7 +12,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <div class="d-flex justify-content-between div-arbo">
         <button type="button" class="open-filtres">Filtrer</button>
         <p class=" arborescence text-center "><a href="/">Accueil<</a>Menus</p>
-        
+        <div>
+            <a class="fw-mediumbold bg-secondary text-primary lien-creer-menu" href="/create-menu"><i class="fa-solid fa-pencil"></i>Créer</a>
+        </div>
     </div>
     <div class="d-flex container-filtre-menus">
         <section class="section-filtres">

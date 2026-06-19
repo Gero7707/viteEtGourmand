@@ -7,7 +7,14 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php if($_SESSION['role_id'] === 1 ) : ?>
         <a class="liens-retour" href="/profile">Retour profil</a><br>
     <?php elseif($_SESSION['role_id'] === 2 || $_SESSION['role_id'] === 3 )  : ?>
-        <a class="liens-retour" href="/commandes-client">Retour aux commandes</a>
+        <div class="d-flex justify-content-around">
+            <a class="liens-retour" href="/commandes-client">Retour aux commandes</a>
+            <?php if($_SESSION['role_id'] === 2) : ?>
+                <a class="liens-retour" href="/employe/dashboard">Dashboard</a>
+            <?php elseif($_SESSION['role_id'] === 3) : ?>
+                <a class="liens-retour" href="/employe/dashboard">Dashboard</a>
+            <?php endif ?>
+        </div>
     <?php endif ?>
 
     <?php if ($_GET['error'] ?? null): ?>
@@ -84,10 +91,19 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 </div>
             <?php elseif($_SESSION['role_id'] === 2 || $_SESSION['role_id'] === 3) : ?>
                 <?php if($commandes['statut'] !== 'terminee' && $commandes['statut'] !== 'annulee') : ?>
-                    <form action="/commandes/update/<?= $commandes['commande_id'] ?>" method="POST">
-                        <?= Auth::csrfField() ?>
-                        <button class="mt-3" type="submit">Modifier statut</button>
-                    </form>
+                    <div class="d-flex justify-content-around">
+                        <div>
+                            <form action="/commandes/update/<?= $commandes['commande_id'] ?>" method="POST">
+                                <?= Auth::csrfField() ?>
+                                <button class="mt-3" type="submit">Modifier statut</button>
+                            </form>
+                        </div>
+                        <?php if($commandes['statut'] !== 'terminee' && $commandes['statut'] !== 'annulee') : ?>
+                            <div class="btn-annuler-commande">
+                                <a class="annuler-commande " href="/commandes/annuler-commande/<?= $commandes['commande_id'] ?>">Annuler</a>
+                            </div>
+                        <?php endif ?>
+                    </div>
                 <?php endif ?>
             <? endif ?>
     </section>

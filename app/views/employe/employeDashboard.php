@@ -46,10 +46,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <thead>
                 <tr >
                     <th>Menu</th>
-                    <th>Nom Client</th>
-                    <th>Date prestation</th>
-                    <th>Nombre</th>
-                    <th>Statut</th>
+                    <th class="col-desktop">Nom Client</th>
+                    <th class="col-desktop">Date prestation</th>
+                    <th class="col-desktop">Nombre</th>
+                    <th class="col-desktop">Statut</th>
                     <th>Voir</th>
                 </tr>
             </thead>
@@ -57,10 +57,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <?php foreach($commandes as $commande) : ?>
                     <tr class="ligne-commande" data-statut="<?= $commande['statut'] ?>">
                         <td><?= htmlspecialchars($commande['titre']) ?></td>
-                        <td><?= htmlspecialchars($commande['nom_complet']) ?></td>
-                        <td><?= date('d/m/Y ', strtotime($commande['date_prestation'])) ?></td>
-                        <td><?= htmlspecialchars($commande['nombre_personne']) ?></td>
-                        <td><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],
+                        <td class="col-desktop"><?= htmlspecialchars($commande['nom_complet']) ?></td>
+                        <td class="col-desktop"><?= date('d/m/Y ', strtotime($commande['date_prestation'])) ?></td>
+                        <td class="col-desktop"><?= htmlspecialchars($commande['nombre_personne']) ?></td>
+                        <td class="col-desktop"><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],
                                                             ['En attente', 'En préparation', 'En livraison', 'Attente retour matériel', 'Terminée', 'Acceptée', 'Annulée', 'Livrée'],
                                                             $commande['statut'])) ?>
                         </td>

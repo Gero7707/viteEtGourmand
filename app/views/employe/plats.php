@@ -30,14 +30,19 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php if ($_GET['success'] ?? null): ?>
         <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
-    <div class="text-center">
-        <label for="type">Filtrer par type de plat :</label>
-        <select name="type" id="type">
-            <option value=""></option>
-            <option value="entree">Entrée</option>
-            <option value="plat">Plat</option>
-            <option value="dessert">Dessert</option>
-        </select>
+    <div class="d-flex justify-content-center">
+        <div class="d-flex flex-column">
+            <label for="type">Filtrer par type de plat :</label>
+            <select name="type" id="type">
+                <option value=""></option>
+                <option value="entree">Entrée</option>
+                <option value="plat">Plat</option>
+                <option value="dessert">Dessert</option>
+            </select>
+        </div>
+        <div>
+            <a class="fw-mediumbold bg-secondary text-primary lien-creer-plat" href="/create-menu"><i class="fa-solid fa-pencil"></i>Créer</a>
+        </div>
     </div>
     <section class="section-plats row mb-5">
         <?php foreach($plat as $cartePlat) : ?>

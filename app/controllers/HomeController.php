@@ -20,4 +20,20 @@ class HomeController{
         $horaire = $this->horaire->getHoraire();
         require_once __DIR__ . '/../views/index.php';
     }
+
+    public function showMentions(){
+        $horaire = $this->horaire->getHoraire();
+        require_once __DIR__ . '/../views/mentionsLegales.php';
+    }
+
+    public function showCgv(){
+        $horaire = $this->horaire->getHoraire();
+        require_once __DIR__ . '/../views/cgv.php';
+    }
+
+    public function showConfidentialite(){
+        $horaire = $this->horaire->getHoraire();
+        require_once __DIR__ . '/../views/confidentialite.php';
+    }
+
 }

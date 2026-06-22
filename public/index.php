@@ -184,6 +184,11 @@ $router->add('GET' , '/fetch/menu-allergene/{id}' , 'MenuController' , 'getAllAl
 //Afficher filtres ca adminDashboard
 $router->add('GET' , '/admin/stats-ca' , 'AdminController' , 'statsCA');
 
+//Mentions légales , politique de confidentialite et cgv
+$router->add('GET' , '/mentions-legales' , 'HomeController'  , 'showMentions' );
+$router->add('GET' , '/cgv' , 'HomeController' , 'showCgv');
+$router->add('GET' , '/confidentialite' , 'HomeController' , 'showConfidentialite');
+
 
 // Dispatch — cherche la route correspondante et appelle le bon controller/méthode
 $router->dispatch($url);

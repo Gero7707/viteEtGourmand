@@ -1,0 +1,17 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /employe/
+Disallow: /auth/logout
+Disallow: /create-menu
+Disallow: /menus/edit/
+Disallow: /menus/delete/
+Disallow: /avis-valider
+Disallow: /avis/noter/
+Disallow: /avis/edit/
+Disallow: /profile
+Disallow: /commandes/
+Disallow: /commandes-client
+Disallow: /plats
+Disallow: /changer-horaire
+
+Allow: /

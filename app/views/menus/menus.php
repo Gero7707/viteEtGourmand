@@ -1,4 +1,5 @@
 <?php
+$pageTitle = "Nos menus — Vite & Gourmand";
 $pageSpecificCss = ['layout.css' ,'style.css' ];
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
@@ -15,7 +16,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <?php if(isset($_SESSION['utilisateur_id'])):?>
             <?php if($_SESSION['role_id'] === 2  || $_SESSION['role_id'] === 3) : ?>
                 <div>
-                    <a class="fw-mediumbold bg-secondary text-primary lien-creer-menu" href="/create-menu"><i class="fa-solid fa-pencil"></i>Créer</a>
+                    <a class="fw-mediumbold  text-primary lien-creer-menu" href="/create-menu"><i class="fa-solid fa-pencil"></i>Créer</a>
                 </div>
             <?php endif ?>
         <?php endif ?>

@@ -1,4 +1,5 @@
 <?php
+$pageTitle = "Vite & Gourmand — Traiteur événementiel à Bordeaux";
 $pageSpecificCss = ['style.css' , 'carousel.css' , 'layout.css'];
 require_once __DIR__ . '/../views/layout/header.php';
 

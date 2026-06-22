@@ -8,7 +8,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <a class="liens-retour-client" href="/profile">Retour profil</a><br>
     <?php elseif($_SESSION['role_id'] === 2 || $_SESSION['role_id'] === 3 )  : ?>
         <div class="d-flex justify-content-around">
-            <a class="liens-retour" href="/commandes-client">Retour aux commandes</a>
+            <a class="liens-retour" href="/commandes-client">Retour commandes</a>
             <?php if($_SESSION['role_id'] === 2) : ?>
                 <a class="liens-retour" href="/employe/dashboard">Dashboard</a>
             <?php elseif($_SESSION['role_id'] === 3) : ?>

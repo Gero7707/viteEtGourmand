@@ -1,4 +1,5 @@
 <?php
+$pageTitle = "Connexion — Vite & Gourmand";
 $pageSpecificCss = ['style.css', 'formulaire.css' , 'layout.css'];
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>

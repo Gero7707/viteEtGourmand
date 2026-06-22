@@ -1,4 +1,5 @@
 <?php
+$pageDescription = "Si vous avez des questions sur nos menus et nos prestations, contactez-nous";
 $pageTitle = "Contact — Vite & Gourmand";
 $pageSpecificCss = ['style.css', 'formulaire.css' , 'layout.css']; 
 

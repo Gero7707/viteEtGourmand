@@ -6,12 +6,22 @@
     <title><?= htmlspecialchars($pageTitle ?? 'Vite & Gourmand — Traiteur événementiel à Bordeaux') ?></title>
     <meta name="description" content="<?= htmlspecialchars($pageDescription ?? 'Traiteur événementiel bordelais. Menus raffinés pour mariages, séminaires et réceptions. Commandez en ligne.') ?>">
     <meta name="theme-color" content="#1B2A4A">
-    <link rel="icon" type="image/png" href="/assets/img/favicon-96x96.png" sizes="96x96" />
+    <meta name="apple-mobile-web-app-title" content="V&G" />
+
+    <meta property="og:title" content="Vite & Gourmand">
+    <meta property="og:description" content="Traiteur événementiel bordelais. Menus raffinés pour mariages, séminaires et réceptions. Commandez en ligne.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://restaurationviteetgourmand.alwaysdata.net/">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image" content="https://restaurationviteetgourmand.alwaysdata.net/public/assets/img/cuistot.jpg">
+    
     <link rel="icon" type="image/png" href="/assets/img/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
     <link rel="shortcut icon" href="/assets/img/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="V&G" />
+    
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

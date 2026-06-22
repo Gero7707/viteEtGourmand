@@ -1,4 +1,5 @@
 <?php
+$pageDescription = "Découvrez le " .  $menus['titre']  . " de Vite & Gourmand.";
 $pageTitle = $menus['titre'] . ' — Vite & Gourmand';
 $pageSpecificCss = ['style.css' , 'formulaire.css' , 'carousel.css' , 'layout.css'];
 require_once __DIR__ . '/../../views/layout/header.php';

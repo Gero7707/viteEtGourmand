@@ -1,4 +1,5 @@
 <?php
+$pageDescription = "Découvrez nos menus raffinés pour vos événements à Bordeaux.";
 $pageTitle = "Nos menus — Vite & Gourmand";
 $pageSpecificCss = ['layout.css' ,'style.css' ];
 require_once __DIR__ . '/../../views/layout/header.php';

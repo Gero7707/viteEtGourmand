@@ -16,8 +16,9 @@
         <a href="#"><i class="fa-brands fa-facebook"></i></a>
     </div>
     <div class="d-flex mentions mt-4">
-        <a href="#">Mentions légales</a>
-        <a href="#">CGV</a>
+        <a href="/mentions-legales">Mentions légales</a>
+        <a href="/cgv">CGV</a>
+        <a href="/confidentialite">Politique de confidentialité</a>
         <div class="d-flex"><p>&copy;Créé par VDG </p><img src="/assets/img/Logo_blanc.png" alt="Logo" class="logo"></div>
         <p>2026 Vite & Gourmand. Tous droits réservés.</p>
     </div>

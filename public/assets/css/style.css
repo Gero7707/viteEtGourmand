@@ -1041,6 +1041,49 @@ tr {
     font-size: 1.5rem;
 }
 
+/* ============================================================================================================================================================================ */
+/* Mentions légales , cgv , politique de confidentialité */
+
+.container{
+    background-color: var(--fond-carte);
+    color: var(--texte);
+    width: 95%;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+}
+
+.container h1 , .container h2{
+    background-color: var(--dore);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.container h3{
+    background-color: var(--bs-info) ;
+    color: var(--fond-plus-clair);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.container h4 {
+    background-color: #63a2eb;
+    color: var(--fond-plus-clair);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.container p{
+    padding: 1rem;
+    text-indent: 2em;
+}
+
+.container ul li{
+    list-style-type: disc !important;
+    padding-left: 1rem  !important;
+}
+
 /* ====================================================================================================================================================================================================================================================================================================================================================== ====================================================================================================================================================================================================================================================================================================================================================== 
 
 Mobiles
@@ -1322,6 +1365,10 @@ Mobiles
 }
 
 @media (max-width: 768px){
+
+    .container h3{
+        font-size: 1.2rem;
+    }
      /* Section intro */
     .main-message{
         margin-top: 2rem;

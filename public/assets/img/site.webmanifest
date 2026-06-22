@@ -1,5 +1,5 @@
 {
-  "name": "Vite&Gourmand",
+  "name": "Vite & Gourmand",
   "short_name": "V&G",
   "icons": [
     {
@@ -16,6 +16,6 @@
     }
   ],
   "theme_color": "#ffffff",
-  "background_color": "#0f368b",
+  "background_color": "#ffffff",
   "display": "standalone"
 }

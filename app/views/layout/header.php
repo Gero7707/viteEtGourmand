@@ -7,6 +7,7 @@
     <meta name="description" content="<?= htmlspecialchars($pageDescription ?? 'Traiteur événementiel bordelais. Menus raffinés pour mariages, séminaires et réceptions. Commandez en ligne.') ?>">
     <meta name="theme-color" content="#1B2A4A">
     <link rel="icon" type="image/png" href="/assets/img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
     <link rel="shortcut icon" href="/assets/img/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png" />

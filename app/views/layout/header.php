@@ -12,10 +12,11 @@
     <meta property="og:description" content="Traiteur événementiel bordelais. Menus raffinés pour mariages, séminaires et réceptions. Commandez en ligne.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://restaurationviteetgourmand.alwaysdata.net/">
+    <meta property="og:image" content="https://restaurationviteetgourmand.alwaysdata.net/assets/img/cuistot.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image" content="https://restaurationviteetgourmand.alwaysdata.net/public/assets/img/cuistot.jpg">
+    
     
     <link rel="icon" type="image/png" href="/assets/img/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
@@ -70,11 +71,11 @@
         </div>
 
         <div class="dropdown ">
-            <a class="btn  " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="btn  " href="#" role="button" aria-label="Menu de navigation" data-bs-toggle="dropdown" aria-expanded="false">
                 <?php if(!isset($_SESSION['utilisateur_id']) || $_SESSION['role_id'] === 1): ?>
-                    <i class="fa-solid fa-bars"></i>
+                    <i aria-hidden="true" class="fa-solid fa-bars"></i>
                 <?php elseif($_SESSION['role_id'] === 2  || $_SESSION['role_id'] === 3) : ?>
-                    <i class="fa-solid fa-utensils"></i>
+                    <i aria-hidden="true" class="fa-solid fa-utensils"></i>
                 <?php endif ?>
             </a>
 

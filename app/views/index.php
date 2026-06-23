@@ -98,8 +98,8 @@ require_once __DIR__ . '/../views/layout/header.php';
         <div class="d-flex carte-savoir-faire mb-4 mt-5 ">
             <img src="/assets/img/accueil/grande-table.webp" alt="baquet" class="img-carte1 observer mb-5">
             <div class="d-flex flex-column texte text-center texte-carte1 observer">
-                <p class="mb-5 mt-5">Depuis 1999, Vite & Gourmand met son expertise au service de vos réceptions. </p>
-                <p class="mb-5">Chaque menu est élaboré avec des produits frais et de saison, <br> sélectionnés auprès de producteurs locaux bordelais.</p>
+                <p class="mb-5 mt-2">Depuis 1999, Vite & Gourmand met son expertise au service de vos réceptions. </p>
+                <p class="mb-2">Chaque menu est élaboré avec des produits frais et de saison, <br> sélectionnés auprès de producteurs locaux bordelais.</p>
                 <p >De l'entrée au dessert, nos plats allient saveurs authentiques et <br> présentation soignée pour faire de chaque repas un moment inoubliable.</p>
             </div>
         </div>

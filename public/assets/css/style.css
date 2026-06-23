@@ -1060,7 +1060,11 @@ tr {
     margin-bottom: 3rem;
 }
 
-.container h1 , .container h2{
+.container a {
+    color: var(--dore-fond-clair);
+}
+
+.container h2{
     background-color: var(--dore);
     border-radius: 8px;
     margin-bottom: 2rem;
@@ -1074,7 +1078,7 @@ tr {
 }
 
 .container h4 {
-    background-color: #63a2eb;
+    background-color: var(--dore-fond-clair);
     color: var(--fond-plus-clair);
     border-radius: 8px;
     margin-bottom: 2rem;

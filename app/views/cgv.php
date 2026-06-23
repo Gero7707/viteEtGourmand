@@ -4,7 +4,7 @@ require_once __DIR__ . '/../views/layout/header.php';
 ?>
 
 <main class="container">
-    <h1 class="text-center">Conditions générles de ventes</h1>
+    <h2 class="text-center">Conditions générles de ventes</h2>
     <h3 class="text-center">Article 1 — Objet</h3>
 
     <p>Les présentes CGV régissent les conditions de commande de prestations traiteur auprès de Vite & Gourmand.</p>

@@ -51,7 +51,7 @@
     
     <header class="bg-primary">
         
-        <p class="titre text-secondary">Vite & Gourmand</p>
+        <h1 class="titre text-secondary">Vite & Gourmand</h1>
         <ul class="d-flex lien-header lien-slide" >
             <li><a href="/">Accueil</a></li>
             <li><a href="/menus">Nos menus</a></li>

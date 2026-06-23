@@ -436,6 +436,10 @@ a{text-decoration: none;}
     width: 45%;
 }
 
+.en-tete-carte-menu h2{
+    font-size: 1.5rem;
+}
+
 .en-tete-carte-menu a{
     background-color: var(--bs-secondary);
     padding: 0.3rem;
@@ -453,12 +457,12 @@ a{text-decoration: none;}
 
 .prix{
     margin-left: auto;
-    color: var(--bs-secondary);
+    color: var(--dore-fond-clair);
     width: 50%;
 
 }
 
-.prix p{
+.prix h3{
     font-size: 1.25rem;
 }
 
@@ -674,7 +678,7 @@ a{text-decoration: none;}
 }
 .section-detail{
     width: 94%;
-    background-color: var(--bleu-nuit);
+    border-top: 1px solid rgba(42, 63, 106, 0.068);
     padding: 1.5rem;
     border-radius: 8px;
     margin: auto;
@@ -693,13 +697,13 @@ a{text-decoration: none;}
     margin-left: auto;
 }
 
-.prix-nb-quantite p{
+.prix-nb-quantite h3{
     font-size: 1.2rem;
     font-weight: 500;
 }
 
 .prix-nb-quantite :nth-child(2){
-    color: var(--dore);
+    color: var(--dore-fond-clair);
 }
 
 .description{
@@ -719,11 +723,11 @@ a{text-decoration: none;}
     box-shadow: var(--shadow);
 }
 
-.composition-menu p{
+.composition-menu h4{
     font-size: 1.2rem;
 }
 
-.composition-menu h5{
+.composition-menu h3{
     text-decoration: underline;
 }
 
@@ -761,7 +765,7 @@ a{text-decoration: none;}
 }
 
 .commander p{
-    color: var(--fond-plus-clair);
+    color: var(--texte);
     text-align: center;
     margin-top: 1rem;
 }
@@ -1141,7 +1145,7 @@ Mobiles
 
     
 
-    .filtres h4{
+    .filtres h2{
     margin-top: 0 !important;
     }
 
@@ -1158,7 +1162,7 @@ Mobiles
         margin: auto;
     }
 
-    .filtres h4{
+    .filtres h2{
     margin-top: 0 !important;
     }
 
@@ -1170,11 +1174,11 @@ Mobiles
         margin-bottom: 0.5rem !important;
     }
 
-    .titre-menu h3{
+    .titre-menu h2{
         font-size: 1.4rem;
     }
 
-    .prix-nb-quantite p{
+    .prix-nb-quantite h3{
         font-size: 1.1rem;
         font-weight: 400;
     }
@@ -1191,12 +1195,16 @@ Mobiles
         font-size: 1rem;
     }
 
-    .composition-menu h5{
+    .composition-menu h3{
         font-size: 1.2rem;
     }
 
     .composition-menu{
         width: 91%;
+    }
+
+    .conditions-menus h4{
+        font-size: 1rem;
     }
 
     .conditions-menus p{
@@ -1273,15 +1281,15 @@ Mobiles
         width: 80%;
     }
 
-    .composition-menu h5{
+    .composition-menu h3{
         font-size: 1rem;
     }
 
-    .composition-menu p{
+    .composition-menu h4{
         font-size: 0.9rem;
     }
 
-    .conditions-menus h6{
+    .conditions-menus h4{
         font-size: 0.9rem;
     }
 
@@ -1320,7 +1328,7 @@ Mobiles
         width: 95%;
     }
 
-    #init-filtres{
+    #init-filtres, .close-filtres{
         margin-top: 0.8rem;
         height: 2rem;
     }
@@ -1346,7 +1354,7 @@ Mobiles
         margin-bottom: 0 !important;
     }
 
-    .filtres h4{
+    .filtres h2{
         font-size: 1.1rem;
         border-bottom: 0;
     }
@@ -1455,7 +1463,7 @@ Mobiles
         flex-direction: column;
     }
 
-    .en-tete-carte-menu a , .en-tete-carte-menu h4 , .prix, .theme-regime, .texte-description, .img-nb-personne{
+    .en-tete-carte-menu a , .en-tete-carte-menu h2 , .prix, .theme-regime, .texte-description, .img-nb-personne{
         margin: auto;
     }
 
@@ -1495,7 +1503,7 @@ Mobiles
         width: 95%;
     }
 
-    #init-filtres{
+    #init-filtres ,.close-filtres{
         margin-top: 1.5rem;
         height: 2.75rem;
         margin-bottom: 1rem;
@@ -1533,7 +1541,7 @@ Mobiles
         margin-bottom: 0 !important;
     }
 
-    .filtres h4{
+    .filtres h2{
         font-size: 1.1rem;
         border-bottom: 0;
         margin-top: 1rem;
@@ -1579,7 +1587,7 @@ Mobiles
         margin-left: 0;
     }
 
-    .prix-nb-quantite p{
+    .prix-nb-quantite h3{
         font-size: 1rem;
         margin-bottom: 0.2rem !important;
     }

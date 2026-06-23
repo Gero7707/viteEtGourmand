@@ -797,11 +797,13 @@ a{text-decoration: none;}
     border-radius: 8px;
 }
 
-.section-profile-user h5, .section-commandes h5{
+.section-profile-user h2, .section-commandes h2{
     background-color: var(--dore);
     color: var(--bleu-tres-fonce);
     border-radius: 8px;
+    font-size: 1.5rem;
 }
+
 
 .donnees-user{
     margin: auto;
@@ -1239,6 +1241,9 @@ Mobiles
         font-size: 1rem;
     }
 
+    .section-profile-user h2 , .section-commandes h2{
+        font-size: 1.2rem;
+    }
 
 }
 

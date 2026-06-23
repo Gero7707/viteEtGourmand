@@ -12,7 +12,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php endif ?>
 
     <section class="section-profile-user mb-5">
-        <h5 class="text-center"><?= htmlspecialchars($user['prenom'])  ?> , voici vos données personnelles : </h5><br>
+        <h2 class="text-center"><?= htmlspecialchars($user['prenom'])  ?> , voici vos données personnelles : </h2><br>
         <div class="donnees-user">
             
             <p><span>Email</span> :  <?= htmlspecialchars($user['email'])  ?></p><br>
@@ -27,7 +27,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         </div>
     </section>
     <section class="section-commandes mb-5">
-        <h5 class="text-center">Vos commandes</h5>
+        <h2 class="text-center">Vos commandes</h2>
 
         <table class="tableau-commande">
             <thead>
@@ -50,7 +50,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                                             $commande['statut'])) ?>
                         </td>
                         <td>
-                            <a href="/commandes/<?= $commande['commande_id'] ?>"><i class="fa-solid fa-eye"></i></a>
+                            <a aria-label="Voir la commande" href="/commandes/<?= $commande['commande_id'] ?>"><i  aria-hidden="true" class="fa-solid fa-eye"></i></a>
                         </td>
                     </tr>
                 <?php endforeach ?>

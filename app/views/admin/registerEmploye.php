@@ -13,7 +13,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php endif ?>
     <div  class="d-flex justify-content-center ">
         <div class="d-flex flex-column justify-content-center form-contact mt-5">
-            <h3 class="text-center">Créer un compte employé</h3>
+            <h2 class="text-center">Créer un compte employé</h2>
             <form action="/admin/employe-register" method="POST" class="text-center">
                 <?= Auth::csrfField() ?>
                 <label class="form-label"  for="email">Email</label><br>

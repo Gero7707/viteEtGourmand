@@ -13,7 +13,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
     <div class="d-flex justify-content-center">
         <div class="d-flex flex-column justify-content-center form-contact">
-            <h3 class="text-center mt-3 mb-3">Modifier un menu</h3>
+            <h2 class="text-center mt-3 mb-3">Modifier un menu</h2>
             <form action="/menus/edit/<?= htmlspecialchars($menu['menu_id'])?>" method="POST" enctype="multipart/form-data" class="text-center">
                 <?= Auth::csrfField() ?>
                 <input type="hidden" name="menu_id" id="menu_id" value="<?= htmlspecialchars($menu['menu_id'])?>">

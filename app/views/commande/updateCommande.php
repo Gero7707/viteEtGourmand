@@ -43,7 +43,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
 
-        <h3 class="text-center ">Modifier otre commande</h3>
+        <h2 class="text-center ">Modifier otre commande</h2>
 
         <form action="/commandes/edit/<?= $commande['commande_id'] ?>" method="POST" class="text-center">
             <?= Auth::csrfField() ?>

@@ -17,7 +17,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
             <form action="/profile/edit" method="POST" class="text-center">
                 <?= Auth::csrfField() ?>
-                <h3 class="mt-3 mb-3 ">Modifier profil</h3>
+                <h2 class="mt-3 mb-3 ">Modifier profil</h2>
                 
 
                 <label class="form-label" for="email">Email :</label><br>

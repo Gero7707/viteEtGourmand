@@ -27,7 +27,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <hr>
     <p class="error-message mt-1 text-center"></p><br>
     <?php if ($_GET['success'] ?? null): ?>
-        <p class="success-message-php mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
+        <p class="success-message-php mt-1 text-center"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
     
     <div class="container-avis text-center mt-3">

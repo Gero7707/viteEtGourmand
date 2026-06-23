@@ -16,7 +16,6 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <h2 class="text-center ">Noter votre commande</h2>
             <form action="/avis/noter-commande/<?= $commande['commande_id'] ?>" method="POST" class="text-center ">
                 <?= Auth::csrfField() ?>
-                <label class="form-label"  for="note">Note :</label><br>
                 <input type="hidden" name="note" id="note" value="">
                 <div class="d-flex justify-content-center">
                     <div id="etoilesContainer">

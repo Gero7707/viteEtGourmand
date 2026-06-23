@@ -17,7 +17,6 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <form action="/avis/edit/<?= $avis['avis_id'] ?>" method="POST" class="text-center">
                 <?= Auth::csrfField() ?>
                 
-                <label class="form-label" for="note">Note</label><br>
                 <p>Vous avez donné la note : <?= htmlspecialchars($avis['note']) ?>/5</p>
                 
                 <input type="hidden" name="note" id="note" value="">

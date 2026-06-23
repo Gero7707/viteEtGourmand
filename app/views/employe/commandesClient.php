@@ -50,7 +50,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php endif ?>
 
     <section class="section-commandes-entreprise mt-3 mb-5">
-        <h4 class="text-center mb-4">Commandes Clients</h4>
+        <h2 class="text-center mb-4">Commandes Clients</h2>
         <table class="tableau-commande-entreprise" >
             <thead>
                 <tr>
@@ -78,7 +78,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                                             $commande['statut'])) ?>
                         </td>
                         <td>
-                            <a class="voir-commande-client" href="/commandes/<?= $commande['commande_id'] ?>"><i class="fa-solid fa-eye"></i></a>
+                            <a aria-label="Voir la commande" class="voir-commande-client" href="/commandes/<?= $commande['commande_id'] ?>"><i aria-hidden="true" class="fa-solid fa-eye"></i></a>
                         </td>
                         <td class=" d-none d-md-table-cell">
                             <?php if($commande['statut'] !== 'terminee' && $commande['statut'] !== 'annulee') : ?>

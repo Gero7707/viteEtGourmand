@@ -12,8 +12,8 @@
         <p><i class="fa-solid fa-phone"></i>0612345678</p>
     </div>
     <div class="d-flex reseaux">
-        <a href="https://www.instagram.com" aria-label="Notre page Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.facebook.com" aria-label="Notre page Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com" target="_blank" aria-label="Notre page Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com" target="_blank" aria-label="Notre page Facebook"><i class="fa-brands fa-facebook"></i></a>
     </div>
     <div class="d-flex mentions mt-4">
         <a href="/mentions-legales">Mentions légales</a>

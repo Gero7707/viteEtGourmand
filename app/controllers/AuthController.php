@@ -92,7 +92,19 @@ class AuthController{
             if(count($attempts) >= 5 && $user){
                 $error = "Vous avez tenté de vous connecter plus de 5 fois sans succés , par sécurité vous devez réessyer ultérieurement !";
                 $subject = "Tentatives de connexions ratées !";
-                $body = "Vous avez 5 tentatives de connexion infructueuses à votre compte ! Si c'est un oubli, veuillez modifier votre mot de passe . ";
+                $conclusion = "<p>Vous avez 5 tentatives de connexion infructueuses à votre compte ! </p>
+                <p>Si c'est un oubli,ou si ce n'est pas vous qui êtes à l'origine des tentatives de connexion ,  veuillez modifier votre mot de passe .</p> ";
+
+                $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 
+                    alt="Vite &amp; Gourmand" 
+                    width="600" 
+                    style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+                $imageBas = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/cuistot.jpg" 
+                    alt="Vite &amp; Gourmand" 
+                    width="600" 
+                    style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+                    
+                $body =$imageHaut . $conclusion . $imageBas;
                 $this->mailService->sendEmail($user['email'],$subject,$body);
                 header('location: /?error=' . urlencode($error));
                 exit();

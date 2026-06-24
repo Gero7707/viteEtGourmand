@@ -144,7 +144,20 @@ class AdminController{
         $id = $this->users->createEmploye($data);
 
         $titre = "Votre compte employé .";
-        $message = "Bonjour . Votre compte employé a été créé . Veuillez vous rapprocher de votre administrateur afin de récupérer votre mot de passe . ";
+
+        $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 
+            alt="Vite &amp; Gourmand" 
+            width="600" 
+            style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+        $imageBas = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/cuistot.jpg" 
+            alt="Vite &amp; Gourmand" 
+            width="600" 
+            style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+        $conclusion ="<p>Bonjour . Votre compte employé a été créé . </p> 
+        <p>Veuillez vous rapprocher de votre administrateur afin de récupérer votre mot de passe . </p>";
+        
+        $message = $imageHaut . $conclusion . $imageBas;
         $this->mail->sendEmail($email, $titre, $message);
 
         $successMessage = "Le compte employé a été créé avec succès .";

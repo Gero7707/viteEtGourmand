@@ -22,8 +22,7 @@ class MongoModel{
         return $cursor->toArray();
     }
 
-    public function getCAParMenu(array $filtres): array
-{
+    public function getCAParMenu(array $filtres): array{
         $collection = MongoDatabase::getInstance()->getCollection('commandes');
         
         // On construit le pipeline dynamiquement
@@ -34,8 +33,14 @@ class MongoModel{
         if (!empty($filtres['menu'])) {
             $match['menu_titre'] = $filtres['menu'];
         }
-        if (!empty($filtres['mois'])) {
-            // $regex permet de filtrer sur le début de la date ex: "2026-01"
+        if (!empty($filtres['date_debut']) && !empty($filtres['date_fin'])) {
+            // plage de dates — prioritaire
+            $match['date_terminee'] = [
+                '$gte' => $filtres['date_debut'],
+                '$lte' => $filtres['date_fin'] . ' 23:59:59'
+            ];
+        } elseif (!empty($filtres['mois'])) {
+            // filtre par mois
             $match['date_terminee'] = ['$regex' => $filtres['mois']];
         }
         if (!empty($match)) {

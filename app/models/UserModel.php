@@ -148,4 +148,19 @@ class UserModel{
         return $stmt->execute();
     }
 
+    public function supprimerCompteUtilisateur(int $id): void{
+        $stmt = $this->pdo->prepare("UPDATE utilisateur 
+                                    SET nom = 'COMPTE_SUPPRIME',
+                                        prenom = 'COMPTE_SUPPRIME', 
+                                        email = CONCAT('supprime_', utilisateur_id, '@supprime.fr'),
+                                        gsm = NULL,
+                                        adresse = NULL,
+                                        ville = NULL,
+                                        code_postal = NULL,
+                                        password = 'COMPTE_SUPPRIME'
+                                    WHERE utilisateur_id = :id");
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
 }

@@ -41,7 +41,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
     <?php endif ?>
 
-        <h3 class="text-center ">Votre commande</h3>
+        <h2 class="text-center ">Votre commande</h2>
 
         <form action="/commandes/create" method="POST" class="text-center">
             <?= Auth::csrfField() ?>

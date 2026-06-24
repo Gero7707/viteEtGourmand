@@ -27,7 +27,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <hr>
 
     <section class="admin-dashboard mb-5">
-        <h4 class="text-center mb-3">Employés</h4>
+        <h2 class="text-center mb-3">Employés</h2>
         <a href="/admin/employe-register" class="creer-employe">Créer compte employé</a>
             <table class="tableau-dashboard-admin mt-4 mb-4">
                 <thead>
@@ -38,7 +38,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         <th>Téléphone</th>
                         <th class="col-desktop">Ville</th>
                         <th class="col-desktop">Actif</th>
-                        <th>Actif</th>
+                        <th></th>
                         <th>Modif</th>
                     </tr>
                 </thead>
@@ -55,17 +55,17 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                 <?php if($employe['actif'] === 1) : ?>
                                     <form action="/admin/desactiver/<?= htmlspecialchars($employe['utilisateur_id']) ?>" method="POST">
                                         <?= Auth::csrfField() ?>
-                                        <button type="submit"><i class="fa-solid fa-toggle-off"></i></button>
+                                        <button aria-label="Désactiver l'employé"  type="submit"><i class="fa-solid fa-toggle-off" aria-hidden="true"></i></button>
                                     </form>
                                 <?php elseif($employe['actif'] === 0) : ?>
                                     <form action="/admin/activer/<?= htmlspecialchars($employe['utilisateur_id']) ?>" method="POST">
                                         <?= Auth::csrfField() ?>
-                                        <button type="submit"><i class="fa-solid fa-toggle-on"></i></button>
+                                        <button aria-label="Activer l'employé"  type="submit"><i class="fa-solid fa-toggle-on" aria-hidden="true" ></i></button>
                                     </form>
                                 <?php endif ?>
                             </td>
                             <td>
-                                <a class="modif-profil-employe px-2" href="/admin/update-employe/<?= htmlspecialchars($employe['utilisateur_id']) ?>"><i class="fa-solid fa-pencil"></i></a>
+                                <a aria-label="Modifier profil employé" class="modif-profil-employe px-2" href="/admin/update-employe/<?= htmlspecialchars($employe['utilisateur_id']) ?>"><i aria-hidden="true" class="fa-solid fa-pencil"></i></a>
                             </td>
                         </tr>
                     <?php endforeach ?>
@@ -88,7 +88,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     </div>
 
     <div class="dashboard-commandes mt-4 mb-4">
-        <h4 class="text-center mb-4">Commandes Clients</h4>
+        <h2 class="text-center mb-4">Commandes Clients</h2>
         <table class="tableau-commande-entreprise">
             <thead>
                 <tr>
@@ -112,7 +112,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                                             $commande['statut'])) ?>
                         </td>
                         <td>
-                            <a class="voir-commande-client" href="/commandes/<?= $commande['commande_id'] ?>"><i class="fa-solid fa-eye"></i></a>
+                            <a aria-label="Voir la commande" class="voir-commande-client" href="/commandes/<?= $commande['commande_id'] ?>"><i aria-hidden="true" class="fa-solid fa-eye"></i></a>
                         </td>
                     </tr>
                 <?php endforeach ?>
@@ -122,7 +122,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     
     <section class="mt-5 mb-1 section-graphique">
         <h2 class="text-center">Statistiques</h2>
-        <h4 class="text-center">Commandes par menu :</h4>
+        <h3 class="text-center">Commandes par menu :</h3>
         <div class="conteneur-graphique">
             <canvas id="graphiqueCommandes" data-commandes="<?= htmlspecialchars(json_encode($commandesParMenu)) ?>"></canvas>
         </div>
@@ -130,8 +130,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
     </section>
 
     <section class="section-chiffre-affaire mb-5 p-5">
-        <h4 class="text-center">Chiffre d'affaires :</h4>
+        <h3 class="text-center">Chiffre d'affaires :</h3>
         <form method="GET" action="/admin/dashboard" class="d-flex flex-column align-items-center" id="formulaire-ca">
+            <label for="filtre-menu">Menu : </label>
             <select name="menu" id="filtre-menu">
                 <option value="">Tous les menus</option>
                 <?php foreach($caParMenu as $ligne) : ?>
@@ -141,14 +142,19 @@ require_once __DIR__ . '/../../views/layout/header.php';
                     </option>
                 <?php endforeach ?>
             </select>
-
+            <label for="filtre-mois">Mois :</label>
             <input type="month" name="mois" id="filtre-mois" value="<?= htmlspecialchars($_GET['mois'] ?? '') ?>">
+            <label for="date_debut">Début :</label>
+            <input type="date" name="date_debut" id="date_debut">
+            <label for="date_fin">Fin :</label>
+            <input type="date" name="date_fin" id="date_fin">
 
             <button class="filtre-ca" type="submit">Filtrer</button>
             <button  class="lien-reset" type="button">Réinitialiser</button>
         </form>
         <p class="error-message mt-1 text-center"></p>
         <table>
+            <caption class="visually-hidden">Chiffre d'affiares par menu</caption>
             <thead>
                 <tr>
                     <th>Menu</th>

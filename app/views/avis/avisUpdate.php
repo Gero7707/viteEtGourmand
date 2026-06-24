@@ -13,11 +13,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <p class="error-message mt-1 text-center"></p><br>
     <div  class="d-flex justify-content-center ">
         <div class="d-flex flex-column justify-content-center form-contact mt-5">
-            <h3 class="text-center">Modifier votre avis</h3>
+            <h2 class="text-center">Modifier votre avis</h2>
             <form action="/avis/edit/<?= $avis['avis_id'] ?>" method="POST" class="text-center">
                 <?= Auth::csrfField() ?>
                 
-                <label class="form-label" for="note">Note</label><br>
                 <p>Vous avez donné la note : <?= htmlspecialchars($avis['note']) ?>/5</p>
                 
                 <input type="hidden" name="note" id="note" value="">

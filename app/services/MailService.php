@@ -51,27 +51,66 @@ class MailService{
         $this->mail->isSMTP();
 
         // Credentials SMTP lus depuis les variables d'environnement
-        $this->mail->Host     = getenv('MAIL_HOST');
+        $this->mail->Host     = getenv('MAILTRAP_HOST');
         $this->mail->SMTPAuth = true;
-        $this->mail->Username = getenv('MAIL_USER');
-        $this->mail->Password = getenv('MAIL_PASS');
-        $this->mail->Port     = getenv('MAIL_PORT');
+        $this->mail->Username = getenv('MAILTRAP_USERNAME');
+        $this->mail->Password = getenv('MAILTRAP_PASSWORD');
+        $this->mail->Port     = getenv('MAILTRAP_PORT');
 
         // Expéditeur affiché dans le client mail du destinataire
         // À personnaliser selon le projet
-        $this->mail->setFrom('vince.63@outlook.fr', 'Vite & Gourmand');
+        $this->mail->setFrom('noreply@monapp.com', 'MonApp');
 
         // Destinataire
         $this->mail->addAddress($to);
         
         $this->mail->isHTML(true);
         $this->mail->CharSet = 'UTF-8';
-
+        $this->mail->Body = $this->wrapBody($body);
         // Contenu — subject et body passés en paramètres pour la réutilisabilité
         $this->mail->Subject = $subject;
-        $this->mail->Body    = $body;
 
         // Envoi — lève une PHPMailer\Exception en cas d'échec SMTP
         $this->mail->send();
+    }
+
+    private function wrapBody(string $message): string{
+        $body = <<<HTML
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f4f4f4;">
+                    <tr>
+                        <td align="center" style="padding: 24px 12px;">
+
+                            <!-- conteneur centré, largeur max 600px -->
+                            <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 8px;">
+
+                                <!-- en-tête -->
+                                <tr>
+                                    <td align="center" style="background-color: #1a2238; padding: 24px; border-radius: 8px 8px 0 0;">
+                                        <span style="color: #d4af37; font-family: Arial, Helvetica, sans-serif; font-size: 24px; font-weight: bold;">Vite &amp; Gourmand</span>
+                                    </td>
+                                </tr>
+
+                                <!-- corps -->
+                                <tr>
+                                    <td  style="padding: 32px 24px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.5; color: #333333;">
+                                    <!-- ton message ici -->
+                                        {$message}
+                                    </td>
+                                </tr>
+
+                                <!-- pied -->
+                                <tr>
+                                    <td align="center" style="padding: 16px 24px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #888888;">
+                                        Vite &amp; Gourmand — Bordeaux
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </td>
+                    </tr>
+                </table>
+            HTML;
+        return $body;
     }
 }

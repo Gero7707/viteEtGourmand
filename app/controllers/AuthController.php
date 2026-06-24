@@ -92,7 +92,19 @@ class AuthController{
             if(count($attempts) >= 5 && $user){
                 $error = "Vous avez tenté de vous connecter plus de 5 fois sans succés , par sécurité vous devez réessyer ultérieurement !";
                 $subject = "Tentatives de connexions ratées !";
-                $body = "Vous avez 5 tentatives de connexion infructueuses à votre compte ! Si c'est un oubli, veuillez modifier votre mot de passe . ";
+                $conclusion = "<p>Vous avez 5 tentatives de connexion infructueuses à votre compte ! </p>
+                <p>Si c'est un oubli,ou si ce n'est pas vous qui êtes à l'origine des tentatives de connexion ,  veuillez modifier votre mot de passe .</p> ";
+
+                $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 
+                    alt="Vite &amp; Gourmand" 
+                    width="600" 
+                    style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+                $imageBas = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/cuistot.jpg" 
+                    alt="Vite &amp; Gourmand" 
+                    width="600" 
+                    style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+                    
+                $body =$imageHaut . $conclusion . $imageBas;
                 $this->mailService->sendEmail($user['email'],$subject,$body);
                 header('location: /?error=' . urlencode($error));
                 exit();
@@ -184,7 +196,40 @@ class AuthController{
         ];
         
         $id = $this->users->createUser($data);
-        header('location: /auth/login');
+        $titre = "Votre compte a été créé ! .";
+
+        $lien = getenv('APP_URL') . '/auth/login';
+            $bouton = '
+                <div style="text-align: center; padding: 24px 0;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td align="center" style="background-color: #d4af37; border-radius: 6px;">
+                        <a href="' . $lien . '" target="_blank"
+                            style="display: inline-block; padding: 14px 28px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; color: #1a2238; text-decoration: none;">
+                            Connexion
+                        </a>
+                        </td>
+                    </tr>
+                    </table>
+                </div>';
+
+        $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 
+            alt="Vite &amp; Gourmand" 
+            width="600" 
+            style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+        $imageBas = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/cuistot.jpg" 
+            alt="Vite &amp; Gourmand" 
+            width="600" 
+            style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+        $conclusion ="<p>Bonjour . Votre compte  a été créé . </p> 
+        <p>Merci pour votre confiance . Vous pouvez vous connecter via ce lien et commander les menus qui vous plaisent .  </p>
+        <p>Vite &amp; Gourmand vous souhaite une bonne journée. </p> ";
+        
+        $message = $imageHaut . $conclusion . $bouton. $imageBas;
+        $this->mailService->sendEmail($email, $titre, $message);
+        $succesMessage = "Votre compte a été créé avec succes .";
+        header('location: /auth/login?success=' . urlencode($succesMessage));
         exit();
     }
 

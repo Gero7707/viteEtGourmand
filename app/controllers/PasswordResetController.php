@@ -35,10 +35,36 @@ class PasswordResetController{
         if($findEmail){
             $subject = "Réinitialisation de mot de passe .";
             $token = bin2hex(random_bytes(32));
-            $body = 'Cliquez sur ce lien : '. getenv('APP_URL') .'/auth/reset-password?token=' . $token;
+            $lien = getenv('APP_URL') .'/auth/reset-password?token='. $token;
+            $bouton = '
+            <div style="text-align: center; padding: 24px 0;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td align="center" style="background-color: #d4af37; border-radius: 6px;">
+                        <a href="' . $lien . '" target="_blank"
+                            style="display: inline-block; padding: 14px 28px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; color: #1a2238;text-decoration: none;">
+                            Changer Mot de passe
+                        </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>';
+
+            $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 
+                    alt="Vite &amp; Gourmand" 
+                    width="600" 
+                    style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+            $imageBas = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/cuistot.jpg" 
+                    alt="Vite &amp; Gourmand" 
+                    width="600" 
+                    style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+            $conclusion = '<p>Cliquez sur ce lien : </p> ';
+            $body =$imageHaut . $conclusion . $bouton   . $imageBas;
             $expires = date('Y-m-d H:i:s', time() + 3600);
             $this->users->saveResetToken($email, $token, $expires);
             $this->mailService->sendEmail($email,$subject,$body);
+
             $successMessage = "Lien lien de réinitialisation a été envoyé ! Verifiez votre boîte de reception .";
             header('location: /auth/login?success='  . urlencode($successMessage));
             exit();
@@ -52,7 +78,7 @@ class PasswordResetController{
 
     public function resetPasswordForm(){
         $token = $_GET['token'] ?? '';
-        $this->horaire->getHoraire();
+        $horaire = $this->horaire->getHoraire();
         require_once __DIR__ . '/../views/auth/resetPassword.php';
     }
     public function resetPassword(){

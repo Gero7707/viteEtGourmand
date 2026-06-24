@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../models/UserModel.php';
 require_once __DIR__ . '/../models/HoraireModel.php';
 require_once __DIR__ . '/../models/CommandeModel.php';
+require_once __DIR__ . '/../services/MailService.php';
 
 
 class ProfileController{
@@ -11,10 +12,13 @@ class ProfileController{
 
     private CommandeModel $commandes;
 
+    private MailService $mailService;
+
     public function __construct(){
         $this->horaire = new HoraireModel();
         $this->user = new UserModel();
         $this->commandes = new CommandeModel();
+        $this->mailService = new MailService();
     }
 
     public function showProfile(){
@@ -69,7 +73,6 @@ class ProfileController{
         $adresse = trim($_POST['adresse']);
         $codePostal = trim($_POST['code_postal']);
 
-        
         $this->user->updateUser($id,$nom,$prenom,$email,$gsm,$ville,$adresse,$codePostal);
         $_SESSION['email'] = $email;
         $_SESSION['prenom'] = $prenom;
@@ -79,6 +82,48 @@ class ProfileController{
         $_SESSION['code_postal'] = $codePostal;
         $succesMessage = "Votre profil a été mis à jour avec succès .";
         header('location: /profile?success='  . urlencode($succesMessage));
+        exit();
+    }
+
+    public function showSupprimerProfil(){
+        Auth::checkAuth();
+        $horaire = $this->horaire->getHoraire();
+        require_once __DIR__ . '/../views/auth/supprimerProfil.php';
+    }
+
+    public function supprimerProfil(){
+        Auth::checkAuth();
+        Auth::verifyCsrfToken();
+        $id = $_SESSION['utilisateur_id'];
+        $email = $_SESSION['email'];
+        $this->user->supprimerCompteUtilisateur($id);
+
+        $titre = 'Votre profil a été supprimé !';
+            
+        $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 
+                alt="Vite &amp; Gourmand" 
+                width="600" 
+                style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+        $imageBas = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/cuistot.jpg" 
+                alt="Vite &amp; Gourmand" 
+                width="600" 
+                style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+        $nom = $_SESSION['prenom'] . ' ' . $_SESSION['nom'];
+
+        $conclusion = "<p>Bonjour {$nom}, votre compte chez Vite &amp; Gourmand a été supprimé. </p>
+        <p>Nous sommes vraiment désolé de vous voir partir .</p>
+        <p>Vos données personnelles ont été supprimées de notre  base de données . </p>
+        <p>Cependant les données concernant vos commandes sont conservées pendant dix ans en respectant le rgpd. </p>
+        <p>Vite &amp; Gourmand vous souhaite une bonne journée. </p>";
+        $message =$imageHaut .  $conclusion . $imageBas;
+
+        $this->mailService->sendEmail($email , $titre , $message);
+
+        session_destroy();
+        $succesMessage = "Votre profil a été supprimé avec succès .";
+        header('location: /?success='  . urlencode($succesMessage));
         exit();
     }
 }

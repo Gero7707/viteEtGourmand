@@ -101,6 +101,13 @@ class MenuModel{
         $stmt->execute();
     }
 
+    public function updateQuantiteRestante(int $menuId, int $nombrePersonne): void{
+        $stmt = $this->pdo->prepare("UPDATE menu SET quantite_restante = quantite_restante - :nombre_personne WHERE menu_id = :menu_id");
+        $stmt->bindValue(':menu_id' , $menuId , PDO::PARAM_INT);
+        $stmt->bindValue(':nombre_personne' , $nombrePersonne , PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
     public function deleteImage(int $id){
         $stmt = $this->pdo->prepare("DELETE FROM image_menu WHERE menu_id = :id");
         $stmt->bindValue(':id', $id , PDO::PARAM_INT);

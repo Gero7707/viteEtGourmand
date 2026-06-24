@@ -12,14 +12,14 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php endif ?>
     <div  class="d-flex justify-content-center ">
         <div class="d-flex flex-column justify-content-center form-contact mt-5">
-            <h3 class="text-center">Modifier profil employé</h3>
+            <h2 class="text-center">Modifier profil employé</h2>
             <form action="/admin/update-employe/<?= htmlspecialchars($user['utilisateur_id']) ?>" method="POST" class="text-center">
                 <?= Auth::csrfField() ?>
 
                 <label class="form-label" for="email">Email</label><br>
                 <input class="form-control" type="email" name="email" id="email" value="<?= htmlspecialchars($user['email'] ?? '') ?>"><br>
 
-                <label  class="form-label" for="name">Nom</label><br>
+                <label  class="form-label" for="nom">Nom</label><br>
                 <input  class="form-control" type="text" name="nom" id="nom" value="<?= htmlspecialchars($user['nom'] ?? '') ?>"><br>
 
                 <label  class="form-label" for="prenom">Prénom</label><br>
@@ -31,7 +31,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <label  class="form-label" for="ville">Ville</label><br>
                 <input  class="form-control" type="text" name="ville" id="ville" value="<?= htmlspecialchars($user['ville'] ?? '') ?>"><br>
 
-                <label  class="form-label" for="adress">Adresse</label><br>
+                <label  class="form-label" for="adresse">Adresse</label><br>
                 <input  class="form-control" type="text" name="adresse" id="adresse" value="<?= htmlspecialchars($user['adresse'] ?? '') ?>"><br>
 
                 <label  class="form-label" for="code_postal">Code postal</label><br>

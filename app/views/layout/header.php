@@ -6,11 +6,23 @@
     <title><?= htmlspecialchars($pageTitle ?? 'Vite & Gourmand — Traiteur événementiel à Bordeaux') ?></title>
     <meta name="description" content="<?= htmlspecialchars($pageDescription ?? 'Traiteur événementiel bordelais. Menus raffinés pour mariages, séminaires et réceptions. Commandez en ligne.') ?>">
     <meta name="theme-color" content="#1B2A4A">
+    <meta name="apple-mobile-web-app-title" content="V&G" />
+
+    <meta property="og:title" content="Vite & Gourmand">
+    <meta property="og:description" content="Traiteur événementiel bordelais. Menus raffinés pour mariages, séminaires et réceptions. Commandez en ligne.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://restaurationviteetgourmand.alwaysdata.net/">
+    <meta property="og:image" content="https://restaurationviteetgourmand.alwaysdata.net/assets/img/cuistot.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    
+    
     <link rel="icon" type="image/png" href="/assets/img/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
     <link rel="shortcut icon" href="/assets/img/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="V&G" />
+    
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +51,7 @@
     
     <header class="bg-primary">
         
-        <p class="titre text-secondary">Vite & Gourmand</p>
+        <h1 class="titre text-secondary">Vite & Gourmand</h1>
         <ul class="d-flex lien-header lien-slide" >
             <li><a href="/">Accueil</a></li>
             <li><a href="/menus">Nos menus</a></li>
@@ -59,11 +71,11 @@
         </div>
 
         <div class="dropdown ">
-            <a class="btn  " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="btn  " href="#" role="button" aria-label="Menu de navigation" data-bs-toggle="dropdown" aria-expanded="false">
                 <?php if(!isset($_SESSION['utilisateur_id']) || $_SESSION['role_id'] === 1): ?>
-                    <i class="fa-solid fa-bars"></i>
+                    <i aria-hidden="true" class="fa-solid fa-bars"></i>
                 <?php elseif($_SESSION['role_id'] === 2  || $_SESSION['role_id'] === 3) : ?>
-                    <i class="fa-solid fa-utensils"></i>
+                    <i aria-hidden="true" class="fa-solid fa-utensils"></i>
                 <?php endif ?>
             </a>
 
@@ -72,7 +84,7 @@
                     <li><a class="dropdown-item" href="/auth/login">Connexion</a></li>
                     <li><a class="dropdown-item" href="/auth/register">Créer un compte</a></li>
                 <?php elseif(isset($_SESSION['utilisateur_id'])) : ?>
-                    <li><a class="dropdown-item" href="/auth/logout">Déconnexion</a></li>
+                    <li><a aria-hidden="true" class="dropdown-item" href="/auth/logout">Déconnexion</a></li>
                     <?php if($_SESSION['role_id'] === 1) : ?>
                         <li><a class="dropdown-item" href="/profile">Voir profil</a></li>
                     <?php endif ?>

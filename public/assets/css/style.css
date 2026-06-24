@@ -21,7 +21,7 @@
     --secondaire : #666666;
     --placeholder : #6b6b6b;
     --bordure : #e8e8e8;
-    --fond-carte : #f5f5f5;
+    --fond-carte : #e5eff7;
     --bs-body-bg: #f5f5f5; /*variable bootstrap*/
     --fond-plus-clair : #fafafa;
 
@@ -262,11 +262,23 @@ a{text-decoration: none;}
     color: var(--texte);
 }
 
-.lien-intro, .avis ,.commander a , .modif-profil a{
+.lien-intro, .avis ,.commander a , .modif-profil a {
     border-radius: 8px;
     font-size: 1.5rem;
     display: block;
     text-align: center;
+}
+
+.supprimer-profil a{
+    font-size: 1.2rem;
+    display: block;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.supprimer-profil a:hover{
+    background-color: var(--input-form);
+    color: var(--bleu-tres-fonce);
 }
 
 .lien-intro, .avis{
@@ -436,6 +448,10 @@ a{text-decoration: none;}
     width: 45%;
 }
 
+.en-tete-carte-menu h2{
+    font-size: 1.5rem;
+}
+
 .en-tete-carte-menu a{
     background-color: var(--bs-secondary);
     padding: 0.3rem;
@@ -453,12 +469,12 @@ a{text-decoration: none;}
 
 .prix{
     margin-left: auto;
-    color: var(--bs-secondary);
+    color: var(--dore-fond-clair);
     width: 50%;
 
 }
 
-.prix p{
+.prix h3{
     font-size: 1.25rem;
 }
 
@@ -674,7 +690,7 @@ a{text-decoration: none;}
 }
 .section-detail{
     width: 94%;
-    background-color: var(--bleu-nuit);
+    border-top: 1px solid rgba(42, 63, 106, 0.068);
     padding: 1.5rem;
     border-radius: 8px;
     margin: auto;
@@ -693,13 +709,13 @@ a{text-decoration: none;}
     margin-left: auto;
 }
 
-.prix-nb-quantite p{
+.prix-nb-quantite h3{
     font-size: 1.2rem;
     font-weight: 500;
 }
 
 .prix-nb-quantite :nth-child(2){
-    color: var(--dore);
+    color: var(--dore-fond-clair);
 }
 
 .description{
@@ -719,11 +735,11 @@ a{text-decoration: none;}
     box-shadow: var(--shadow);
 }
 
-.composition-menu p{
+.composition-menu h4{
     font-size: 1.2rem;
 }
 
-.composition-menu h5{
+.composition-menu h3{
     text-decoration: underline;
 }
 
@@ -761,7 +777,7 @@ a{text-decoration: none;}
 }
 
 .commander p{
-    color: var(--fond-plus-clair);
+    color: var(--texte);
     text-align: center;
     margin-top: 1rem;
 }
@@ -793,11 +809,13 @@ a{text-decoration: none;}
     border-radius: 8px;
 }
 
-.section-profile-user h5, .section-commandes h5{
+.section-profile-user h2, .section-commandes h2{
     background-color: var(--dore);
     color: var(--bleu-tres-fonce);
     border-radius: 8px;
+    font-size: 1.5rem;
 }
+
 
 .donnees-user{
     margin: auto;
@@ -809,7 +827,6 @@ a{text-decoration: none;}
 }
 
 .donnees-user span{
-    text-decoration: underline;
     font-weight: bold;
 }
 
@@ -817,10 +834,48 @@ a{text-decoration: none;}
     text-align: center;
 }
 
-.modif-profil a {
+.modif-profil a  {
     background-color: var(--dore);
     color: var(--bleu-tres-fonce);
     margin: auto !important;
+}
+
+.supprimer-profil a{
+    background-color: var(--danger-bg);
+    color: var(--texte);
+    margin: auto !important;
+}
+
+.suppress-container, .suppress-modal{
+    margin: auto;
+    width: 30%;
+    border-radius: 8px;
+    background-color: var(--fond-carte);
+    box-shadow: var(--shadow);
+    margin-bottom: 10rem;
+    margin-top: 10rem;
+    padding: 2rem;
+}
+
+.suppress-container button:hover,  .suppress-modal button:hover{
+    background-color: var(--bs-danger);
+    color: var(--fond-carte);
+}
+
+.suppress-container h2 , .suppress-modal h2{
+    background-color: var(--bleu-moyen);
+    color: var(--fond-plus-clair);
+    border-radius: 8px;
+    padding: 0.2rem;
+}
+
+.suppress{
+    display: none;
+}
+
+.annuler-suppress:hover{
+    background-color: var(--bs-success);
+    color: var(--fond-carte);
 }
 
 .tableau-commande {
@@ -849,20 +904,19 @@ tr {
 /* =================================================================================================================================================================================== */
 /* Commandes client */
 
-.section-commande-client h3{
+.section-commande-client h2{
     background-color: var(--dore);
     color: var(--bleu-tres-fonce);
     border-radius: 8px;
 }
 
-.section-commande-client h4{
+.section-commande-client h3{
     background-color: var(--bs-info);
     color: var(--fond-carte);
     border-radius: 8px;
 }
 
 .section-commande-client span{
-    text-decoration: underline;
     font-weight: bold;
 }
 
@@ -905,7 +959,7 @@ tr {
     margin: auto;
 }
 
-.section-commandes-entreprise h4 , .admin-dashboard h4 , .dashboard-commandes h4{
+.section-commandes-entreprise h2 , .admin-dashboard h2 , .dashboard-commandes h2{
     background-color: var(--dore);
     border-radius: 8px;
 }
@@ -992,11 +1046,12 @@ tr {
     box-shadow: var(--shadow);
 }
 
-.carte-plat h5{
+.carte-plat h2{
     background-color: var(--bleu-moyen);
     color: var(--fond-plus-clair);
     padding: 0.5rem;
     border-radius: 8px 8px 0 0;
+    font-size: 1rem;
 
 }
 
@@ -1014,12 +1069,11 @@ tr {
 
 .catre-allergene span, .titre-plat span{
     font-weight: bold;
-    text-decoration: underline;
 }
 
 .modifier a{
     display: block;
-    color: var(--dore);
+    color: var(--dore-fond-clair);
 }
 
 .modifier a:hover{
@@ -1054,7 +1108,11 @@ tr {
     margin-bottom: 3rem;
 }
 
-.container h1 , .container h2{
+.container a {
+    color: var(--dore-fond-clair);
+}
+
+.container h2{
     background-color: var(--dore);
     border-radius: 8px;
     margin-bottom: 2rem;
@@ -1068,7 +1126,7 @@ tr {
 }
 
 .container h4 {
-    background-color: #63a2eb;
+    background-color: var(--dore-fond-clair);
     color: var(--fond-plus-clair);
     border-radius: 8px;
     margin-bottom: 2rem;
@@ -1141,7 +1199,7 @@ Mobiles
 
     
 
-    .filtres h4{
+    .filtres h2{
     margin-top: 0 !important;
     }
 
@@ -1158,7 +1216,7 @@ Mobiles
         margin: auto;
     }
 
-    .filtres h4{
+    .filtres h2{
     margin-top: 0 !important;
     }
 
@@ -1170,11 +1228,11 @@ Mobiles
         margin-bottom: 0.5rem !important;
     }
 
-    .titre-menu h3{
+    .titre-menu h2{
         font-size: 1.4rem;
     }
 
-    .prix-nb-quantite p{
+    .prix-nb-quantite h3{
         font-size: 1.1rem;
         font-weight: 400;
     }
@@ -1191,12 +1249,16 @@ Mobiles
         font-size: 1rem;
     }
 
-    .composition-menu h5{
+    .composition-menu h3{
         font-size: 1.2rem;
     }
 
     .composition-menu{
         width: 91%;
+    }
+
+    .conditions-menus h4{
+        font-size: 1rem;
     }
 
     .conditions-menus p{
@@ -1231,7 +1293,13 @@ Mobiles
         font-size: 1rem;
     }
 
+    .section-profile-user h2 , .section-commandes h2{
+        font-size: 1.2rem;
+    }
 
+    .suppress-container{
+        width: 50%;
+    }
 }
 
 @media (max-width: 1199.99px){
@@ -1273,15 +1341,15 @@ Mobiles
         width: 80%;
     }
 
-    .composition-menu h5{
+    .composition-menu h3{
         font-size: 1rem;
     }
 
-    .composition-menu p{
+    .composition-menu h4{
         font-size: 0.9rem;
     }
 
-    .conditions-menus h6{
+    .conditions-menus h4{
         font-size: 0.9rem;
     }
 
@@ -1305,7 +1373,9 @@ Mobiles
         width: 75%;
     }
 
-    
+    .suppress-container{
+        width: 50%;
+    }
 }
 
 @media (max-width: 991.9px){
@@ -1320,7 +1390,7 @@ Mobiles
         width: 95%;
     }
 
-    #init-filtres{
+    #init-filtres, .close-filtres{
         margin-top: 0.8rem;
         height: 2rem;
     }
@@ -1346,7 +1416,7 @@ Mobiles
         margin-bottom: 0 !important;
     }
 
-    .filtres h4{
+    .filtres h2{
         font-size: 1.1rem;
         border-bottom: 0;
     }
@@ -1455,7 +1525,7 @@ Mobiles
         flex-direction: column;
     }
 
-    .en-tete-carte-menu a , .en-tete-carte-menu h4 , .prix, .theme-regime, .texte-description, .img-nb-personne{
+    .en-tete-carte-menu a , .en-tete-carte-menu h2 , .prix, .theme-regime, .texte-description, .img-nb-personne{
         margin: auto;
     }
 
@@ -1495,7 +1565,7 @@ Mobiles
         width: 95%;
     }
 
-    #init-filtres{
+    #init-filtres ,.close-filtres{
         margin-top: 1.5rem;
         height: 2.75rem;
         margin-bottom: 1rem;
@@ -1533,7 +1603,7 @@ Mobiles
         margin-bottom: 0 !important;
     }
 
-    .filtres h4{
+    .filtres h2{
         font-size: 1.1rem;
         border-bottom: 0;
         margin-top: 1rem;
@@ -1579,7 +1649,7 @@ Mobiles
         margin-left: 0;
     }
 
-    .prix-nb-quantite p{
+    .prix-nb-quantite h3{
         font-size: 1rem;
         margin-bottom: 0.2rem !important;
     }
@@ -1686,5 +1756,9 @@ Mobiles
 
     #graphiqueCommandes {
         height: 13rem;
+    }
+
+    .suppress-container, .suppress-modal{
+        width: 95%;
     }
 }

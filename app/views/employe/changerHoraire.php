@@ -15,7 +15,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <div class="d-flex justify-content-around horaires-container" >
 
         <div class=" flex-column justify-content-center form-horaire">
-            <h3 class="text-center mt-3 mb-3">Changer les horiares</h3>
+            <h2 class="text-center mt-3 mb-3">Changer les horiares</h2>
             <form action="/changer-horaire" method="POST" class="text-center">
                 <?= Auth::csrfField() ?>
                 <?php foreach($horaireRaw as $heur) : ?>
@@ -40,7 +40,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         </div>
 
         <div class=" text-center form-horaire pb-4 mb-5">
-            <h4 class="mt-3 mb-3">Ajouter un jour de travail</h4>
+            <h3 class="mt-3 mb-3">Ajouter un jour de travail</h3>
             <form action="/ajout-jour" method="POST">
                 <?= Auth::csrfField() ?>
                 <?php foreach($jourManquants  as $jourManquant) : ?>
@@ -57,12 +57,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
             </form>
         
             <div class="d-flex flex-column align-items-center">
-                <h4 class="mt-3 mb-3">Supprimer un jour</h4>
+                <h3 class="mt-3 mb-3">Supprimer un jour</h3>
                 <table>
                     <thead>
                         <tr>
                             <th>Jour</th>
-                            <th></th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>

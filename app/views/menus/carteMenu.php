@@ -1,4 +1,5 @@
 <?php
+$pageDescription = "Découvrez le " .  $menus['titre']  . " de Vite & Gourmand.";
 $pageTitle = $menus['titre'] . ' — Vite & Gourmand';
 $pageSpecificCss = ['style.css' , 'formulaire.css' , 'carousel.css' , 'layout.css'];
 require_once __DIR__ . '/../../views/layout/header.php';
@@ -24,9 +25,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         <?php foreach($plat as $p) : ?>
                         <div class="swiper-slide"> 
                             <div class="img-wrapper position-img">
-                                <img src="/<?= htmlspecialchars($p['chemin_photo']) ?>" alt="" data-swiper-parallax-x="30%" loading="lazy">
+                                <img src="/<?= htmlspecialchars($p['chemin_photo']) ?>" alt="<?= htmlspecialchars($p['titre_plat']) ?>" data-swiper-parallax-x="30%" loading="lazy">
                             </div>
-                            <p><?= htmlspecialchars($p['titre_plat']) ?></p>
+                            <h2><?= htmlspecialchars($p['titre_plat']) ?></h2>
                         </div>
                         <?php endforeach ?>
                     </div>
@@ -48,7 +49,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <article class="infos-completes  ">
             <div class="d-flex justify-content-around entete-menu-detail">
                 <div class="titre-menu d-flex flex-column">
-                    <h3><?= htmlspecialchars($menus['titre']) ?></h3><br>
+                    <h2><?= htmlspecialchars($menus['titre']) ?></h2><br>
                     <p>Thème :</p>
                     <p class="theme-carte mt-2" ><?= htmlspecialchars($menus['theme']) ?></p>
                     <p>Régime :</p>
@@ -57,18 +58,18 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 
                 
                 <div class="prix-nb-quantite d-flex flex-column">
-                    <p>Prix pour <?= htmlspecialchars($menus['nombre_personne_minimum']) ?> personnes :</p>
-                    <p>Prix : <?= htmlspecialchars($menus['prix_par_personne']) ?> €/pers</p>
-                    <p>Qté restante : <?= htmlspecialchars($menus['quantite_restante']) ?></p>
-                    <p>Hors frais de livraison</p>
+                    <h3>Prix pour <?= htmlspecialchars($menus['nombre_personne_minimum']) ?> personnes :</h3>
+                    <h3>Prix : <?= htmlspecialchars($menus['prix_par_personne']) ?> €/pers</h3>
+                    <h3>Qté restante : <?= htmlspecialchars($menus['quantite_restante']) ?></h3>
+                    <h3>Hors frais de livraison</h3>
                 </div>
             </div>
             
             <p class="mt-5 description"><?= htmlspecialchars($menus['description']) ?></p><br>
             <div class="composition-menu">
                 <?php foreach($plat as $p) : ?>
-                    <h5><?= htmlspecialchars(ucfirst($p['type_plat'])) ?> :</h5>
-                    <p><?= htmlspecialchars($p['titre_plat']) ?></p>
+                    <h3><?= htmlspecialchars(ucfirst($p['type_plat'])) ?> :</h3>
+                    <h4><?= htmlspecialchars($p['titre_plat']) ?></h4>
                     <p><i class="fa-solid fa-arrow-turn-up"></i>Allergènes : <?php foreach($p['allergenes'] as $allergene) : ?>
                                         <?= implode(', ', array_column($p['allergenes'], 'libelle')) ?>
                                     <?php endforeach ?></p>
@@ -86,18 +87,18 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <?php endforeach ?>
             </div>
             <div class="conditions-menus mt-4 ">
-                <h6>Delai :</h6>
+                <h4>Delai :</h4>
                 <p><?= htmlspecialchars($menus['conditions_delai']) ?></p>
-                <h6>Stockage :</h6>
+                <h4>Stockage :</h4>
                 <p><?= htmlspecialchars($menus['conditions_stockage']) ?></p>
-                <h6>Informations importantes :</h6>
+                <h4>Informations importantes :</h4>
                 <p><?= htmlspecialchars($menus['conditions_infos']) ?></p>
             </div>
 
         </article>
 
-        <div class="commander-small">
-            <a class=" fw-mediumbold bg-secondary text-primary" href="/commandes/create/<?=  htmlspecialchars($menus['menu_id']); ?>">Commander</a>
+        <div class="commander-small" aria-hidden="true">
+            <a class=" fw-mediumbold bg-secondary text-primary" aria-hidden="true" href="/commandes/create/<?=  htmlspecialchars($menus['menu_id']); ?>">Commander</a>
             <p>Vous pouvez faire une estimation du prix total à la page commander .</p>
         </div>
 

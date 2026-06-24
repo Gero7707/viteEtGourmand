@@ -15,7 +15,7 @@ body{
     
 }
 
-.form-contact h3{
+.form-contact h2{
     background-color: var(--bleu-moyen);
     color: var(--fond-plus-clair);
     border-radius: 8px 8px 0 0 ;
@@ -260,7 +260,7 @@ textarea{
 
 /* Annuler un formulaire */
 .annuler{
-    color: var(--dore) !important;
+    color: var(--dore-fond-clair) !important;
     display: block;
     width: 30%;
     margin: auto;

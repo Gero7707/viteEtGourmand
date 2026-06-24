@@ -11,7 +11,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php endif ?>
     <div class="d-flex justify-content-center">
         <div class="d-flex flex-column text-center form-contact">
-            <h3 class="text-center mt-4 mb-5">Modifier un plat</h3>
+            <h2 class="text-center mt-4 mb-5">Modifier un plat</h2>
             <form action="/plats/edit/<?= htmlspecialchars($plats['plat_id']) ?>" method="POST" enctype="multipart/form-data" class="text-center">
                 <?= Auth::csrfField() ?>
 

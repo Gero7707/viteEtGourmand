@@ -12,10 +12,10 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php endif ?>
     <div class="d-flex justify-content-center">
         <div class="d-flex flex-column justify-content-center form-contact">
-            <h3 class="text-center mt-3 mb-3">Créer un menu</h3>
+            <h2 class="text-center mt-3 mb-3">Créer un menu</h2>
             <form action="/create-menu" method="POST" enctype="multipart/form-data" class="text-center">
                 <?= Auth::csrfField() ?>
-                <label class="form-label" for="theme">Thème :</label><br>
+                <label class="form-label" for="theme_id">Thème :</label><br>
                 <select name="theme_id" id="theme_id" >
                     <option value=""></option>
                     <?php foreach($themes as$theme) : ?>
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                     <?php endforeach ?>
                 </select><br>
 
-                <label class="form-label" for="regime">Régime :</label><br>
+                <label class="form-label" for="regime_id">Régime :</label><br>
                 <select  name="regime_id" id="regime_id" >
                     <option value=""></option>
                     <?php foreach($regimes as $regime) : ?>

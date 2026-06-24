@@ -5,21 +5,21 @@
         <?php endforeach ?>
     </div>
     <div class="d-flex coordonnees">
-        <h6>Coordonnées :</h6>
+        <p>Coordonnées :</p>
         <p>4 rue de Rosiers</p>
         <p>33000 Bordeaux</p>
-        <p><a href="mailto:vite&gourmand@mail.com"><i class="fa-solid fa-at"></i></a> vite&gourmand@mail.com</p>
+        <p><a href="mailto:vite&gourmand@mail.com"><i class="fa-solid fa-at"></i>vite&gourmand@mail.com</a> </p>
         <p><i class="fa-solid fa-phone"></i>0612345678</p>
     </div>
     <div class="d-flex reseaux">
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com" target="_blank" aria-label="Notre page Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com" target="_blank" aria-label="Notre page Facebook"><i class="fa-brands fa-facebook"></i></a>
     </div>
     <div class="d-flex mentions mt-4">
         <a href="/mentions-legales">Mentions légales</a>
         <a href="/cgv">CGV</a>
         <a href="/confidentialite">Politique de confidentialité</a>
-        <div class="d-flex"><p>&copy;Créé par VDG </p><img src="/assets/img/Logo_blanc.png" alt="Logo" class="logo"></div>
+        <div class="d-flex"><p>&copy;Créé par VDG </p><img src="/assets/img/Logo_blanc.png" alt="Logo VDG - Vincent Didier Geraghty développeur web" class="logo"></div>
         <p>2026 Vite & Gourmand. Tous droits réservés.</p>
     </div>
 </footer>

@@ -6,6 +6,12 @@ require_once __DIR__ . '/../views/layout/header.php';
 ?>
 
 <main>
+    <?php if ($_GET['error'] ?? null): ?>
+        <p class="error-message-php text-center mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
+    <?php endif ?>
+    <?php if ($_GET['success'] ?? null): ?>
+        <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
+    <?php endif ?>
     <?php if(!isset($_SESSION['utilisateur_id'])): ?>
         
         <div class="d-flex  intro flex-column">
@@ -65,22 +71,22 @@ require_once __DIR__ . '/../views/layout/header.php';
                 <!-- Slides -->
                 <div class="swiper-slide"> 
                     <div class="img-wrapper">
-                        <img src="/assets/img/accueil/banquet.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
+                        <img src="/assets/img/accueil/banquet.webp" alt="banquet fleuri et servi de son entrée" data-swiper-parallax-x="30%" loading="lazy">
                     </div>
                 </div>
                 <div class="swiper-slide"> 
                     <div class="img-wrapper">
-                        <img src="/assets/img/accueil/table.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
+                        <img src="/assets/img/accueil/table.webp" alt="table décorée de fleurs blanches et jaunes" data-swiper-parallax-x="30%" loading="lazy">
                     </div>
                 </div>
                 <div class="swiper-slide"> 
                     <div class="img-wrapper">
-                        <img src="/assets/img/accueil/banquet-3.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
+                        <img src="/assets/img/accueil/champetre.webp" alt="repas champetre et son ornementation estivale" data-swiper-parallax-x="30%" loading="lazy">
                     </div>
                 </div>
                 <div class="swiper-slide"> 
                     <div class="img-wrapper">
-                        <img src="/assets/img/accueil/banquet-2.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
+                        <img src="/assets/img/accueil/reception.webp" alt="reception fleurie et festive" data-swiper-parallax-x="30%" loading="lazy">
                     </div>
                 </div>
                 <div class="swiper-slide"> 
@@ -94,12 +100,12 @@ require_once __DIR__ . '/../views/layout/header.php';
     </section>
     
     <section class="section-savoir-faire">
-        <h3 class="text-center mb-5 mt-5">Notre savoir faire</h3>
+        <h2 class="text-center mb-5 mt-5">Notre savoir faire</h2>
         <div class="d-flex carte-savoir-faire mb-4 mt-5 ">
-            <img src="/assets/img/accueil/grande-table.webp" alt="baquet" class="img-carte1 observer mb-5">
+            <img src="/assets/img/accueil/grande-table.webp" alt="Grande table de banquet " class="img-carte1 observer mb-5">
             <div class="d-flex flex-column texte text-center texte-carte1 observer">
-                <p class="mb-5 mt-5">Depuis 1999, Vite & Gourmand met son expertise au service de vos réceptions. </p>
-                <p class="mb-5">Chaque menu est élaboré avec des produits frais et de saison, <br> sélectionnés auprès de producteurs locaux bordelais.</p>
+                <p class="mb-5 mt-2">Depuis 1999, Vite & Gourmand met son expertise au service de vos réceptions. </p>
+                <p class="mb-2">Chaque menu est élaboré avec des produits frais et de saison, <br> sélectionnés auprès de producteurs locaux bordelais.</p>
                 <p >De l'entrée au dessert, nos plats allient saveurs authentiques et <br> présentation soignée pour faire de chaque repas un moment inoubliable.</p>
             </div>
         </div>
@@ -110,13 +116,13 @@ require_once __DIR__ . '/../views/layout/header.php';
                 <p class="mb-5">Mariages, repas d'entreprise, fêtes de famille ou galas, nous nous adaptons à chaque occasion avec le même souci du détail et de l'excellence. </p>
                 <p >Plus de 2 000 événements réussis à Bordeaux et dans toute la Gironde.</p>
             </div>
-            <img src="/assets/img/menus/menu-de-reve.webp" alt="menu-de-reve" class="img-carte2 observer mt-5">
+            <img src="/assets/img/menus/menu-de-reve.webp" alt="table dressée et ornementée de branches de rosiers" class="img-carte2 observer mt-5">
             
         </div>
     </section>
     
     <section class="section-avis bg-primary m-auto mt-5 pt-5 pb-4 mb-5">
-        <h3 class="text-secondary text-center mb-5">Avis clients</h3>
+        <h2 class="text-secondary text-center mb-5">Avis clients</h2>
                 
             <div class="row-accueil row">
                 <?php foreach($avis as $carteAvis) : ?>

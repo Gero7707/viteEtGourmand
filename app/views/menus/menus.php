@@ -1,4 +1,5 @@
 <?php
+$pageDescription = "Découvrez nos menus raffinés pour vos événements à Bordeaux.";
 $pageTitle = "Nos menus — Vite & Gourmand";
 $pageSpecificCss = ['layout.css' ,'style.css' ];
 require_once __DIR__ . '/../../views/layout/header.php';
@@ -25,10 +26,11 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <section class="section-filtres">
             <div class="d-flex justify-content-between init-close">
                 <button id="init-filtres" type="button">Réinitialiser</button>
+                
                 <i class="fa-solid fa-circle-xmark d-xxl-none" id="close-filtres"></i>
             </div>
             <div class="filtres">
-                <h4 class="mt-5">Filtres</h4>
+                <h2 class="mt-5">Filtres</h2>
                 <ul>
                     <div class="filtre-large">
                         <div>
@@ -47,7 +49,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                             </li>
                         </div>
                         <div>
-                            <li class="mb-5 filtre-theme">Thème : 
+                            <li class="mb-5 filtre-theme"><label for="theme">Thème :</label> 
                                 <select name="theme" id="theme">
                                     <option value=""></option>
                                     <option value="1">Classique</option>
@@ -57,7 +59,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                 </select>
                             </li>
                         
-                            <li class="mb-5 filtre-regime">Régime :
+                            <li class="mb-5 filtre-regime"><label for="regime">Régime :</label>
                                 <select name="regime" id="regime">
                                     <option value=""></option>
                                     <option value="1">Classique</option>
@@ -84,11 +86,11 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         <article class="carte-menu mb-5 mx-3 col-lg-4  col-sm-12 d-flex flex-column" data-menu-id="<?= $menu['menu_id'] ?>" data-theme="<?= $menu['theme_id'] ?>" data-prix="<?= $menu['prix_par_personne'] ?>" data-regime = "<?= $menu['regime_id'] ?>" data-nombre = "<?= $menu['nombre_personne_minimum'] ?>" >
                             
                             <div class="d-flex justify-content-between en-tete-carte-menu">
-                                <h4><?= htmlspecialchars($menu['titre']) ?></h4>
+                                <h2><?= htmlspecialchars($menu['titre']) ?></h2>
                                 <a href="/menus/<?=  htmlspecialchars($menu['menu_id']); ?>">Voir menu</a>
                             </div>
                             <div class="prix mt-1">
-                                <p>Prix : <?= htmlspecialchars($menu['prix_par_personne']) ?>€/pers</p>
+                                <h3>Prix : <?= htmlspecialchars($menu['prix_par_personne']) ?>€/pers</h3>
                             </div>
                             <div class="texte-img d-flex">
                                 <div class="theme-description d-flex flex-column">
@@ -105,7 +107,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                     </div>
                                 </div>
                                 <div class="d-flex flex-column img-nb-personne">
-                                    <img src="<?= htmlspecialchars($menu['image']) ?>" alt="">
+                                    <img src="<?= htmlspecialchars($menu['image']) ?>" alt="<?= htmlspecialchars($menu['titre']) ?>">
                                     <p>A partir de <?= htmlspecialchars($menu['nombre_personne_minimum']) ?> personnes</p>
                                     <p class="liste-allergene" data-menu-id="<?= $menu['menu_id'] ?>"><i class="fa-regular fa-hand-point-right"></i>Allergènes</p>
                                     <div class="modal-allergenes"></div>

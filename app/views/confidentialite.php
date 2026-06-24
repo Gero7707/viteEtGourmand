@@ -4,8 +4,8 @@ require_once __DIR__ . '/../views/layout/header.php';
 ?>
 
 <main class="container">
-    <h1 class="text-center">Politique de confidentialité </h1> 
-    <h2 class="text-center">Vite & Gourmand </h2>
+    <h2 class="text-center">Politique de confidentialité </h2> 
+    <h3 class="text-center">Vite & Gourmand </h3>
 
     <h3  class="text-center">ARTICLE 1 : PRÉAMBULE</h3>  
     <p>La présente politique de confidentialité a pour but d'informer les utilisateurs du site :  </p>

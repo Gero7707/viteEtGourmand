@@ -25,9 +25,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <?php endif ?>
 
     <section class="section-commande-client mb-5">
-        <h3 class="text-center">Commande no : <?=   htmlspecialchars($commandes['numero_commande']) ?></h3>
+        <h2 class="text-center">Commande no : <?=   htmlspecialchars($commandes['numero_commande']) ?></h2>
 
-        <h4 class="text-center"><?= htmlspecialchars($commandes['titre']) ?></h4>
+        <h3 class="text-center"><?= htmlspecialchars($commandes['titre']) ?></h3>
         <?php if($_SESSION['role_id'] === 3 || $_SESSION['role_id'] === 2) : ?>
             <hr>
             <p><span>Client</span> :<?= htmlspecialchars($commandes['nom_complet']) ?> </p><br>
@@ -49,7 +49,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <p><span>Prêt de matériel</span> : <?= $commandes['pret_materiel'] ? 'Oui' : 'Non' ?></p><br>
         <p><span>Restitué</span> : <?= $commandes['restitution_materiel'] ? 'Oui' : 'Non' ?></p>
 
-        <h4 class="text-center">Historique</h4>
+        <h3 class="text-center">Historique</h3>
         <table class="tableau-historique">
             <thead>
                 <tr>

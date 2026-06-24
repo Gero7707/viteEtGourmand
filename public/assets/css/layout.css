@@ -85,7 +85,7 @@ footer i{
     color: var(--dore);
 }
 
-footer i:hover , .mentions a:hover{
+footer i:hover , .mentions a:hover , .coordonnees a:hover{
     color: var(--dore-clair);
 }
 
@@ -118,7 +118,7 @@ footer i:hover , .mentions a:hover{
     align-items: center;
 }
 
-.mentions a{
+.mentions a, .coordonnees a{
     color: var(--dore);
 }
 

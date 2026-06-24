@@ -470,6 +470,11 @@ class CommandeController{
             'date_modification' => $dateModif
         ];
         $this->commandes->createHistorique($historiqueData);
+        $nbPersonne = $statutActuel['nombre_personne'];
+        $menuId = $statutActuel['menu_id'];
+        if($statutSuivant === 'en_preparation'){
+            $this->menu->updateQuantiteRestante($menuId ,$nbPersonne );
+        }
 
         if($statutSuivant === 'attente_retour_materiel'){
             $titre = "En attente de retour du matériel prété .";

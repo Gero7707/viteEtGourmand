@@ -81,6 +81,10 @@ $router->add('POST', '/auth/login', 'AuthController', 'login');
 $router->add('GET', '/auth/register', 'AuthController', 'registerForm');
 $router->add('POST', '/auth/register', 'AuthController', 'register');
 
+//Suppression de compte utilisateur
+$router->add('GET' , '/auth/delete-account' , 'ProfileController' , 'showSupprimerProfil');
+$router->add('POST' , '/auth/delete-account' , 'ProfileController' , 'supprimerProfil');
+
 //Création de compte pour employé par admin
 $router->add('GET' , '/admin/employe-register' , 'AdminController' , 'ShowRegisterEmploye');
 $router->add('POST' , '/admin/employe-register' , 'AdminController' , 'registerEmploye');

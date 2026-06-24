@@ -532,16 +532,18 @@ class CommandeController{
             $titre = "Enquête satisfaction .";
             $lien = getenv('APP_URL') . '/avis/noter/' . $statutActuel['commande_id'];
             $bouton = '
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                    <td align="center" style="background-color: #d4af37; border-radius: 6px;">
-                    <a href="' . $lien . '" target="_blank"
-                        style="display: inline-block; padding: 14px 28px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; color: #1a2238; text-decoration: none;">
-                        Donner mon avis
-                    </a>
-                    </td>
-                </tr>
-                </table>';
+                <div style="text-align: center; padding: 24px 0;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td align="center" style="background-color: #d4af37; border-radius: 6px;">
+                        <a href="' . $lien . '" target="_blank"
+                            style="display: inline-block; padding: 14px 28px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; color: #1a2238; text-decoration: none;">
+                            Donner mon avis
+                        </a>
+                        </td>
+                    </tr>
+                    </table>
+                </div>';
             
             $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 
                     alt="Vite &amp; Gourmand" 
@@ -617,6 +619,43 @@ class CommandeController{
             'commentaires' => $commentaires
         ];
         $this->commandes->createHistorique($historiqueData);
+
+        $titre = 'Votre commande a été annulée !';
+        $lien = getenv('APP_URL') . '/';
+        $bouton = '
+            <div style="text-align: center; padding: 24px 0;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td align="center" style="background-color: #d4af37; border-radius: 6px;">
+                    <a href="' . $lien . '" target="_blank"
+                        style="display: inline-block; padding: 14px 28px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; color: #1a2238;text-decoration: none;">
+                        Vite &amp; Gourmand
+                    </a>
+                    </td>
+                </tr>
+            </table>
+        </div>';
+            
+        $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 
+                alt="Vite &amp; Gourmand" 
+                width="600" 
+                style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+        $imageBas = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/cuistot.jpg" 
+                alt="Vite &amp; Gourmand" 
+                width="600" 
+                style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+        $user = $this->commandes->findById($id);
+
+        $conclusion = "<p>Bonjour {$user['nom_complet']}, votre commande {$user['numero_commande']} a été annulée. </p>
+        <p>Pour toute question, n'hésitez pas à nous contacter.</p>
+        <p>Vite &amp; Gourmand vous souhaite une bonne journée. </p>";
+        $message =$imageHaut .  $conclusion . $bouton . $imageBas;
+
+        $email = $user['utilisateur_email'];
+
+        $this->mailService->sendEmail($email , $titre , $message);
 
         $successMessage = "Vous avez annulé la commande avec succés ." ;
         header('Location: /commandes-client?success=' . urlencode($successMessage));

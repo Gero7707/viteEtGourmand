@@ -92,7 +92,7 @@ class MailService{
 
                                 <!-- corps -->
                                 <tr>
-                                    <td style="padding: 32px 24px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.5; color: #333333;">
+                                    <td  style="padding: 32px 24px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.5; color: #333333;">
                                     <!-- ton message ici -->
                                         {$message}
                                     </td>

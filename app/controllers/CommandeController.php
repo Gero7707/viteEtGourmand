@@ -259,8 +259,22 @@ class CommandeController{
         <p>{$data['prix_menu']} €</p><br>
         ";
         $titre = "Commande confirmée .";
-        $conclusion = "<p>Merci d'avoir passé commande chez Vite &amp; Gourmand . Vous recevrez un message dès que votre commande sera acceptée . Vous pouvez  modifier ou annuler votre commande tant qu'elle n'est pas acceptée . Vite & Gourmand vous souhaite une bonne journée.</p>";
-        $message = $detailCommande . $conclusion;
+
+        $conclusion = "<p>Merci d'avoir passé commande chez Vite &amp; Gourmand . </p>
+        <p>Vous recevrez un message dès que votre commande sera acceptée . Vous pouvez  modifier ou annuler votre commande tant qu'elle n'est pas acceptée .</p>
+        <p> Vite &amp; Gourmand vous souhaite une bonne journée.</p>";
+
+        $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 
+                alt="Vite &amp; Gourmand" 
+                width="600" 
+                style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+        $imageBas = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/cuistot.jpg" 
+                alt="Vite &amp; Gourmand" 
+                width="600" 
+                style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+        $message =$imageHaut . $detailCommande . $conclusion . $imageBas;
         $emailCommande = $_SESSION['email'];
         
         $this->mailService->sendEmail($emailCommande,$titre,$message);
@@ -417,18 +431,33 @@ class CommandeController{
             ];
             $this->commandes->createHistorique($historiqueData);
             
+            $dateFormatee = (new DateTime($data['date_prestation']))->format('d/m/Y');
             $detailCommande = "
             <h4>Numéro de commande</h4>
             <p>{$commande['numero_commande']}  </p><br>
             <h4>Menu :</h4>
             <p>{$menu['titre']} pour {$data['nombre_personne']}</p><br>
             <h4>Adresse et date de prestation :</h4>
-            <p>{$data['adresse_livraison']} le {$data['date_prestation']} à {$data['heure_livraison']}</p><br>
+            <p>{$data['adresse_livraison']} le {$dateFormatee} à {$data['heure_livraison']}</p><br>
             <h4>Prix total :</h4>
             <p>{$data['prix_menu']}</p><br>
             ";
             $titre = "Commande modifiée .";
-            $message = $detailCommande . "Vous avez modifié votre commande . Merci d'avoir passé commande chez Vit & Gourmand . Vous receverez un message dès que votre commande sera acceptée . Vous pouvez annuler modifier ou annuler votre commande tant qu'elle n'est pas acceptée . Vite & Gourmand vous souhaite une bonne journée.";
+            
+            $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 
+                    alt="Vite &amp; Gourmand" 
+                    width="600" 
+                    style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+            $imageBas = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/cuistot.jpg" 
+                    alt="Vite &amp; Gourmand" 
+                    width="600" 
+                    style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+            $conclusion = "<p>Vous avez modifié votre commande . Merci d'avoir passé commande chez Vite &amp; Gourmand .</p>
+            <p> Vous receverez un message dès que votre commande sera acceptée . Vous pouvez annuler modifier ou annuler votre commande tant qu'elle n'est pas acceptée . </p>
+            <p>Vite &amp; Gourmand vous souhaite une bonne journée.</p>";
+            $message =$imageHaut . $detailCommande . $conclusion . $imageBas;
             $emailCommande = $_SESSION['email'];
             
             $this->mailService->sendEmail($emailCommande,$titre,$message);
@@ -478,7 +507,21 @@ class CommandeController{
 
         if($statutSuivant === 'attente_retour_materiel'){
             $titre = "En attente de retour du matériel prété .";
-            $message = "Bonjour {$statutActuel['nom_complet']}, votre commande {$statutActuel['numero_commande']} a bien été livrée. Le matériel prêté doit être restitué sous 10 jours ouvrés. Passé ce délai, une pénalité forfaitaire de 600€ sera facturée.";
+
+            $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 
+                    alt="Vite &amp; Gourmand" 
+                    width="600" 
+                    style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+            $imageBas = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/cuistot.jpg" 
+                    alt="Vite &amp; Gourmand" 
+                    width="600" 
+                    style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+            $conclusion = "<p>Bonjour {$statutActuel['nom_complet']}, votre commande {$statutActuel['numero_commande']} a bien été livrée. </p>
+            <p>Le matériel prêté doit être restitué sous 10 jours ouvrés. Passé ce délai, une pénalité forfaitaire de 600€ sera facturée.</p>
+            <p>Vite &amp; Gourmand vous souhaite une bonne journée.</p>";
+            
+            $message = $imageHaut . $conclusion . $imageBas ;
             $email = $statutActuel['utilisateur_email'];
 
             $this->mailService->sendEmail($email , $titre , $message);
@@ -486,9 +529,35 @@ class CommandeController{
 
         
         if($statutSuivant === 'terminee'){
-            $titre = "Enquète satisfaction .";
+            $titre = "Enquête satisfaction .";
             $lien = getenv('APP_URL') . '/avis/noter/' . $statutActuel['commande_id'];
-            $message = "Bonjour {$statutActuel['nom_complet']}, votre commande {$statutActuel['numero_commande']} est terminée. Nous espérons que vous avez apprécié nos services. " . $lien;
+            $bouton = '
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td align="center" style="background-color: #d4af37; border-radius: 6px;">
+                    <a href="' . $lien . '" target="_blank"
+                        style="display: inline-block; padding: 14px 28px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; color: #1a2238; text-decoration: none;">
+                        Donner mon avis
+                    </a>
+                    </td>
+                </tr>
+                </table>';
+            
+            $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 
+                    alt="Vite &amp; Gourmand" 
+                    width="600" 
+                    style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+            $imageBas = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/cuistot.jpg" 
+                    alt="Vite &amp; Gourmand" 
+                    width="600" 
+                    style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+            $conclusion = "<p>Bonjour {$statutActuel['nom_complet']}, votre commande {$statutActuel['numero_commande']} est terminée. </p>
+            <p>Nous espérons que vous avez apprécié nos services.</p>
+            <p>Vite &amp; Gourmand vous souhaite une bonne journée. </p>";
+            $message =$imageHaut .  $conclusion . $bouton . $imageBas;
+
             $email = $statutActuel['utilisateur_email'];
 
             $this->mailService->sendEmail($email , $titre , $message);

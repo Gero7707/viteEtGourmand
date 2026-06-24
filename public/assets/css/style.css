@@ -262,11 +262,23 @@ a{text-decoration: none;}
     color: var(--texte);
 }
 
-.lien-intro, .avis ,.commander a , .modif-profil a{
+.lien-intro, .avis ,.commander a , .modif-profil a {
     border-radius: 8px;
     font-size: 1.5rem;
     display: block;
     text-align: center;
+}
+
+.supprimer-profil a{
+    font-size: 1.2rem;
+    display: block;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.supprimer-profil a:hover{
+    background-color: var(--input-form);
+    color: var(--bleu-tres-fonce);
 }
 
 .lien-intro, .avis{
@@ -822,10 +834,39 @@ a{text-decoration: none;}
     text-align: center;
 }
 
-.modif-profil a {
+.modif-profil a  {
     background-color: var(--dore);
     color: var(--bleu-tres-fonce);
     margin: auto !important;
+}
+
+.supprimer-profil a{
+    background-color: var(--danger-bg);
+    color: var(--texte);
+    margin: auto !important;
+}
+
+.suppress-container{
+    margin: auto;
+    width: 30%;
+    border-radius: 8px;
+    background-color: var(--fond-carte);
+    box-shadow: var(--shadow);
+    margin-bottom: 10rem;
+    margin-top: 10rem;
+    padding: 2rem;
+}
+
+.suppress-container button:hover{
+    background-color: var(--bs-danger);
+    color: var(--fond-carte);
+}
+
+.suppress-container h2{
+    background-color: var(--bleu-moyen);
+    color: var(--fond-plus-clair);
+    border-radius: 8px;
+    padding: 0.2rem;
 }
 
 .tableau-commande {
@@ -1247,6 +1288,9 @@ Mobiles
         font-size: 1.2rem;
     }
 
+    .suppress-container{
+        width: 50%;
+    }
 }
 
 @media (max-width: 1199.99px){
@@ -1320,7 +1364,9 @@ Mobiles
         width: 75%;
     }
 
-    
+    .suppress-container{
+        width: 50%;
+    }
 }
 
 @media (max-width: 991.9px){
@@ -1701,5 +1747,9 @@ Mobiles
 
     #graphiqueCommandes {
         height: 13rem;
+    }
+
+    .suppress-container{
+        width: 95%;
     }
 }

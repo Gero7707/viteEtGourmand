@@ -58,6 +58,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
         </table>
         
     </section>
+    <section class="supprimer-profil text-center">
+        <a aria-label="Supprimer votre compte" href="/auth/delete-account">Supprimer votre compte</a>
+    </section>
         
 </main>
 <?php

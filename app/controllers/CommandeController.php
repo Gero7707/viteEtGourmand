@@ -625,16 +625,16 @@ class CommandeController{
         $bouton = '
             <div style="text-align: center; padding: 24px 0;">
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                    <td align="center" style="background-color: #d4af37; border-radius: 6px;">
-                    <a href="' . $lien . '" target="_blank"
-                        style="display: inline-block; padding: 14px 28px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; color: #1a2238;text-decoration: none;">
-                        Vite &amp; Gourmand
-                    </a>
-                    </td>
-                </tr>
-            </table>
-        </div>';
+                    <tr>
+                        <td align="center" style="background-color: #d4af37; border-radius: 6px;">
+                        <a href="' . $lien . '" target="_blank"
+                            style="display: inline-block; padding: 14px 28px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; color: #1a2238;text-decoration: none;">
+                            Vite &amp; Gourmand
+                        </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>';
             
         $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 
                 alt="Vite &amp; Gourmand" 

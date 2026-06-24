@@ -196,7 +196,38 @@ class AuthController{
         ];
         
         $id = $this->users->createUser($data);
-        header('location: /auth/login');
+        $titre = "Votre compte a été créé ! .";
+
+        $lien = getenv('APP_URL') . '/auth/login';
+            $bouton = '
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td align="center" style="background-color: #d4af37; border-radius: 6px;">
+                    <a href="' . $lien . '" target="_blank"
+                        style="display: inline-block; padding: 14px 28px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; color: #1a2238; text-decoration: none;">
+                        Donner mon avis
+                    </a>
+                    </td>
+                </tr>
+                </table>';
+
+        $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 
+            alt="Vite &amp; Gourmand" 
+            width="600" 
+            style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+        $imageBas = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/cuistot.jpg" 
+            alt="Vite &amp; Gourmand" 
+            width="600" 
+            style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+        $conclusion ="<p>Bonjour . Votre compte  a été créé . </p> 
+        <p>Merci pour votre confiance . Vous pouvez vous connecter via ce lien et commander les menus qui vous plaisent .  </p>
+        <p>Vite &amp; Gourmand vous souhaite une bonne journée. </p> ";
+        
+        $message = $imageHaut . $conclusion . $bouton. $imageBas;
+        $this->mailService->sendEmail($email, $titre, $message);
+        $succesMessage = "Votre compte a été créé avec succes .";
+        header('location: /auth/login?success=' . urlencode($succesMessage));
         exit();
     }
 

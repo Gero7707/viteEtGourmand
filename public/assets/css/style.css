@@ -846,7 +846,7 @@ a{text-decoration: none;}
     margin: auto !important;
 }
 
-.suppress-container{
+.suppress-container, .suppress-modal{
     margin: auto;
     width: 30%;
     border-radius: 8px;
@@ -857,16 +857,25 @@ a{text-decoration: none;}
     padding: 2rem;
 }
 
-.suppress-container button:hover{
+.suppress-container button:hover,  .suppress-modal button:hover{
     background-color: var(--bs-danger);
     color: var(--fond-carte);
 }
 
-.suppress-container h2{
+.suppress-container h2 , .suppress-modal h2{
     background-color: var(--bleu-moyen);
     color: var(--fond-plus-clair);
     border-radius: 8px;
     padding: 0.2rem;
+}
+
+.suppress{
+    display: none;
+}
+
+.annuler-suppress:hover{
+    background-color: var(--bs-success);
+    color: var(--fond-carte);
 }
 
 .tableau-commande {
@@ -1749,7 +1758,7 @@ Mobiles
         height: 13rem;
     }
 
-    .suppress-container{
+    .suppress-container, .suppress-modal{
         width: 95%;
     }
 }

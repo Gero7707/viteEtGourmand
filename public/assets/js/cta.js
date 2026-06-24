@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () =>{
+
+
     const showUploadMenu = document.getElementById('btn-showUpload-menu');
     if(showUploadMenu){
         const fileUploadMenu = document.getElementById('img_menu');
@@ -17,5 +19,12 @@ document.addEventListener('DOMContentLoaded', () =>{
         });
     }
 
-    
+    const confirmerSuppression = document.getElementById('confirmer');
+    const suppressForm = document.querySelector('.suppress-container');
+    const suppressModal = document.querySelector('.suppress-modal');
+    confirmerSuppression.addEventListener('click' , () =>{
+        console.log("bouton");
+        suppressForm.style.display = 'none' ;
+        suppressModal.style.display = 'block';
+    })
 });

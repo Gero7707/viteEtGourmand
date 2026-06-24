@@ -247,18 +247,20 @@ class CommandeController{
         ];
         $this->commandes->createHistorique($historiqueData);
         
+        $dateFormatee = (new DateTime($data['date_prestation']))->format('d/m/Y');
         $detailCommande = "
         <h4>Numéro de commande</h4>
         <p>{$data['numero_commande']}  </p><br>
         <h4>Menu :</h4>
         <p>{$menu['titre']} pour {$data['nombre_personne']}</p><br>
         <h4>Adresse et date de prestation :</h4>
-        <p>{$data['adresse_livraison']} le {$data['date_prestation']} à {$data['heure_livraison']}</p><br>
+        <p>{$data['adresse_livraison']} le {$dateFormatee} à {$data['heure_livraison']}</p><br>
         <h4>Prix total :</h4>
-        <p>{$data['prix_menu']}</p><br>
+        <p>{$data['prix_menu']} €</p><br>
         ";
-        $titre = "Commande confimée .";
-        $message = $detailCommande . "Merci d'avoir passé commande chez Vit & Gourmand . Vous receverez un message dès que votre commande sera acceptée . Vous pouvez annuler modifier ou annuler votre commande tant qu'elle n'est pas acceptée . Vite & Gourmand vous souhaite une bonne journée.";
+        $titre = "Commande confirmée .";
+        $conclusion = "<p>Merci d'avoir passé commande chez Vite &amp; Gourmand . Vous recevrez un message dès que votre commande sera acceptée . Vous pouvez  modifier ou annuler votre commande tant qu'elle n'est pas acceptée . Vite & Gourmand vous souhaite une bonne journée.</p>";
+        $message = $detailCommande . $conclusion;
         $emailCommande = $_SESSION['email'];
         
         $this->mailService->sendEmail($emailCommande,$titre,$message);

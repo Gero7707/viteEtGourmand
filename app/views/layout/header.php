@@ -84,7 +84,7 @@
                     <li><a class="dropdown-item" href="/auth/login">Connexion</a></li>
                     <li><a class="dropdown-item" href="/auth/register">Créer un compte</a></li>
                 <?php elseif(isset($_SESSION['utilisateur_id'])) : ?>
-                    <li><a class="dropdown-item" href="/auth/logout">Déconnexion</a></li>
+                    <li><a aria-hidden="true" class="dropdown-item" href="/auth/logout">Déconnexion</a></li>
                     <?php if($_SESSION['role_id'] === 1) : ?>
                         <li><a class="dropdown-item" href="/profile">Voir profil</a></li>
                     <?php endif ?>

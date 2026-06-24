@@ -38,7 +38,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         <th>Téléphone</th>
                         <th class="col-desktop">Ville</th>
                         <th class="col-desktop">Actif</th>
-                        <th>Actif</th>
+                        <th></th>
                         <th>Modif</th>
                     </tr>
                 </thead>
@@ -144,13 +144,17 @@ require_once __DIR__ . '/../../views/layout/header.php';
             </select>
             <label for="filtre-mois">Mois :</label>
             <input type="month" name="mois" id="filtre-mois" value="<?= htmlspecialchars($_GET['mois'] ?? '') ?>">
+            <label for="date_debut">Début :</label>
+            <input type="date" name="date_debut" id="date_debut">
+            <label for="date_fin">Fin :</label>
+            <input type="date" name="date_fin" id="date_fin">
 
             <button class="filtre-ca" type="submit">Filtrer</button>
             <button  class="lien-reset" type="button">Réinitialiser</button>
         </form>
         <p class="error-message mt-1 text-center"></p>
         <table>
-            <caption>Chiffre d'affiare par menu</caption>
+            <caption class="visually-hidden">Chiffre d'affiares par menu</caption>
             <thead>
                 <tr>
                     <th>Menu</th>

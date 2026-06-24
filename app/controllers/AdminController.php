@@ -44,6 +44,8 @@ class AdminController{
         $filtres = [
             'menu' => $_GET['menu'] ?? '',
             'mois' => $_GET['mois'] ?? '',
+            'date_debut' => $_GET['date_debut'] ?? '',
+            'date_fin' => $_GET['date_fin'] ?? '',
         ];
         $caParMenu = $this->mongo->getCAParMenu($filtres);
         // Convertir les objets MongoDB en tableaux PHP simples

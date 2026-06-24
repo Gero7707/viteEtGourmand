@@ -39,14 +39,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const lienReset = document.querySelector('.lien-reset');
     const errorMessage = document.querySelector('.error-message');
     const filtreCa = document.querySelector('.filtre-ca');
+    const dateDebut = document.getElementById('date_debut');
+    const dateFin = document.getElementById('date_fin');
 
     errorMessage.style.display = "none";
 
     async function chargerData(){
         const menu = filtreMenu.value;
         const mois = filtreMois.value;
+        const date_debut = dateDebut.value;
+        const date_fin = dateFin.value;
         // Construit l'URL avec les paramètres GET
-        const url = `/admin/stats-ca?menu=${encodeURIComponent(menu)}&mois=${encodeURIComponent(mois)}`;
+        const url = `/admin/stats-ca?menu=${encodeURIComponent(menu)}&mois=${encodeURIComponent(mois)}&date_debut=${encodeURIComponent(date_debut)}&date_fin=${encodeURIComponent(date_fin)}`;
 
         const response = await fetch(url);
         const data = await response.json();
@@ -62,17 +66,21 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
     }
+
     chargerData();
+    
     filtreCa.addEventListener('click',(e) => {
         e.preventDefault(); 
         errorMessage.style.display = "none";
         const mois = filtreMois.value;
-        if(mois.trim() === ''){
+        const dateDebut = document.getElementById('date_debut').value;
+        const dateFin = document.getElementById('date_fin').value;
+
+        if(mois.trim() === '' && (dateDebut.trim() === '' || dateFin.trim() === '')){
             errorMessage.style.display = "block";
-            errorMessage.textContent = "Veillez remplir les champs du formulaire .";
+            errorMessage.textContent = "Veuillez remplir au moins un filtre.";
             return;
         }
-        
         chargerData();
     });
 
@@ -81,6 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         filtreMenu.value = '';
         filtreMois.value = '';
+        dateDebut.value = '';
+        dateFin.value = '';
         errorMessage.style.display = "none";
         chargerData();
     });

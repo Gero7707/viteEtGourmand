@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     const formulairesStatut = document.querySelectorAll('.form-changer-statut');
     const successMessage = document.querySelector('.success-message');
-
+    successMessage.style.display = "none";
     async function afficher(form) {
         successMessage.style.display = "none";
         const url = form.action;

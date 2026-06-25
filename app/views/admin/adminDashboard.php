@@ -55,12 +55,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                 <?php if($employe['actif'] === 1) : ?>
                                     <form action="/admin/desactiver/<?= htmlspecialchars($employe['utilisateur_id']) ?>" method="POST">
                                         <?= Auth::csrfField() ?>
-                                        <button aria-label="Désactiver l'employé"  type="submit"><i class="fa-solid fa-toggle-off" aria-hidden="true"></i></button>
+                                        <button aria-label="Désactiver l'employé"  type="submit"><i class="fa-solid fa-toggle-on" aria-hidden="true"></i></button>
                                     </form>
                                 <?php elseif($employe['actif'] === 0) : ?>
                                     <form action="/admin/activer/<?= htmlspecialchars($employe['utilisateur_id']) ?>" method="POST">
                                         <?= Auth::csrfField() ?>
-                                        <button aria-label="Activer l'employé"  type="submit"><i class="fa-solid fa-toggle-on" aria-hidden="true" ></i></button>
+                                        <button aria-label="Activer l'employé"  type="submit"><i class="fa-solid fa-toggle-off" aria-hidden="true" ></i></button>
                                     </form>
                                 <?php endif ?>
                             </td>

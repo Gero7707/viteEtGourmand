@@ -1,6 +1,6 @@
 const swiper = new Swiper(".swiper" , {
     grabCursor: true,
-    slidePerView: 1.5,
+    // slidesPerView: 1.5,
     centeredSlides: true,
     initialSlide: 0,
     speed: 900,

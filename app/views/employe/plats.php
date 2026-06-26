@@ -56,7 +56,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                                         : 'N\'est pas assigné à un menu' ?></p>
                     </div>
                     <div class="img-plat">
-                        <img src="<?= htmlspecialchars($cartePlat['chemin_photo']) ?>" alt="<?= htmlspecialchars($cartePlat['titre_plat']) ?>" >
+                        <img loading="lazy" src="<?= htmlspecialchars($cartePlat['chemin_photo']) ?>" alt="<?= htmlspecialchars($cartePlat['titre_plat']) ?>" >
                     </div>
                 </div>
                 <div class="mt-2 catre-allergene">

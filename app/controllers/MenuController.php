@@ -159,7 +159,7 @@ class MenuController{
         }
 
         if($imgMenu['size'] > 2 * 1024 * 1024){
-            $error = "Le fichier est supérieur à 2mo . ";
+            $error = "Le fichier est supérieur à 2 mo . ";
             header('Location: /create-menu?error=' . urlencode($error));
             exit();
         }

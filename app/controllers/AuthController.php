@@ -55,7 +55,7 @@ class AuthController{
 
         if($user && password_verify($_POST['password'], $user['password'])){
             // Régénérer l'id de session contre le session fixation
-            session_regenerate_id();
+            session_regenerate_id(true);
 
             if($user['actif'] === 0){
                 $error = "Vous n'avez plus accès à ce compte .";

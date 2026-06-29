@@ -107,7 +107,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                     </div>
                                 </div>
                                 <div class="d-flex flex-column img-nb-personne">
-                                    <img src="<?= htmlspecialchars($menu['image']) ?>" alt="<?= htmlspecialchars($menu['titre']) ?>">
+                                    <img loading="lazy" src="<?= htmlspecialchars($menu['image']) ?>" alt="<?= htmlspecialchars($menu['titre']) ?>">
                                     <p>A partir de <?= htmlspecialchars($menu['nombre_personne_minimum']) ?> personnes</p>
                                     <p class="liste-allergene" data-menu-id="<?= $menu['menu_id'] ?>"><i class="fa-regular fa-hand-point-right"></i>Allergènes</p>
                                     <div class="modal-allergenes"></div>

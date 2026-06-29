@@ -17,7 +17,7 @@ class AvisModel{
                                     CONCAT(utilisateur.prenom , ' ' , utilisateur.nom) as nom_complet
                                     FROM avis 
                                     JOIN utilisateur ON avis.utilisateur_id = utilisateur.utilisateur_id
-                                    WHERE statut = :statut ");
+                                    WHERE avis.statut = :statut AND  avis.deleted_at IS NULL");
         $stmt->bindValue(':statut', $statut , PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -69,6 +69,12 @@ class AvisModel{
         $stmt = $this->pdo->prepare("UPDATE avis SET statut = :statut WHERE avis_id = :id");
         $stmt->bindValue(':id', $data['avis_id'], PDO::PARAM_INT);
         $stmt->bindValue(':statut', $data['statut'], PDO::PARAM_STR);
+        $stmt->execute();
+    }
+
+    public function masquerAvisUtilisateur(int $id) : void{
+        $stmt = $this->pdo->prepare("UPDATE avis SET deleted_at = NOW() WHERE utilisateur_id = :id");
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
     }
 }

@@ -294,7 +294,7 @@ class CommandeController{
             $dateModif = date('Y-m-d H:i:s');
             $historiqueData = [
                 'commande_id' => $id,
-                'statut' => 'annule',
+                'statut' => 'annulee',
                 'date_modification' => $dateModif
             ];
             $this->commandes->createHistorique($historiqueData);
@@ -505,6 +505,28 @@ class CommandeController{
             $this->menu->updateQuantiteRestante($menuId ,$nbPersonne );
         }
 
+        if($statutSuivant === 'acceptee'){
+            $titre = "Votre commande est acceptée .";
+
+            $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 
+                    alt="Vite &amp; Gourmand" 
+                    width="600" 
+                    style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+            $imageBas = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/cuistot.jpg" 
+                    alt="Vite &amp; Gourmand" 
+                    width="600" 
+                    style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+            $conclusion = "<p>Bonjour {$statutActuel['nom_complet']}, votre commande {$statutActuel['numero_commande']} vient d'être acceptée . </p>
+            <p>Vous pouvez suivre l'avancée de celle-ci en vous connectant à votre profil . Passé ce délai, une pénalité forfaitaire de 600€ sera facturée.</p>
+            <p>Vite &amp; Gourmand vous souhaite une bonne journée.</p>";
+            
+            $message = $imageHaut . $conclusion . $imageBas ;
+            $email = $statutActuel['utilisateur_email'];
+
+            $this->mailService->sendEmail($email , $titre , $message);
+        }
+
         if($statutSuivant === 'attente_retour_materiel'){
             $titre = "En attente de retour du matériel prété .";
 
@@ -576,7 +598,7 @@ class CommandeController{
             $this->mongo->insertCommande($data);
         }
 
-        $successMessage = "Le statut de la commande numéro ". $statutActuel['numero_commande'] . " est : " . str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],['En attente', 'En préparation', 'En livraison', 'Attente retour matériel', 'Terminée', 'Acceptée', 'Annulée', 'Livrée'], $statutSuivant);
+        $successMessage = "Le statut de la commande numéro ". $statutActuel['numero_commande'] . " est : " . str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annulee', 'livree'],['En attente', 'En préparation', 'En livraison', 'Attente retour matériel', 'Terminée', 'Acceptée', 'Annulée', 'Livrée'], $statutSuivant);
 
         if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest') {
             header('Content-Type: application/json');

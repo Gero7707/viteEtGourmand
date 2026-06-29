@@ -71,27 +71,62 @@ require_once __DIR__ . '/../views/layout/header.php';
                 <!-- Slides -->
                 <div class="swiper-slide"> 
                     <div class="img-wrapper">
-                        <img src="/assets/img/accueil/banquet.webp" alt="banquet fleuri et servi de son entrée" data-swiper-parallax-x="30%" loading="lazy">
+                        <img data-swiper-parallax-x="30%" loading="lazy"
+                        src="/assets/img/accueil/caroussel/banquet.webp" 
+                        srcset="/assets/img/accueil/caroussel/banquet-400.webp 400w,
+                                /assets/img/accueil/caroussel/banquet-800.webp 800w,
+                                /assets/img/accueil/caroussel/banquet-1000.webp 1000w,
+                                /assets/img/accueil/caroussel/banquet-1600.webp 1600w"
+                        sizes="80vw"
+                        alt="banquet fleuri et servi de son entrée" >
                     </div>
                 </div>
                 <div class="swiper-slide"> 
                     <div class="img-wrapper">
-                        <img src="/assets/img/accueil/table.webp" alt="table décorée de fleurs blanches et jaunes" data-swiper-parallax-x="30%" loading="lazy">
+                        <img data-swiper-parallax-x="30%" loading="lazy" 
+                        src="/assets/img/accueil/caroussel/table.webp" 
+                        srcset="/assets/img/accueil/caroussel/table-400.webp 400w,
+                                /assets/img/accueil/caroussel/table-800.webp 800w,
+                                /assets/img/accueil/caroussel/table-1000.webp 1000w,
+                                /assets/img/accueil/caroussel/table-1600.webp 1600w"
+                        sizes="80vw"
+                        alt="table décorée de fleurs blanches et jaunes">
                     </div>
                 </div>
                 <div class="swiper-slide"> 
                     <div class="img-wrapper">
-                        <img src="/assets/img/accueil/champetre.webp" alt="repas champetre et son ornementation estivale" data-swiper-parallax-x="30%" loading="lazy">
+                        <img data-swiper-parallax-x="30%" loading="lazy"
+                        src="/assets/img/accueil/caroussel/champetre.webp" 
+                        srcset="/assets/img/accueil/caroussel/champetre-400.webp 400w,
+                                /assets/img/accueil/caroussel/champetre-800.webp 800w,
+                                /assets/img/accueil/caroussel/champetre-1000.webp 1000w,
+                                /assets/img/accueil/caroussel/champetre-1600.webp 1600w"
+                        sizes="80vw"
+                        alt="repas champetre et son ornementation estivale" >
                     </div>
                 </div>
                 <div class="swiper-slide"> 
                     <div class="img-wrapper">
-                        <img src="/assets/img/accueil/reception.webp" alt="reception fleurie et festive" data-swiper-parallax-x="30%" loading="lazy">
+                        <img  data-swiper-parallax-x="30%" loading="lazy"
+                        src="/assets/img/accueil/caroussel/reception.webp" 
+                        srcset="/assets/img/accueil/caroussel/reception-400.webp 400w,
+                                /assets/img/accueil/caroussel/reception-800.webp 800w,
+                                /assets/img/accueil/caroussel/reception-1000.webp 1000w,
+                                /assets/img/accueil/caroussel/reception-1600.webp 1600w"
+                        sizes="80vw"
+                        alt="reception fleurie et festive">
                     </div>
                 </div>
                 <div class="swiper-slide"> 
                     <div class="img-wrapper">
-                        <img src="/assets/img/accueil/fete.webp" alt="banquet" data-swiper-parallax-x="30%" loading="lazy">
+                        <img  data-swiper-parallax-x="30%" loading="lazy"
+                        src="/assets/img/accueil/caroussel/fete.webp" 
+                        srcset="/assets/img/accueil/caroussel/fete-400.webp 400w,
+                                /assets/img/accueil/caroussel/fete-800.webp 800w,
+                                /assets/img/accueil/caroussel/fete-1000.webp 1000w,
+                                /assets/img/accueil/caroussel/fete-1600.webp 1600w"
+                        sizes="80vw"
+                        alt="Un repas de fete inoubliable">
                     </div>
                 </div>
             </div>
@@ -102,7 +137,16 @@ require_once __DIR__ . '/../views/layout/header.php';
     <section class="section-savoir-faire">
         <h2 class="text-center mb-5 mt-5">Notre savoir faire</h2>
         <div class="d-flex carte-savoir-faire mb-4 mt-5 ">
-            <img src="/assets/img/accueil/grande-table.webp" alt="Grande table de banquet " class="img-carte1 observer mb-5">
+
+            <img  class="img-carte1 observer mb-5"
+            src="/assets/img/accueil/savoir/grande-table.webp" 
+            srcset="/assets/img/accueil/savoir/grande-table-400.webp 400w, 
+                    /assets/img/accueil/savoir/grande-table-800.webp 800w, 
+                    /assets/img/accueil/savoir/grande-table-1000.webp 1000w, 
+                    /assets/img/accueil/savoir/grande-table-1600.webp 1600w"
+            sizes="(max-width: 767.98px) 80vw, 40vw"
+            alt="Grande table de banquet">
+
             <div class="d-flex flex-column texte text-center texte-carte1 observer">
                 <p class="mb-5 mt-2">Depuis 1999, Vite & Gourmand met son expertise au service de vos réceptions. </p>
                 <p class="mb-2">Chaque menu est élaboré avec des produits frais et de saison, <br> sélectionnés auprès de producteurs locaux bordelais.</p>
@@ -116,7 +160,15 @@ require_once __DIR__ . '/../views/layout/header.php';
                 <p class="mb-5">Mariages, repas d'entreprise, fêtes de famille ou galas, nous nous adaptons à chaque occasion avec le même souci du détail et de l'excellence. </p>
                 <p >Plus de 2 000 événements réussis à Bordeaux et dans toute la Gironde.</p>
             </div>
-            <img src="/assets/img/menus/menu-de-reve.webp" alt="table dressée et ornementée de branches de rosiers" class="img-carte2 observer mt-5">
+
+            <img class="img-carte2 observer mt-5"
+            src="/assets/img/accueil/savoir/menu-de-reve.webp" 
+            srcset="/assets/img/accueil/savoir/menu-de-reve-400.webp 400w, 
+                    /assets/img/accueil/savoir/menu-de-reve-800.webp 800w, 
+                    /assets/img/accueil/savoir/menu-de-reve-1000.webp 1000w, 
+                    /assets/img/accueil/savoir/menu-de-reve-1600.webp 1600w"
+            sizes="(max-width: 767.98px) 80vw, 40vw"
+            alt="table dressée et ornementée de branches de rosiers">
             
         </div>
     </section>

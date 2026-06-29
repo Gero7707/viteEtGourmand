@@ -58,17 +58,9 @@ class Auth{
     // ============================================================
     // PROTECTION CSRF (Cross-Site Request Forgery)
     // Protège les formulaires contre les soumissions depuis des sites externes
-    // Flux : generateCsrfToken() à l'affichage → csrfField() dans le form → verifyCsrfToken() au POST
+    // Flux CSRF : csrfField() crée le token (paresseux) + l'injecte dans le form → verifyCsrfToken() le valide au POST
     // ============================================================
 
-    /**
-     * Génère un token CSRF aléatoire et le stocke en session
-     * À appeler avant require_once de chaque vue contenant un formulaire POST
-     * Chaque appel génère un nouveau token — invalide le précédent
-     */
-    public static function generateCsrfToken(): void {
-        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-    }
 
     /**
      * Vérifie la validité du token CSRF soumis avec le formulaire

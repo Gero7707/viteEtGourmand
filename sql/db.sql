@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS vite_et_gourmand;
-USE vite_et_gourmand;
+CREATE DATABASE IF NOT EXISTS vite_et_gourmand_test;
+USE vite_et_gourmand_test;
 
 CREATE TABLE  role(
     role_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -78,8 +78,10 @@ CREATE TABLE image_menu(
 CREATE TABLE commande(
     commande_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     utilisateur_id INT NOT NULL,
-    menu_id INT NOT NULL,
+    menu_id INT,
     adresse_livraison VARCHAR(255) NOT NULL,
+    ville varchar(100) DEFAULT NULL,
+    code_postal varchar(10) DEFAULT NULL,
     distance_km DECIMAL(10,2),
     numero_commande VARCHAR(50) UNIQUE NOT NULL,
     date_commande DATETIME NOT NULL,
@@ -92,12 +94,13 @@ CREATE TABLE commande(
     pret_materiel TINYINT(1)  DEFAULT 0,
     restitution_materiel TINYINT(1)  DEFAULT 0,
     FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(utilisateur_id),
-    FOREIGN KEY (menu_id) REFERENCES menu(menu_id)
+    FOREIGN KEY (menu_id) REFERENCES menu(menu_id)  ON DELETE SET NULL
 );
 
 CREATE TABLE historique_statut(
     historique_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     commande_id INT NOT NULL,
+    commentaires TEXT,
     statut VARCHAR(50) NOT NULL,
     date_modification DATETIME NOT NULL,
     FOREIGN KEY (commande_id)REFERENCES commande(commande_id)
@@ -131,6 +134,14 @@ CREATE TABLE plat_allergene(
     PRIMARY KEY (plat_id, allergene_id),
     FOREIGN KEY (plat_id) REFERENCES plat(plat_id),
     FOREIGN KEY (allergene_id) REFERENCES allergene(allergene_id)
+);
+
+CREATE TABLE login_attempts (
+    attempt_id INT NOT NULL AUTO_INCREMENT,
+    ip VARCHAR(45) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    attempted_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (attempt_id)
 );
 
 

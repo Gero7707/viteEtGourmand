@@ -37,7 +37,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <div class="text-center input-select">
             <label for="statut">Filtrer par statut :</label>
             <select name="statut" id="statut">
-                <option value=""></option>
+                <option value="actives">Commandes actives</option>
                 <option value="en_attente">En attente</option>
                 <option value="acceptee">Acceptée</option>
                 <option value="en_preparation">En préparation</option>
@@ -45,6 +45,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <option value="livree">Livrée</option>
                 <option value="attente_retour_materiel">Attente retour matériel</option>
                 <option value="terminee">Terminee</option>
+                <option value="annulee">Annulée</option>
             </select>
         </div>
     <?php endif ?>

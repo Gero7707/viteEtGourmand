@@ -45,7 +45,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         <td class=" d-none d-md-table-cell"><?= htmlspecialchars($commande['titre'])  ?></p></td>
                         <td class=" d-none d-md-table-cell"><?= htmlspecialchars($commande['numero_commande'])  ?></td>
                         <td><?= date('d/m/Y', strtotime($commande['date_commande']))  ?></td>
-                        <td><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],
+                        <td><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annulee', 'livree'],
                                                             ['En attente', 'En préparation', 'En livraison', 'Attente retour matériel', 'Terminée', 'Acceptée', 'Annulée', 'Livrée'],
                                                             $commande['statut'])) ?>
                         </td>

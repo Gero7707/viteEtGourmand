@@ -294,7 +294,7 @@ class CommandeController{
             $dateModif = date('Y-m-d H:i:s');
             $historiqueData = [
                 'commande_id' => $id,
-                'statut' => 'annule',
+                'statut' => 'annulee',
                 'date_modification' => $dateModif
             ];
             $this->commandes->createHistorique($historiqueData);
@@ -598,7 +598,7 @@ class CommandeController{
             $this->mongo->insertCommande($data);
         }
 
-        $successMessage = "Le statut de la commande numéro ". $statutActuel['numero_commande'] . " est : " . str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],['En attente', 'En préparation', 'En livraison', 'Attente retour matériel', 'Terminée', 'Acceptée', 'Annulée', 'Livrée'], $statutSuivant);
+        $successMessage = "Le statut de la commande numéro ". $statutActuel['numero_commande'] . " est : " . str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annulee', 'livree'],['En attente', 'En préparation', 'En livraison', 'Attente retour matériel', 'Terminée', 'Acceptée', 'Annulée', 'Livrée'], $statutSuivant);
 
         if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest') {
             header('Content-Type: application/json');

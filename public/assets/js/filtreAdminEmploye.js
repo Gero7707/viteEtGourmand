@@ -22,17 +22,25 @@ document.addEventListener('DOMContentLoaded', () =>{
     const statut = document.getElementById('statut');
     const commandes = document.querySelectorAll('.ligne-commande');
     if(!statut  || !commandes)return;
+
     
     function filtrerStatutCommande(){
         let inputStatut = statut.value;
+        const statutsMasquesParDefaut = ['terminee', 'annulee'];
         commandes.forEach(commande =>{
             commande.style.display = "table-row";
-            if(inputStatut !== '' && inputStatut !== commande.dataset.statut){
+            if(inputStatut === 'actives'){
+                if(statutsMasquesParDefaut.includes(commande.dataset.statut)){
+                    commande.style.display = "none";
+                }
+            }else if(inputStatut !== ''){
+                if(inputStatut !== commande.dataset.statut){
                 commande.style.display = "none";
+                }
             }
         })
     }
-
+    filtrerStatutCommande();
     statut.addEventListener('change' , filtrerStatutCommande);
 
 

@@ -76,7 +76,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <div class="text-center input-select mt-5">
         <label for="statut">Filtrer par statut :</label>
         <select name="statut" id="statut">
-            <option value=""></option>
+            <option value="actives">Commandes actives</option>
             <option value="en_attente">En attente</option>
             <option value="acceptee">Acceptée</option>
             <option value="en_preparation">En préparation</option>
@@ -84,6 +84,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <option value="livree">Livrée</option>
             <option value="attente_retour_materiel">Attente retour matériel</option>
             <option value="terminee">Terminee</option>
+            <option value="annulee">Annulée</option>
         </select>
     </div>
 
@@ -107,7 +108,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         <td class="col-desktop"><?= htmlspecialchars($commande['nom_complet']) ?></td>
                         <td class="col-desktop"><?= date('d/m/Y', strtotime($commande['date_prestation']) )?></td>
                         <td class="col-desktop"><?= htmlspecialchars($commande['nombre_personne']) ?></td>
-                        <td class="col-desktop"><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annule', 'livree'],
+                        <td class="col-desktop"><?= htmlspecialchars(str_replace(['en_attente', 'en_preparation', 'en_livraison', 'attente_retour_materiel', 'terminee', 'acceptee', 'annulee', 'livree'],
                                                             ['En attente', 'En préparation', 'En livraison', 'Attente retour matériel', 'Terminée', 'Acceptée', 'Annulée', 'Livrée'],
                                                             $commande['statut'])) ?>
                         </td>

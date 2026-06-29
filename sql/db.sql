@@ -111,6 +111,7 @@ CREATE TABLE avis(
     description TEXT,
     statut VARCHAR(20) NOT NULL,
     date_avis DATETIME NOT NULL,
+    deleted_at DATETIME DEFAULT NULL,
     FOREIGN KEY (commande_id) REFERENCES commande(commande_id),
     FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(utilisateur_id)
 );

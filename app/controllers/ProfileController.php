@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../models/UserModel.php';
 require_once __DIR__ . '/../models/HoraireModel.php';
 require_once __DIR__ . '/../models/CommandeModel.php';
+require_once __DIR__ . '/../models/AvisModel.php';
 require_once __DIR__ . '/../services/MailService.php';
 
 
@@ -14,11 +15,14 @@ class ProfileController{
 
     private MailService $mailService;
 
+    private AvisModel $avis;
+
     public function __construct(){
         $this->horaire = new HoraireModel();
         $this->user = new UserModel();
         $this->commandes = new CommandeModel();
         $this->mailService = new MailService();
+        $this->avis = new AvisModel();
     }
 
     public function showProfile(){
@@ -97,6 +101,7 @@ class ProfileController{
         $id = $_SESSION['utilisateur_id'];
         $email = $_SESSION['email'];
         $this->user->supprimerCompteUtilisateur($id);
+        $this->avis->masquerAvisUtilisateur($id);
 
         $titre = 'Votre profil a été supprimé !';
             

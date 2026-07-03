@@ -98,7 +98,7 @@ $router->add('GET' , '/admin/update-employe/{id}' , 'AdminController' , 'showMod
 $router->add('POST' , '/admin/update-employe/{id}' , 'AdminController' , 'updateEmploye');
 
 // Authentification — déconnexion
-$router->add('GET', '/auth/logout', 'AuthController', 'logOut');
+$router->add('Post', '/auth/logout', 'AuthController', 'logOut');
 
 // Mot de passe oublié
 $router->add('GET', '/auth/forgot-password', 'PasswordResetController', 'forgotPasswordForm');

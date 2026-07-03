@@ -53,13 +53,17 @@ header{
     text-align: center;
 }
 
-.ancre-auth{
+.ancre-auth , .auth button{
     border : 1px solid;
     padding: 0.5rem;
     border-radius: 8px;
 }
 
-.ancre-auth:hover{
+.auth button{
+    background-color: var(--bleu-nuit);
+}
+
+.ancre-auth:hover, .auth button:hover{
     background-color:var(--dore) ;
     color: var(--bleu-nuit) !important; 
 }

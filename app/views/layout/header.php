@@ -53,6 +53,10 @@
         
         <h1 class="titre text-secondary">Vite & Gourmand</h1>
         <ul class="d-flex lien-header lien-slide" >
+            <?php if (getenv('APP_ENV') === 'dev'): ?>
+                <button popovertarget="my-popover">Open Var dump</button>
+                <div popover id="my-popover"><?php var_dump($_COOKIE); ?></div>
+            <?php endif; ?>
             <li><a href="/">Accueil</a></li>
             <li><a href="/menus">Nos menus</a></li>
             <li><a href="/contact">Contact</a></li>
@@ -63,6 +67,10 @@
                 <a href="/auth/login" class="border-secondary text-secondary btn-largeur ancre-auth">Connexion</a>
                 <a href="/auth/register" class="border-secondary text-secondary btn-largeur ancre-auth">Créer un compte </a>
             <?php elseif(isset($_SESSION['utilisateur_id'])) : ?>
+                <form action="/auth/logout" method="POST">
+                    <?= Auth::csrfField() ?>
+                    <button type="submit" class="border-secondary text-secondary btn-largeur ancre-auth">Déconnexion</button>
+                </form>
                 <a href="/auth/logout" class="border-secondary text-secondary btn-largeur ancre-auth">Déconnexion</a>
                 <?php if($_SESSION['role_id'] === 1) : ?>
                     <a href="/profile" class="border-secondary text-secondary btn-largeur ancre-auth">Voir profil</a>

@@ -8,6 +8,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^.*$ index.php [L]
 
+# Headers de sécurité également définis dans .htaccess (main) — toute modification doit être reportée
 # Empêche l'intégration du site dans un <iframe> — protection contre le clickjacking
 Header always set X-Frame-Options "DENY"
 

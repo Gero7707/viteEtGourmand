@@ -118,7 +118,17 @@ class PasswordResetController{
             $this->users->clearResetToken($id);
             $email = $user['email'];
             $subject = "Mot de passe réinitialsé !";
-            $body = "Vous avez réinitialsé votre mot de passe avec succès ! ";
+            $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 
+                    alt="Vite &amp; Gourmand" 
+                    width="600" 
+                    style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+
+            $imageBas = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/cuistot.jpg" 
+                    alt="Vite &amp; Gourmand" 
+                    width="600" 
+                    style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
+            $conclusion = "Vous avez réinitialsé votre mot de passe avec succès ! ";
+            $body =$imageHaut . $conclusion  . $imageBas;
             $this->mailService->sendEmail($email,$subject,$body);
             $succesMessage = "Vous avez réinitialsé votre mot de passe avec succès !";
             header('location: /auth/login?success=' . urlencode($succesMessage));

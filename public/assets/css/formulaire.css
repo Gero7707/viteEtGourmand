@@ -211,6 +211,10 @@ form input{
     border-radius: 8px;
 }
 
+.main-avis-valider{
+    min-height: 70vh;
+}
+
 /* editProfile.php  */
 .btn-annuler{
     padding-top: 0.5rem;

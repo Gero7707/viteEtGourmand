@@ -7,3 +7,18 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^.*$ index.php [L]
+
+# Empêche l'intégration du site dans un <iframe> — protection contre le clickjacking
+Header always set X-Frame-Options "DENY"
+
+# Empêche le navigateur de deviner le type MIME d'un fichier
+Header always set X-Content-Type-Options "nosniff"
+
+# Définit les sources autorisées pour les scripts, styles, images etc.
+Header always set Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net fonts.googleapis.com; script-src 'self' kit.fontawesome.com cdn.jsdelivr.net; font-src 'self' fonts.googleapis.com fonts.gstatic.com ka-f.fontawesome.com; connect-src 'self' ka-f.fontawesome.com cdn.jsdelivr.net"
+
+# Contrôle les informations envoyées dans l'en-tête Referer
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+# Désactive l'accès aux APIs sensibles du navigateur (géolocalisation, micro, caméra)
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"

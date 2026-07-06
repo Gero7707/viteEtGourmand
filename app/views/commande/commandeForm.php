@@ -46,7 +46,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <form action="/commandes/create" method="POST" class="text-center">
             <?= Auth::csrfField() ?>
     
-            
+
             
             <input type="hidden" name="menu_id" id="menu_id" value="<?= htmlspecialchars($menu['menu_id']) ?>">
             <input type="hidden" name="distance_km" id="distance_km" value="0">

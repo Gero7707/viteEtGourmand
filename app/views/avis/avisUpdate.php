@@ -14,7 +14,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <div  class="d-flex justify-content-center ">
         <div class="d-flex flex-column justify-content-center form-contact mt-5">
             <h2 class="text-center">Modifier votre avis</h2>
-            <form action="/avis/edit/<?= $avis['avis_id'] ?>" method="POST" class="text-center">
+            <form action="/avis/edit/<?= $avis['avis_id'] ?>" method="POST" class="text-center validate-form">
                 <?= Auth::csrfField() ?>
                 
                 <p>Vous avez donné la note : <?= htmlspecialchars($avis['note']) ?>/5</p>
@@ -35,7 +35,6 @@ require_once __DIR__ . '/../../views/layout/header.php';
         </div>
     </div>
 </main>
-<script src="/assets/js/form.js"></script>
 <?php
 $loadScriptJs = ['form.js' , 'etoiles.js' ];
 require_once __DIR__ . '/../../views/layout/importJs.php';

@@ -12,7 +12,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <div class="d-flex justify-content-center ">
         <div class="d-flex flex-column justify-content-center form-contact mt-5">
             <h2 class="text-center mt-3">Réinitialisez votre mot de passe </h2>
-            <form action="/auth/forgot-password" method="POST" class="text-center mt-5">
+            <form action="/auth/forgot-password" method="POST" class="text-center mt-5 validate-form">
                 <?= Auth::csrfField() ?>
                 <label class="form-label" for="email">Entrez votre email :</label><br>
                 <input class="form-control" type="email" name="email" id="email" required><br>

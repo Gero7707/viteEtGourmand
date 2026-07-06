@@ -7,7 +7,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <div class="d-flex justify-content-center">
         <div class="d-flex flex-column justify-content-center form-contact mt-5">
             <h2 class="text-center ">Votre nouveau mot de passe </h2>
-            <form action="/auth/reset-password" method="POST" class="text-center mt-5">
+            <form action="/auth/reset-password" method="POST" class="text-center mt-5 validate-form">
             
                 <?= Auth::csrfField() ?>
                 <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">

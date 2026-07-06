@@ -15,7 +15,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         
         <div class="d-flex flex-column justify-content-center form-contact">
 
-            <form action="/profile/edit" method="POST" class="text-center">
+            <form action="/profile/edit" method="POST" class="text-center validate-form">
                 <?= Auth::csrfField() ?>
                 <h2 class="mt-3 mb-3 ">Modifier profil</h2>
                 

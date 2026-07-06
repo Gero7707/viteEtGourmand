@@ -13,7 +13,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <div  class="d-flex justify-content-center">
         <div class="d-flex flex-column justify-content-center form-contact">
             <h2 class="text-center mt-3">Créer votre compte</h2>
-            <form action="/auth/register" method="POST" class="text-center">
+            <form action="/auth/register" method="POST" class="text-center validate-form">
                 
                 <?= Auth::csrfField() ?>
 

@@ -13,7 +13,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <div  class="d-flex justify-content-center ">
         <div class="d-flex flex-column justify-content-center form-contact mt-5">
             <h2 class="text-center">Modifier profil employé</h2>
-            <form action="/admin/update-employe/<?= htmlspecialchars($user['utilisateur_id']) ?>" method="POST" class="text-center">
+            <form action="/admin/update-employe/<?= htmlspecialchars($user['utilisateur_id']) ?>" method="POST" class="text-center validate-form">
                 <?= Auth::csrfField() ?>
 
                 <label class="form-label" for="email">Email</label><br>

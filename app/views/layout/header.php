@@ -53,10 +53,10 @@
         
         <h1 class="titre text-secondary">Vite & Gourmand</h1>
         <ul class="d-flex lien-header lien-slide" >
-            <?php if (getenv('APP_ENV') === 'dev'): ?>
-                <button popovertarget="my-popover">Open Var dump</button>
-                <div popover id="my-popover"><?php var_dump($_COOKIE); ?></div>
-            <?php endif; ?>
+            <?php //if (getenv('APP_ENV') === 'dev'): ?>
+                <!-- <button popovertarget="my-popover">Open Var dump</button>
+                <div popover id="my-popover"><?php //var_dump($_COOKIE); ?></div> -->
+            <?php //endif; ?>
             <li><a href="/">Accueil</a></li>
             <li><a href="/menus">Nos menus</a></li>
             <li><a href="/contact">Contact</a></li>
@@ -71,7 +71,6 @@
                     <?= Auth::csrfField() ?>
                     <button type="submit" class="border-secondary text-secondary btn-largeur ancre-auth">Déconnexion</button>
                 </form>
-                <a href="/auth/logout" class="border-secondary text-secondary btn-largeur ancre-auth">Déconnexion</a>
                 <?php if($_SESSION['role_id'] === 1) : ?>
                     <a href="/profile" class="border-secondary text-secondary btn-largeur ancre-auth">Voir profil</a>
                 <?php endif ?>
@@ -92,7 +91,10 @@
                     <li><a class="dropdown-item" href="/auth/login">Connexion</a></li>
                     <li><a class="dropdown-item" href="/auth/register">Créer un compte</a></li>
                 <?php elseif(isset($_SESSION['utilisateur_id'])) : ?>
-                    <li><a aria-hidden="true" class="dropdown-item" href="/auth/logout">Déconnexion</a></li>
+                    <form action="/auth/logout" method="POST">
+                        <?= Auth::csrfField() ?>
+                        <button type="submit" class="dropdown-item">Déconnexion</button>
+                    </form>
                     <?php if($_SESSION['role_id'] === 1) : ?>
                         <li><a class="dropdown-item" href="/profile">Voir profil</a></li>
                     <?php endif ?>

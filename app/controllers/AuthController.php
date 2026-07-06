@@ -90,7 +90,7 @@ class AuthController{
             $this->loginAttempts->addAttempt($ip,$emailToStore);
             $attempts = $this->loginAttempts->getAttempts($ip,$emailToStore);
             if(count($attempts) >= 5 && $user){
-                $error = "Vous avez tenté de vous connecter plus de 5 fois sans succés , par sécurité vous devez réessayer ultérieurement !";
+                $error = "Vous avez tenté de vous connecter plus de 5 fois sans succés , par sécurité vous devez réessyer ultérieurement !";
                 $subject = "Tentatives de connexions ratées !";
                 $conclusion = "<p>Vous avez 5 tentatives de connexion infructueuses à votre compte ! </p>
                 <p>Si c'est un oubli,ou si ce n'est pas vous qui êtes à l'origine des tentatives de connexion ,  veuillez modifier votre mot de passe .</p> ";
@@ -109,7 +109,7 @@ class AuthController{
                 header('location: /?error=' . urlencode($error));
                 exit();
             }elseif(count($attempts) >= 5 ){
-                $error = "Vous avez tenté de vous connecter plus de 5 fois sans succés , par sécurité vous devez réessayer ultérieurement !";
+                $error = "Vous avez tenté de vous connecter plus de 5 fois sans succés , par sécurité vous devez réessyer ultérieurement !";
                 header('location: /?error=' . urlencode($error));
                 exit();
             }
@@ -123,7 +123,21 @@ class AuthController{
     }
 
     public function logOut(){
-        session_destroy();
+        Auth::verifyCsrfToken();          // 1. protection CSRF
+
+        $_SESSION = [];                    // 2. vider les données en mémoire
+
+        // 3. supprimer le cookie de session côté navigateur
+        if (ini_get('session.use_cookies')) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                $params['path'], $params['domain'],
+                $params['secure'], $params['httponly']
+            );
+        }
+
+        session_destroy();                 // 4. détruire côté serveur
+
         header('Location: /');
         exit();
     }

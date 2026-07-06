@@ -14,7 +14,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <div class="d-flex justify-content-center">
         <div class="d-flex flex-column text-center form-contact bottom-annuler">
             <h2 class="texte-center  mb-5">Annuler la commande</h2>
-            <form action="/commandes/annuler-commande/<?= $commandes['commande_id'] ?>" method="POST">
+            <form action="/commandes/annuler-commande/<?= $commandes['commande_id'] ?>" method="POST" class="validate-form">
                 <?= Auth::csrfField() ?>
                 
                 <label class="form-label" for="commentaires">Motif et mode de contact :</label><br>

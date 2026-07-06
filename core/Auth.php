@@ -58,7 +58,7 @@ class Auth{
     // ============================================================
     // PROTECTION CSRF (Cross-Site Request Forgery)
     // Protège les formulaires contre les soumissions depuis des sites externes
-    // Flux : generateCsrfToken() à l'affichage → csrfField() dans le form → verifyCsrfToken() au POST
+    // Flux CSRF : csrfField() crée le token (paresseux) + l'injecte dans le form → verifyCsrfToken() le valide au POST
     // ============================================================
 
 

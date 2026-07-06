@@ -84,7 +84,10 @@
                     <li><a class="dropdown-item" href="/auth/login">Connexion</a></li>
                     <li><a class="dropdown-item" href="/auth/register">Créer un compte</a></li>
                 <?php elseif(isset($_SESSION['utilisateur_id'])) : ?>
-                    <li><a aria-hidden="true" class="dropdown-item" href="/auth/logout">Déconnexion</a></li>
+                    <form action="/auth/logout" method="POST">
+                        <?= Auth::csrfField() ?>
+                        <button type="submit" class="dropdown-item">Déconnexion</button>
+                    </form>
                     <?php if($_SESSION['role_id'] === 1) : ?>
                         <li><a class="dropdown-item" href="/profile">Voir profil</a></li>
                     <?php endif ?>

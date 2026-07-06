@@ -45,6 +45,13 @@ CREATE TABLE utilisateur (
     FOREIGN KEY (role_id) REFERENCES role(role_id)
 );
 
+CREATE TABLE login_attempts (
+    attempt_id INT PRIMARY KEY AUTO_INCREMENT,
+    ip VARCHAR(45) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    attempted_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE menu(
     menu_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     regime_id INT,

@@ -90,7 +90,7 @@ class AuthController{
             $this->loginAttempts->addAttempt($ip,$emailToStore);
             $attempts = $this->loginAttempts->getAttempts($ip,$emailToStore);
             if(count($attempts) >= 5 && $user){
-                $error = "Vous avez tenté de vous connecter plus de 5 fois sans succés , par sécurité vous devez réessyer ultérieurement !";
+                $error = "Vous avez tenté de vous connecter plus de 5 fois sans succés , par sécurité vous devez réessayer ultérieurement !";
                 $subject = "Tentatives de connexions ratées !";
                 $conclusion = "<p>Vous avez 5 tentatives de connexion infructueuses à votre compte ! </p>
                 <p>Si c'est un oubli,ou si ce n'est pas vous qui êtes à l'origine des tentatives de connexion ,  veuillez modifier votre mot de passe .</p> ";
@@ -109,7 +109,7 @@ class AuthController{
                 header('location: /?error=' . urlencode($error));
                 exit();
             }elseif(count($attempts) >= 5 ){
-                $error = "Vous avez tenté de vous connecter plus de 5 fois sans succés , par sécurité vous devez réessyer ultérieurement !";
+                $error = "Vous avez tenté de vous connecter plus de 5 fois sans succés , par sécurité vous devez réessayer ultérieurement !";
                 header('location: /?error=' . urlencode($error));
                 exit();
             }

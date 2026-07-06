@@ -13,7 +13,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <div class="d-flex justify-content-center">
         <div class="d-flex flex-column justify-content-center form-contact">
             <h2 class="text-center mt-3 mb-3">Créer un menu</h2>
-            <form action="/create-menu" method="POST" enctype="multipart/form-data" class="text-center">
+            <form action="/create-menu" method="POST" enctype="multipart/form-data" class="text-center validate-form">
                 <?= Auth::csrfField() ?>
                 <label class="form-label" for="theme_id">Thème :</label><br>
                 <select name="theme_id" id="theme_id" >

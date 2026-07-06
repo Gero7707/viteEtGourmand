@@ -5,31 +5,26 @@ window.addEventListener('pageshow', (event) => {
 });
 
 
-const form = document.querySelector('form')
-const errorMessage = document.querySelector('.error-message');
-const successMessage = document.querySelector('.success-message');
+const forms = document.querySelectorAll('.validate-form');
 
-const inputs = document.querySelectorAll('input , select , textarea ,input[type="checkbox"] ');
-
-const btnSubmitForm = document.querySelector('.btn-form');
-
-
-btnSubmitForm.addEventListener('click' , (e) =>{
-    e.preventDefault();
-    let isValid = true;
-    inputs.forEach(input =>{
-        if(input.type === 'file') return;
-        if(!input.value.trim()){
-        isValid = false ;
-        input.style.border = '1px solid #C62828';
-        input.style.background = '#eeb7b7';
-    }
-    })
-    if(!isValid){
-        errorMessage.style.display = 'block';
-        errorMessage.textContent = "Veuillez remplir tous les champs du formulaire ."
-    }else if (isValid){
-        form.submit();
-        return;
-    }
+forms.forEach(form =>{
+    const errorMessage = form.querySelector('.error-message') || document.querySelector('.error-message');
+    const successMessage = form.querySelector('.success-message') || document.querySelector('.success-message');
+    const inputs = form.querySelectorAll('input , select , textarea ,input[type="checkbox"] ');
+    form.addEventListener('submit' , (e) =>{
+        let isValid = true;
+        inputs.forEach(input =>{
+            if(input.type === 'file') return;
+            if(!input.value.trim()){
+            isValid = false ;
+            input.style.border = '1px solid #C62828';
+            input.style.background = '#eeb7b7';
+        }
+        })
+        if(!isValid){
+            e.preventDefault();
+            errorMessage.style.display = 'block';
+            errorMessage.textContent = "Veuillez remplir tous les champs du formulaire ."
+        }
+    });
 });

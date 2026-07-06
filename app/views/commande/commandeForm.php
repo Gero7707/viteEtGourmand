@@ -43,7 +43,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
         <h2 class="text-center ">Votre commande</h2>
 
-        <form action="/commandes/create" method="POST" class="text-center">
+        <form action="/commandes/create" method="POST" class="text-center validate-form">
             <?= Auth::csrfField() ?>
     
             

@@ -3,7 +3,7 @@ $pageSpecificCss = ['style.css' , 'formulaire.css' , 'layout.css'];
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 
-<main>
+<main class="main-avis-valider">
     
     <?php if ($_SESSION['role_id'] === 2) :  ?>
         <div class="d-none d-md-flex justify-content-around">
@@ -45,7 +45,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <p><?= htmlspecialchars($carteAvis['description']) ?></p>
                 <p><?= htmlspecialchars(str_replace(':00', 'h',date('d/m/Y  \à  H:i', strtotime($carteAvis['date_avis'])))) ?></p>
                 
-                <form action="/avis-valider/<?= $carteAvis['avis_id'] ?>" method="POST">
+                <form action="/avis-valider/<?= $carteAvis['avis_id'] ?>" method="POST" class="">
                     <?= Auth::csrfField() ?>
                     <button class="btn-form" type="submit" name="statut" value="valide">Valider</button>
                     <button class="btn-form" type="submit" name="statut" value="refuse">Refuser</button>

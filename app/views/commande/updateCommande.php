@@ -45,7 +45,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
 
         <h2 class="text-center ">Modifier otre commande</h2>
 
-        <form action="/commandes/edit/<?= $commande['commande_id'] ?>" method="POST" class="text-center">
+        <form action="/commandes/edit/<?= $commande['commande_id'] ?>" method="POST" class="text-center validate-form">
             <?= Auth::csrfField() ?>
             <input type="hidden" name="menu_id" id="menu_id" value="<?= htmlspecialchars($commande['menu_id']) ?>">
             <input type="hidden" name="commande_id" id="commande_id" value="<?= htmlspecialchars($commande['commande_id']) ?>">

@@ -14,7 +14,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
     <div class="d-flex justify-content-center">
         <div class="d-flex flex-column text-center form-contact">
             <h2 class="text-center  mb-2">Créer un plat</h2>
-            <form action="/plats/create" method="POST" enctype="multipart/form-data" class="text-center">
+            <form action="/plats/create" method="POST" enctype="multipart/form-data" class="text-center validate-form">
                 <?= Auth::csrfField() ?>
 
                 <label class="form-label" for="titre_plat">Titre du plat :</label><br>

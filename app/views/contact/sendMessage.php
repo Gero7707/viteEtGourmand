@@ -18,7 +18,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
         <div class="d-flex flex-column justify-content-center form-contact ">
             
             <h2 class="text-center">Formuliare de contact</h2>
-            <form action="/contact" method="POST" class="text-center">
+            <form action="/contact" method="POST" class="text-center validate-form">
                 <?= Auth::csrfField() ?>
 
                 <label class="form-label" for="titre">Sujet :</label><br>

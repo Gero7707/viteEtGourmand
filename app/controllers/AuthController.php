@@ -123,11 +123,11 @@ class AuthController{
     }
 
     public function logOut(){
-        Auth::verifyCsrfToken();          // 1. protection CSRF
+        Auth::verifyCsrfToken();          
 
-        $_SESSION = [];                    // 2. vider les données en mémoire
+        $_SESSION = [];                    
 
-        // 3. supprimer le cookie de session côté navigateur
+        //  supprimer le cookie de session côté navigateur
         if (ini_get('session.use_cookies')) {
             $params = session_get_cookie_params();
             setcookie(session_name(), '', time() - 42000,
@@ -136,7 +136,7 @@ class AuthController{
             );
         }
 
-        session_destroy();                 // 4. détruire côté serveur
+        session_destroy();                 
 
         header('Location: /');
         exit();

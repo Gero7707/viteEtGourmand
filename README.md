@@ -138,7 +138,7 @@ ViteEtGourmand/
 - Sessions sécurisées (httponly, samesite, strict mode)
 - Requêtes préparées (PDO) contre les injections SQL
 - Échappement des sorties (`htmlspecialchars`) contre le XSS
-- Headers de sécurité HTTP (X-Frame-Options, CSP, X-Content-Type-Options)définis dans .htaccess (main) et apache.conf(develop) — toute modification doit être reportée 
+- Headers de sécurité HTTP (X-Frame-Options, CSP, X-Content-Type-Options)
 - Limitation des tentatives de connexion (brute force)
 - `DocumentRoot` limité à `public/` — le code source n'est pas accessible par URL
 

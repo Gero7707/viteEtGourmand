@@ -888,15 +888,11 @@ a{text-decoration: none;}
     margin-left: 0.5rem;
 }
 
-.tableau-commande i:hover {
+.tableau-commande i:hover ,.tableau-commande-entreprise i:hover{
     color: var(--dore-clair);
     transform: scale(1.5);
 }
 
-.voir-commande-client:hover{
-    transform: scale(1.5) !important;
-    color: var(--dore-clair);
-}
 
 tr {
     border-bottom: 1px solid var(--bleu-tres-fonce);

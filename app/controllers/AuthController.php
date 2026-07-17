@@ -180,14 +180,14 @@ class AuthController{
             header('Location: /auth/register?error=' . urlencode($error));
             exit();
         }
-        if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d]).{10,}$/', $_POST['password'])) {
+        if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d]).{12,}$/', $_POST['password'])) {
             //(?=.*[a-z]) → contient au moins une minuscule
             // (?=.*[A-Z]) → contient au moins une majuscule
             // (?=.*\d) → contient au moins un chiffre
             // (?=.*[^a-zA-Z\d]) → contient au moins un caractère qui n'est ni lettre ni chiffre (= spécial)
             // .{10,} → 10 caractères minimum
             // ^ et $ → du début à la fin de la chaîne
-            $error = "Le mot de passe doit contenir au moins 10 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.";
+            $error = "Le mot de passe doit contenir au moins 12 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.";
             header('Location: /auth/register?error=' . urlencode($error));
             exit();
         }

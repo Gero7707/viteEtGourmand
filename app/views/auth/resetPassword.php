@@ -11,11 +11,16 @@ require_once __DIR__ . '/../../views/layout/header.php';
             
                 <?= Auth::csrfField() ?>
                 <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
-
-                <label class="form-label" for="password">Nouveau mot de passe</label><br>
+                <div class="d-flex password justify-content-center">
+                    <label class="form-label" for="password">Nouveau mot de passe</label><br>
+                    <button type="button" class="btn-password" data-target="password" aria-label="Voir le mot de passe"><i class="fa-regular fa-eye"></i></button><br>
+                </div>
                 <input  class="form-control"  type="password" name="password" id="password" required><br>
 
-                <label class="form-label" class="mt-3"  for="password_confirm">Confirmer le mot de passe</label><br>
+                <div class="d-flex password justify-content-center">
+                    <label class="form-label" class="mt-3"  for="password_confirm">Confirmer le mot de passe</label><br>
+                    <button type="button" class="btn-password" data-target="password_confirm" aria-label="Voir le mot de passe"><i class="fa-regular fa-eye"></i></button><br>
+                </div>
                 <input class="form-control" type="password" name="password_confirm" id="password_confirm"><br>
 
                 <button class="mt-3 mb-3 btn-form"  type="submit">Valider</button>

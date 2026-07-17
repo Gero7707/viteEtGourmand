@@ -586,7 +586,6 @@ class CommandeController{
 
             $this->mailService->sendEmail($email , $titre , $message);
         }
-
         if ($statutSuivant === 'terminee') {
             $data = [
                 'commande_id'  => $id,

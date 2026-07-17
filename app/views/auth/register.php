@@ -26,10 +26,16 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <label class="form-label" class="mt-3" for="prenom">Prénom</label><br>
                 <input class="form-control"  type="text" name="prenom" id="prenom" required><br>
 
-                <label class="form-label" class="mt-3" for="password">Mot de passe</label><br>
+                <div class="d-flex password justify-content-center">
+                    <label class="form-label" class="mt-3" for="password">Mot de passe</label><br>
+                    <button type="button" class="btn-password" data-target="password" aria-label="Voir le mot de passe"><i class="fa-regular fa-eye"></i></button><br>
+                </div>
                 <input class="form-control"  type="password" name="password" id="password" required><br>
                 
-                <label class="form-label" class="mt-3" for="password_confirm">Confirmer le mot de passe</label><br>
+                <div class="d-flex password justify-content-center">
+                    <label class="form-label" class="mt-3" for="password_confirm">Confirmer le MDP</label><br>
+                    <button type="button" class="btn-password" data-target="password_confirm" aria-label="Voir le mot de passe"><i class="fa-regular fa-eye"></i></button><br>
+                </div>
                 <input class="form-control"  type="password" name="password_confirm" id="password_confirm" required><br>
 
                 <label class="form-label" class="mt-3 texte-check" for="rgpd"><input type="checkbox" name="rgpd" id="rgpd" required>J'accepte que mes données personnelles <br> soient collectées et traitées conformément à notre <br>

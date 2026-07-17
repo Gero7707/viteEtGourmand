@@ -71,6 +71,7 @@ body{
 
 main{
     margin-top: 6rem;
+    min-height: 75vh;
     overflow: hidden;
 }
 

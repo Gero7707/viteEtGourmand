@@ -13,8 +13,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <label class="form-label" for="login">Email/Pseudo</label><br>
                 <input class="form-control"  type="text" name="login" id="login" required><br>
                 
-                <label class="form-label mt-3"for="password">Mot de passe</label><br>
-                <input class="form-control" type="password" name="password" id="password" ><br>
+                
+                <div class="d-flex password justify-content-center">
+                    <label class="form-label mt-3"for="password">Mot de passe</label><br>
+                    <button type="button" class="btn-password" data-target="password" aria-label="Voir le mot de passe"><i class="fa-regular fa-eye"></i></button><br>
+                </div>
+                <input class="form-control" type="password" name="password" id="password">
                 <a class="annuler" href="/">Annuler</a><br>
                 <button class="mt-3 btn-form" type="submit">Valider</button>
             </form><br>

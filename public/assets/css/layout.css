@@ -15,10 +15,20 @@ header{
 }
 
 .dropdown{
-        display: none;
-    }
+    display: none;
+}
 
+.dropdown-entreprise{
+    display: block !important;
+    
+}
 
+.dropdown-entreprise .btn{
+    color: var(--dore) !important;
+    border: 1px solid var(--dore) !important;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
 
 .titre{
     font-family: var(--font-logo);
@@ -195,6 +205,11 @@ footer i:hover , .mentions a:hover , .coordonnees a:hover{
         display: block;
         background-color: var(--bleu-nuit);
         margin: auto;
+    }
+
+    .dropdown-entreprise .btn{
+        margin-top: 0;
+        margin-right: 0;
     }
     .lien-header li, .ancre-auth  {
         display: none;

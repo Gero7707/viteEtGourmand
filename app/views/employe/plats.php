@@ -41,7 +41,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
             </select>
         </div>
         <div>
-            <a class="fw-mediumbold bg-secondary text-primary lien-creer-plat" href="/create-menu"><i class="fa-solid fa-pencil"></i>Créer</a>
+            <a class="fw-mediumbold bg-secondary text-primary lien-creer-plat" href="/plats/create"><i class="fa-solid fa-pencil"></i>Créer</a>
         </div>
     </div>
     <section class="section-plats row mb-5">

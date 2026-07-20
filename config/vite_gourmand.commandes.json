@@ -1,0 +1,1360 @@
+[{
+  "_id": {
+    "$oid": "6a30232acbb31b7859012422"
+  },
+  "commande_id": 1,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 450,
+  "date_terminee": "2026-03-30 09:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30232acbb31b7859012423"
+  },
+  "commande_id": 7,
+  "menu_id": 8,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 300,
+  "date_terminee": "2026-04-15 09:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30232acbb31b7859012424"
+  },
+  "commande_id": 10,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 675,
+  "date_terminee": "2026-06-04 13:47:08"
+},
+{
+  "_id": {
+    "$oid": "6a30232acbb31b7859012425"
+  },
+  "commande_id": 8,
+  "menu_id": 6,
+  "menu_titre": "Menu Champêtre",
+  "prix_total": 512,
+  "date_terminee": "2026-06-04 13:55:43"
+},
+{
+  "_id": {
+    "$oid": "6a30232acbb31b7859012426"
+  },
+  "commande_id": 4,
+  "menu_id": 3,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 660,
+  "date_terminee": "2026-06-04 13:58:17"
+},
+{
+  "_id": {
+    "$oid": "6a30232acbb31b7859012427"
+  },
+  "commande_id": 12,
+  "menu_id": 8,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 300,
+  "date_terminee": "2026-06-12 20:15:51"
+},
+{
+  "_id": {
+    "$oid": "6a30232acbb31b7859012428"
+  },
+  "commande_id": 15,
+  "menu_id": 7,
+  "menu_titre": "Menu Féérie d'Hiver",
+  "prix_total": 420,
+  "date_terminee": "2026-06-12 20:42:28"
+},
+{
+  "_id": {
+    "$oid": "6a30232acbb31b7859012429"
+  },
+  "commande_id": 14,
+  "menu_id": 8,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 300,
+  "date_terminee": "2026-06-13 12:59:11"
+},
+{
+  "_id": {
+    "$oid": "6a30232acbb31b785901242a"
+  },
+  "commande_id": 16,
+  "menu_id": 8,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 180,
+  "date_terminee": "2026-06-14 11:06:20"
+},
+{
+  "_id": {
+    "$oid": "6a30232acbb31b785901242b"
+  },
+  "commande_id": 17,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 450,
+  "date_terminee": "2026-06-15 14:05:37"
+},
+{
+  "_id": {
+    "$oid": "6a30232acbb31b785901242c"
+  },
+  "commande_id": 18,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 450,
+  "date_terminee": "2026-06-15 14:18:08"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd762"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 980,
+  "date_terminee": "2026-01-16 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd763"
+  },
+  "commande_id": null,
+  "menu_id": 7,
+  "menu_titre": "Menu Féérie d'Hiver",
+  "prix_total": 546,
+  "date_terminee": "2026-01-17 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd764"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 840,
+  "date_terminee": "2026-01-13 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd765"
+  },
+  "commande_id": null,
+  "menu_id": 6,
+  "menu_titre": "Menu Champêtre",
+  "prix_total": 864,
+  "date_terminee": "2026-01-11 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd766"
+  },
+  "commande_id": null,
+  "menu_id": 7,
+  "menu_titre": "Menu Féérie d'Hiver",
+  "prix_total": 840,
+  "date_terminee": "2026-01-13 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd767"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 945,
+  "date_terminee": "2026-01-11 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd768"
+  },
+  "commande_id": null,
+  "menu_id": 2,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 1265,
+  "date_terminee": "2026-01-03 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd769"
+  },
+  "commande_id": null,
+  "menu_id": 7,
+  "menu_titre": "Menu Féérie d'Hiver",
+  "prix_total": 504,
+  "date_terminee": "2026-01-12 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd76a"
+  },
+  "commande_id": null,
+  "menu_id": 2,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 1265,
+  "date_terminee": "2026-01-05 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd76b"
+  },
+  "commande_id": null,
+  "menu_id": 6,
+  "menu_titre": "Menu Champêtre",
+  "prix_total": 512,
+  "date_terminee": "2026-01-17 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd76c"
+  },
+  "commande_id": null,
+  "menu_id": 3,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 450,
+  "date_terminee": "2026-01-10 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd76d"
+  },
+  "commande_id": null,
+  "menu_id": 2,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 1540,
+  "date_terminee": "2026-01-07 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd76e"
+  },
+  "commande_id": null,
+  "menu_id": 3,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 480,
+  "date_terminee": "2026-01-06 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd76f"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 735,
+  "date_terminee": "2026-01-27 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd770"
+  },
+  "commande_id": null,
+  "menu_id": 7,
+  "menu_titre": "Menu Féérie d'Hiver",
+  "prix_total": 630,
+  "date_terminee": "2026-01-18 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd771"
+  },
+  "commande_id": null,
+  "menu_id": 3,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 510,
+  "date_terminee": "2026-01-11 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd772"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 1215,
+  "date_terminee": "2026-01-22 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd773"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 585,
+  "date_terminee": "2026-01-07 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd774"
+  },
+  "commande_id": null,
+  "menu_id": 6,
+  "menu_titre": "Menu Champêtre",
+  "prix_total": 512,
+  "date_terminee": "2026-01-05 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd775"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 945,
+  "date_terminee": "2026-01-05 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd776"
+  },
+  "commande_id": null,
+  "menu_id": 7,
+  "menu_titre": "Menu Féérie d'Hiver",
+  "prix_total": 798,
+  "date_terminee": "2026-01-20 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd777"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 490,
+  "date_terminee": "2026-01-19 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd778"
+  },
+  "commande_id": null,
+  "menu_id": 2,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 1650,
+  "date_terminee": "2026-01-09 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd779"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 585,
+  "date_terminee": "2026-01-09 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd77a"
+  },
+  "commande_id": null,
+  "menu_id": 4,
+  "menu_titre": "Menu Brunch Estival",
+  "prix_total": 784,
+  "date_terminee": "2026-01-02 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd77b"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 720,
+  "date_terminee": "2026-02-08 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd77c"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 980,
+  "date_terminee": "2026-02-28 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd77d"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 490,
+  "date_terminee": "2026-02-02 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd77e"
+  },
+  "commande_id": null,
+  "menu_id": 6,
+  "menu_titre": "Menu Champêtre",
+  "prix_total": 736,
+  "date_terminee": "2026-02-05 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd77f"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 595,
+  "date_terminee": "2026-02-12 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd780"
+  },
+  "commande_id": null,
+  "menu_id": 4,
+  "menu_titre": "Menu Brunch Estival",
+  "prix_total": 532,
+  "date_terminee": "2026-02-22 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd781"
+  },
+  "commande_id": null,
+  "menu_id": 3,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 630,
+  "date_terminee": "2026-02-22 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd782"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 1170,
+  "date_terminee": "2026-02-08 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd783"
+  },
+  "commande_id": null,
+  "menu_id": 6,
+  "menu_titre": "Menu Champêtre",
+  "prix_total": 768,
+  "date_terminee": "2026-02-24 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd784"
+  },
+  "commande_id": null,
+  "menu_id": 2,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 1155,
+  "date_terminee": "2026-02-05 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd785"
+  },
+  "commande_id": null,
+  "menu_id": 2,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 935,
+  "date_terminee": "2026-02-28 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd786"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 1125,
+  "date_terminee": "2026-02-20 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd787"
+  },
+  "commande_id": null,
+  "menu_id": 6,
+  "menu_titre": "Menu Champêtre",
+  "prix_total": 864,
+  "date_terminee": "2026-02-23 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd788"
+  },
+  "commande_id": null,
+  "menu_id": 3,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 420,
+  "date_terminee": "2026-02-11 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd789"
+  },
+  "commande_id": null,
+  "menu_id": 7,
+  "menu_titre": "Menu Féérie d'Hiver",
+  "prix_total": 546,
+  "date_terminee": "2026-02-02 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd78a"
+  },
+  "commande_id": null,
+  "menu_id": 3,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 690,
+  "date_terminee": "2026-02-13 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd78b"
+  },
+  "commande_id": null,
+  "menu_id": 2,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 990,
+  "date_terminee": "2026-02-01 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd78c"
+  },
+  "commande_id": null,
+  "menu_id": 2,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 1540,
+  "date_terminee": "2026-02-09 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd78d"
+  },
+  "commande_id": null,
+  "menu_id": 4,
+  "menu_titre": "Menu Brunch Estival",
+  "prix_total": 616,
+  "date_terminee": "2026-02-12 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd78e"
+  },
+  "commande_id": null,
+  "menu_id": 7,
+  "menu_titre": "Menu Féérie d'Hiver",
+  "prix_total": 1008,
+  "date_terminee": "2026-02-12 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd78f"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 910,
+  "date_terminee": "2026-02-07 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd790"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 675,
+  "date_terminee": "2026-02-10 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd791"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 875,
+  "date_terminee": "2026-02-16 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd792"
+  },
+  "commande_id": null,
+  "menu_id": 3,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 810,
+  "date_terminee": "2026-02-18 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd793"
+  },
+  "commande_id": null,
+  "menu_id": 3,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 720,
+  "date_terminee": "2026-02-08 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd794"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 1350,
+  "date_terminee": "2026-03-09 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd795"
+  },
+  "commande_id": null,
+  "menu_id": 4,
+  "menu_titre": "Menu Brunch Estival",
+  "prix_total": 728,
+  "date_terminee": "2026-03-15 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd796"
+  },
+  "commande_id": null,
+  "menu_id": 4,
+  "menu_titre": "Menu Brunch Estival",
+  "prix_total": 616,
+  "date_terminee": "2026-03-03 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd797"
+  },
+  "commande_id": null,
+  "menu_id": 2,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 1375,
+  "date_terminee": "2026-03-03 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd798"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 900,
+  "date_terminee": "2026-03-06 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd799"
+  },
+  "commande_id": null,
+  "menu_id": 2,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 1045,
+  "date_terminee": "2026-03-15 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd79a"
+  },
+  "commande_id": null,
+  "menu_id": 4,
+  "menu_titre": "Menu Brunch Estival",
+  "prix_total": 364,
+  "date_terminee": "2026-03-04 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd79b"
+  },
+  "commande_id": null,
+  "menu_id": 6,
+  "menu_titre": "Menu Champêtre",
+  "prix_total": 640,
+  "date_terminee": "2026-03-06 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd79c"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 700,
+  "date_terminee": "2026-03-06 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd79d"
+  },
+  "commande_id": null,
+  "menu_id": 4,
+  "menu_titre": "Menu Brunch Estival",
+  "prix_total": 532,
+  "date_terminee": "2026-03-27 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd79e"
+  },
+  "commande_id": null,
+  "menu_id": 2,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 1540,
+  "date_terminee": "2026-03-02 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd79f"
+  },
+  "commande_id": null,
+  "menu_id": 4,
+  "menu_titre": "Menu Brunch Estival",
+  "prix_total": 700,
+  "date_terminee": "2026-03-06 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7a0"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 1080,
+  "date_terminee": "2026-03-22 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7a1"
+  },
+  "commande_id": null,
+  "menu_id": 4,
+  "menu_titre": "Menu Brunch Estival",
+  "prix_total": 560,
+  "date_terminee": "2026-03-27 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7a2"
+  },
+  "commande_id": null,
+  "menu_id": 6,
+  "menu_titre": "Menu Champêtre",
+  "prix_total": 608,
+  "date_terminee": "2026-03-09 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7a3"
+  },
+  "commande_id": null,
+  "menu_id": 2,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 715,
+  "date_terminee": "2026-03-03 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7a4"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 805,
+  "date_terminee": "2026-03-26 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7a5"
+  },
+  "commande_id": null,
+  "menu_id": 7,
+  "menu_titre": "Menu Féérie d'Hiver",
+  "prix_total": 798,
+  "date_terminee": "2026-03-17 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7a6"
+  },
+  "commande_id": null,
+  "menu_id": 6,
+  "menu_titre": "Menu Champêtre",
+  "prix_total": 416,
+  "date_terminee": "2026-03-24 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7a7"
+  },
+  "commande_id": null,
+  "menu_id": 4,
+  "menu_titre": "Menu Brunch Estival",
+  "prix_total": 364,
+  "date_terminee": "2026-03-08 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7a8"
+  },
+  "commande_id": null,
+  "menu_id": 6,
+  "menu_titre": "Menu Champêtre",
+  "prix_total": 960,
+  "date_terminee": "2026-03-15 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7a9"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 585,
+  "date_terminee": "2026-03-21 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7aa"
+  },
+  "commande_id": null,
+  "menu_id": 6,
+  "menu_titre": "Menu Champêtre",
+  "prix_total": 672,
+  "date_terminee": "2026-03-11 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7ab"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 455,
+  "date_terminee": "2026-03-28 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7ac"
+  },
+  "commande_id": null,
+  "menu_id": 3,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 810,
+  "date_terminee": "2026-03-01 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7ad"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 630,
+  "date_terminee": "2026-04-18 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7ae"
+  },
+  "commande_id": null,
+  "menu_id": 3,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 480,
+  "date_terminee": "2026-04-11 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7af"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 1350,
+  "date_terminee": "2026-04-20 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7b0"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 1260,
+  "date_terminee": "2026-04-02 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7b1"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 540,
+  "date_terminee": "2026-04-04 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7b2"
+  },
+  "commande_id": null,
+  "menu_id": 4,
+  "menu_titre": "Menu Brunch Estival",
+  "prix_total": 784,
+  "date_terminee": "2026-04-21 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7b3"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 420,
+  "date_terminee": "2026-04-06 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7b4"
+  },
+  "commande_id": null,
+  "menu_id": 7,
+  "menu_titre": "Menu Féérie d'Hiver",
+  "prix_total": 1218,
+  "date_terminee": "2026-04-12 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7b5"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 840,
+  "date_terminee": "2026-04-19 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7b6"
+  },
+  "commande_id": null,
+  "menu_id": 3,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 630,
+  "date_terminee": "2026-04-07 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7b7"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 990,
+  "date_terminee": "2026-04-20 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7b8"
+  },
+  "commande_id": null,
+  "menu_id": 6,
+  "menu_titre": "Menu Champêtre",
+  "prix_total": 896,
+  "date_terminee": "2026-04-13 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7b9"
+  },
+  "commande_id": null,
+  "menu_id": 4,
+  "menu_titre": "Menu Brunch Estival",
+  "prix_total": 364,
+  "date_terminee": "2026-04-20 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7ba"
+  },
+  "commande_id": null,
+  "menu_id": 2,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 1375,
+  "date_terminee": "2026-04-12 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7bb"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 1305,
+  "date_terminee": "2026-04-02 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7bc"
+  },
+  "commande_id": null,
+  "menu_id": 3,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 660,
+  "date_terminee": "2026-04-02 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7bd"
+  },
+  "commande_id": null,
+  "menu_id": 2,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 1650,
+  "date_terminee": "2026-04-22 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7be"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 1260,
+  "date_terminee": "2026-04-25 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7bf"
+  },
+  "commande_id": null,
+  "menu_id": 3,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 450,
+  "date_terminee": "2026-04-09 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7c0"
+  },
+  "commande_id": null,
+  "menu_id": 4,
+  "menu_titre": "Menu Brunch Estival",
+  "prix_total": 420,
+  "date_terminee": "2026-04-14 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7c1"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 525,
+  "date_terminee": "2026-04-13 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7c2"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 490,
+  "date_terminee": "2026-04-10 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7c3"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 805,
+  "date_terminee": "2026-04-05 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7c4"
+  },
+  "commande_id": null,
+  "menu_id": 6,
+  "menu_titre": "Menu Champêtre",
+  "prix_total": 832,
+  "date_terminee": "2026-04-19 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7c5"
+  },
+  "commande_id": null,
+  "menu_id": 2,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 1595,
+  "date_terminee": "2026-04-21 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7c6"
+  },
+  "commande_id": null,
+  "menu_id": 4,
+  "menu_titre": "Menu Brunch Estival",
+  "prix_total": 812,
+  "date_terminee": "2026-05-20 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7c7"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 420,
+  "date_terminee": "2026-05-18 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7c8"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 455,
+  "date_terminee": "2026-05-13 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7c9"
+  },
+  "commande_id": null,
+  "menu_id": 7,
+  "menu_titre": "Menu Féérie d'Hiver",
+  "prix_total": 1134,
+  "date_terminee": "2026-05-11 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7ca"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 1015,
+  "date_terminee": "2026-05-23 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7cb"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 855,
+  "date_terminee": "2026-05-15 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7cc"
+  },
+  "commande_id": null,
+  "menu_id": 3,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 390,
+  "date_terminee": "2026-05-09 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7cd"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 420,
+  "date_terminee": "2026-05-13 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7ce"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 1050,
+  "date_terminee": "2026-05-14 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7cf"
+  },
+  "commande_id": null,
+  "menu_id": 6,
+  "menu_titre": "Menu Champêtre",
+  "prix_total": 768,
+  "date_terminee": "2026-05-06 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7d0"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 700,
+  "date_terminee": "2026-05-01 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7d1"
+  },
+  "commande_id": null,
+  "menu_id": 3,
+  "menu_titre": "Menu Brunch de Pâques",
+  "prix_total": 510,
+  "date_terminee": "2026-05-28 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7d2"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 420,
+  "date_terminee": "2026-05-15 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7d3"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 585,
+  "date_terminee": "2026-05-01 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7d4"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 980,
+  "date_terminee": "2026-05-18 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7d5"
+  },
+  "commande_id": null,
+  "menu_id": 2,
+  "menu_titre": "Menu Réveillon",
+  "prix_total": 1320,
+  "date_terminee": "2026-05-01 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7d6"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 665,
+  "date_terminee": "2026-05-09 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7d7"
+  },
+  "commande_id": null,
+  "menu_id": 7,
+  "menu_titre": "Menu Féérie d'Hiver",
+  "prix_total": 966,
+  "date_terminee": "2026-05-07 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7d8"
+  },
+  "commande_id": null,
+  "menu_id": 4,
+  "menu_titre": "Menu Brunch Estival",
+  "prix_total": 728,
+  "date_terminee": "2026-05-06 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7d9"
+  },
+  "commande_id": null,
+  "menu_id": 7,
+  "menu_titre": "Menu Féérie d'Hiver",
+  "prix_total": 1134,
+  "date_terminee": "2026-05-01 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7da"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 420,
+  "date_terminee": "2026-05-02 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7db"
+  },
+  "commande_id": null,
+  "menu_id": 1,
+  "menu_titre": "Menu Prestige",
+  "prix_total": 585,
+  "date_terminee": "2026-05-21 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7dc"
+  },
+  "commande_id": null,
+  "menu_id": 6,
+  "menu_titre": "Menu Champêtre",
+  "prix_total": 864,
+  "date_terminee": "2026-05-18 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7dd"
+  },
+  "commande_id": null,
+  "menu_id": 4,
+  "menu_titre": "Menu Brunch Estival",
+  "prix_total": 588,
+  "date_terminee": "2026-05-15 10:00:00"
+},
+{
+  "_id": {
+    "$oid": "6a30543116ebbeab700bd7de"
+  },
+  "commande_id": null,
+  "menu_id": 5,
+  "menu_titre": "Menu Jardin d'Été",
+  "prix_total": 840,
+  "date_terminee": "2026-05-12 10:00:00"
+}]

@@ -34,8 +34,8 @@ Projet réalisé dans le cadre du **TP Développeur Web et Web Mobile** (Studi).
 ### 1. Cloner le repository
 
 ```bash
-git clone https://github.com/VOTRE-USERNAME/ViteEtGourmand.git
-cd ViteEtGourmand
+git clone https://github.com/Gero7707/viteEtGourmand.git
+cd viteEtGourmand
 ```
 
 ### 2. Configurer les variables d'environnement
@@ -73,14 +73,22 @@ composer install
 docker-compose up -d --build
 ```
 
-### 5. Importer la base de données
+### 5. Importer les bases de données
 
-Les fichiers SQL se trouvent dans le dossier `sql/` db.sql pour créer la bdd et les tables, insert.sql pour changer les données pour tester l'app :
+**MySQL** - deux fichiers dans `sql/` : `db.sql` crée la base et les tables, `insert.sql` charge les données de test.
 
 ```bash
 docker exec -i viteetgourmand-mysql-1 mysql -u root -pvotre_mot_de_passe vite_et_gourmand < sql/db.sql
 docker exec -i viteetgourmand-mysql-1 mysql -u root -pvotre_mot_de_passe vite_et_gourmand < sql/insert.sql
 ```
+
+**MongoDB** - la collection analytique du dashboard est peuplée depuis `config/vite_gourmand.commandes.json`. On copie d'abord le fichier dans le conteneur, puis on l'importe :
+
+​```bash
+docker cp config/vite_gourmand.commandes.json vite_gourmand_mongodb:/tmp/
+docker exec vite_gourmand_mongodb mongoimport --db vite_gourmand --collection commandes --jsonArray --file /tmp/vite_gourmand.commandes.json
+​```
+
 
 ### 6. Accéder à l'application
 

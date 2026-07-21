@@ -477,6 +477,7 @@ class CommandeController{
         Auth::checkEmploye();
         Auth::verifyCsrfToken();
         $statutActuel = $this->commandes->findById($id);
+        
         $transition = [
             'en_attente' => 'acceptee', 
             'acceptee' => 'en_preparation', 
@@ -489,8 +490,21 @@ class CommandeController{
             header('Location: /commandes-client?error=' . urlencode('Statut invalide'));
             exit();
         }
+        $menuId = $statutActuel['menu_id'];
         $statutSuivant = $transition[$statutActuel['statut']];
-        $this->commandes->updateStatutCommande($id ,$statutSuivant);
+        $menu = $this->menu->findById($menuId);
+
+        if($statutSuivant === 'acceptee' && $menu['quantite_restante'] >= $statutActuel['nombre_personne'] ){
+            $this->commandes->updateStatutCommande($id ,$statutSuivant);
+        }elseif($statutSuivant === 'acceptee' && $menu['quantite_restante'] < $statutActuel['nombre_personne'] ) {
+            $errorMessage = "Quantité insuffisante , vous pouvez annuler la commande ou réapprovisioner.";
+            header('Content-Type: application/json');
+            echo json_encode(['success' => false, 'error' => $errorMessage]);
+            exit();
+        }else{
+            $this->commandes->updateStatutCommande($id ,$statutSuivant);
+        }
+        
 
         $dateModif = date('Y-m-d H:i:s');
         $historiqueData = [
@@ -500,10 +514,7 @@ class CommandeController{
         ];
         $this->commandes->createHistorique($historiqueData);
         $nbPersonne = $statutActuel['nombre_personne'];
-        $menuId = $statutActuel['menu_id'];
-        // if($statutSuivant === 'en_preparation'){
-        //     $this->menu->updateQuantiteRestante($menuId ,$nbPersonne );
-        // }
+
 
         if($statutSuivant === 'acceptee'){
             $this->menu->updateQuantiteRestante($menuId ,$nbPersonne );

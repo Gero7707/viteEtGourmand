@@ -501,11 +501,12 @@ class CommandeController{
         $this->commandes->createHistorique($historiqueData);
         $nbPersonne = $statutActuel['nombre_personne'];
         $menuId = $statutActuel['menu_id'];
-        if($statutSuivant === 'en_preparation'){
-            $this->menu->updateQuantiteRestante($menuId ,$nbPersonne );
-        }
+        // if($statutSuivant === 'en_preparation'){
+        //     $this->menu->updateQuantiteRestante($menuId ,$nbPersonne );
+        // }
 
         if($statutSuivant === 'acceptee'){
+            $this->menu->updateQuantiteRestante($menuId ,$nbPersonne );
             $titre = "Votre commande est acceptée .";
 
             $imageHaut = '<img src="https://restaurationviteetgourmand.alwaysdata.net/assets/img/bandeau-email.jpg" 

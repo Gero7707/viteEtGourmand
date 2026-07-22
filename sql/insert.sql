@@ -24,12 +24,12 @@ INSERT INTO horaire (jour,heure_ouverture,heure_fermeture) VALUES('Mardi' , '13:
 -- Administrateur (José, le patron)
 -- role_id : 1 = utilisateur, 2 = employé, 3 = administrateur
 INSERT INTO utilisateur (email, password, nom, prenom, gsm, ville, adresse, code_postal, actif, role_id) VALUES
-('jose@viteetgourmand.fr', '$2y$10$DxunKO6UYBNm4qiTvhseGOT30pxciUkGWqmkUSh/CY/xLlqoJWa8u', 'Martinez', 'José', '0556123456', 'Bordeaux', '15 rue Sainte-Catherine', '33000', 1, 3),
-('julie@viteetgourmand.fr', '$2y$10$DxunKO6UYBNm4qiTvhseGOT30pxciUkGWqmkUSh/CY/xLlqoJWa8u', 'Martinez', 'Julie', '0556789012', 'Bordeaux', '15 rue Sainte-Catherine', '33000', 1, 2),
-('sophie.martin@email.fr', '$2y$10$DxunKO6UYBNm4qiTvhseGOT30pxciUkGWqmkUSh/CY/xLlqoJWa8u', 'Martin', 'Sophie', '0612345678', 'Bordeaux', '42 cours Victor Hugo', '33000', 1, 1),
-('laurent.dubois@email.fr', '$2y$10$DxunKO6UYBNm4qiTvhseGOT30pxciUkGWqmkUSh/CY/xLlqoJWa8u', 'Dubois', 'Laurent', '0623456789', 'Mérignac', '8 avenue de la Marne', '33700', 1, 1),
-('camille.rousseau@email.fr', '$2y$10$DxunKO6UYBNm4qiTvhseGOT30pxciUkGWqmkUSh/CY/xLlqoJWa8u', 'Rousseau', 'Camille', '0634567890', 'Pessac', '23 rue Jean Jaurès', '33600', 1, 1),
-('marc.thomas@email.fr', '$2y$10$DxunKO6UYBNm4qiTvhseGOT30pxciUkGWqmkUSh/CY/xLlqoJWa8u', 'Thomas', 'Marc', '0645678901', 'Libourne', '5 place de la Mairie', '33500', 1, 1);
+('jose@viteetgourmand.fr', '$2y$10$NmTMfBVfbMjA4aTEZUEh8OXbR/rEYx2hmE502bUW1umXGT8tjhrTe', 'Martinez', 'José', '0556123456', 'Bordeaux', '15 rue Sainte-Catherine', '33000', 1, 3),
+('julie@viteetgourmand.fr', '$2y$10$NmTMfBVfbMjA4aTEZUEh8OXbR/rEYx2hmE502bUW1umXGT8tjhrTe', 'Martinez', 'Julie', '0556789012', 'Bordeaux', '15 rue Sainte-Catherine', '33000', 1, 2),
+('sophie.martin@email.fr', '$2y$10$NmTMfBVfbMjA4aTEZUEh8OXbR/rEYx2hmE502bUW1umXGT8tjhrTe', 'Martin', 'Sophie', '0612345678', 'Bordeaux', '42 cours Victor Hugo', '33000', 1, 1),
+('laurent.dubois@email.fr', '$2y$10$NmTMfBVfbMjA4aTEZUEh8OXbR/rEYx2hmE502bUW1umXGT8tjhrTe', 'Dubois', 'Laurent', '0623456789', 'Mérignac', '8 avenue de la Marne', '33700', 1, 1),
+('camille.rousseau@email.fr', '$2y$10$NmTMfBVfbMjA4aTEZUEh8OXbR/rEYx2hmE502bUW1umXGT8tjhrTe', 'Rousseau', 'Camille', '0634567890', 'Pessac', '23 rue Jean Jaurès', '33600', 1, 1),
+('marc.thomas@email.fr', '$2y$10$NmTMfBVfbMjA4aTEZUEh8OXbR/rEYx2hmE502bUW1umXGT8tjhrTe', 'Thomas', 'Marc', '0645678901', 'Libourne', '5 place de la Mairie', '33500', 1, 1);
 
 
 INSERT INTO menu (titre, nombre_personne_minimum ,prix_par_personne, description , quantite_restante , conditions_delai , conditions_stockage, conditions_infos , regime_id, theme_id) 

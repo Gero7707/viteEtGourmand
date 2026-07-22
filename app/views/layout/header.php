@@ -77,7 +77,7 @@
             <?php endif ?>
         </div>
         <?php if(isset($_SESSION['utilisateur_id'])): ?>
-            <?php if(($_SESSION['role_id']=== 2 || $_SESSION['role_id'] === 3) && ($pageTitle ?? '') === "Nos menus — Vite & Gourmand") :?>
+            <?php if(($_SESSION['role_id']=== 2 || $_SESSION['role_id'] === 3) && ($pageMenu ?? false)) :?>
                 <div class="dropdown dropdown-entreprise ">
             <?php else :?>
                 <div class="dropdown">

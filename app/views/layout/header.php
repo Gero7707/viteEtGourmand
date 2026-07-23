@@ -76,13 +76,11 @@
                 <?php endif ?>
             <?php endif ?>
         </div>
-        <?php if(isset($_SESSION['utilisateur_id'])): ?>
-            <?php if(($_SESSION['role_id']=== 2 || $_SESSION['role_id'] === 3) && ($pageMenu ?? false)) :?>
+            <?php if(isset($_SESSION['utilisateur_id']) && ($_SESSION['role_id']=== 2 || $_SESSION['role_id'] === 3) && ($pageMenu ?? false)) :?>
                 <div class="dropdown dropdown-entreprise ">
             <?php else :?>
                 <div class="dropdown">
             <?php endif ?>
-        <?php endif ?>
         
             <a class="btn  " href="#" role="button" aria-label="Menu de navigation" data-bs-toggle="dropdown" aria-expanded="false">
                 <?php if(!isset($_SESSION['utilisateur_id']) || $_SESSION['role_id'] === 1): ?>

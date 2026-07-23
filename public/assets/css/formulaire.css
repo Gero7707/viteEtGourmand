@@ -315,8 +315,8 @@ textarea{
 }
 
 .password button{
-    width: 6%;
-    height: 6%;
+    width: 2rem;
+    height: 2rem;
     color: var(--dore);
 }
 
@@ -375,6 +375,11 @@ textarea{
 
     .theme-carte, .regime-carte{
         width: 6rem;
+    }
+
+    .password button{
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
 }

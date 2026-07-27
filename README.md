@@ -8,7 +8,7 @@ Projet réalisé dans le cadre du **TP Développeur Web et Web Mobile** (Studi).
 
 ## Stack technique
 
-- **Front-end** : HTML5, CSS3, JavaScript vanilla
+- **Front-end** : HTML5, CSS3,Bootstrap, JavaScript vanilla
 - **Back-end** : PHP 8.3 vanilla (PDO)
 - **Base de données relationnelle** : MySQL 8.0.42
 - **Base de données NoSQL** : MongoDB
@@ -118,6 +118,7 @@ ViteEtGourmand/
 ├── core/
 │   ├── Router.php           ← Routeur maison
 │   ├── Database.php         ← Connexion PDO (Singleton)
+│   ├── MongoDatabase.php    ← Connexion MongoDB
 │   └── Auth.php             ← Sécurité (CSRF, sessions, contrôle d'accès)
 ├── sql/
 │   ├── db.sql    ← Création des tables

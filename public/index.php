@@ -20,7 +20,7 @@ session_start([
     'cookie_samesite' => 'Strict', // Cookie non envoyé depuis un site externe — protection CSRF
     'use_strict_mode' => true,    // Refuse les id de session non générés par le serveur — protection session fixation
     'use_only_cookies' => true,   // Interdit les id de session dans l'URL — protection session hijacking
-    'gc_maxlifetime' => 1800      // Session expire après 30 min d'inactivité
+    'gc_maxlifetime' => 1800      // fichier de session devient candidat à la suppression après 30 min d'inactivité sur le serveur
 ]);
 
 // ============================================================

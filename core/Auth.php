@@ -15,6 +15,34 @@ class Auth{
     // À appeler en première ligne de chaque méthode controller protégée
     // ============================================================
 
+    private const INACTIVITY_LIMIT_CLIENT = 900;   // 15 min — poste non maîtrisé
+    private const INACTIVITY_LIMIT_STAFF  = 7200;  // 120 min — zone personnel, activité intermittente
+
+/**
+     * Expiration de session par inactivité (défense applicative garantie,
+     * là où gc_maxlifetime n'offre qu'un nettoyage probabiliste).
+     * Appelée par checkAuth/checkAdmin/checkEmploye une fois la connexion confirmée.
+     */
+    private static function enforceInactivityTimeout(): void {
+        // Première requête authentifiée : on pose le marqueur, rien à expirer encore
+        if (!isset($_SESSION['last_activity'])) {
+            $_SESSION['last_activity'] = time();
+            return;
+        }
+        $limite = ($_SESSION['role_id'] === 1) ? self::INACTIVITY_LIMIT_CLIENT : self::INACTIVITY_LIMIT_STAFF;
+        
+        // Inactif depuis plus que la limite → session invalidée, retour au login
+        if (time() - $_SESSION['last_activity'] > $limite) {
+            session_unset();
+            session_destroy();
+            header('location: /auth/login');
+            exit();
+        }
+
+        // Requête valide → on repousse l'échéance
+        $_SESSION['last_activity'] = time();
+    }
+
     /**
      * Vérifie qu'un utilisateur est connecté
      * Redirige vers /auth/login si la session est absente
@@ -25,6 +53,7 @@ class Auth{
             header('location: /auth/login');
             exit();
         }
+        self::enforceInactivityTimeout();
     }
 
     /**
@@ -33,22 +62,25 @@ class Auth{
      * Redirige vers /auth/login si non connecté, vers / si connecté mais pas admin
      * Usage : Auth::checkAdmin(); en haut de chaque méthode réservée aux admins
      */
+
     public static function checkAdmin(): void {
         if(!isset($_SESSION['utilisateur_id'])){
             header('location: /auth/login');
             exit();
         }
+        self::enforceInactivityTimeout();
         if ($_SESSION['role_id'] !== 3){
             header('location: /');
             exit();
         }
     }
 
-    public static function checkEmploye(){
+    public static function checkEmploye(): void {
         if(!isset($_SESSION['utilisateur_id'])){
             header('location: /auth/login');
             exit();
         }
+        self::enforceInactivityTimeout();
         if ($_SESSION['role_id'] !== 2 && $_SESSION['role_id'] !== 3){
             header('location: /');
             exit();

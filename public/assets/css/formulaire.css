@@ -30,6 +30,11 @@ body{
     right: 40rem;
 }
 
+.contact-modal{
+    top: 27rem;
+    right: 40rem;
+}
+
 .modal-validation{
     position: relative;
 }
@@ -392,6 +397,11 @@ textarea{
         top: 42rem;
         right: 16rem;
     }
+
+    .contact-modal{
+        top: 27rem;
+        right: 17rem;
+    }
 }
 
 @media (max-width: 1200px){
@@ -427,6 +437,11 @@ textarea{
 
     .profil-modal{
         top: 39rem;
+        right: 9rem;
+    }
+
+    .contact-modal{
+        top: 27rem;
         right: 9rem;
     }
 }
@@ -501,6 +516,11 @@ textarea{
 
     .profil-modal{
         top: 39rem;
+        right: 0.5rem;
+    }
+
+    .contact-modal{
+        top: 18rem;
         right: 0.5rem;
     }
 }

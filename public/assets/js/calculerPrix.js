@@ -56,6 +56,8 @@ document.addEventListener('DOMContentLoaded', () =>{
                 fraisDiv.innerHTML = '';
                 const message = document.createElement('p');
                 message.textContent = data.message ;
+                message.style.color = '#C62828';
+                message.style.backgroundColor = '#eeb7b7'
                 fraisDiv.appendChild(message);
             }
         } catch(error) {

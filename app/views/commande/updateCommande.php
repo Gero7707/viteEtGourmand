@@ -81,10 +81,17 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <p class="error-message mt-1 text-center"></p><br>
             <div id="resultatCalculFrais"></div>
 
-            <div>
+            <div class="modal-validation">
                 <button class="mt-3" type="button" id="calcul_frais">Calculer les frais</button><br><br>
-                <a class="annuler" href="/profile">Annuler</a><br>
-                <button  class="mt-3 mb-3 btn-form" type="submit" id="btnValider" disabled>Valider</button>
+                <a class="annuler" href="/menus">Annuler</a><br>
+                <button  class="mt-3 mb-3 btn-form" type="button" id="btnValider" popovertarget="my-popover" disabled>Valider</button>
+                <div class="popover-modal commande-modal" popover id="my-popover">
+                    <h5>Votre commande</h5>
+                    <p><?= htmlspecialchars($menu['titre']) ?></p>
+                    <P>Vous êtes sur le point de valider votre commande. Vous pourrez annuler ou modifier votre commande tant que celle-ci n'est pas validée. Pour toutes questions veuillez nous contacter.</P>
+                    <button   type="submit" id="btnValider" popovertarget="my-popover" >Valider</button>
+                </div>
+                
             </div>
         </form>
     </div>

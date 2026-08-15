@@ -1,5 +1,5 @@
 <?php
-$pageSpecificCss = ['style.css' , 'layout.css'];
+$pageSpecificCss = ['style.css' , 'layout.css', ];
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
 
@@ -75,10 +75,15 @@ require_once __DIR__ . '/../../views/layout/header.php';
             <?php if($_SESSION['role_id'] === 1) : ?>
                 <div class="actions-commande">
                     <?php if($commandes['statut'] === 'en_attente') : ?>
-                        <form action="/commandes/annuler/<?= $commandes['commande_id'] ?>" method="POST">
-                            <?= Auth::csrfField() ?>
-                            <button type="submit">Annuler</button>
-                        </form>
+                        <button popovertarget="my-popover" type="button">Annuler</button>
+                        <div class="popover-modal annuler-commande-modal" popover id="my-popover">
+                            <P class="mb-5">Etes vous sûr de vouloir annuler votre commande?</P>
+                            <form action="/commandes/annuler/<?= $commandes['commande_id'] ?>" method="POST">
+                                <?= Auth::csrfField() ?>
+                                <button type="submit">Annuler</button>
+                            </form>
+                            <button class="mt-3 mb-3 btn-form" type="submit" popovertarget="my-popover">Valider</button>
+                        </div>
                         <a href="/commandes/edit/<?= $commandes['commande_id'] ?>">Modifier</a>
                     <?php endif ?>
                     <?php if( $commandes['statut'] === 'terminee' && $avis === false) : ?>

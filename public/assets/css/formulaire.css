@@ -15,12 +15,19 @@ body{
     border-radius: 8px;
     position:absolute;
     inset: auto;         
-    top: 58rem;
-    right: 10rem;
     opacity: 0;/* 1. État "fermé/caché" = aussi l'état d'arrivée en sortie */
     transition: opacity 1s,
             display 1s allow-discrete,   /* ← la clé pour la sortie */
             overlay 1s allow-discrete;
+}
+.commande-modal{
+    top: 58rem;
+    right: 10rem;
+}
+
+.profil-modal{
+    top: 42rem;
+    right: 40rem;
 }
 
 .modal-validation{
@@ -380,6 +387,11 @@ textarea{
         width: 55vw;
         height: 45vh;
     }    
+
+    .profil-modal{
+        top: 42rem;
+        right: 16rem;
+    }
 }
 
 @media (max-width: 1200px){
@@ -412,6 +424,11 @@ textarea{
         width: 70vw;
         height: 60vh;
     }   
+
+    .profil-modal{
+        top: 39rem;
+        right: 9rem;
+    }
 }
 
 @media (max-width: 991.9px){
@@ -475,5 +492,15 @@ textarea{
         height: 60vh;
         right: 0.5rem;
         top: 106rem;
+    }
+
+    .commande-modal{
+        right: 0.5rem;
+        top: 106rem;
+    }
+
+    .profil-modal{
+        top: 39rem;
+        right: 0.5rem;
     }
 }

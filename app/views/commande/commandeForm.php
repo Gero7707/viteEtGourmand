@@ -82,7 +82,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <button class="mt-3" type="button" id="calcul_frais">Calculer les frais</button><br><br>
                 <a class="annuler" href="/menus">Annuler</a><br>
                 <button  class="mt-3 mb-3 btn-form" type="button" id="btnValider" popovertarget="my-popover" disabled>Valider</button>
-                <div class="popover-modal" popover id="my-popover">
+                <div class="popover-modal commande-modal" popover id="my-popover">
                     <h5>Votre commande</h5>
                     <p><?= htmlspecialchars($menu['titre']) ?></p>
                     <P>Vous êtes sur le point de valider votre commande. Vous pourrez annulr ou modifier votre commande tant que celle-ci n'est pas validée. Pour toutes questions veuillez nous contacter.</P>

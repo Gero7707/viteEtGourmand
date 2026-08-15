@@ -91,6 +91,47 @@ main{
 
 /* ============================================================================================================================================================================ */
 /* ============================================================================================================================================================================ */
+/* Modal validation formuliare */
+.popover-modal{
+    width: 25vw;
+    height: 30vh;
+    border: 1px solid var(--bleu-tres-fonce);
+    background-color: var(--fond-carte);
+    border-radius: 8px;
+    position:absolute;
+    inset: auto;         
+    opacity: 0;/* 1. État "fermé/caché" = aussi l'état d'arrivée en sortie */
+    transition: opacity 1s,
+            display 1s allow-discrete,   /* ← la clé pour la sortie */
+            overlay 1s allow-discrete;
+}
+
+.modal-validation{
+    position: relative;
+}
+
+/* 2. État "ouvert" (visible) */
+.popover-modal:popover-open {
+    opacity: 1;
+}
+
+/* 3. État juste AVANT l'apparition (pour l'entrée) */
+@starting-style {
+    .popover-modal:popover-open {
+        opacity: 0;
+    }
+}
+
+.annuler-commande-modal{
+    top: 50rem;
+    right: 52rem;
+}
+
+
+
+
+/* ============================================================================================================================================================================ */
+/* ============================================================================================================================================================================ */
 /* Navigation */
 @view-transition{
     navigation: auto;

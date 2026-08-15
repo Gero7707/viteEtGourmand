@@ -5,6 +5,48 @@ body{
 .error-message{
     display: none;
 }
+
+/* Modal validation formuliare */
+.popover-modal{
+    width: 25vw;
+    height: 30vh;
+    border: 1px solid var(--bleu-tres-fonce);
+    background-color: var(--fond-carte);
+    border-radius: 8px;
+    position:absolute;
+    inset: auto;         
+    opacity: 0;/* 1. État "fermé/caché" = aussi l'état d'arrivée en sortie */
+    transition: opacity 1s,
+            display 1s allow-discrete,   /* ← la clé pour la sortie */
+            overlay 1s allow-discrete;
+}
+.commande-modal{
+    top: 58rem;
+    right: 10rem;
+}
+
+.profil-modal{
+    top: 42rem;
+    right: 40rem;
+}
+
+.modal-validation{
+    position: relative;
+}
+
+
+/* 2. État "ouvert" (visible) */
+.popover-modal:popover-open {
+    opacity: 1;
+}
+
+/* 3. État juste AVANT l'apparition (pour l'entrée) */
+@starting-style {
+    .popover-modal:popover-open {
+        opacity: 0;
+    }
+}
+
 /* forgotPassword.php , login.php , register.php , resetPassword.php , avisForm.php , commandeForm.php , updateCommande.php , sendMessage.php , annulerCommandeEmploye.php , createMenu.php , createPlat.php , updateMenu.php , updatePlat.php , editProfile.php  */
 .form-contact{
     margin-bottom: 5rem;
@@ -341,7 +383,15 @@ textarea{
         width: 40%;
     }
 
-    
+    .popover-modal{
+        width: 55vw;
+        height: 45vh;
+    }    
+
+    .profil-modal{
+        top: 42rem;
+        right: 16rem;
+    }
 }
 
 @media (max-width: 1200px){
@@ -368,6 +418,16 @@ textarea{
 
     button , .btn-annuler{
         width: 7rem;
+    }
+
+    .popover-modal{
+        width: 70vw;
+        height: 60vh;
+    }   
+
+    .profil-modal{
+        top: 39rem;
+        right: 9rem;
     }
 }
 
@@ -425,5 +485,22 @@ textarea{
 
     .plats{
         width: 100%;
+    }
+
+    .popover-modal{
+        width: 95vw;
+        height: 60vh;
+        right: 0.5rem;
+        top: 106rem;
+    }
+
+    .commande-modal{
+        right: 0.5rem;
+        top: 106rem;
+    }
+
+    .profil-modal{
+        top: 39rem;
+        right: 0.5rem;
     }
 }

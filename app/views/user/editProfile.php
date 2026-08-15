@@ -42,8 +42,13 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <input class="form-control" type="text" name="code_postal" id="code_postal" value="<?= htmlspecialchars($user['code_postal'] ?? '') ?>"><br>
                 <p class="error-message mt-1 text-center"></p><br>
                 <div class="d-flex justify-content-around">
-                    <button class="mt-3 mb-3 btn-form" type="submit">Valider</button>
+                    <button class="mt-3 mb-3 btn-form" popovertarget="my-popover" type="button">Valider</button>
                     <a class="mb-3 mt-3 btn-annuler" href="/profile">Annuler</a>
+
+                    <div class="popover-modal profil-modal" popover id="my-popover">
+                    <P class="mb-5">Etes vous sûr de vouloir modifier vos informations?</P>
+                    <button class="mt-3 mb-3 btn-form" type="submit" popovertarget="my-popover">Valider</button>
+                </div>
                 </div>
             </form>
         </div>

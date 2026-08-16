@@ -8,10 +8,8 @@ body{
 
 /* Modal validation formuliare */
 .popover-modal{
-    width: 25vw;
-    height: 30vh;
     border: 1px solid var(--bleu-tres-fonce);
-    background-color: var(--fond-carte);
+    background-color: var(--fond-plus-clair);
     border-radius: 8px;
     position:absolute;
     inset: auto;         
@@ -20,14 +18,19 @@ body{
             display 1s allow-discrete,   /* ← la clé pour la sortie */
             overlay 1s allow-discrete;
 }
+
 .commande-modal{
-    top: 58rem;
+    top: 55rem;
     right: 10rem;
+    width: 25vw;
+    height: 30vh;
 }
 
 .profil-modal{
-    top: 42rem;
-    right: 40rem;
+    top: 46rem;
+    right: 39rem;
+    width: 27vw;
+    height: 21vh;
 }
 
 .contact-modal{
@@ -388,19 +391,23 @@ textarea{
         width: 40%;
     }
 
-    .popover-modal{
-        width: 55vw;
-        height: 45vh;
-    }    
-
     .profil-modal{
-        top: 42rem;
-        right: 16rem;
+        top: 46rem;
+        right: 22rem;
+        width: 38vw;
+        height: 26vh;
     }
 
     .contact-modal{
         top: 27rem;
         right: 17rem;
+    }
+
+    .commande-modal{
+        top: 55rem;
+        right: 5rem;
+        width: 35vw;
+        height: 34vh;
     }
 }
 
@@ -430,19 +437,23 @@ textarea{
         width: 7rem;
     }
 
-    .popover-modal{
-        width: 70vw;
-        height: 60vh;
-    }   
-
     .profil-modal{
-        top: 39rem;
-        right: 9rem;
+        top: 45rem;
+        right: 17rem;
+        width: 40vw;
+        height: 35vh;
     }
 
     .contact-modal{
         top: 27rem;
         right: 9rem;
+    }
+
+    .commande-modal{
+        top: 53rem;
+        right: 4rem;
+        width: 37vw;
+        height: 51vh;
     }
 }
 
@@ -455,6 +466,13 @@ textarea{
     .password button{
         width: 2.5rem;
         height: 2.5rem;
+    }
+
+    .profil-modal{
+        top: 45rem;
+        right: 15rem;
+        width: 41vw;
+        height: 53vh;
     }
 
 }
@@ -502,25 +520,26 @@ textarea{
         width: 100%;
     }
 
-    .popover-modal{
-        width: 95vw;
-        height: 60vh;
-        right: 0.5rem;
-        top: 106rem;
-    }
-
     .commande-modal{
-        right: 0.5rem;
         top: 106rem;
     }
 
     .profil-modal{
-        top: 39rem;
-        right: 0.5rem;
+        top: 45rem;
+        right: 1rem;
+        width: 91vw;
+        height: 32vh;
     }
 
     .contact-modal{
         top: 18rem;
         right: 0.5rem;
+    }
+
+    .commande-modal{
+        top: 99rem;
+        right: 1rem;
+        width: 90vw;
+        height: 46vh;
     }
 }

@@ -93,10 +93,8 @@ main{
 /* ============================================================================================================================================================================ */
 /* Modal validation formuliare */
 .popover-modal{
-    width: 25vw;
-    height: 30vh;
     border: 1px solid var(--bleu-tres-fonce);
-    background-color: var(--fond-carte);
+    background-color: var(--fond-plus-clair);
     border-radius: 8px;
     position:absolute;
     inset: auto;         
@@ -106,9 +104,11 @@ main{
             overlay 1s allow-discrete;
 }
 
-.modal-validation{
+.modal-validation, .carte-menu{
     position: relative;
 }
+
+
 
 /* 2. État "ouvert" (visible) */
 .popover-modal:popover-open {
@@ -119,14 +119,39 @@ main{
 @starting-style {
     .popover-modal:popover-open {
         opacity: 0;
+        pointer-events: none
     }
 }
 
 .annuler-commande-modal{
     top: 50rem;
-    right: 52rem;
+    right: 65rem;
+    width: 13vw;
+    height: 30vh;
 }
 
+.changer-statut-modal{
+    top: 79rem;
+    right: 59rem;
+    width: 19vw;
+    height: 21vh;
+}
+
+.statut-modal-entreprise{
+    top: 24rem;
+    right: 5rem;
+    width: 19vw;
+    height: 21vh;
+}
+
+.supprimer-menu-modal{
+    position-area: center center;
+    margin: 0;
+    bottom: 4rem;
+    right: -1rem;
+    width: 29vw;
+    height: 29vh;
+}
 
 
 
@@ -1338,6 +1363,25 @@ Mobiles
     .suppress-container{
         width: 50%;
     }
+    .annuler-commande-modal{
+        top: 52rem;
+        right: 47rem;
+        width: 23vw;
+        height: 30vh;
+    }
+
+    .changer-statut-modal{
+        top: 80rem;
+        right: 43rem;
+        width: 22vw;
+        height: 21vh;
+    }
+
+    .statut-modal-entreprise{
+        width: 21vw;
+    }
+    
+
 }
 
 @media (max-width: 1199.99px){
@@ -1414,6 +1458,32 @@ Mobiles
     .suppress-container{
         width: 50%;
     }
+
+    .annuler-commande-modal{
+        top: 52rem;
+        right: 33rem;
+        width: 30vw;
+        height: 40vh;
+    }
+
+    .changer-statut-modal{
+        top: 83rem;
+        right: 34rem;
+        width: 29vw;
+        height: 23vh;
+    }
+
+    .statut-modal-entreprise{
+        right: 3rem;
+        width: 28vw;
+        height: 24vh;
+    }
+
+    .supprimer-menu-modal{
+        width: 38vw;
+        height: 32vh;
+    }
+    
 }
 
 @media (max-width: 991.9px){
@@ -1470,6 +1540,32 @@ Mobiles
     .tableau-dashboard-admin button{
         padding: 0.1rem;
     }
+
+    .annuler-commande-modal{
+        top: 52rem;
+        right: 28rem;
+        width: 34vw;
+        height: 57vh;
+    }
+    
+    .changer-statut-modal{
+        top: 83rem;
+        right: 30rem;
+        width: 29vw;
+        height: 33vh;
+    }
+
+    .statut-modal-entreprise{
+        width: 31vw;
+        height: 36vh;
+    }
+    
+    .supprimer-menu-modal{
+        width: 44vw;
+        height: 42vh;
+    } 
+
+
 }
 
 @media (max-width: 768px){
@@ -1803,4 +1899,24 @@ Mobiles
     .suppress-container, .suppress-modal{
         width: 95%;
     }
+
+    .annuler-commande-modal{
+        top: 52rem;
+        right: 2rem;
+        width: 81vw;
+        height: 38vh;
+    }
+    
+    .changer-statut-modal{
+        top: 83rem;
+        right: 1rem;
+        width: 90vw;
+        height: 25vh;
+    }
+
+    .supprimer-menu-modal{
+        width: 93vw;
+        height: 30vh;
+    } 
+
 }

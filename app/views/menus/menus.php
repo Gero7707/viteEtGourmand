@@ -5,13 +5,14 @@ $pageTitle = "Nos menus — Vite & Gourmand";
 $pageSpecificCss = ['layout.css' ,'style.css' ];
 require_once __DIR__ . '/../../views/layout/header.php';
 ?>
-<?php if ($_GET['error'] ?? null): ?>
-    <p class="error-message-php text-center mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
-<?php endif ?>
-<?php if ($_GET['success'] ?? null): ?>
-    <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
-<?php endif ?>
+
 <main class="menus-main">
+    <?php if ($_GET['error'] ?? null): ?>
+        <p class="error-message-php text-center mt-1"><?= htmlspecialchars($_GET['error']) ?></p>
+    <?php endif ?>
+    <?php if ($_GET['success'] ?? null): ?>
+        <p class="success-message-php text-center mt-1"><?= htmlspecialchars($_GET['success']) ?></p>
+    <?php endif ?>
     <div class="d-flex justify-content-between div-arbo">
         <button type="button" class="open-filtres">Filtrer</button>
         <p class=" arborescence text-center "><a href="/">Accueil<</a>Menus</p>
@@ -122,7 +123,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                     <a href="/menus/edit/<?= htmlspecialchars($menu['menu_id']) ?>">Modifier</a><br>
                                     <form action="/menus/delete/<?= htmlspecialchars($menu['menu_id']) ?>" method="POST">
                                         <?= Auth::csrfField() ?>
-                                        <button type="submit">Supprimer</button>
+                                        <button popovertarget="suppr-menu-<?= $menu['menu_id'] ?>" type="button">Supprimer</button>
+                                        <div class="popover-modal supprimer-menu-modal d-flex flex-column align-items-center"  id="suppr-menu-<?= $menu['menu_id'] ?>" popover>
+                                            <h2><?= htmlspecialchars($menu['titre']) ?></h2>
+                                            <p class="mb-2">Etes vous sûr de vouloir supprimer ce menu?</p>
+                                            <button class="mt-3" type="submit">Supprimer</button> 
+                                        </div>
                                     </form>
                                 <?php endif ?>
                             </div>

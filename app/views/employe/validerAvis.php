@@ -47,8 +47,18 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 
                 <form action="/avis-valider/<?= $carteAvis['avis_id'] ?>" method="POST" class="">
                     <?= Auth::csrfField() ?>
-                    <button class="btn-form" type="submit" name="statut" value="valide">Valider</button>
-                    <button class="btn-form" type="submit" name="statut" value="refuse">Refuser</button>
+                    <button class="btn-form" popovertarget="my-popover" type="button" name="statut" value="valide">Valider</button>
+                    <div class="popover-modal valider-avis-modal" popover id="my-popover">
+                        
+                        <P>Vous êtes sûr de vouloir valider l'affichage de cet avis?</P>
+                        <button   type="submit">Valider</button>
+                    </div>
+                    <button class="btn-form" popovertarget="my-popover" type="button" name="statut" value="refuse">Refuser</button>
+                    <div class="popover-modal refuser-avis-modal" popover id="my-popover">
+                        
+                        <P>Vous êtes sûr de vouloir refuser l'affichage de cet avis?</P>
+                        <button   type="submit">Refuser</button>
+                    </div>
                 </form>
                 <hr>
             </div>

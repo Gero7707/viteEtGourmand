@@ -463,7 +463,8 @@ class CommandeController{
             $this->mailService->sendEmail($emailCommande,$titre,$message);
             
 
-            header('location: /profile');
+            $successMessage = "Votre commande a été modifiée .";
+            header('location: /profile?success=' . urlencode($successMessage));
             exit();
         }else{
             $error = "Une erreur est survenu";

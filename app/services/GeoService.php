@@ -48,7 +48,8 @@ class GeoService {
             . '?overview=false';
 
         $context = stream_context_create([
-            'http' => ['timeout' => 10]
+            'http' => ['timeout' => 10,
+            'header' => 'User-Agent: ViteEtGourmand/1.0']
         ]);
 
         $response = file_get_contents($url, false, $context);

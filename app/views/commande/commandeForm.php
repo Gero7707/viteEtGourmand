@@ -85,8 +85,8 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <div class="popover-modal commande-modal" popover id="my-popover">
                     <h5>Votre commande</h5>
                     <p><?= htmlspecialchars($menu['titre']) ?></p>
-                    <P>Vous êtes sur le point de valider votre commande. Vous pourrez annuler ou modifier votre commande tant que celle-ci n'est pas validée. Pour toutes questions veuillez nous contacter.</P>
-                    <button   type="submit" id="btnValider" popovertarget="my-popover" >Valider</button>
+                    <p>Vous êtes sur le point de valider votre commande. Vous pourrez annuler ou modifier votre commande tant que celle-ci n'est pas validée. Pour toutes questions veuillez nous contacter.</p>
+                    <button   type="submit">Valider</button>
                 </div>
                 
             </div>

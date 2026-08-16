@@ -125,7 +125,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                                         <?= Auth::csrfField() ?>
                                         <button popovertarget="suppr-menu-<?= $menu['menu_id'] ?>" type="button">Supprimer</button>
                                         <div class="popover-modal supprimer-menu-modal d-flex flex-column align-items-center"  id="suppr-menu-<?= $menu['menu_id'] ?>" popover>
-                                            <h2><?= htmlspecialchars($menu['titre']) ?></h2>
+                                            <h4><?= htmlspecialchars($menu['titre']) ?></h4>
                                             <p class="mb-2">Etes vous sûr de vouloir supprimer ce menu?</p>
                                             <button class="mt-3" type="submit">Supprimer</button> 
                                         </div>

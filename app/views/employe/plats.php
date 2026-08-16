@@ -69,7 +69,12 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         <a class="mb-2" href="/plats/edit/<?= htmlspecialchars($cartePlat['plat_id']) ?>">Modifier</a>
                         <form action="/plats/delete/<?= htmlspecialchars($cartePlat['plat_id']) ?>" method="POST">
                             <?= Auth::csrfField() ?>
-                            <button type="submit">Supprimer</button><br>
+                            <button popovertarget="suppr-plat-<?= $cartePlat['plat_id'] ?>" type="button">Supprimer</button><br>
+                            <div class="popover-modal supprimer-plat-modal d-flex flex-column align-items-center"  id="suppr-plat-<?= $cartePlat['plat_id'] ?>" popover>
+                                <h2><?= htmlspecialchars($cartePlat['titre_plat']) ?></h2>
+                                <p class="mb-2">Etes vous sûr de vouloir supprimer ce plat?</p>
+                                <button class="mt-3" type="submit">Supprimer</button> 
+                            </div>
                         </form>
                     </div>
                     <?php if(!empty($cartePlat['menus_disponibles'])) : ?>

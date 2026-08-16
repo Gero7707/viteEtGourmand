@@ -144,7 +144,7 @@ main{
     height: 21vh;
 }
 
-.supprimer-menu-modal{
+.supprimer-menu-modal, .supprimer-plat-modal{
     position-area: center center;
     margin: 0;
     bottom: 4rem;
@@ -1483,6 +1483,10 @@ Mobiles
         width: 38vw;
         height: 32vh;
     }
+
+    .supprimer-plat-modal{
+        height: 38vh;
+    }
     
 }
 
@@ -1564,6 +1568,10 @@ Mobiles
         width: 44vw;
         height: 42vh;
     } 
+
+    .supprimer-plat-modal{
+        height: 64vh;
+    }
 
 
 }
@@ -1918,5 +1926,12 @@ Mobiles
         width: 93vw;
         height: 30vh;
     } 
+
+    .supprimer-plat-modal{
+        height: 36vh;
+        width:89VW ;
+        right: -9rem !important;
+
+    }
 
 }

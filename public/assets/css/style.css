@@ -93,8 +93,6 @@ main{
 /* ============================================================================================================================================================================ */
 /* Modal validation formuliare */
 .popover-modal{
-    width: 25vw;
-    height: 30vh;
     border: 1px solid var(--bleu-tres-fonce);
     background-color: var(--fond-carte);
     border-radius: 8px;
@@ -124,7 +122,9 @@ main{
 
 .annuler-commande-modal{
     top: 50rem;
-    right: 52rem;
+    right: 65rem;
+    width: 13vw;
+    height: 30vh;
 }
 
 
@@ -1338,6 +1338,12 @@ Mobiles
     .suppress-container{
         width: 50%;
     }
+    .annuler-commande-modal{
+        top: 52rem;
+        right: 47rem;
+        width: 23vw;
+        height: 30vh;
+    }
 }
 
 @media (max-width: 1199.99px){
@@ -1414,6 +1420,13 @@ Mobiles
     .suppress-container{
         width: 50%;
     }
+
+    .annuler-commande-modal{
+        top: 52rem;
+        right: 33rem;
+        width: 30vw;
+        height: 40vh;
+    }
 }
 
 @media (max-width: 991.9px){
@@ -1469,6 +1482,13 @@ Mobiles
 
     .tableau-dashboard-admin button{
         padding: 0.1rem;
+    }
+
+    .annuler-commande-modal{
+        top: 52rem;
+        right: 28rem;
+        width: 34vw;
+        height: 57vh;
     }
 }
 
@@ -1802,5 +1822,12 @@ Mobiles
 
     .suppress-container, .suppress-modal{
         width: 95%;
+    }
+
+    .annuler-commande-modal{
+        top: 52rem;
+        right: 2rem;
+        width: 81vw;
+        height: 38vh;
     }
 }

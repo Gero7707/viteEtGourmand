@@ -80,9 +80,9 @@ require_once __DIR__ . '/../../views/layout/header.php';
                             <P class="mb-5">Etes vous sûr de vouloir annuler votre commande?</P>
                             <form action="/commandes/annuler/<?= $commandes['commande_id'] ?>" method="POST">
                                 <?= Auth::csrfField() ?>
-                                <button type="submit">Annuler</button>
+                                <button type="submit">Valider annulation de commande</button>
                             </form>
-                            <button class="mt-3 mb-3 btn-form" type="submit" popovertarget="my-popover">Valider</button>
+                            <button class="mt-3 mb-3 btn-form" type="submit" popovertarget="my-popover">Annuler</button>
                         </div>
                         <a href="/commandes/edit/<?= $commandes['commande_id'] ?>">Modifier</a>
                     <?php endif ?>

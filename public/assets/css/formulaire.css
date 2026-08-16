@@ -9,7 +9,7 @@ body{
 /* Modal validation formuliare */
 .popover-modal{
     border: 1px solid var(--bleu-tres-fonce);
-    background-color: var(--fond-carte);
+    background-color: var(--fond-plus-clair);
     border-radius: 8px;
     position:absolute;
     inset: auto;         

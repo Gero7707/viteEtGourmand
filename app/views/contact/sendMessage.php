@@ -30,11 +30,7 @@ require_once __DIR__ . '/../../views/layout/header.php';
                 <label class="form-label" for="message">Message :</label><br>
                 <textarea name="message" id="message" required></textarea><br><br>
                 <a class="annuler" href="/">Annuler</a><br>
-                <button class=" mb-3 btn-form" popovertarget="my-popover" type="button">Envoyer</button>
-                <div class="popover-modal contact-modal" popover id="my-popover">
-                    <P class="mb-5">Vous êtes sur le point d'envoyer votre message. Vous pouvez valider ou annuler.</P>
-                    <button class=" mb-3 btn-form" type="submit">Envoyer</button>
-                </div>
+                <button class=" mb-3 btn-form" popovertarget="my-popover" type="submit">Envoyer</button>
             </form>
         </div>
     </div>

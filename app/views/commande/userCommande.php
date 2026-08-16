@@ -100,7 +100,11 @@ require_once __DIR__ . '/../../views/layout/header.php';
                         <div>
                             <form action="/commandes/update/<?= $commandes['commande_id'] ?>" method="POST">
                                 <?= Auth::csrfField() ?>
-                                <button class="mt-3" type="submit">Modifier statut</button>
+                                <button class="mt-3" popovertarget="my-popover" type="button">Modifier statut</button>  
+                                <div class="popover-modal changer-statut-modal" popover id="my-popover">
+                                    <P class="mb-2">Etes vous sûr que le statut de la commande oit être changé?</P>
+                                    <button class="mt-3"popovertarget="my-popover" type="submit">Modifier statut</button> 
+                                </div>
                             </form>
                         </div>
                         <?php if($commandes['statut'] !== 'terminee' && $commandes['statut'] !== 'annulee') : ?>

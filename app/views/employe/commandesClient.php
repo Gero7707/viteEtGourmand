@@ -85,7 +85,11 @@ require_once __DIR__ . '/../../views/layout/header.php';
                             <?php if($commande['statut'] !== 'terminee' && $commande['statut'] !== 'annulee') : ?>
                                 <form class="form-changer-statut" action="/commandes/update/<?= $commande['commande_id'] ?>" method="POST">
                                     <?= Auth::csrfField() ?>
-                                    <button class="changer-statut" type="submit">Statut</button>
+                                    <button class="changer-statut" popovertarget="my-popover" type="button">Statut</button>
+                                    <div class="popover-modal statut-modal-entreprise" popover id="my-popover">
+                                        <P class="mb-2">Etes vous sûr que le statut de la commande oit être changé?</P>
+                                        <button class="mt-3"popovertarget="my-popover" type="submit">Modifier statut</button> 
+                                    </div>
                                 </form>
                             <?php endif ?>
                         </td>

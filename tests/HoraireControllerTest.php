@@ -44,4 +44,17 @@ class HoraireControllerTest extends TestCase
         // Assert : on attend un tableau vide
         $this->assertEmpty($resultat);
     }
+#[Test]
+    public function il_detecte_tous_les_jours_manquant(): void
+    {
+        // Arrange : la base est vide, aucun jour enregistré
+        $horaire = [];
+
+        // Act
+        $resultat = HoraireController::calculerJoursManquants($horaire);
+
+        // Assert : on attend les 7 jours, tous manquants
+        $this->assertSame(['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi', 'Dimanche'], array_values($resultat));
+    }
+
 }

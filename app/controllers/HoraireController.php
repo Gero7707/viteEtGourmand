@@ -14,9 +14,10 @@ class HoraireController{
         $horaireRaw = $this->horaires->getHoraireRaw();
         $horaire = $this->horaires->getHoraire();
 
-        $jours = ['Lundi' , 'Mardi' , 'Mercredi' , 'Jeudi' , 'Vendredi' , 'Samedi' , 'Dimanche'];
-        $joursEnBase = array_column($horaire, 'jour');
-        $jourManquants = array_diff($jours, $joursEnBase);
+        // $jours = ['Lundi' , 'Mardi' , 'Mercredi' , 'Jeudi' , 'Vendredi' , 'Samedi' , 'Dimanche'];
+        // $joursEnBase = array_column($horaire, 'jour');
+        // $jourManquants = array_diff($jours, $joursEnBase);
+        $jourManquants = self::calculerJoursManquants($horaire);
 
         require_once __DIR__ . '/../views/employe/changerHoraire.php';
     }
@@ -67,4 +68,10 @@ class HoraireController{
         header('Location: /changer-horaire?success=' . urlencode($successMessage));
         exit();
     }
-}
+
+    public static function calculerJoursManquants(array $horaire): array{
+        $jours = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+        $joursEnBase = array_column($horaire, 'jour');
+        return array_diff($jours, $joursEnBase);
+    }
+    }

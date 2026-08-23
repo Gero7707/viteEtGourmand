@@ -248,6 +248,10 @@ class CommandeController{
         $this->commandes->createHistorique($historiqueData);
         
         $dateFormatee = (new DateTime($data['date_prestation']))->format('d/m/Y');
+        $livraison = number_format($data['prix_livraison'], 2, ',', ' ');
+        $total = number_format($data['prix_menu'] + $data['prix_livraison'], 2, ',', ' ');
+        $prixMenu = number_format($data['prix_menu'], 2, ',', ' ');
+
         $detailCommande = "
         <h4>Numéro de commande</h4>
         <p>{$data['numero_commande']}  </p><br>
@@ -255,8 +259,10 @@ class CommandeController{
         <p>{$menu['titre']} pour {$data['nombre_personne']}</p><br>
         <h4>Adresse et date de prestation :</h4>
         <p>{$data['adresse_livraison']} le {$dateFormatee} à {$data['heure_livraison']}</p><br>
-        <h4>Prix total :</h4>
-        <p>{$data['prix_menu']} €</p><br>
+        <h4>Prix:</h4>
+        <p>Pour {$data['nombre_personne']} personnes : {$prixMenu} €</p><br>
+        <p>Frais de livraison : {$livraison} €</p><br>
+        <p>Total : {$total} €</p><br>
         ";
         $titre = "Commande confirmée .";
 
@@ -432,6 +438,10 @@ class CommandeController{
             $this->commandes->createHistorique($historiqueData);
             
             $dateFormatee = (new DateTime($data['date_prestation']))->format('d/m/Y');
+            $livraison = number_format($data['prix_livraison'], 2, ',', ' ');
+            $total = number_format($data['prix_menu'] + $data['prix_livraison'], 2, ',', ' ');
+            $prixMenu = number_format($data['prix_menu'], 2, ',', ' ');
+
             $detailCommande = "
             <h4>Numéro de commande</h4>
             <p>{$commande['numero_commande']}  </p><br>
@@ -439,8 +449,10 @@ class CommandeController{
             <p>{$menu['titre']} pour {$data['nombre_personne']}</p><br>
             <h4>Adresse et date de prestation :</h4>
             <p>{$data['adresse_livraison']} le {$dateFormatee} à {$data['heure_livraison']}</p><br>
-            <h4>Prix total :</h4>
-            <p>{$data['prix_menu']}</p><br>
+            <h4>Prix:</h4>
+            <p>Pour {$data['nombre_personne']} personnes : {$prixMenu} €</p><br>
+            <p>Frais de livraison : {$livraison} €</p><br>
+            <p>Total : {$total} €</p><br>
             ";
             $titre = "Commande modifiée .";
             
@@ -531,7 +543,7 @@ class CommandeController{
                     width="600" 
                     style="display: block; width: 100%; max-width: 600px; height: auto; border: 0;">';
             $conclusion = "<p>Bonjour {$statutActuel['nom_complet']}, votre commande {$statutActuel['numero_commande']} vient d'être acceptée . </p>
-            <p>Vous pouvez suivre l'avancée de celle-ci en vous connectant à votre profil . Passé ce délai, une pénalité forfaitaire de 600€ sera facturée.</p>
+            <p>Vous pouvez suivre l'avancée de celle-ci en vous connectant à votre profil .</p>
             <p>Vite &amp; Gourmand vous souhaite une bonne journée.</p>";
             
             $message = $imageHaut . $conclusion . $imageBas ;

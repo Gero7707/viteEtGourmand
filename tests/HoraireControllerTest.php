@@ -17,10 +17,8 @@ class HoraireControllerTest extends TestCase
             ['jour' => 'Vendredi'],
             ['jour' => 'Samedi'],
         ];
-
         // Act
         $resultat = HoraireController::calculerJoursManquants($horaire);
-
         // Assert : on attend uniquement le dimanche
         $this->assertSame(['Dimanche'], array_values($resultat));
     }
@@ -37,10 +35,8 @@ class HoraireControllerTest extends TestCase
             ['jour' => 'Samedi'],
             ['jour' => 'Dimanche'],
         ];
-
         // Act
         $resultat = HoraireController::calculerJoursManquants($horaire);
-
         // Assert : on attend un tableau vide
         $this->assertEmpty($resultat);
     }
@@ -49,12 +45,9 @@ class HoraireControllerTest extends TestCase
     {
         // Arrange : la base est vide, aucun jour enregistré
         $horaire = [];
-
         // Act
         $resultat = HoraireController::calculerJoursManquants($horaire);
-
         // Assert : on attend les 7 jours, tous manquants
         $this->assertSame(['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi', 'Dimanche'], array_values($resultat));
     }
-
 }
